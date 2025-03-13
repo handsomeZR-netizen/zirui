@@ -506,14 +506,17 @@ class Component(QGraphicsItem):
         painter.setFont(font)
         painter.drawText(-6, 5, "A")
         
-        # 显示电流值
+        # 显示电流值（移到上方）
         font.setPointSize(9)
         painter.setFont(font)
         if abs(self.current) < 0.01:
             current_str = f"{self.current*1000:.1f}mA"
         else:
             current_str = f"{self.current:.2f}A"
-        painter.drawText(-15, 15, current_str)
+        # 创建一个白色背景的矩形
+        text_rect = painter.boundingRect(-30, -45, 60, 20, Qt.AlignmentFlag.AlignCenter, current_str)
+        painter.fillRect(text_rect, QBrush(Qt.GlobalColor.white))
+        painter.drawText(-30, -45, 60, 20, Qt.AlignmentFlag.AlignCenter, current_str)
         
     def _paint_voltmeter(self, painter):
         # 绘制圆形表盘
@@ -541,14 +544,17 @@ class Component(QGraphicsItem):
         painter.setFont(font)
         painter.drawText(-6, 5, "V")
         
-        # 显示电压值
+        # 显示电压值（移到上方）
         font.setPointSize(9)
         painter.setFont(font)
         if abs(self.voltage) < 0.1:
             voltage_str = f"{self.voltage*1000:.1f}mV"
         else:
             voltage_str = f"{self.voltage:.2f}V"
-        painter.drawText(-15, 15, voltage_str)
+        # 创建一个白色背景的矩形
+        text_rect = painter.boundingRect(-30, -45, 60, 20, Qt.AlignmentFlag.AlignCenter, voltage_str)
+        painter.fillRect(text_rect, QBrush(Qt.GlobalColor.white))
+        painter.drawText(-30, -45, 60, 20, Qt.AlignmentFlag.AlignCenter, voltage_str)
         
     def get_connection_points(self):
         # 返回左右两个连接点的坐标
