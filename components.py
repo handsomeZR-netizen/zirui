@@ -5,7 +5,10 @@ import math
 import logging
 from datetime import datetime
 from PyQt6.QtWidgets import (QGraphicsItem, QGraphicsEllipseItem, QGraphicsRectItem, 
-                            QGraphicsLineItem, QGraphicsPathItem, QGraphicsSimpleTextItem)
+                            QGraphicsLineItem, QGraphicsPathItem, QGraphicsSimpleTextItem,
+                            QMenu, QInputDialog, QDialog, QVBoxLayout, QFormLayout,
+                            QLineEdit, QPushButton, QLabel, QDoubleSpinBox, QMessageBox,
+                            QCheckBox, QHBoxLayout)
 from PyQt6.QtCore import Qt, QRectF, QPointF
 from PyQt6.QtGui import QPainter, QPen, QColor, QBrush, QPainterPath, QFont
 import numpy as np
@@ -37,32 +40,31 @@ class Wire(QGraphicsPathItem):
         self.update_path()
         self.source_component = None
         self.target_component = None
-        self.snap_distance = 10.0  # 自动吸附距离
+        self.source_point = None
+        self.target_point = None
+        self.snap_distance = 10.0
         self.dragging = False
-        self.drag_point = None  # 记录正在拖动的端点
+        self.drag_point = None
+        self.setAcceptedMouseButtons(Qt.MouseButton.LeftButton | Qt.MouseButton.RightButton)
         logger.debug(f"创建新导线: start_pos={start_pos}")
         
     def mousePressEvent(self, event):
         try:
             if event.button() == Qt.MouseButton.LeftButton:
                 pos = event.pos()
-                # 检查是否点击了起点或终点
                 start_dist = (pos - self.start_pos).manhattanLength()
                 end_dist = (pos - self.end_pos).manhattanLength()
                 
-                logger.debug(f"导线鼠标按下: pos={pos}, start_dist={start_dist}, end_dist={end_dist}")
-                
-                if start_dist < 10:  # 点击了起点
+                if start_dist < 10 or end_dist < 10:  # 点击了端点
                     self.dragging = True
-                    self.drag_point = 'start'
-                    logger.debug("开始拖动导线起点")
-                elif end_dist < 10:  # 点击了终点
-                    self.dragging = True
-                    self.drag_point = 'end'
-                    logger.debug("开始拖动导线终点")
-                event.accept()
-            else:
-                super().mousePressEvent(event)
+                    self.drag_point = 'start' if start_dist < end_dist else 'end'
+                    # 断开相应端点的连接
+                    self.disconnect_endpoint(self.drag_point == 'start')
+                    event.accept()
+                    return
+            elif event.button() == Qt.MouseButton.RightButton:
+                self.show_context_menu(event)
+            super().mousePressEvent(event)
         except Exception as e:
             logger.error(f"导线鼠标按下事件出错: {str(e)}", exc_info=True)
             
@@ -129,6 +131,51 @@ class Wire(QGraphicsPathItem):
         self.end_pos = pos
         self.update_path()
 
+    def show_context_menu(self, event):
+        menu = QMenu()
+        delete_action = menu.addAction("删除导线")
+        action = menu.exec(event.screenPos())
+        
+        if action == delete_action:
+            self.delete_wire()
+
+    def delete_wire(self):
+        # 断开两端连接
+        self.disconnect_endpoint(True)  # 断开起点
+        self.disconnect_endpoint(False)  # 断开终点
+        
+        # 从场景中移除
+        if self.scene():
+            self.scene().removeItem(self)
+
+    def disconnect_endpoint(self, is_start):
+        """断开指定端点的连接"""
+        if is_start and self.source_point:
+            if self in self.source_point.connected_wires:
+                self.source_point.connected_wires.remove(self)
+            self.source_point = None
+            self.source_component = None
+        elif not is_start and self.target_point:
+            if self in self.target_point.connected_wires:
+                self.target_point.connected_wires.remove(self)
+            self.target_point = None
+            self.target_component = None
+
+    def connect_endpoint(self, connection_point, is_start):
+        """连接到新的连接点"""
+        if is_start:
+            if self.source_point:  # 如果已经有连接，先断开
+                self.disconnect_endpoint(True)
+            self.source_point = connection_point
+            self.source_component = connection_point.parentItem()
+            connection_point.connected_wires.append(self)
+        else:
+            if self.target_point:  # 如果已经有连接，先断开
+                self.disconnect_endpoint(False)
+            self.target_point = connection_point
+            self.target_component = connection_point.parentItem()
+            connection_point.connected_wires.append(self)
+
 class ConnectionPoint(QGraphicsEllipseItem):
     def __init__(self, parent=None, point_type="input"):
         super().__init__(-4, -4, 8, 8, parent)
@@ -153,6 +200,7 @@ class Component(QGraphicsItem):
         self.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsMovable)
         self.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsSelectable)
         self.setAcceptHoverEvents(True)
+        self.setAcceptedMouseButtons(Qt.MouseButton.LeftButton | Qt.MouseButton.RightButton)
         
         # 初始化连接点
         self.connection_points = []
@@ -409,91 +457,98 @@ class Component(QGraphicsItem):
             painter.setPen(QPen(Qt.GlobalColor.red))
             painter.drawText(-20, 0, "错误")
             
+    def _paint_power_source(self, painter):
+        # 绘制电源符号
+        painter.setPen(QPen(Qt.GlobalColor.black, 2))
+        painter.setBrush(QBrush(Qt.GlobalColor.white))
+        
+        # 绘制外框
+        painter.drawRect(-20, -15, 40, 30)
+        
+        # 绘制正负极符号
+        painter.setPen(QPen(Qt.GlobalColor.black, 2))
+        # 正极
+        painter.drawLine(5, -5, 15, -5)
+        painter.drawLine(10, -10, 10, 0)
+        # 负极
+        painter.drawLine(-15, -5, -5, -5)
+        
+        # 显示电压值
+        voltage = self.properties.get("电压值", 12.0)
+        font = QFont()
+        font.setPointSize(9)
+        painter.setFont(font)
+        painter.drawText(-15, 12, f"{voltage:.1f}V")
+        
     def _paint_ammeter(self, painter):
         # 绘制圆形表盘
+        painter.setPen(QPen(Qt.GlobalColor.black, 2))
+        painter.setBrush(QBrush(Qt.GlobalColor.white))
         painter.drawEllipse(-20, -20, 40, 40)
         
-        # 绘制正负极标识
+        # 绘制内部装饰
+        painter.drawArc(-15, -15, 30, 30, 30 * 16, 120 * 16)
+        
+        # 绘制刻度线
+        for i in range(7):
+            angle = 30 + i * 20
+            rad = angle * 3.14159 / 180
+            x1 = 15 * math.cos(rad)
+            y1 = 15 * math.sin(rad)
+            x2 = 12 * math.cos(rad)
+            y2 = 12 * math.sin(rad)
+            painter.drawLine(int(x1), int(y1), int(x2), int(y2))
+        
+        # 绘制 A 符号
         font = QFont()
         font.setPointSize(12)
         font.setBold(True)
         painter.setFont(font)
-        
-        # 正极标识（红色）
-        painter.setPen(QPen(Qt.GlobalColor.red, 2))
-        painter.drawText(-8, -25, "+")
-        
-        # 负极标识（黑色）
-        painter.setPen(QPen(Qt.GlobalColor.black, 2))
-        painter.drawText(-6, 35, "−")
-        
-        # 绘制 A 符号和数值
-        painter.setPen(QPen(Qt.GlobalColor.black, 2))
-        font.setPointSize(14)
-        painter.setFont(font)
-        painter.drawText(-8, 7, "A")
+        painter.drawText(-6, 5, "A")
         
         # 显示电流值
-        font.setPointSize(10)
+        font.setPointSize(9)
         painter.setFont(font)
         if abs(self.current) < 0.01:
             current_str = f"{self.current*1000:.1f}mA"
         else:
             current_str = f"{self.current:.2f}A"
-        painter.drawText(-20, -8, current_str)
+        painter.drawText(-15, 15, current_str)
         
     def _paint_voltmeter(self, painter):
         # 绘制圆形表盘
+        painter.setPen(QPen(Qt.GlobalColor.black, 2))
+        painter.setBrush(QBrush(Qt.GlobalColor.white))
         painter.drawEllipse(-20, -20, 40, 40)
         
-        # 绘制正负极标识
+        # 绘制内部装饰
+        painter.drawArc(-15, -15, 30, 30, 30 * 16, 120 * 16)
+        
+        # 绘制刻度线
+        for i in range(7):
+            angle = 30 + i * 20
+            rad = angle * 3.14159 / 180
+            x1 = 15 * math.cos(rad)
+            y1 = 15 * math.sin(rad)
+            x2 = 12 * math.cos(rad)
+            y2 = 12 * math.sin(rad)
+            painter.drawLine(int(x1), int(y1), int(x2), int(y2))
+        
+        # 绘制 V 符号
         font = QFont()
         font.setPointSize(12)
         font.setBold(True)
         painter.setFont(font)
-        
-        # 正极标识（红色）
-        painter.setPen(QPen(Qt.GlobalColor.red, 2))
-        painter.drawText(-8, -25, "+")
-        
-        # 负极标识（黑色）
-        painter.setPen(QPen(Qt.GlobalColor.black, 2))
-        painter.drawText(-6, 35, "−")
-        
-        # 绘制 V 符号和数值
-        painter.setPen(QPen(Qt.GlobalColor.black, 2))
-        font.setPointSize(14)
-        painter.setFont(font)
-        painter.drawText(-8, 7, "V")
+        painter.drawText(-6, 5, "V")
         
         # 显示电压值
-        font.setPointSize(10)
+        font.setPointSize(9)
         painter.setFont(font)
         if abs(self.voltage) < 0.1:
             voltage_str = f"{self.voltage*1000:.1f}mV"
         else:
             voltage_str = f"{self.voltage:.2f}V"
-        painter.drawText(-20, -8, voltage_str)
-        
-    def _paint_power_source(self, painter):
-        # 绘制电源符号
-        # 外圆
-        painter.drawEllipse(-20, -20, 40, 40)
-        # 正负极符号
-        painter.setPen(QPen(Qt.GlobalColor.black, 3))
-        # 正极
-        painter.drawLine(10, 0, 20, 0)
-        painter.drawLine(15, -5, 15, 5)
-        # 负极
-        painter.drawLine(-20, 0, -10, 0)
-        
-        # 显示电压值
-        voltage = self.properties.get("电压值", 12.0)
-        font = QFont()
-        font.setPointSize(10)
-        font.setBold(True)
-        painter.setFont(font)
-        painter.drawText(-12, 5, f"{voltage}V")
+        painter.drawText(-15, 15, voltage_str)
         
     def get_connection_points(self):
         # 返回左右两个连接点的坐标
@@ -546,6 +601,108 @@ class Component(QGraphicsItem):
                 event.accept()
                 return
         super().mousePressEvent(event)
+
+    def contextMenuEvent(self, event):
+        menu = QMenu()
+        
+        # 添加编辑名称选项
+        rename_action = menu.addAction("编辑名称")
+        
+        # 添加编辑属性选项
+        edit_properties_action = menu.addAction("编辑属性")
+        
+        # 添加删除选项
+        delete_action = menu.addAction("删除")
+        
+        # 显示菜单并获取选择的动作
+        action = menu.exec(event.screenPos())
+        
+        if action == rename_action:
+            self.rename_component()
+        elif action == edit_properties_action:
+            self.edit_properties()
+        elif action == delete_action:
+            self.delete_component()
+
+    def rename_component(self):
+        new_name, ok = QInputDialog.getText(None, "编辑名称", 
+                                          "输入新名称:", 
+                                          text=self.name)
+        if ok and new_name:
+            self.name = new_name
+            self.update()
+
+    def edit_properties(self):
+        dialog = QDialog()
+        dialog.setWindowTitle(f"{self.name}属性设置")
+        layout = QFormLayout()
+        
+        # 创建属性编辑控件
+        property_widgets = {}
+        for prop_name, prop_value in self.properties.items():
+            if prop_name != "可调范围":  # 不显示范围提示
+                if isinstance(prop_value, bool):
+                    widget = QCheckBox()
+                    widget.setChecked(prop_value)
+                elif isinstance(prop_value, (int, float)):
+                    widget = QDoubleSpinBox()
+                    if self.name == "电源":
+                        widget.setRange(0, 24)  # 电源的电压范围
+                    else:
+                        widget.setRange(0.1, 1000)  # 其他组件的范围
+                    widget.setValue(prop_value)
+                    if "电阻" in prop_name:
+                        widget.setSuffix(" Ω")
+                    elif "电压" in prop_name:
+                        widget.setSuffix(" V")
+                    property_widgets[prop_name] = widget
+                    layout.addRow(f"{prop_name}:", widget)
+        
+        # 添加确定和取消按钮
+        button_box = QHBoxLayout()
+        ok_button = QPushButton("确定")
+        cancel_button = QPushButton("取消")
+        button_box.addWidget(ok_button)
+        button_box.addWidget(cancel_button)
+        
+        ok_button.clicked.connect(dialog.accept)
+        cancel_button.clicked.connect(dialog.reject)
+        
+        layout.addRow(button_box)
+        dialog.setLayout(layout)
+        
+        if dialog.exec() == QDialog.DialogCode.Accepted:
+            # 更新属性值
+            for prop_name, widget in property_widgets.items():
+                if isinstance(widget, QCheckBox):
+                    self.set_property(prop_name, widget.isChecked())
+                else:
+                    value = widget.value()
+                    self.set_property(prop_name, value)
+                    # 如果是电源，同步更新主界面的电压输入框
+                    if self.name == "电源" and prop_name == "电压值":
+                        # 发送自定义事件通知主窗口更新电压值
+                        if self.scene():
+                            view = self.scene().views()[0]
+                            if hasattr(view, 'voltage_changed_signal'):
+                                view.voltage_changed_signal.emit(value)
+            self.update()  # 更新显示
+
+    def delete_component(self):
+        reply = QMessageBox.question(None, "确认删除", 
+                                   f"确定要删除 {self.name} 吗？",
+                                   QMessageBox.StandardButton.Yes | 
+                                   QMessageBox.StandardButton.No)
+        
+        if reply == QMessageBox.StandardButton.Yes:
+            # 删除所有连接的导线
+            for point in self.connection_points:
+                for wire in point.connected_wires[:]:  # 使用副本进行迭代
+                    wire.delete_wire()  # 使用wire的删除方法
+            
+            # 从场景中移除组件
+            if self.scene():
+                self.scene().removeItem(self)
 
 class Circuit:
     def __init__(self):

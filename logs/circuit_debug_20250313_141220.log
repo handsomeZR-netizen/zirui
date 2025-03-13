@@ -1,0 +1,20 @@
+2025-03-13 14:12:20,839 - CircuitSimulator - DEBUG - WorkArea 初始化完成
+2025-03-13 14:12:26,269 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(-150.0, -163.0)
+2025-03-13 14:12:30,478 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(-144.0, -167.0)
+2025-03-13 14:12:30,479 - CircuitSimulator - DEBUG - 点击项类型: <class 'components.Component'>
+2025-03-13 14:12:30,479 - CircuitSimulator - DEBUG - 点击组件
+2025-03-13 14:12:31,397 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(-144.0, -167.0)
+2025-03-13 14:12:38,140 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(-355.0, -261.0)
+2025-03-13 14:12:46,328 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(-534.0, -268.0)
+2025-03-13 14:12:50,231 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(-538.0, -261.0)
+2025-03-13 14:12:50,231 - CircuitSimulator - DEBUG - 点击项类型: <class 'components.Component'>
+2025-03-13 14:12:50,231 - CircuitSimulator - DEBUG - 点击组件
+2025-03-13 14:12:50,748 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(-538.0, -261.0)
+2025-03-13 14:12:54,720 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(-535.0, -261.0)
+2025-03-13 14:14:57,129 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(-535.0, -268.0)
+2025-03-13 14:14:57,130 - CircuitSimulator - DEBUG - 点击项类型: <class 'components.Component'>
+2025-03-13 14:14:57,130 - CircuitSimulator - DEBUG - 点击组件
+2025-03-13 14:14:58,370 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(-147.0, -159.0)
+2025-03-13 14:14:58,371 - CircuitSimulator - DEBUG - 点击项类型: <class 'components.Component'>
+2025-03-13 14:14:58,371 - CircuitSimulator - DEBUG - 点击组件
+2025-03-13 14:14:58,808 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(-147.0, -159.0)

@@ -6,8 +6,8 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout,
                            QHBoxLayout, QPushButton, QLabel, QGraphicsView,
                            QGraphicsScene, QMessageBox, QLineEdit, QSlider,
                            QDialog, QFormLayout, QDoubleSpinBox, QFileDialog,
-                           QGroupBox, QComboBox, QCheckBox)
-from PyQt6.QtCore import Qt, QMimeData, QPointF, QTimer, QLineF
+                           QGroupBox, QComboBox, QCheckBox, QGridLayout)
+from PyQt6.QtCore import Qt, QMimeData, QPointF, QTimer, QLineF, pyqtSignal
 from PyQt6.QtGui import QDrag, QPainter, QColor, QPen
 from components import Component, Circuit, Wire, ConnectionPoint, logger
 
@@ -100,6 +100,9 @@ class ComponentButton(QPushButton):
             drag.exec()
 
 class WorkArea(QGraphicsView):
+    # 将信号定义为类变量
+    voltage_changed_signal = pyqtSignal(float)
+    
     def __init__(self, parent=None):
         super().__init__(parent)
         self.scene = QGraphicsScene(self)
@@ -266,11 +269,8 @@ class WorkArea(QGraphicsView):
                         # 完成导线连接
                         self.current_wire.end_pos = target_point.scenePos()
                         self.current_wire.update_path()
-                        self.current_wire.target_component = target_point.parentItem()
-                        
-                        # 更新连接点的导线列表
-                        self.source_point.connected_wires.append(self.current_wire)
-                        target_point.connected_wires.append(self.current_wire)
+                        self.current_wire.connect_endpoint(self.source_point, True)
+                        self.current_wire.connect_endpoint(target_point, False)
                         
                         # 更新电路连接
                         self.circuit.add_connection(self.current_wire.source_component,
@@ -285,8 +285,18 @@ class WorkArea(QGraphicsView):
                     self.current_wire = None
                     self.source_point = None
                 elif self.dragging_wire:
-                    logger.debug("结束导线拖动")
-                    self.dragging_wire.mouseReleaseEvent(event)
+                    scene_pos = self.mapToScene(event.position().toPoint())
+                    target_point = self.find_closest_connection_point(scene_pos)
+                    
+                    if target_point:
+                        if self.dragging_wire.drag_point == 'start':
+                            self.dragging_wire.start_pos = target_point.scenePos()
+                            self.dragging_wire.connect_endpoint(target_point, True)
+                        else:
+                            self.dragging_wire.end_pos = target_point.scenePos()
+                            self.dragging_wire.connect_endpoint(target_point, False)
+                        self.dragging_wire.update_path()
+                    
                     self.dragging_wire = None
             
             super().mouseReleaseEvent(event)
@@ -427,6 +437,9 @@ class MainWindow(QMainWindow):
         # 创建右侧工作区（提前创建）
         self.work_area = WorkArea()
         
+        # 连接电压变化信号
+        self.work_area.voltage_changed_signal.connect(self.update_voltage_input)
+        
         # 创建左侧工具栏
         toolbar = QWidget()
         toolbar.setMaximumWidth(250)
@@ -435,14 +448,17 @@ class MainWindow(QMainWindow):
         
         # 添加组件分组
         components_group = QGroupBox("电路元件")
-        components_layout = QVBoxLayout(components_group)
-        components_layout.setSpacing(5)
+        components_layout = QGridLayout(components_group)
+        components_layout.setSpacing(8)
+        components_layout.setContentsMargins(10, 10, 10, 10)
         
         # 添加组件按钮
         components = ["电源", "开关", "导线", "定值电阻", "滑动变阻器", "电流表", "电压表"]
-        for component in components:
+        for i, component in enumerate(components):
             btn = ComponentButton(component)
-            components_layout.addWidget(btn)
+            row = i // 2  # 计算行号
+            col = i % 2   # 计算列号
+            components_layout.addWidget(btn, row, col)
             
         toolbar_layout.addWidget(components_group)
         
@@ -456,6 +472,18 @@ class MainWindow(QMainWindow):
         voltage_label = QLabel("电源电压(V):")
         self.voltage_input = QLineEdit("12")
         self.voltage_input.setMaximumWidth(80)
+        self.voltage_input.setStyleSheet("""
+            QLineEdit {
+                background-color: #ffffff;
+                color: #333333;
+                border: 1px solid #cccccc;
+                border-radius: 3px;
+                padding: 5px;
+            }
+            QLineEdit:focus {
+                border-color: #4CAF50;
+            }
+        """)
         voltage_layout.addWidget(voltage_label)
         voltage_layout.addWidget(self.voltage_input)
         control_layout.addLayout(voltage_layout)
@@ -750,6 +778,13 @@ class MainWindow(QMainWindow):
             self.measurement_label.setText("测量结果: " + "\n".join(results))
         else:
             self.measurement_label.setText("测量结果: 无测量仪器")
+
+    def update_voltage_input(self, value):
+        """更新电压输入框的值"""
+        self.voltage_input.setText(f"{value:.1f}")
+        # 如果正在仿真，重新计算电路
+        if self.work_area.simulation_running:
+            self.work_area.start_simulation(value)
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
