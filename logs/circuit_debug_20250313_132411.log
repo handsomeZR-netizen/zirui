@@ -1,0 +1,3 @@
+2025-03-13 13:24:11,532 - CircuitSimulator - DEBUG - WorkArea 初始化完成
+2025-03-13 13:24:26,880 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(-397.0, 46.0)
+2025-03-13 13:24:26,881 - CircuitSimulator - DEBUG - 点击项类型: <class 'NoneType'>
