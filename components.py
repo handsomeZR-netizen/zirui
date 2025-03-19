@@ -35,7 +35,6 @@ class Wire(QGraphicsPathItem):
         self.start_pos = start_pos
         self.end_pos = start_pos
         self.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsSelectable)
-        self.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsMovable)
         self.setPen(QPen(Qt.GlobalColor.black, 2))
         self.update_path()
         self.source_component = None
@@ -43,61 +42,37 @@ class Wire(QGraphicsPathItem):
         self.source_point = None
         self.target_point = None
         self.snap_distance = 10.0
-        self.dragging = False
-        self.drag_point = None
+        self.joint_clickable_radius = 8.0  # 关节点可点击半径
+        self.path_points = []  # 保存路径上的点
         self.setAcceptedMouseButtons(Qt.MouseButton.LeftButton | Qt.MouseButton.RightButton)
         logger.debug(f"创建新导线: start_pos={start_pos}")
         
-    def mousePressEvent(self, event):
-        try:
-            if event.button() == Qt.MouseButton.LeftButton:
-                pos = event.pos()
-                start_dist = (pos - self.start_pos).manhattanLength()
-                end_dist = (pos - self.end_pos).manhattanLength()
-                
-                if start_dist < 10 or end_dist < 10:  # 点击了端点
-                    self.dragging = True
-                    self.drag_point = 'start' if start_dist < end_dist else 'end'
-                    # 断开相应端点的连接
-                    self.disconnect_endpoint(self.drag_point == 'start')
-                    event.accept()
-                    return
-            elif event.button() == Qt.MouseButton.RightButton:
-                self.show_context_menu(event)
-            super().mousePressEvent(event)
-        except Exception as e:
-            logger.error(f"导线鼠标按下事件出错: {str(e)}", exc_info=True)
+    def paint(self, painter, option, widget):
+        """重写paint方法，根据选中状态改变外观"""
+        # 根据选中状态设置不同的画笔
+        if self.isSelected():
+            pen = QPen(QColor(30, 144, 255), 2, Qt.PenStyle.SolidLine)  # 选中时为蓝色
+        else:
+            pen = QPen(Qt.GlobalColor.black, 2)
+        self.setPen(pen)
+        
+        # 调用父类的paint方法
+        super().paint(painter, option, widget)
+        
+        # 如果被选中，绘制导线上的关节点
+        if self.isSelected():
+            painter.setPen(Qt.PenStyle.NoPen)
+            painter.setBrush(QBrush(QColor(255, 0, 0, 180)))
             
-    def mouseMoveEvent(self, event):
-        try:
-            if self.dragging and self.drag_point:
-                scene_pos = event.scenePos()
-                old_pos = self.start_pos if self.drag_point == 'start' else self.end_pos
-                
-                logger.debug(f"导线拖动: drag_point={self.drag_point}, old_pos={old_pos}, new_pos={scene_pos}")
-                
-                if self.drag_point == 'start':
-                    self.start_pos = scene_pos
-                else:
-                    self.end_pos = scene_pos
-                self.update_path()
-                event.accept()
-            else:
-                super().mouseMoveEvent(event)
-        except Exception as e:
-            logger.error(f"导线移动事件出错: {str(e)}", exc_info=True)
+            # 绘制端点
+            painter.drawEllipse(self.start_pos, 4, 4)
+            painter.drawEllipse(self.end_pos, 4, 4)
             
-    def mouseReleaseEvent(self, event):
-        try:
-            if event.button() == Qt.MouseButton.LeftButton and self.dragging:
-                logger.debug(f"导线释放: drag_point={self.drag_point}, pos={event.scenePos()}")
-                self.dragging = False
-                self.drag_point = None
-                event.accept()
-            else:
-                super().mouseReleaseEvent(event)
-        except Exception as e:
-            logger.error(f"导线释放事件出错: {str(e)}", exc_info=True)
+            # 绘制中间关节点
+            painter.setBrush(QBrush(QColor(0, 120, 215, 180)))
+            for i, point in enumerate(self.path_points):
+                if i > 0 and i < len(self.path_points) - 1:  # 跳过起点和终点
+                    painter.drawEllipse(point, 4, 4)
             
     def update_path(self):
         try:
@@ -108,36 +83,81 @@ class Wire(QGraphicsPathItem):
             dx = self.end_pos.x() - self.start_pos.x()
             dy = self.end_pos.y() - self.start_pos.y()
             
+            self.path_points = [self.start_pos]
             # 根据起点和终点的相对位置决定路径
             if abs(dx) > abs(dy):
                 # 水平方向为主
                 mid_x = self.start_pos.x() + dx / 2
-                path.lineTo(mid_x, self.start_pos.y())
-                path.lineTo(mid_x, self.end_pos.y())
+                mid_point1 = QPointF(mid_x, self.start_pos.y())
+                mid_point2 = QPointF(mid_x, self.end_pos.y())
+                path.lineTo(mid_point1)
+                path.lineTo(mid_point2)
+                self.path_points.extend([mid_point1, mid_point2])
             else:
                 # 垂直方向为主
                 mid_y = self.start_pos.y() + dy / 2
-                path.lineTo(self.start_pos.x(), mid_y)
-                path.lineTo(self.end_pos.x(), mid_y)
+                mid_point1 = QPointF(self.start_pos.x(), mid_y)
+                mid_point2 = QPointF(self.end_pos.x(), mid_y)
+                path.lineTo(mid_point1)
+                path.lineTo(mid_point2)
+                self.path_points.extend([mid_point1, mid_point2])
             
             path.lineTo(self.end_pos)
+            self.path_points.append(self.end_pos)
             
             self.setPath(path)
-            logger.debug(f"更新导线路径: start={self.start_pos}, end={self.end_pos}")
+            logger.debug(f"更新导线路径: start={self.start_pos}, end={self.end_pos}, points={len(self.path_points)}")
         except Exception as e:
             logger.error(f"更新导线路径时出错: {str(e)}", exc_info=True)
-        
-    def set_end_pos(self, pos):
-        self.end_pos = pos
-        self.update_path()
-
+    
     def show_context_menu(self, event):
         menu = QMenu()
         delete_action = menu.addAction("删除导线")
+        add_joint_action = menu.addAction("添加关节点")
         action = menu.exec(event.screenPos())
         
         if action == delete_action:
             self.delete_wire()
+        elif action == add_joint_action:
+            self.add_joint_at_position(event.scenePos())
+
+    def add_joint_at_position(self, pos):
+        """在指定位置添加一个关节点"""
+        if len(self.path_points) < 2:
+            return
+            
+        # 找到最接近的线段
+        min_dist = float('inf')
+        insert_index = -1
+        
+        for i in range(len(self.path_points) - 1):
+            p1 = self.path_points[i]
+            p2 = self.path_points[i + 1]
+            
+            # 计算点到线段的距离
+            line_length = math.sqrt((p2.x() - p1.x())**2 + (p2.y() - p1.y())**2)
+            if line_length == 0:
+                continue
+                
+            # 计算投影点
+            t = ((pos.x() - p1.x()) * (p2.x() - p1.x()) + 
+                 (pos.y() - p1.y()) * (p2.y() - p1.y())) / (line_length * line_length)
+            
+            t = max(0, min(1, t))  # 确保t在[0,1]范围内
+            
+            proj_x = p1.x() + t * (p2.x() - p1.x())
+            proj_y = p1.y() + t * (p2.y() - p1.y())
+            
+            dist = math.sqrt((proj_x - pos.x())**2 + (proj_y - pos.y())**2)
+            
+            if dist < min_dist:
+                min_dist = dist
+                insert_index = i + 1
+                
+        # 在找到的位置插入新的关节点
+        if insert_index > 0:
+            self.path_points.insert(insert_index, QPointF(pos))
+            self.update_path_from_points()
 
     def delete_wire(self):
         # 断开两端连接
@@ -150,31 +170,76 @@ class Wire(QGraphicsPathItem):
 
     def disconnect_endpoint(self, is_start):
         """断开指定端点的连接"""
-        if is_start and self.source_point:
-            if self in self.source_point.connected_wires:
-                self.source_point.connected_wires.remove(self)
-            self.source_point = None
-            self.source_component = None
-        elif not is_start and self.target_point:
-            if self in self.target_point.connected_wires:
-                self.target_point.connected_wires.remove(self)
-            self.target_point = None
-            self.target_component = None
+        try:
+            if is_start and self.source_point:
+                if self in self.source_point.connected_wires:
+                    self.source_point.connected_wires.remove(self)
+                self.source_point = None
+                self.source_component = None
+                logger.debug(f"断开导线起点")
+            elif not is_start and self.target_point:
+                if self in self.target_point.connected_wires:
+                    self.target_point.connected_wires.remove(self)
+                self.target_point = None
+                self.target_component = None
+                logger.debug(f"断开导线终点")
+        except Exception as e:
+            logger.error(f"断开导线连接出错: {str(e)}", exc_info=True)
 
     def connect_endpoint(self, connection_point, is_start):
         """连接到新的连接点"""
-        if is_start:
-            if self.source_point:  # 如果已经有连接，先断开
-                self.disconnect_endpoint(True)
-            self.source_point = connection_point
-            self.source_component = connection_point.parentItem()
-            connection_point.connected_wires.append(self)
-        else:
-            if self.target_point:  # 如果已经有连接，先断开
-                self.disconnect_endpoint(False)
-            self.target_point = connection_point
-            self.target_component = connection_point.parentItem()
-            connection_point.connected_wires.append(self)
+        try:
+            if is_start:
+                if self.source_point:  # 如果已经有连接，先断开
+                    self.disconnect_endpoint(True)
+                self.source_point = connection_point
+                self.source_component = connection_point.parentItem()
+                connection_point.connected_wires.append(self)
+                logger.debug(f"导线起点连接到: {connection_point.parentItem().name if connection_point.parentItem() else 'None'}")
+            else:
+                if self.target_point:  # 如果已经有连接，先断开
+                    self.disconnect_endpoint(False)
+                self.target_point = connection_point
+                self.target_component = connection_point.parentItem()
+                connection_point.connected_wires.append(self)
+                logger.debug(f"导线终点连接到: {connection_point.parentItem().name if connection_point.parentItem() else 'None'}")
+        except Exception as e:
+            logger.error(f"连接导线端点出错: {str(e)}", exc_info=True)
+    
+    def update_path_from_points(self):
+        """根据路径点更新路径"""
+        if len(self.path_points) < 2:
+            return
+            
+        try:
+            path = QPainterPath()
+            path.moveTo(self.path_points[0])
+            
+            for i in range(1, len(self.path_points)):
+                path.lineTo(self.path_points[i])
+                
+            self.setPath(path)
+        except Exception as e:
+            logger.error(f"从路径点更新导线路径时出错: {str(e)}", exc_info=True)
+        
+    def set_end_pos(self, pos):
+        self.end_pos = pos
+        self.update_path()
+
+    def update_endpoints_from_connection_points(self):
+        """根据连接点更新导线的端点"""
+        try:
+            if self.source_point:
+                self.start_pos = self.source_point.scenePos()
+                if len(self.path_points) > 0:
+                    self.path_points[0] = self.start_pos
+            if self.target_point:
+                self.end_pos = self.target_point.scenePos()
+                if len(self.path_points) > 1:
+                    self.path_points[-1] = self.end_pos
+            self.update_path_from_points()
+        except Exception as e:
+            logger.error(f"更新导线端点出错: {str(e)}", exc_info=True)
 
 class ConnectionPoint(QGraphicsEllipseItem):
     def __init__(self, parent=None, point_type="input"):
@@ -252,15 +317,15 @@ class Component(QGraphicsItem):
             self.connection_points.append(neg_point)
             
         elif self.name in ["电流表", "电压表"]:
-            # 上方输入点（正极）
+            # 左侧输入点（正极）
             input_point = ConnectionPoint(self, "input")
-            input_point.setPos(0, -20)
+            input_point.setPos(-25, 0)
             input_point.setBrush(QBrush(Qt.GlobalColor.red))
             self.connection_points.append(input_point)
             
-            # 下方输出点（负极）
+            # 右侧输出点（负极）
             output_point = ConnectionPoint(self, "output")
-            output_point.setPos(0, 20)
+            output_point.setPos(25, 0)
             output_point.setBrush(QBrush(Qt.GlobalColor.black))
             self.connection_points.append(output_point)
             
@@ -271,11 +336,11 @@ class Component(QGraphicsItem):
             
             pos_label = QGraphicsSimpleTextItem("+", self)
             pos_label.setFont(font)
-            pos_label.setPos(-8, -25)
+            pos_label.setPos(-32, -5)
             
             neg_label = QGraphicsSimpleTextItem("-", self)
             neg_label.setFont(font)
-            neg_label.setPos(-6, 15)
+            neg_label.setPos(27, -5)
         
     def get_closest_connection_point(self, scene_pos):
         """获取最近的连接点"""
@@ -297,11 +362,7 @@ class Component(QGraphicsItem):
         # 更新所有连接的导线
         for point in self.connection_points:
             for wire in point.connected_wires:
-                if point.point_type == "input":
-                    wire.end_pos = point.scenePos()
-                else:
-                    wire.start_pos = point.scenePos()
-                wire.update_path()
+                wire.update_endpoints_from_connection_points()
 
     def _update_current_resistance(self):
         """更新滑动变阻器的当前电阻值"""
@@ -486,6 +547,10 @@ class Component(QGraphicsItem):
         painter.setBrush(QBrush(Qt.GlobalColor.white))
         painter.drawEllipse(-20, -20, 40, 40)
         
+        # 绘制连接线
+        painter.drawLine(-25, 0, -20, 0)  # 左侧连接线
+        painter.drawLine(20, 0, 25, 0)   # 右侧连接线
+        
         # 绘制内部装饰
         painter.drawArc(-15, -15, 30, 30, 30 * 16, 120 * 16)
         
@@ -523,6 +588,10 @@ class Component(QGraphicsItem):
         painter.setPen(QPen(Qt.GlobalColor.black, 2))
         painter.setBrush(QBrush(Qt.GlobalColor.white))
         painter.drawEllipse(-20, -20, 40, 40)
+        
+        # 绘制连接线
+        painter.drawLine(-25, 0, -20, 0)  # 左侧连接线
+        painter.drawLine(20, 0, 25, 0)   # 右侧连接线
         
         # 绘制内部装饰
         painter.drawArc(-15, -15, 30, 30, 30 * 16, 120 * 16)

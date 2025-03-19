@@ -6,9 +6,9 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout,
                            QHBoxLayout, QPushButton, QLabel, QGraphicsView,
                            QGraphicsScene, QMessageBox, QLineEdit, QSlider,
                            QDialog, QFormLayout, QDoubleSpinBox, QFileDialog,
-                           QGroupBox, QComboBox, QCheckBox, QGridLayout)
-from PyQt6.QtCore import Qt, QMimeData, QPointF, QTimer, QLineF, pyqtSignal
-from PyQt6.QtGui import QDrag, QPainter, QColor, QPen
+                           QGroupBox, QComboBox, QCheckBox, QGridLayout, QMenu)
+from PyQt6.QtCore import Qt, QMimeData, QPointF, QTimer, QLineF, pyqtSignal, QPoint
+from PyQt6.QtGui import QDrag, QPainter, QColor, QPen, QBrush, QTransform
 from components import Component, Circuit, Wire, ConnectionPoint, logger
 
 class PropertyDialog(QDialog):
@@ -93,11 +93,30 @@ class ComponentButton(QPushButton):
         
     def mousePressEvent(self, event):
         if event.button() == Qt.MouseButton.LeftButton:
-            drag = QDrag(self)
-            mime = QMimeData()
-            mime.setText(self.component_name)
-            drag.setMimeData(mime)
-            drag.exec()
+            try:
+                drag = QDrag(self)
+                mime = QMimeData()
+                mime.setText(self.component_name)
+                
+                # 设置拖拽时的预览图像
+                pixmap = self.grab()  # 直接使用按钮本身的图像作为预览
+                pixmap = pixmap.scaled(100, 40)  # 缩放到合适的大小
+                
+                # 设置拖拽时的图像
+                drag.setPixmap(pixmap)
+                drag.setHotSpot(QPoint(pixmap.width() // 2, pixmap.height() // 2))  # 设置热点为图像中心
+                
+                # 设置拖拽数据
+                drag.setMimeData(mime)
+                
+                # 执行拖拽操作
+                result = drag.exec(Qt.DropAction.CopyAction)
+                
+                # 拖拽结束后恢复默认光标
+                self.setCursor(Qt.CursorShape.ArrowCursor)
+                
+            except Exception as e:
+                logger.error(f"拖拽组件时出错: {str(e)}", exc_info=True)
 
 class WorkArea(QGraphicsView):
     # 将信号定义为类变量
@@ -105,37 +124,51 @@ class WorkArea(QGraphicsView):
     
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.scene = QGraphicsScene(self)
-        self.setScene(self.scene)
+        self.setScene(QGraphicsScene(self))
         self.setRenderHint(QPainter.RenderHint.Antialiasing)
-        self.setViewportUpdateMode(QGraphicsView.ViewportUpdateMode.FullViewportUpdate)
-        self.setHorizontalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
-        self.setVerticalScrollBarPolicy(Qt.ScrollBarPolicy.ScrollBarAlwaysOn)
-        self.setTransformationAnchor(QGraphicsView.ViewportAnchor.AnchorUnderMouse)
-        self.setResizeAnchor(QGraphicsView.ViewportAnchor.AnchorUnderMouse)
-        self.setAcceptDrops(True)
-        
-        self.setStyleSheet("""
-            QGraphicsView {
-                background-color: white;
-                border: 1px solid #ccc;
-                border-radius: 5px;
-            }
-        """)
-        
-        self.circuit = Circuit()
+        self.setBackgroundBrush(QBrush(QColor(245, 245, 245)))
+        self.voltage = 5.0
         self.current_wire = None
-        self.drawing_wire = False
-        self.source_point = None
+        self.components = []
+        self.wires = []
+        self.current_component = None
+        self.setMinimumSize(500, 400)
+        
+        # 添加电网背景
         self.grid_size = 20
         self.show_grid = True
         self.snap_to_grid = True
+        
+        # 添加场景变化信号
+        self.scene().changed.connect(self.on_scene_changed)
+        
+        # 用于视图拖动的变量
+        self.is_panning = False
+        self.last_pan_point = QPoint()
+        self.shift_key_pressed = False  # 使用Shift替代空格键
+        
+        # 初始化电路
+        self.circuit = Circuit()
         self.simulation_running = False
         self.simulation_timer = None
         self.simulation_step = 0
         self.max_simulation_steps = 1000
-        self.dragging_wire = None
-        logger.debug("WorkArea 初始化完成")
+        
+        logger.debug("WorkArea初始化完成")
+        
+    def draw_grid(self):
+        """绘制网格背景（此方法不需要实际实现，因为我们在drawBackground中绘制网格）"""
+        pass
+        
+    def on_scene_changed(self, region):
+        """处理场景变化事件"""
+        # 更新所有导线的端点位置
+        for item in self.scene().items():
+            if isinstance(item, Wire) and (item.source_point or item.target_point):
+                item.update_endpoints_from_connection_points()
+                
+        # 更新视图
+        self.update()
         
     def drawBackground(self, painter, rect):
         super().drawBackground(painter, rect)
@@ -183,141 +216,223 @@ class WorkArea(QGraphicsView):
         return QPointF(x, y)
             
     def dragEnterEvent(self, event):
-        if event.mimeData().hasText():
-            event.acceptProposedAction()
-        
+        try:
+            if event.mimeData().hasText():
+                # 显示可放置的光标
+                self.setCursor(Qt.CursorShape.DragCopyCursor)
+                event.setAccepted(True)
+                event.acceptProposedAction()
+            else:
+                self.setCursor(Qt.CursorShape.ForbiddenCursor)
+                event.ignore()
+        except Exception as e:
+            logger.error(f"拖拽进入事件出错: {str(e)}", exc_info=True)
+            super().dragEnterEvent(event)
+            
     def dragMoveEvent(self, event):
-        if event.mimeData().hasText():
-            event.acceptProposedAction()
+        try:
+            if event.mimeData().hasText():
+                # 显示可放置的光标
+                self.setCursor(Qt.CursorShape.DragCopyCursor)
+                event.setAccepted(True)
+                event.acceptProposedAction()
+            else:
+                self.setCursor(Qt.CursorShape.ForbiddenCursor)
+                event.ignore()
+        except Exception as e:
+            logger.error(f"拖动组件时出错: {str(e)}", exc_info=True)
+            super().dragMoveEvent(event)
             
     def dropEvent(self, event):
-        pos = self.mapToScene(event.position().toPoint())
-        pos = self.snap_to_grid_point(pos)
-        
-        component_name = event.mimeData().text()
-        component = Component(component_name)
-        component.setPos(pos)
-        self.scene.addItem(component)
-        self.circuit.add_component(component)
-        event.acceptProposedAction()
+        try:
+            if not event.mimeData().hasText():
+                event.ignore()
+                return
+                
+            pos = self.mapToScene(event.position().toPoint())
+            pos = self.snap_to_grid_point(pos)
+            
+            component_name = event.mimeData().text()
+            component = Component(component_name)
+            component.setPos(pos)
+            self.scene().addItem(component)
+            self.circuit.add_component(component)
+            
+            # 确保视图更新
+            self.scene().update()
+            self.viewport().update()
+            
+            # 清除任何可能的拖拽状态
+            self.setCursor(Qt.CursorShape.ArrowCursor)
+            
+            event.setAccepted(True)
+            event.acceptProposedAction()
+        except Exception as e:
+            logger.error(f"放置组件时出错: {str(e)}", exc_info=True)
+            event.ignore()
         
     def mousePressEvent(self, event):
         try:
-            scene_pos = self.mapToScene(event.position().toPoint())
-            logger.debug(f"鼠标按下事件: pos={scene_pos}")
+            # 检查是否是拖动视图的条件
+            if event.button() == Qt.MouseButton.MiddleButton or \
+                (event.button() == Qt.MouseButton.LeftButton and 
+                 QApplication.keyboardModifiers() == Qt.KeyboardModifier.ShiftModifier):
+                self.is_panning = True
+                self.last_pan_point = event.position().toPoint()
+                self.setCursor(Qt.CursorShape.ClosedHandCursor)
+                event.accept()
+                return
             
+            # 继续处理线路创建逻辑
             if event.button() == Qt.MouseButton.LeftButton:
-                item = self.scene.itemAt(scene_pos, self.transform())
-                logger.debug(f"点击项类型: {type(item)}")
+                scene_pos = self.mapToScene(event.position().toPoint())
                 
-                if isinstance(item, ConnectionPoint):
-                    # 开始绘制导线
-                    self.drawing_wire = True
-                    self.source_point = item
-                    start_pos = item.scenePos()
-                    self.current_wire = Wire(start_pos)
-                    self.scene.addItem(self.current_wire)
-                    self.current_wire.source_component = item.parentItem()
-                    logger.debug(f"开始绘制导线: start_pos={start_pos}")
-                elif isinstance(item, Wire):
-                    # 处理导线的拖动
-                    self.dragging_wire = item
-                    logger.debug("开始拖动已有导线")
-                elif isinstance(item, Component):
-                    logger.debug("点击组件")
-                    super().mousePressEvent(event)
+                # 如果正在创建导线
+                if self.current_wire:
+                    # 检查是否在连接点附近
+                    connection_point = self.find_connection_point(scene_pos)
+                    if connection_point:
+                        # 更新导线终点到连接点位置
+                        self.current_wire.set_end_pos(connection_point.scenePos())
+                        # 连接导线到连接点
+                        self.current_wire.connect_endpoint(connection_point, False)
+                        # 完成导线创建
+                        self.wires.append(self.current_wire)
+                        self.current_wire = None
+                        self.setCursor(Qt.CursorShape.ArrowCursor)
+                    else:
+                        # 如果不是在连接点附近，结束当前导线创建
+                        self.scene().removeItem(self.current_wire)
+                        self.current_wire = None
+                        self.setCursor(Qt.CursorShape.ArrowCursor)
+                else:
+                    # 检查是否点击了连接点以开始创建导线
+                    connection_point = self.find_connection_point(scene_pos)
+                    if connection_point:
+                        # 开始创建新导线
+                        self.current_wire = Wire(connection_point.scenePos())
+                        self.scene().addItem(self.current_wire)
+                        self.current_wire.connect_endpoint(connection_point, True)
+                        self.setCursor(Qt.CursorShape.CrossCursor)
                     
-            elif event.button() == Qt.MouseButton.RightButton:
-                item = self.scene.itemAt(scene_pos, self.transform())
-                if isinstance(item, Component):
-                    dialog = PropertyDialog(item, self)
-                    dialog.exec()
+                    # 如果都不是，传递事件给默认处理
+                    else:
+                        super().mousePressEvent(event)
+            else:
+                super().mousePressEvent(event)
         except Exception as e:
-            logger.error(f"鼠标按下事件处理出错: {str(e)}", exc_info=True)
-                
+            logger.error(f"鼠标按下事件出错: {str(e)}", exc_info=True)
+            super().mousePressEvent(event)
+    
     def mouseMoveEvent(self, event):
         try:
-            scene_pos = self.mapToScene(event.position().toPoint())
-            
-            if self.drawing_wire and self.current_wire:
-                # 处理新导线的绘制
-                closest_point = self.find_closest_connection_point(scene_pos)
-                if closest_point and closest_point != self.source_point:
-                    self.current_wire.set_end_pos(closest_point.scenePos())
-                    logger.debug(f"导线绘制吸附到连接点: pos={closest_point.scenePos()}")
+            # 处理视图拖动
+            if self.is_panning:
+                delta = event.position().toPoint() - self.last_pan_point
+                self.last_pan_point = event.position().toPoint()
+                self.horizontalScrollBar().setValue(self.horizontalScrollBar().value() - delta.x())
+                self.verticalScrollBar().setValue(self.verticalScrollBar().value() - delta.y())
+                event.accept()
+                return
+                
+            # 处理导线创建过程中的移动
+            if self.current_wire:
+                scene_pos = self.mapToScene(event.position().toPoint())
+                
+                # 检查是否在连接点附近悬停
+                connection_point = self.find_connection_point(scene_pos)
+                if connection_point:
+                    self.current_wire.set_end_pos(connection_point.scenePos())
+                    self.setCursor(Qt.CursorShape.CrossCursor)
                 else:
                     self.current_wire.set_end_pos(scene_pos)
-                    logger.debug(f"导线绘制跟随鼠标: pos={scene_pos}")
-            elif self.dragging_wire:
-                # 处理导线的拖动
-                logger.debug(f"拖动导线: pos={scene_pos}")
-                self.dragging_wire.mouseMoveEvent(event)
+                    self.setCursor(Qt.CursorShape.CrossCursor)
             else:
+                # 检查是否悬停在连接点上
+                scene_pos = self.mapToScene(event.position().toPoint())
+                connection_point = self.find_connection_point(scene_pos)
+                if connection_point:
+                    self.setCursor(Qt.CursorShape.CrossCursor)
+                else:
+                    self.setCursor(Qt.CursorShape.ArrowCursor)
+                    
                 super().mouseMoveEvent(event)
         except Exception as e:
-            logger.error(f"鼠标移动事件处理出错: {str(e)}", exc_info=True)
-            
+            logger.error(f"鼠标移动事件出错: {str(e)}", exc_info=True)
+            super().mouseMoveEvent(event)
+    
     def mouseReleaseEvent(self, event):
         try:
-            if event.button() == Qt.MouseButton.LeftButton:
-                if self.drawing_wire:
-                    scene_pos = self.mapToScene(event.position().toPoint())
-                    target_point = self.find_closest_connection_point(scene_pos)
-                    logger.debug(f"释放导线: pos={scene_pos}, 找到目标点={target_point is not None}")
-                    
-                    if target_point and target_point != self.source_point:
-                        # 完成导线连接
-                        self.current_wire.end_pos = target_point.scenePos()
-                        self.current_wire.update_path()
-                        self.current_wire.connect_endpoint(self.source_point, True)
-                        self.current_wire.connect_endpoint(target_point, False)
-                        
-                        # 更新电路连接
-                        self.circuit.add_connection(self.current_wire.source_component,
-                                                 self.current_wire.target_component)
-                        logger.debug("导线连接完成")
-                    else:
-                        # 如果没有找到目标连接点，删除导线
-                        self.scene.removeItem(self.current_wire)
-                        logger.debug("未找到目标连接点，删除导线")
-                        
-                    self.drawing_wire = False
-                    self.current_wire = None
-                    self.source_point = None
-                elif self.dragging_wire:
-                    scene_pos = self.mapToScene(event.position().toPoint())
-                    target_point = self.find_closest_connection_point(scene_pos)
-                    
-                    if target_point:
-                        if self.dragging_wire.drag_point == 'start':
-                            self.dragging_wire.start_pos = target_point.scenePos()
-                            self.dragging_wire.connect_endpoint(target_point, True)
-                        else:
-                            self.dragging_wire.end_pos = target_point.scenePos()
-                            self.dragging_wire.connect_endpoint(target_point, False)
-                        self.dragging_wire.update_path()
-                    
-                    self.dragging_wire = None
-            
+            # 结束视图拖动
+            if self.is_panning and event.button() in [Qt.MouseButton.MiddleButton, Qt.MouseButton.LeftButton]:
+                self.is_panning = False
+                self.setCursor(Qt.CursorShape.ArrowCursor)
+                event.accept()
+                return
+                
             super().mouseReleaseEvent(event)
         except Exception as e:
-            logger.error(f"鼠标释放事件处理出错: {str(e)}", exc_info=True)
+            logger.error(f"鼠标释放事件出错: {str(e)}", exc_info=True)
+            super().mouseReleaseEvent(event)
+            
+    def contextMenuEvent(self, event):
+        try:
+            menu = QMenu(self)
+            
+            # 添加重置视图选项
+            reset_view_action = menu.addAction("重置视图")
+            reset_view_action.triggered.connect(self.reset_view)
+            
+            # 检查是否点击在组件或导线上
+            scene_pos = self.mapToScene(event.pos())
+            item = self.scene().itemAt(scene_pos, QTransform())
+            
+            # 如果是组件或导线，添加特定操作
+            if isinstance(item, Component):
+                edit_action = menu.addAction("编辑属性")
+                delete_action = menu.addAction("删除组件")
+                
+                action = menu.exec(event.globalPos())
+                
+                if action == edit_action:
+                    item.edit_properties()
+                elif action == delete_action:
+                    self.remove_component(item)
+            elif isinstance(item, Wire):
+                # 调用导线的上下文菜单
+                item.show_context_menu(event)
+                return
+            else:
+                menu.exec(event.globalPos())
+        except Exception as e:
+            logger.error(f"上下文菜单事件出错: {str(e)}", exc_info=True)
+            
+    def reset_view(self):
+        """重置视图到默认位置和缩放"""
+        self.resetTransform()
+        self.centerOn(0, 0)
         
-    def find_closest_connection_point(self, scene_pos):
+    def find_connection_point(self, scene_pos):
         """查找最近的连接点"""
         closest_point = None
         min_dist = float('inf')
         
-        for item in self.scene.items():
-            if isinstance(item, Component):
+        for item in self.scene().items():
+            if isinstance(item, ConnectionPoint):
+                point_pos = item.scenePos()
+                dist = (point_pos - scene_pos).manhattanLength()
+                if dist < min_dist and dist < 10.0:
+                    min_dist = dist
+                    closest_point = item
+            elif isinstance(item, Component):
                 point = item.get_closest_connection_point(scene_pos)
-                if point and point != self.source_point:
+                if point:
                     point_pos = point.scenePos()
                     dist = (point_pos - scene_pos).manhattanLength()
                     if dist < min_dist and dist < 10.0:
                         min_dist = dist
                         closest_point = point
-                        
+                    
         return closest_point
         
     def wheelEvent(self, event):
@@ -328,7 +443,7 @@ class WorkArea(QGraphicsView):
             self.scale(1.0 / zoom_factor, 1.0 / zoom_factor)
             
     def clear_circuit(self):
-        self.scene.clear()
+        self.scene().clear()
         self.circuit = Circuit()
         
     def save_circuit(self, filename):
@@ -352,11 +467,11 @@ class WorkArea(QGraphicsView):
                 # 确保组件位置对齐到网格
                 pos = self.snap_to_grid_point(comp.pos())
                 comp.setPos(pos)
-                self.scene.addItem(comp)
+                self.scene().addItem(comp)
                 
             # 添加连接线
             for from_comp, to_comp in self.circuit.connections:
-                line = self.scene.addLine(
+                line = self.scene().addLine(
                     from_comp.pos().x(),
                     from_comp.pos().y(),
                     to_comp.pos().x(),
@@ -419,6 +534,25 @@ class WorkArea(QGraphicsView):
         # 更新电路状态
         self.circuit.calculate_circuit()
         self.update()  # 更新显示
+
+    def remove_component(self, component):
+        """从场景和电路中移除组件"""
+        try:
+            # 断开所有连接的导线
+            for point in component.connection_points:
+                for wire in point.connected_wires[:]:  # 使用副本进行迭代
+                    wire.delete_wire()
+                    
+            # 从场景中移除组件
+            self.scene().removeItem(component)
+            
+            # 从电路中移除组件
+            if component in self.circuit.components:
+                self.circuit.components.remove(component)
+            
+            logger.debug(f"组件已移除: {component.name}")
+        except Exception as e:
+            logger.error(f"移除组件时出错: {str(e)}", exc_info=True)
 
 class MainWindow(QMainWindow):
     def __init__(self):
