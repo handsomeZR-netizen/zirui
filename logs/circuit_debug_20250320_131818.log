@@ -1,0 +1,7 @@
+2025-03-20 13:18:18,306 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-03-20 13:18:38,221 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.openai.com:443
+2025-03-20 13:18:39,069 - urllib3.connectionpool - DEBUG - https://api.openai.com:443 "POST /v1/chat/completions HTTP/11" 401 301
+2025-03-20 13:18:40,073 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.openai.com:443
+2025-03-20 13:18:41,099 - urllib3.connectionpool - DEBUG - https://api.openai.com:443 "POST /v1/chat/completions HTTP/11" 401 301
+2025-03-20 13:18:43,118 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.openai.com:443
+2025-03-20 13:18:43,991 - urllib3.connectionpool - DEBUG - https://api.openai.com:443 "POST /v1/chat/completions HTTP/11" 401 301

@@ -2,12 +2,14 @@ import sys
 import os
 import json
 import logging
+import requests
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
                            QHBoxLayout, QPushButton, QLabel, QGraphicsView,
                            QGraphicsScene, QMessageBox, QLineEdit, QSlider,
                            QDialog, QFormLayout, QDoubleSpinBox, QFileDialog,
-                           QGroupBox, QComboBox, QCheckBox, QGridLayout, QMenu)
-from PyQt6.QtCore import Qt, QMimeData, QPointF, QTimer, QLineF, pyqtSignal, QPoint
+                           QGroupBox, QComboBox, QCheckBox, QGridLayout, QMenu,
+                           QTextEdit, QSplitter)
+from PyQt6.QtCore import Qt, QMimeData, QPointF, QTimer, QLineF, pyqtSignal, QPoint, QSettings
 from PyQt6.QtGui import QDrag, QPainter, QColor, QPen, QBrush, QTransform
 from components import Component, Circuit, Wire, ConnectionPoint, logger
 
@@ -560,13 +562,13 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("物理电学实验仿真软件")
         self.setMinimumSize(1200, 800)
         
-        # 创建主窗口部件
-        main_widget = QWidget()
-        self.setCentralWidget(main_widget)
+        # 创建主分割器
+        self.main_splitter = QSplitter(Qt.Orientation.Horizontal)
+        self.setCentralWidget(self.main_splitter)
         
-        # 创建主布局
-        layout = QHBoxLayout(main_widget)
-        layout.setSpacing(10)
+        # 左侧面板 - 电路图
+        self.circuit_panel = QWidget()
+        self.circuit_layout = QVBoxLayout(self.circuit_panel)
         
         # 创建右侧工作区（提前创建）
         self.work_area = WorkArea()
@@ -721,13 +723,55 @@ class MainWindow(QMainWindow):
         
         toolbar_layout.addStretch()
         
-        # 创建主布局
-        main_layout = QVBoxLayout()
-        content_layout = QHBoxLayout()
-        content_layout.addWidget(toolbar)
-        content_layout.addWidget(self.work_area)
-        main_layout.addLayout(content_layout)
-        layout.addLayout(main_layout)
+        # 将工具栏添加到电路面板布局中
+        self.circuit_layout.addWidget(toolbar)
+        
+        # 将面板添加到分割器
+        self.main_splitter.addWidget(self.circuit_panel)
+        self.main_splitter.addWidget(self.work_area)
+        self.main_splitter.setSizes([int(self.width() * 0.7), int(self.width() * 0.3)])
+        
+        # 右侧面板 - AI聊天
+        self.chat_panel = QWidget()
+        self.chat_layout = QVBoxLayout(self.chat_panel)
+        
+        # 配置AI API
+        self.api_layout = QHBoxLayout()
+        self.api_label = QLabel("API密钥:")
+        self.api_input = QLineEdit()
+        self.api_input.setEchoMode(QLineEdit.EchoMode.Password)
+        self.api_save = QPushButton("保存")
+        self.api_save.clicked.connect(self.save_api_key)
+        
+        self.api_layout.addWidget(self.api_label)
+        self.api_layout.addWidget(self.api_input)
+        self.api_layout.addWidget(self.api_save)
+        
+        # 聊天历史
+        self.chat_history = QTextEdit()
+        self.chat_history.setReadOnly(True)
+        
+        # 聊天输入
+        self.chat_input = QTextEdit()
+        self.chat_input.setMaximumHeight(100)
+        self.chat_input.setPlaceholderText("在这里输入你的问题...")
+        
+        # 发送按钮
+        self.send_button = QPushButton("发送")
+        self.send_button.clicked.connect(self.send_message)
+        
+        # 添加所有部件到聊天面板
+        self.chat_layout.addLayout(self.api_layout)
+        self.chat_layout.addWidget(QLabel("AI助手 - 物理实验指导"))
+        self.chat_layout.addWidget(self.chat_history)
+        self.chat_layout.addWidget(self.chat_input)
+        self.chat_layout.addWidget(self.send_button)
+        
+        # 将面板添加到分割器
+        self.main_splitter.addWidget(self.chat_panel)
+        
+        # 加载保存的API密钥
+        self.load_api_key()
         
         # 设置样式
         self.setStyleSheet("""
@@ -919,6 +963,83 @@ class MainWindow(QMainWindow):
         # 如果正在仿真，重新计算电路
         if self.work_area.simulation_running:
             self.work_area.start_simulation(value)
+
+    def save_circuit_to_json(self):
+        """保存电路图到JSON文件"""
+        # 获取电路数据
+        circuit_data = self.get_circuit_data()
+        
+        # 打开文件对话框
+        file_path, _ = QFileDialog.getSaveFileName(self, "保存电路图", "", "JSON文件 (*.json)")
+        if file_path:
+            try:
+                with open(file_path, 'w', encoding='utf-8') as f:
+                    json.dump(circuit_data, f, ensure_ascii=False, indent=4)
+                QMessageBox.information(self, "保存成功", f"电路图已保存到: {file_path}")
+            except Exception as e:
+                QMessageBox.critical(self, "保存失败", f"保存时出错: {str(e)}")
+    
+    def get_circuit_data(self):
+        """获取电路图的数据结构
+        这个函数需要根据你的实际电路实现来提取数据
+        """
+        # 示例数据，需要替换为实际的电路数据提取代码
+        circuit_data = {
+            "components": [],
+            "connections": [],
+            "settings": {}
+        }
+        
+        # 这里添加你的代码来获取实际的电路组件、连接和设置
+        # 例如：遍历电路图上的组件和连接，转换为JSON可序列化的对象
+        
+        return circuit_data
+    
+    def save_api_key(self):
+        """保存API密钥到设置"""
+        api_key = self.api_input.text().strip()
+        if api_key:
+            settings = QSettings("PhysicsSimApp", "AIChatSettings")
+            settings.setValue("api_key", api_key)
+            QMessageBox.information(self, "成功", "API密钥已保存")
+        else:
+            QMessageBox.warning(self, "警告", "请输入有效的API密钥")
+    
+    def load_api_key(self):
+        """从设置中加载API密钥"""
+        settings = QSettings("PhysicsSimApp", "AIChatSettings")
+        api_key = settings.value("api_key", "")
+        self.api_input.setText(api_key)
+    
+    def send_message(self):
+        """发送消息到AI并获取回复"""
+        user_message = self.chat_input.toPlainText().strip()
+        if not user_message:
+            return
+        
+        # 显示用户消息
+        self.chat_history.append(f"<b>你:</b> {user_message}")
+        self.chat_input.clear()
+        
+        # 获取API密钥
+        api_key = self.api_input.text().strip()
+        if not api_key:
+            self.chat_history.append('<font color="red"><b>系统:</b> 请先设置API密钥</font>')
+            return
+        
+        # 获取电路数据作为上下文
+        circuit_data = self.get_circuit_data()
+        
+        # 调用AI接口
+        try:
+            # 使用新的AIAssistant类
+            from ai_chat import AIAssistant
+            
+            assistant = AIAssistant(api_key=api_key)
+            response = assistant.get_response(user_message, context=circuit_data)
+            self.chat_history.append(f"<b>AI助手:</b> {response}")
+        except Exception as e:
+            self.chat_history.append(f'<font color="red"><b>错误:</b> {str(e)}</font>')
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

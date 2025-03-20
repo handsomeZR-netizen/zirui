@@ -1,0 +1,5 @@
+2025-03-13 17:40:06,393 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-03-13 17:40:11,395 - CircuitSimulator - DEBUG - 开关状态改变: True
+2025-03-13 17:40:12,198 - CircuitSimulator - DEBUG - 开关状态改变: False
+2025-03-13 17:40:12,510 - CircuitSimulator - DEBUG - 开关状态改变: True
+2025-03-13 17:40:15,041 - CircuitSimulator - DEBUG - 开关状态改变: False

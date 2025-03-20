@@ -1,0 +1,46 @@
+2025-03-13 17:15:59,265 - CircuitSimulator - DEBUG - WorkArea 初始化完成
+2025-03-13 17:16:11,891 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(49.0, -120.0)
+2025-03-13 17:16:11,893 - CircuitSimulator - ERROR - 鼠标按下事件处理出错: Key_Space
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 224, in mousePressEvent
+    space_pressed = modifiers & Qt.KeyboardModifier.Key_Space
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86151\.conda\envs\wulidainxue\Lib\enum.py", line 786, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: Key_Space
+2025-03-13 17:16:13,038 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(47.0, -121.0)
+2025-03-13 17:16:13,038 - CircuitSimulator - ERROR - 鼠标按下事件处理出错: Key_Space
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 224, in mousePressEvent
+    space_pressed = modifiers & Qt.KeyboardModifier.Key_Space
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86151\.conda\envs\wulidainxue\Lib\enum.py", line 786, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: Key_Space
+2025-03-13 17:16:14,098 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(45.0, -123.0)
+2025-03-13 17:16:14,098 - CircuitSimulator - ERROR - 鼠标按下事件处理出错: Key_Space
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 224, in mousePressEvent
+    space_pressed = modifiers & Qt.KeyboardModifier.Key_Space
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86151\.conda\envs\wulidainxue\Lib\enum.py", line 786, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: Key_Space
+2025-03-13 17:16:14,887 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(95.0, -123.0)
+2025-03-13 17:16:14,887 - CircuitSimulator - ERROR - 鼠标按下事件处理出错: Key_Space
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 224, in mousePressEvent
+    space_pressed = modifiers & Qt.KeyboardModifier.Key_Space
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86151\.conda\envs\wulidainxue\Lib\enum.py", line 786, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: Key_Space
+2025-03-13 17:16:16,988 - CircuitSimulator - DEBUG - 鼠标按下事件: pos=PyQt6.QtCore.QPointF(91.0, 141.0)
+2025-03-13 17:16:16,989 - CircuitSimulator - ERROR - 鼠标按下事件处理出错: Key_Space
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 224, in mousePressEvent
+    space_pressed = modifiers & Qt.KeyboardModifier.Key_Space
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\86151\.conda\envs\wulidainxue\Lib\enum.py", line 786, in __getattr__
+    raise AttributeError(name) from None
+AttributeError: Key_Space
