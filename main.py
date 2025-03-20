@@ -72,16 +72,17 @@ class ComponentButton(QPushButton):
         super().__init__(name, parent)
         self.setAcceptDrops(True)
         self.component_name = name
-        self.setMinimumSize(100, 40)
+        self.setMinimumSize(100, 35)
+        self.setMaximumSize(105, 35)
         self.setStyleSheet("""
             QPushButton {
                 background-color: #2196F3;
                 color: white;
                 border: none;
                 border-radius: 4px;
-                padding: 8px;
-                font-size: 14px;
-                margin: 3px;
+                padding: 4px;
+                font-size: 13px;
+                margin: 2px;
                 text-align: center;
                 qproperty-alignment: AlignCenter;
             }
@@ -485,12 +486,14 @@ class WorkArea(QGraphicsView):
             QMessageBox.warning(self, "错误", f"加载电路失败：{str(e)}")
             return False
             
-    def toggle_grid(self):
-        self.show_grid = not self.show_grid
+    def toggle_grid(self, checked):
+        """切换网格显示状态"""
+        self.show_grid = checked
         self.update()
         
-    def toggle_snap(self):
-        self.snap_to_grid = not self.snap_to_grid
+    def toggle_snap(self, checked):
+        """切换网格吸附状态"""
+        self.snap_to_grid = checked
         self.update()
         
     def set_grid_size(self, size):
@@ -569,6 +572,7 @@ class MainWindow(QMainWindow):
         # 左侧面板 - 电路图
         self.circuit_panel = QWidget()
         self.circuit_layout = QVBoxLayout(self.circuit_panel)
+        self.circuit_layout.setContentsMargins(5, 5, 5, 5)  # 减小边距
         
         # 创建右侧工作区（提前创建）
         self.work_area = WorkArea()
@@ -597,28 +601,37 @@ class MainWindow(QMainWindow):
         # 视图菜单
         view_menu = self.menubar.addMenu("视图")
         
-        toggle_grid_action = view_menu.addAction("显示/隐藏网格")
-        toggle_grid_action.triggered.connect(self.work_area.toggle_grid)
+        # 添加网格显示控制
+        self.toggle_grid_action = view_menu.addAction("显示/隐藏网格")
+        self.toggle_grid_action.setCheckable(True)  # 使动作可选中
+        self.toggle_grid_action.setChecked(True)    # 默认选中
+        self.toggle_grid_action.triggered.connect(self.toggle_grid)
         
-        toggle_snap_action = view_menu.addAction("启用/禁用网格吸附")
-        toggle_snap_action.triggered.connect(self.work_area.toggle_snap)
+        # 添加网格吸附控制
+        self.toggle_snap_action = view_menu.addAction("启用/禁用网格吸附")
+        self.toggle_snap_action.setCheckable(True)  # 使动作可选中
+        self.toggle_snap_action.setChecked(True)    # 默认选中
+        self.toggle_snap_action.triggered.connect(self.toggle_snap)
         
         # 创建左侧工具栏
         toolbar = QWidget()
-        toolbar.setMaximumWidth(250)
+        toolbar.setFixedWidth(220)  # 固定宽度防止过宽
         toolbar_layout = QVBoxLayout(toolbar)
-        toolbar_layout.setSpacing(10)
+        toolbar_layout.setSpacing(6)  # 减小间距
+        toolbar_layout.setContentsMargins(3, 3, 3, 3)  # 减小边距
         
         # 添加组件分组
         components_group = QGroupBox("电路元件")
         components_layout = QGridLayout(components_group)
-        components_layout.setSpacing(8)
-        components_layout.setContentsMargins(10, 10, 10, 10)
+        components_layout.setSpacing(6)  # 减小组件间距
+        components_layout.setContentsMargins(5, 15, 5, 5)  # 调整边距，顶部留更多空间给标题
         
         # 添加组件按钮
         components = ["电源", "开关", "导线", "定值电阻", "滑动变阻器", "电流表", "电压表"]
         for i, component in enumerate(components):
             btn = ComponentButton(component)
+            btn.setMinimumSize(100, 35)  # 设置最小大小防止重叠
+            btn.setMaximumSize(105, 35)  # 设置最大大小防止过大
             row = i // 2  # 计算行号
             col = i % 2   # 计算列号
             components_layout.addWidget(btn, row, col)
@@ -628,65 +641,48 @@ class MainWindow(QMainWindow):
         # 添加控制分组
         control_group = QGroupBox("控制面板")
         control_layout = QVBoxLayout(control_group)
-        control_layout.setSpacing(5)
+        control_layout.setSpacing(8)  # 增加间距
+        control_layout.setContentsMargins(8, 20, 8, 8)  # 调整边距，顶部留更多空间给标题
         
         # 添加电压控制
         voltage_layout = QHBoxLayout()
+        voltage_layout.setSpacing(5)  # 设置水平间距
         voltage_label = QLabel("电源电压(V):")
         self.voltage_input = QLineEdit("12")
-        self.voltage_input.setMaximumWidth(80)
-        self.voltage_input.setStyleSheet("""
-            QLineEdit {
-                background-color: #ffffff;
-                color: #333333;
-                border: 1px solid #cccccc;
-                border-radius: 3px;
-                padding: 5px;
-            }
-            QLineEdit:focus {
-                border-color: #4CAF50;
-            }
-        """)
+        self.voltage_input.setFixedWidth(70)  # 增加输入框宽度
         voltage_layout.addWidget(voltage_label)
         voltage_layout.addWidget(self.voltage_input)
+        voltage_layout.addStretch(1)  # 添加弹性空间
         control_layout.addLayout(voltage_layout)
         
-        # 添加网格控制
-        grid_layout = QVBoxLayout()
-        
-        # 网格显示控制
-        grid_button = QPushButton("显示/隐藏网格")
-        grid_button.clicked.connect(self.work_area.toggle_grid)
-        grid_layout.addWidget(grid_button)
-        
-        # 网格吸附控制
-        snap_button = QPushButton("启用/禁用网格吸附")
-        snap_button.clicked.connect(self.work_area.toggle_snap)
-        grid_layout.addWidget(snap_button)
-        
-        # 网格大小控制
+        # 添加网格大小控制
         grid_size_layout = QHBoxLayout()
+        grid_size_layout.setSpacing(5)  # 设置水平间距
         grid_size_label = QLabel("网格大小:")
         self.grid_size_combo = QComboBox()
         self.grid_size_combo.addItems(["10", "20", "30", "40", "50"])
         self.grid_size_combo.setCurrentText("20")
+        self.grid_size_combo.setFixedWidth(70)  # 增加下拉框宽度
         self.grid_size_combo.currentTextChanged.connect(
             lambda x: self.work_area.set_grid_size(int(x))
         )
         grid_size_layout.addWidget(grid_size_label)
         grid_size_layout.addWidget(self.grid_size_combo)
-        grid_layout.addLayout(grid_size_layout)
-        
-        control_layout.addLayout(grid_layout)
+        grid_size_layout.addStretch(1)  # 添加弹性空间
+        control_layout.addLayout(grid_size_layout)
         
         # 添加缩放控制
         zoom_layout = QHBoxLayout()
+        zoom_layout.setSpacing(5)  # 设置水平间距
         zoom_out_button = QPushButton("-")
         zoom_in_button = QPushButton("+")
+        zoom_out_button.setFixedSize(45, 32)  # 增加按钮大小
+        zoom_in_button.setFixedSize(45, 32)   # 增加按钮大小
         zoom_out_button.clicked.connect(lambda: self.work_area.scale(0.8, 0.8))
         zoom_in_button.clicked.connect(lambda: self.work_area.scale(1.2, 1.2))
         zoom_layout.addWidget(zoom_out_button)
         zoom_layout.addWidget(zoom_in_button)
+        zoom_layout.addStretch(1)  # 添加弹性空间
         control_layout.addLayout(zoom_layout)
         
         toolbar_layout.addWidget(control_group)
@@ -694,11 +690,17 @@ class MainWindow(QMainWindow):
         # 添加文件操作分组
         file_group = QGroupBox("文件操作")
         file_layout = QVBoxLayout(file_group)
-        file_layout.setSpacing(5)
+        file_layout.setSpacing(4)  # 减小间距
+        file_layout.setContentsMargins(5, 15, 5, 5)  # 调整边距
         
         save_button = QPushButton("保存电路")
         load_button = QPushButton("加载电路")
         clear_button = QPushButton("清空电路")
+        
+        # 统一设置按钮大小
+        for btn in [save_button, load_button, clear_button]:
+            btn.setMinimumHeight(28)
+            btn.setMaximumHeight(30)
         
         save_button.clicked.connect(self.save_circuit)
         load_button.clicked.connect(self.load_circuit)
@@ -713,11 +715,17 @@ class MainWindow(QMainWindow):
         # 添加仿真控制分组
         sim_group = QGroupBox("仿真控制")
         sim_layout = QVBoxLayout(sim_group)
-        sim_layout.setSpacing(5)
+        sim_layout.setSpacing(4)  # 减小间距
+        sim_layout.setContentsMargins(5, 15, 5, 5)  # 调整边距
         
         self.start_button = QPushButton("开始仿真")
         self.stop_button = QPushButton("停止仿真")
         self.reset_button = QPushButton("重置仿真")
+        
+        # 统一设置按钮大小
+        for btn in [self.start_button, self.stop_button, self.reset_button]:
+            btn.setMinimumHeight(28)
+            btn.setMaximumHeight(30)
         
         self.start_button.clicked.connect(self.start_simulation)
         self.stop_button.clicked.connect(self.stop_simulation)
@@ -736,7 +744,8 @@ class MainWindow(QMainWindow):
         # 添加仿真状态显示
         status_group = QGroupBox("仿真状态")
         status_layout = QVBoxLayout(status_group)
-        status_layout.setSpacing(5)
+        status_layout.setSpacing(4)  # 减小间距
+        status_layout.setContentsMargins(5, 15, 5, 5)  # 调整边距
         
         self.simulation_status_label = QLabel("仿真状态: 未开始")
         self.simulation_step_label = QLabel("仿真步数: 0")
@@ -756,7 +765,9 @@ class MainWindow(QMainWindow):
         # 将面板添加到分割器
         self.main_splitter.addWidget(self.circuit_panel)
         self.main_splitter.addWidget(self.work_area)
-        self.main_splitter.setSizes([int(self.width() * 0.7), int(self.width() * 0.3)])
+        
+        # 调整分割器初始比例，左侧工具栏窄一些，中间网格区域宽一些
+        self.main_splitter.setSizes([220, self.width() - 520])
         
         # 右侧面板 - AI聊天
         self.chat_panel = QWidget()
@@ -807,10 +818,11 @@ class MainWindow(QMainWindow):
                 color: white;
                 border: none;
                 border-radius: 3px;
-                padding: 8px;
+                padding: 5px;
                 text-align: center;
                 qproperty-alignment: AlignCenter;
-                min-height: 30px;
+                min-height: 28px;
+                max-height: 30px;
             }
             QPushButton:hover {
                 background-color: #45a049;
@@ -822,10 +834,14 @@ class MainWindow(QMainWindow):
                 background-color: #cccccc;
             }
             QLineEdit {
-                padding: 5px;
+                padding: 3px;
                 border: 1px solid #ccc;
                 border-radius: 3px;
                 color: #333333;
+                background-color: #ffffff;
+            }
+            QLineEdit:focus {
+                border-color: #4CAF50;
             }
             QLabel {
                 color: #333333;
@@ -835,8 +851,8 @@ class MainWindow(QMainWindow):
                 background-color: white;
                 border: 1px solid #ccc;
                 border-radius: 3px;
-                padding: 5px;
-                min-height: 25px;
+                padding: 3px;
+                min-height: 24px;
             }
             QComboBox::drop-down {
                 border: none;
@@ -856,6 +872,21 @@ class MainWindow(QMainWindow):
         self.simulation_timer = QTimer()
         self.simulation_timer.timeout.connect(self.update_simulation)
         self.simulation_timer.setInterval(100)  # 100ms更新一次
+        
+    def showEvent(self, event):
+        """窗口显示时调整分割器比例"""
+        super().showEvent(event)
+        # 确保在窗口显示后再次设置分割比例
+        QTimer.singleShot(100, self.adjust_splitter_sizes)
+    
+    def adjust_splitter_sizes(self):
+        """调整分割器大小比例"""
+        total_width = self.width()
+        left_width = 220  # 左侧工具栏宽度
+        right_width = 300  # 右侧聊天区域宽度
+        center_width = total_width - left_width - right_width  # 中间工作区宽度
+        
+        self.main_splitter.setSizes([left_width, center_width, right_width])
         
     def save_circuit(self):
         filename, _ = QFileDialog.getSaveFileName(
@@ -1005,7 +1036,6 @@ class MainWindow(QMainWindow):
         # 收集组件数据
         for component in self.work_area.components:
             component_data = {
-                "id": component.id,
                 "name": component.name,
                 "type": component.type,
                 "x": component.x(),
@@ -1017,14 +1047,35 @@ class MainWindow(QMainWindow):
         
         # 收集连线数据
         for wire in self.work_area.wires:
-            connection_data = {
-                "id": wire.id,
-                "start_component_id": wire.start_point.parent_component.id if wire.start_point and wire.start_point.parent_component else None,
-                "start_point_id": wire.start_point.id if wire.start_point else None,
-                "end_component_id": wire.end_point.parent_component.id if wire.end_point and wire.end_point.parent_component else None,
-                "end_point_id": wire.end_point.id if wire.end_point else None,
-                "path": [[p.x(), p.y()] for p in wire.path]
-            }
+            connection_data = {}
+            
+            # 安全地添加连接点信息
+            if hasattr(wire, 'source_point') and wire.source_point:
+                if hasattr(wire.source_point, 'parent_component') and wire.source_point.parent_component:
+                    connection_data["start_component"] = wire.source_point.parent_component.name
+                if hasattr(wire.source_point, 'index'):
+                    connection_data["start_point"] = wire.source_point.index
+                    
+            if hasattr(wire, 'target_point') and wire.target_point:
+                if hasattr(wire.target_point, 'parent_component') and wire.target_point.parent_component:
+                    connection_data["end_component"] = wire.target_point.parent_component.name
+                if hasattr(wire.target_point, 'index'):
+                    connection_data["end_point"] = wire.target_point.index
+            
+            # 安全地添加路径信息
+            if hasattr(wire, 'path'):
+                try:
+                    if isinstance(wire.path, list):
+                        connection_data["path"] = [[p.x(), p.y()] for p in wire.path]
+                    elif callable(wire.path):
+                        # 如果path是一个方法，调用它获取路径点
+                        path_points = wire.path()
+                        if isinstance(path_points, list):
+                            connection_data["path"] = [[p.x(), p.y()] for p in path_points]
+                except Exception as e:
+                    print(f"获取路径点时出错: {str(e)}")
+                    connection_data["path"] = []
+            
             circuit_data["connections"].append(connection_data)
         
         return circuit_data
@@ -1081,7 +1132,7 @@ class MainWindow(QMainWindow):
             if circuit_data["connections"]:
                 prompt += "\n电路连接情况:\n"
                 for i, conn in enumerate(circuit_data["connections"]):
-                    prompt += f"- 连接{i+1}: 从组件ID {conn['start_component_id']} 到 {conn['end_component_id']}\n"
+                    prompt += f"- 连接{i+1}: 从组件ID {conn['start_component']} 到 {conn['end_component']}\n"
             else:
                 prompt += "\n电路中没有连接\n"
             
@@ -1112,6 +1163,16 @@ class MainWindow(QMainWindow):
             error_msg = f"API请求失败: {str(e)}"
             self.chat_history.append(f'<font color="red"><b>错误:</b> {error_msg}</font>')
             QMessageBox.critical(self, "API错误", f"调用API时出错:\n{str(e)}")
+
+    def toggle_grid(self, checked):
+        """切换网格显示状态"""
+        self.work_area.show_grid = checked
+        self.work_area.update()
+        
+    def toggle_snap(self, checked):
+        """切换网格吸附状态"""
+        self.work_area.snap_to_grid = checked
+        self.work_area.update()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
