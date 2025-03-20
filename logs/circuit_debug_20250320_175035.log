@@ -1,0 +1,2 @@
+2025-03-20 17:50:35,894 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-03-20 17:50:50,269 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.openai.com:443

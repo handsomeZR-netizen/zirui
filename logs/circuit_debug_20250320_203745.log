@@ -1,0 +1,21 @@
+2025-03-20 20:37:45,906 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-03-20 20:38:15,960 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.openai.com:443
+2025-03-20 20:38:17,142 - urllib3.connectionpool - DEBUG - https://api.openai.com:443 "POST /v1/chat/completions HTTP/11" 401 301
+2025-03-20 20:38:17,143 - test_api - WARNING - 第1次尝试失败: 401 Client Error: Unauthorized for url: https://api.openai.com/v1/chat/completions
+2025-03-20 20:38:19,157 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.openai.com:443
+2025-03-20 20:38:20,307 - urllib3.connectionpool - DEBUG - https://api.openai.com:443 "POST /v1/chat/completions HTTP/11" 401 301
+2025-03-20 20:38:20,308 - test_api - WARNING - 第2次尝试失败: 401 Client Error: Unauthorized for url: https://api.openai.com/v1/chat/completions
+2025-03-20 20:38:22,321 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.openai.com:443
+2025-03-20 20:38:23,464 - urllib3.connectionpool - DEBUG - https://api.openai.com:443 "POST /v1/chat/completions HTTP/11" 401 301
+2025-03-20 20:38:23,464 - test_api - WARNING - 第3次尝试失败: 401 Client Error: Unauthorized for url: https://api.openai.com/v1/chat/completions
+2025-03-20 20:38:23,464 - test_api - ERROR - 达到最大重试次数，请求失败: 401 Client Error: Unauthorized for url: https://api.openai.com/v1/chat/completions
+2025-03-20 20:38:41,938 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.openai.com:443
+2025-03-20 20:38:42,990 - urllib3.connectionpool - DEBUG - https://api.openai.com:443 "POST /v1/chat/completions HTTP/11" 401 301
+2025-03-20 20:38:42,991 - test_api - WARNING - 第1次尝试失败: 401 Client Error: Unauthorized for url: https://api.openai.com/v1/chat/completions
+2025-03-20 20:38:45,001 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.openai.com:443
+2025-03-20 20:38:46,080 - urllib3.connectionpool - DEBUG - https://api.openai.com:443 "POST /v1/chat/completions HTTP/11" 401 301
+2025-03-20 20:38:46,081 - test_api - WARNING - 第2次尝试失败: 401 Client Error: Unauthorized for url: https://api.openai.com/v1/chat/completions
+2025-03-20 20:38:48,090 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): api.openai.com:443
+2025-03-20 20:38:49,087 - urllib3.connectionpool - DEBUG - https://api.openai.com:443 "POST /v1/chat/completions HTTP/11" 401 301
+2025-03-20 20:38:49,089 - test_api - WARNING - 第3次尝试失败: 401 Client Error: Unauthorized for url: https://api.openai.com/v1/chat/completions
+2025-03-20 20:38:49,089 - test_api - ERROR - 达到最大重试次数，请求失败: 401 Client Error: Unauthorized for url: https://api.openai.com/v1/chat/completions

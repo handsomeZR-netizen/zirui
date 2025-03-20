@@ -1,0 +1,14 @@
+2025-03-20 16:07:00,158 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-03-20 16:07:06,420 - CircuitSimulator - DEBUG - 开始处理用户消息
+2025-03-20 16:07:06,425 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): generativelanguage.googleapis.com:443
+2025-03-20 16:07:08,135 - urllib3.connectionpool - DEBUG - https://generativelanguage.googleapis.com:443 "POST /v1beta/models/gemini-pro:generateContent?key=AIzaSyBGMzQISR1BucudcrHuwjfXCbUe_EbtgxA HTTP/11" 404 None
+2025-03-20 16:07:08,135 - ai_chat - DEBUG - 尝试第1次请求，URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyBGMzQISR1BucudcrHuwjfXCbUe_EbtgxA
+2025-03-20 16:07:08,137 - ai_chat - DEBUG - 请求数据: {"contents": [{"role": "user", "parts": [{"text": "你是一位物理实验助手，帮助用户理解和构建电路实验。\n\n电路信息：{\"components\": [], \"connections\": [], \"settings\": {\"simulation_running\": false}}\n\n用户问题：现在如何"}]}], "generationConfig": {"temperature": 0.7, "topP": 0.95, "maxOutputTokens": 2048}}
+2025-03-20 16:07:09,144 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): generativelanguage.googleapis.com:443
+2025-03-20 16:07:09,998 - urllib3.connectionpool - DEBUG - https://generativelanguage.googleapis.com:443 "POST /v1beta/models/gemini-pro:generateContent?key=AIzaSyBGMzQISR1BucudcrHuwjfXCbUe_EbtgxA HTTP/11" 404 None
+2025-03-20 16:07:09,998 - ai_chat - DEBUG - 尝试第2次请求，URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyBGMzQISR1BucudcrHuwjfXCbUe_EbtgxA
+2025-03-20 16:07:09,999 - ai_chat - DEBUG - 请求数据: {"contents": [{"role": "user", "parts": [{"text": "你是一位物理实验助手，帮助用户理解和构建电路实验。\n\n电路信息：{\"components\": [], \"connections\": [], \"settings\": {\"simulation_running\": false}}\n\n用户问题：现在如何"}]}], "generationConfig": {"temperature": 0.7, "topP": 0.95, "maxOutputTokens": 2048}}
+2025-03-20 16:07:12,006 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): generativelanguage.googleapis.com:443
+2025-03-20 16:07:13,023 - urllib3.connectionpool - DEBUG - https://generativelanguage.googleapis.com:443 "POST /v1beta/models/gemini-pro:generateContent?key=AIzaSyBGMzQISR1BucudcrHuwjfXCbUe_EbtgxA HTTP/11" 404 None
+2025-03-20 16:07:13,026 - ai_chat - DEBUG - 尝试第3次请求，URL: https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=AIzaSyBGMzQISR1BucudcrHuwjfXCbUe_EbtgxA
+2025-03-20 16:07:13,026 - ai_chat - DEBUG - 请求数据: {"contents": [{"role": "user", "parts": [{"text": "你是一位物理实验助手，帮助用户理解和构建电路实验。\n\n电路信息：{\"components\": [], \"connections\": [], \"settings\": {\"simulation_running\": false}}\n\n用户问题：现在如何"}]}], "generationConfig": {"temperature": 0.7, "topP": 0.95, "maxOutputTokens": 2048}}

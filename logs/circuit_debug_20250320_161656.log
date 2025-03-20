@@ -1,0 +1,14 @@
+2025-03-20 16:16:56,200 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-03-20 16:17:03,891 - CircuitSimulator - DEBUG - 开始处理用户消息
+2025-03-20 16:17:03,896 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): generativelanguage.googleapis.com:443
+2025-03-20 16:17:04,747 - urllib3.connectionpool - DEBUG - https://generativelanguage.googleapis.com:443 "POST /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBGMzQISR1BucudcrHuwjfXCbUe_EbtgxA HTTP/11" 400 None
+2025-03-20 16:17:04,747 - ai_chat - ERROR - HTTP error occurred: 400 Client Error: Bad Request for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBGMzQISR1BucudcrHuwjfXCbUe_EbtgxA
+2025-03-20 16:17:07,212 - CircuitSimulator - DEBUG - 开始处理用户消息
+2025-03-20 16:17:11,214 - CircuitSimulator - DEBUG - 开始处理用户消息
+2025-03-20 16:17:25,106 - CircuitSimulator - DEBUG - 开始处理用户消息
+2025-03-20 16:17:26,682 - CircuitSimulator - DEBUG - 开始处理用户消息
+2025-03-20 16:17:26,943 - CircuitSimulator - DEBUG - 开始处理用户消息
+2025-03-20 16:17:28,948 - CircuitSimulator - DEBUG - 开始处理用户消息
+2025-03-20 16:17:51,971 - CircuitSimulator - DEBUG - 开始处理用户消息
+2025-03-20 16:24:36,057 - CircuitSimulator - DEBUG - 开始处理用户消息
+2025-03-20 16:24:38,157 - CircuitSimulator - DEBUG - 开始处理用户消息

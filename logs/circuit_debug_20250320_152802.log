@@ -1,0 +1,9 @@
+2025-03-20 15:28:02,801 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-03-20 15:28:34,710 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): generativelanguage.googleapis.com:443
+2025-03-20 15:28:43,318 - urllib3.connectionpool - DEBUG - https://generativelanguage.googleapis.com:443 "POST /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBGMzQISR1BucudcrHuwjfXCbUe_EbtgxA HTTP/11" 200 None
+2025-03-20 15:29:26,699 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): generativelanguage.googleapis.com:443
+2025-03-20 15:29:28,249 - urllib3.connectionpool - DEBUG - https://generativelanguage.googleapis.com:443 "POST /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBGMzQISR1BucudcrHuwjfXCbUe_EbtgxA HTTP/11" 400 None
+2025-03-20 15:29:29,759 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): generativelanguage.googleapis.com:443
+2025-03-20 15:29:32,378 - urllib3.connectionpool - DEBUG - https://generativelanguage.googleapis.com:443 "POST /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBGMzQISR1BucudcrHuwjfXCbUe_EbtgxA HTTP/11" 400 None
+2025-03-20 15:29:34,388 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): generativelanguage.googleapis.com:443
+2025-03-20 15:29:46,582 - urllib3.connectionpool - DEBUG - https://generativelanguage.googleapis.com:443 "POST /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBGMzQISR1BucudcrHuwjfXCbUe_EbtgxA HTTP/11" 200 None

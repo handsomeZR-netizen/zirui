@@ -1,0 +1,8 @@
+2025-03-20 16:05:01,868 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-03-20 16:05:18,679 - CircuitSimulator - DEBUG - 开始处理用户消息
+2025-03-20 16:05:18,686 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): generativelanguage.googleapis.com:443
+2025-03-20 16:05:20,031 - urllib3.connectionpool - DEBUG - https://generativelanguage.googleapis.com:443 "POST /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBGMzQISR1BucudcrHuwjfXCbUe_EbtgxA HTTP/11" 400 None
+2025-03-20 16:05:21,041 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): generativelanguage.googleapis.com:443
+2025-03-20 16:05:22,661 - urllib3.connectionpool - DEBUG - https://generativelanguage.googleapis.com:443 "POST /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBGMzQISR1BucudcrHuwjfXCbUe_EbtgxA HTTP/11" 400 None
+2025-03-20 16:05:24,664 - urllib3.connectionpool - DEBUG - Starting new HTTPS connection (1): generativelanguage.googleapis.com:443
+2025-03-20 16:05:25,505 - urllib3.connectionpool - DEBUG - https://generativelanguage.googleapis.com:443 "POST /v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBGMzQISR1BucudcrHuwjfXCbUe_EbtgxA HTTP/11" 400 None
