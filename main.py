@@ -576,6 +576,33 @@ class MainWindow(QMainWindow):
         # 连接电压变化信号
         self.work_area.voltage_changed_signal.connect(self.update_voltage_input)
         
+        # 创建菜单栏 - 在work_area创建后
+        self.menubar = self.menuBar()
+        
+        # 文件菜单
+        file_menu = self.menubar.addMenu("文件")
+        
+        save_action = file_menu.addAction("保存电路")
+        save_action.triggered.connect(self.save_circuit)
+        
+        save_json_action = file_menu.addAction("保存为JSON")
+        save_json_action.triggered.connect(self.save_circuit_to_json)
+        
+        load_action = file_menu.addAction("加载电路")
+        load_action.triggered.connect(self.load_circuit)
+        
+        clear_action = file_menu.addAction("清空电路")
+        clear_action.triggered.connect(self.clear_circuit)
+        
+        # 视图菜单
+        view_menu = self.menubar.addMenu("视图")
+        
+        toggle_grid_action = view_menu.addAction("显示/隐藏网格")
+        toggle_grid_action.triggered.connect(self.work_area.toggle_grid)
+        
+        toggle_snap_action = view_menu.addAction("启用/禁用网格吸附")
+        toggle_snap_action.triggered.connect(self.work_area.toggle_snap)
+        
         # 创建左侧工具栏
         toolbar = QWidget()
         toolbar.setMaximumWidth(250)
@@ -735,18 +762,6 @@ class MainWindow(QMainWindow):
         self.chat_panel = QWidget()
         self.chat_layout = QVBoxLayout(self.chat_panel)
         
-        # 配置AI API
-        self.api_layout = QHBoxLayout()
-        self.api_label = QLabel("API密钥:")
-        self.api_input = QLineEdit()
-        self.api_input.setEchoMode(QLineEdit.EchoMode.Password)
-        self.api_save = QPushButton("保存")
-        self.api_save.clicked.connect(self.save_api_key)
-        
-        self.api_layout.addWidget(self.api_label)
-        self.api_layout.addWidget(self.api_input)
-        self.api_layout.addWidget(self.api_save)
-        
         # 聊天历史
         self.chat_history = QTextEdit()
         self.chat_history.setReadOnly(True)
@@ -761,7 +776,6 @@ class MainWindow(QMainWindow):
         self.send_button.clicked.connect(self.send_message)
         
         # 添加所有部件到聊天面板
-        self.chat_layout.addLayout(self.api_layout)
         self.chat_layout.addWidget(QLabel("AI助手 - 物理实验指导"))
         self.chat_layout.addWidget(self.chat_history)
         self.chat_layout.addWidget(self.chat_input)
@@ -769,9 +783,6 @@ class MainWindow(QMainWindow):
         
         # 将面板添加到分割器
         self.main_splitter.addWidget(self.chat_panel)
-        
-        # 加载保存的API密钥
-        self.load_api_key()
         
         # 设置样式
         self.setStyleSheet("""
@@ -796,9 +807,10 @@ class MainWindow(QMainWindow):
                 color: white;
                 border: none;
                 border-radius: 3px;
-                padding: 5px;
+                padding: 8px;
                 text-align: center;
                 qproperty-alignment: AlignCenter;
+                min-height: 30px;
             }
             QPushButton:hover {
                 background-color: #45a049;
@@ -824,6 +836,7 @@ class MainWindow(QMainWindow):
                 border: 1px solid #ccc;
                 border-radius: 3px;
                 padding: 5px;
+                min-height: 25px;
             }
             QComboBox::drop-down {
                 border: none;
@@ -980,37 +993,42 @@ class MainWindow(QMainWindow):
                 QMessageBox.critical(self, "保存失败", f"保存时出错: {str(e)}")
     
     def get_circuit_data(self):
-        """获取电路图的数据结构
-        这个函数需要根据你的实际电路实现来提取数据
-        """
-        # 示例数据，需要替换为实际的电路数据提取代码
+        """获取电路图的数据结构"""
         circuit_data = {
             "components": [],
             "connections": [],
-            "settings": {}
+            "settings": {
+                "voltage": self.work_area.voltage
+            }
         }
         
-        # 这里添加你的代码来获取实际的电路组件、连接和设置
-        # 例如：遍历电路图上的组件和连接，转换为JSON可序列化的对象
+        # 收集组件数据
+        for component in self.work_area.components:
+            component_data = {
+                "id": component.id,
+                "name": component.name,
+                "type": component.type,
+                "x": component.x(),
+                "y": component.y(),
+                "rotation": component.rotation,
+                "properties": component.properties
+            }
+            circuit_data["components"].append(component_data)
+        
+        # 收集连线数据
+        for wire in self.work_area.wires:
+            connection_data = {
+                "id": wire.id,
+                "start_component_id": wire.start_point.parent_component.id if wire.start_point and wire.start_point.parent_component else None,
+                "start_point_id": wire.start_point.id if wire.start_point else None,
+                "end_component_id": wire.end_point.parent_component.id if wire.end_point and wire.end_point.parent_component else None,
+                "end_point_id": wire.end_point.id if wire.end_point else None,
+                "path": [[p.x(), p.y()] for p in wire.path]
+            }
+            circuit_data["connections"].append(connection_data)
         
         return circuit_data
-    
-    def save_api_key(self):
-        """保存API密钥到设置"""
-        api_key = self.api_input.text().strip()
-        if api_key:
-            settings = QSettings("PhysicsSimApp", "AIChatSettings")
-            settings.setValue("api_key", api_key)
-            QMessageBox.information(self, "成功", "API密钥已保存")
-        else:
-            QMessageBox.warning(self, "警告", "请输入有效的API密钥")
-    
-    def load_api_key(self):
-        """从设置中加载API密钥"""
-        settings = QSettings("PhysicsSimApp", "AIChatSettings")
-        api_key = settings.value("api_key", "")
-        self.api_input.setText(api_key)
-    
+
     def send_message(self):
         """发送消息到AI并获取回复"""
         user_message = self.chat_input.toPlainText().strip()
@@ -1021,25 +1039,79 @@ class MainWindow(QMainWindow):
         self.chat_history.append(f"<b>你:</b> {user_message}")
         self.chat_input.clear()
         
-        # 获取API密钥
-        api_key = self.api_input.text().strip()
-        if not api_key:
-            self.chat_history.append('<font color="red"><b>系统:</b> 请先设置API密钥</font>')
-            return
-        
-        # 获取电路数据作为上下文
-        circuit_data = self.get_circuit_data()
-        
-        # 调用AI接口
         try:
-            # 使用新的AIAssistant类
-            from ai_chat import AIAssistant
+            # 导入test_api模块
+            from test_api import LLMClient, LLMConfig, load_config
             
-            assistant = AIAssistant(api_key=api_key)
-            response = assistant.get_response(user_message, context=circuit_data)
+            # 加载配置
+            config = load_config()
+            
+            # 创建客户端
+            llm_client = LLMClient(config)
+            
+            # 获取电路数据作为上下文
+            circuit_data = self.get_circuit_data()
+            
+            # 构建提示词
+            system_prompt = """你是一位专业的物理电学实验助手。请帮助用户理解和构建电路实验。
+            你需要：
+            1. 分析当前电路的组成和连接
+            2. 提供专业的建议和指导
+            3. 回答用户的具体问题
+            4. 指出可能存在的问题和改进建议"""
+            
+            # 构建带有电路上下文的提示词
+            prompt = f"""
+用户问题: {user_message}
+
+当前电路信息:
+"""
+            # 添加组件信息
+            if circuit_data["components"]:
+                prompt += "\n电路组件:\n"
+                for comp in circuit_data["components"]:
+                    prompt += f"- {comp['name']} (位置: x={comp['x']:.1f}, y={comp['y']:.1f})\n"
+                    if "properties" in comp:
+                        for prop_name, prop_value in comp["properties"].items():
+                            prompt += f"  {prop_name}: {prop_value}\n"
+            else:
+                prompt += "- 电路中没有组件\n"
+            
+            # 添加连接信息
+            if circuit_data["connections"]:
+                prompt += "\n电路连接情况:\n"
+                for i, conn in enumerate(circuit_data["connections"]):
+                    prompt += f"- 连接{i+1}: 从组件ID {conn['start_component_id']} 到 {conn['end_component_id']}\n"
+            else:
+                prompt += "\n电路中没有连接\n"
+            
+            # 添加电源设置信息
+            prompt += f"\n电源电压设置: {circuit_data['settings']['voltage']}V\n"
+            prompt += "\n请根据以上电路信息回答用户问题。如果需要更多信息，请明确指出。"
+            
+            # 显示正在获取回复的提示
+            self.chat_history.append('<font color="blue"><b>系统:</b> 正在获取回复...</font>')
+            QApplication.processEvents()
+            
+            # 调用API获取回复
+            response = llm_client.run_llm(
+                prompt,
+                system_prompt=system_prompt,
+                temperature=0.1  # 使用较低的温度以获得更确定的回答
+            )
+            
+            # 显示回复
             self.chat_history.append(f"<b>AI助手:</b> {response}")
+            
+        except ImportError as e:
+            error_msg = "无法导入test_api模块，请确保已安装必要的库"
+            self.chat_history.append(f'<font color="red"><b>错误:</b> {error_msg}</font>')
+            QMessageBox.critical(self, "模块错误", error_msg)
+            
         except Exception as e:
-            self.chat_history.append(f'<font color="red"><b>错误:</b> {str(e)}</font>')
+            error_msg = f"API请求失败: {str(e)}"
+            self.chat_history.append(f'<font color="red"><b>错误:</b> {error_msg}</font>')
+            QMessageBox.critical(self, "API错误", f"调用API时出错:\n{str(e)}")
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
