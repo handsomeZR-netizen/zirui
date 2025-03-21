@@ -8,9 +8,9 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout,
                            QGraphicsScene, QMessageBox, QLineEdit, QSlider,
                            QDialog, QFormLayout, QDoubleSpinBox, QFileDialog,
                            QGroupBox, QComboBox, QCheckBox, QGridLayout, QMenu,
-                           QTextEdit, QSplitter)
+                           QTextEdit, QSplitter, QScrollArea)
 from PyQt6.QtCore import Qt, QMimeData, QPointF, QTimer, QLineF, pyqtSignal, QPoint, QSettings
-from PyQt6.QtGui import QDrag, QPainter, QColor, QPen, QBrush, QTransform
+from PyQt6.QtGui import QDrag, QPainter, QColor, QPen, QBrush, QTransform, QPixmap
 from components import Component, Circuit, Wire, ConnectionPoint, logger
 
 class PropertyDialog(QDialog):
@@ -85,6 +85,7 @@ class ComponentButton(QPushButton):
                 margin: 2px;
                 text-align: center;
                 qproperty-alignment: AlignCenter;
+                font-family: 'SimSun', 'simsun', serif;
             }
             QPushButton:hover {
                 background-color: #1976D2;
@@ -772,28 +773,140 @@ class MainWindow(QMainWindow):
         # 右侧面板 - AI聊天
         self.chat_panel = QWidget()
         self.chat_layout = QVBoxLayout(self.chat_panel)
+        self.chat_layout.setContentsMargins(5, 5, 5, 5)  # 减小边距，让内容区域更大
+        self.chat_layout.setSpacing(5)  # 减小间距
         
-        # 聊天历史
-        self.chat_history = QTextEdit()
-        self.chat_history.setReadOnly(True)
+        # 添加Logo区域
+        self.logo_area = QWidget()
+        self.logo_layout = QHBoxLayout(self.logo_area)
+        self.logo_layout.setContentsMargins(10, 10, 10, 5)  # 减小底部边距
+        
+        # 添加logo图片
+        self.logo_image = QLabel()
+        logo_pixmap = QPixmap("logo.png")
+        logo_pixmap = logo_pixmap.scaledToHeight(48, Qt.TransformationMode.SmoothTransformation)  # 放大logo
+        self.logo_image.setPixmap(logo_pixmap)
+        self.logo_image.setFixedSize(48, 48)  # 放大logo区域
+        
+        self.logo_label = QLabel("AI 物理助手")
+        self.logo_label.setStyleSheet("""
+            font-size: 22px;  # 放大字体
+            font-weight: bold;
+            color: #333333;
+            font-family: 'SimSun', 'simsun', serif;
+        """)
+        self.logo_layout.addWidget(self.logo_image)
+        self.logo_layout.addWidget(self.logo_label)
+        self.logo_layout.addStretch()
+        
+        # 聊天历史区域
+        self.chat_history_container = QWidget()
+        self.chat_history_layout = QVBoxLayout(self.chat_history_container)
+        self.chat_history_layout.setContentsMargins(0, 0, 0, 0)
+        self.chat_history_layout.setSpacing(8)  # 减小消息之间的间距
+        # 为聊天历史容器添加样式
+        self.chat_history_container.setStyleSheet("""
+            QWidget {
+                background-color: transparent;
+                margin-top: 0px;
+            }
+        """)
+        
+        # 使用滚动区域包装聊天历史
+        self.chat_scroll_area = QScrollArea()
+        self.chat_scroll_area.setWidgetResizable(True)
+        self.chat_scroll_area.setWidget(self.chat_history_container)
+        self.chat_scroll_area.setStyleSheet("""
+            QScrollArea {
+                border: none;
+                background-color: #f9f9f9;
+                padding-top: 0px;
+                margin-top: 0px;
+            }
+            QScrollArea > QWidget > QWidget {
+                margin-top: 0px;
+                padding-top: 0px;
+            }
+        """)
+        
+        # 底部输入区域 - 设置为相对较小
+        self.input_area = QWidget()
+        self.input_area.setMaximumHeight(80)  # 限制最大高度
+        
+        # 创建相对位置布局
+        self.input_area.setLayout(QHBoxLayout())
+        self.input_area.layout().setContentsMargins(10, 5, 10, 5)
+        self.input_area.layout().setSpacing(0)
+        
+        # 创建输入框容器
+        self.input_container = QWidget()
+        self.input_container.setStyleSheet("""
+            background-color: #e8e8e8;
+            border-radius: 8px;
+        """)
+        
+        # 使用相对布局来放置输入框和按钮
+        self.input_layout = QGridLayout(self.input_container)
+        self.input_layout.setContentsMargins(2, 2, 2, 2)
+        self.input_layout.setSpacing(0)
         
         # 聊天输入
         self.chat_input = QTextEdit()
-        self.chat_input.setMaximumHeight(100)
+        self.chat_input.setMinimumHeight(36)
+        self.chat_input.setMaximumHeight(70)
         self.chat_input.setPlaceholderText("在这里输入你的问题...")
+        self.chat_input.setStyleSheet("""
+            QTextEdit {
+                border: none;
+                border-radius: 6px;
+                padding: 8px;
+                background-color: #f0f0f0;
+                font-family: 'SimSun', 'simsun', serif;
+                font-size: 14px;
+            }
+        """)
+        # 设置回车键发送消息
+        self.chat_input.installEventFilter(self)
+        # 文本变化时更新发送按钮状态
+        self.chat_input.textChanged.connect(self.update_send_button_state)
         
-        # 发送按钮
-        self.send_button = QPushButton("发送")
+        # 发送按钮 - 使用向上箭头
+        self.send_button = QPushButton()
+        self.send_button.setFixedSize(32, 32)
         self.send_button.clicked.connect(self.send_message)
+        self.send_button.setCursor(Qt.CursorShape.PointingHandCursor)
         
-        # 添加所有部件到聊天面板
-        self.chat_layout.addWidget(QLabel("AI助手 - 物理实验指导"))
-        self.chat_layout.addWidget(self.chat_history)
-        self.chat_layout.addWidget(self.chat_input)
-        self.chat_layout.addWidget(self.send_button)
+        # 初始设置为禁用状态
+        self.send_button.setStyleSheet("""
+            QPushButton {
+                background-color: #CCCCCC;
+                color: white;
+                border: none;
+                border-radius: 16px;
+                font-size: 16px;
+                font-weight: bold;
+                qproperty-text: "↑";
+            }
+        """)
+        self.send_button.setEnabled(False)
+        
+        # 在网格布局中放置输入框和按钮，按钮在右下角
+        self.input_layout.addWidget(self.chat_input, 0, 0, 1, 1)
+        self.input_layout.addWidget(self.send_button, 0, 0, 1, 1, Qt.AlignmentFlag.AlignRight | Qt.AlignmentFlag.AlignBottom)
+        
+        # 添加输入容器到输入区域
+        self.input_area.layout().addWidget(self.input_container)
+        
+        # 添加所有部件到聊天面板，使用较小的输入区域
+        self.chat_layout.addWidget(self.logo_area, 0)  # 固定大小
+        self.chat_layout.addWidget(self.chat_scroll_area, 1)  # 占据剩余空间
+        self.chat_layout.addWidget(self.input_area, 0)  # 固定大小
         
         # 将面板添加到分割器
         self.main_splitter.addWidget(self.chat_panel)
+        
+        # 添加一条欢迎消息 - 修改为直接调用而不是使用计时器延迟
+        self.add_message_to_chat("assistant", "你好！我是物理电学实验AI助手，有关于电路实验的问题都可以问我。")
         
         # 设置样式
         self.setStyleSheet("""
@@ -806,12 +919,14 @@ class MainWindow(QMainWindow):
                 margin-top: 10px;
                 padding-top: 10px;
                 color: #333333;
+                font-family: 'SimSun', 'simsun', serif;
             }
             QGroupBox::title {
                 subcontrol-origin: margin;
                 left: 10px;
                 padding: 0 3px;
                 color: #333333;
+                font-family: 'SimSun', 'simsun', serif;
             }
             QPushButton {
                 background-color: #4CAF50;
@@ -823,6 +938,7 @@ class MainWindow(QMainWindow):
                 qproperty-alignment: AlignCenter;
                 min-height: 28px;
                 max-height: 30px;
+                font-family: 'SimSun', 'simsun', serif;
             }
             QPushButton:hover {
                 background-color: #45a049;
@@ -839,12 +955,14 @@ class MainWindow(QMainWindow):
                 border-radius: 3px;
                 color: #333333;
                 background-color: #ffffff;
+                font-family: 'SimSun', 'simsun', serif;
             }
             QLineEdit:focus {
                 border-color: #4CAF50;
             }
             QLabel {
                 color: #333333;
+                font-family: 'SimSun', 'simsun', serif;
             }
             QComboBox {
                 color: #333333;
@@ -853,6 +971,7 @@ class MainWindow(QMainWindow):
                 border-radius: 3px;
                 padding: 3px;
                 min-height: 24px;
+                font-family: 'SimSun', 'simsun', serif;
             }
             QComboBox::drop-down {
                 border: none;
@@ -865,6 +984,12 @@ class MainWindow(QMainWindow):
                 width: 0;
                 height: 0;
                 margin-right: 5px;
+            }
+            QTextEdit {
+                font-family: 'SimSun', 'simsun', serif;
+            }
+            QScrollArea {
+                font-family: 'SimSun', 'simsun', serif;
             }
         """)
         
@@ -1086,9 +1211,11 @@ class MainWindow(QMainWindow):
         if not user_message:
             return
         
-        # 显示用户消息
-        self.chat_history.append(f"<b>你:</b> {user_message}")
+        # 添加用户消息到聊天界面
+        self.add_message_to_chat("user", user_message)
         self.chat_input.clear()
+        # 清空输入框后更新按钮状态
+        self.update_send_button_state()
         
         try:
             # 导入test_api模块
@@ -1141,7 +1268,7 @@ class MainWindow(QMainWindow):
             prompt += "\n请根据以上电路信息回答用户问题。如果需要更多信息，请明确指出。"
             
             # 显示正在获取回复的提示
-            self.chat_history.append('<font color="blue"><b>系统:</b> 正在获取回复...</font>')
+            self.add_thinking_message()
             QApplication.processEvents()
             
             # 调用API获取回复
@@ -1151,18 +1278,141 @@ class MainWindow(QMainWindow):
                 temperature=0.1  # 使用较低的温度以获得更确定的回答
             )
             
-            # 显示回复
-            self.chat_history.append(f"<b>AI助手:</b> {response}")
+            # 移除"正在思考"消息并显示回复
+            self.remove_thinking_message()
+            self.add_message_to_chat("assistant", response)
             
         except ImportError as e:
             error_msg = "无法导入test_api模块，请确保已安装必要的库"
-            self.chat_history.append(f'<font color="red"><b>错误:</b> {error_msg}</font>')
+            self.add_system_message("错误", error_msg, "red")
             QMessageBox.critical(self, "模块错误", error_msg)
             
         except Exception as e:
             error_msg = f"API请求失败: {str(e)}"
-            self.chat_history.append(f'<font color="red"><b>错误:</b> {error_msg}</font>')
+            self.add_system_message("错误", error_msg, "red")
             QMessageBox.critical(self, "API错误", f"调用API时出错:\n{str(e)}")
+
+    def add_thinking_message(self):
+        """添加正在思考的消息提示"""
+        self.thinking_container = QWidget()
+        thinking_layout = QHBoxLayout(self.thinking_container)
+        thinking_layout.setContentsMargins(5, 5, 5, 5)
+        
+        # 设置头像
+        avatar_label = QLabel()
+        avatar_label.setFixedSize(36, 36)
+        avatar_label.setStyleSheet("""
+            background-color: #5E35B1;
+            border-radius: 18px;
+            color: white;
+            font-weight: bold;
+            qproperty-alignment: AlignCenter;
+            font-family: 'SimSun', 'simsun', serif;
+        """)
+        avatar_label.setText("AI")
+        
+        # 思考中气泡
+        thinking_bubble = QWidget()
+        bubble_layout = QVBoxLayout(thinking_bubble)
+        bubble_layout.setContentsMargins(12, 10, 12, 10)
+        
+        thinking_label = QLabel("正在思考...")
+        thinking_label.setStyleSheet("""
+            font-family: 'SimSun', 'simsun', serif;
+            font-size: 14px;
+            color: #666666;
+            background: transparent;
+        """)
+        
+        bubble_layout.addWidget(thinking_label)
+        
+        # 设置气泡样式
+        thinking_bubble.setStyleSheet("""
+            background-color: #f1f0f0;
+            border-radius: 8px;
+            padding: 2px;
+        """)
+        
+        thinking_layout.addWidget(avatar_label)
+        thinking_layout.addWidget(thinking_bubble)
+        thinking_layout.addStretch()
+        
+        # 添加到聊天历史
+        self.chat_history_layout.addWidget(self.thinking_container)
+        
+        # 滚动到底部
+        QTimer.singleShot(100, lambda: self.chat_scroll_area.verticalScrollBar().setValue(
+            self.chat_scroll_area.verticalScrollBar().maximum()))
+    
+    def remove_thinking_message(self):
+        """移除思考中的消息"""
+        if hasattr(self, 'thinking_container') and self.thinking_container:
+            self.thinking_container.deleteLater()
+            self.thinking_container = None
+    
+    def add_system_message(self, title, message, color="blue"):
+        """添加系统消息"""
+        system_container = QWidget()
+        system_layout = QVBoxLayout(system_container)
+        system_layout.setContentsMargins(5, 5, 5, 5)
+        
+        system_label = QLabel(f"<b>{title}:</b> {message}")
+        system_label.setWordWrap(True)
+        system_label.setStyleSheet(f"""
+            font-family: 'SimSun', 'simsun', serif;
+            font-size: 13px;
+            color: {color};
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            padding: 8px;
+            border: 1px solid #eeeeee;
+        """)
+        
+        system_layout.addWidget(system_label)
+        
+        # 添加到聊天历史
+        self.chat_history_layout.addWidget(system_container)
+        
+        # 滚动到底部
+        QTimer.singleShot(100, lambda: self.chat_scroll_area.verticalScrollBar().setValue(
+            self.chat_scroll_area.verticalScrollBar().maximum()))
+    
+    def get_avatar_color(self, role):
+        """根据角色获取头像背景颜色"""
+        if role == "user":
+            return "#5E5EE9"  # 用户头像颜色 - 蓝色
+        else:
+            return "#8E44AD"  # AI助手头像颜色 - 紫色
+            
+    def get_avatar_text(self, role):
+        """根据角色获取头像文本"""
+        if role == "user":
+            return "用"
+        else:
+            return "AI"
+            
+    def get_bubble_color(self, role):
+        """根据角色获取气泡背景颜色"""
+        if role == "user":
+            return "#ECF0F1"  # 用户气泡 - 浅灰色
+        else:
+            return "#F4EEFF"  # AI助手气泡 - 浅紫色
+            
+    def get_text_color(self, role):
+        """根据角色获取文本颜色"""
+        if role == "user":
+            return "#2C3E50"  # 用户文本 - 深灰色
+        else:
+            return "#2C3E50"  # AI助手文本 - 深灰色
+
+    def eventFilter(self, obj, event):
+        """事件过滤器，处理输入框的按键事件"""
+        if obj is self.chat_input and event.type() == event.Type.KeyPress:
+            if event.key() == Qt.Key.Key_Return and not event.modifiers() & Qt.KeyboardModifier.ShiftModifier:
+                # 回车键发送消息，Shift+回车是换行
+                self.send_message()
+                return True
+        return super().eventFilter(obj, event)
 
     def toggle_grid(self, checked):
         """切换网格显示状态"""
@@ -1173,6 +1423,108 @@ class MainWindow(QMainWindow):
         """切换网格吸附状态"""
         self.work_area.snap_to_grid = checked
         self.work_area.update()
+
+    def update_send_button_state(self):
+        """根据输入框内容更新发送按钮状态"""
+        has_text = len(self.chat_input.toPlainText().strip()) > 0
+        
+        if has_text:
+            # 有文本时启用按钮，设置为紫色
+            self.send_button.setEnabled(True)
+            self.send_button.setStyleSheet("""
+                QPushButton {
+                    background-color: #5E35B1;
+                    color: white;
+                    border: none;
+                    border-radius: 16px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    qproperty-text: "↑";
+                }
+                QPushButton:hover {
+                    background-color: #4527A0;
+                }
+                QPushButton:pressed {
+                    background-color: #311B92;
+                }
+            """)
+        else:
+            # 无文本时禁用按钮，设置为灰色
+            self.send_button.setEnabled(False)
+            self.send_button.setStyleSheet("""
+                QPushButton {
+                    background-color: #CCCCCC;
+                    color: white;
+                    border: none;
+                    border-radius: 16px;
+                    font-size: 16px;
+                    font-weight: bold;
+                    qproperty-text: "↑";
+                }
+            """)
+
+    def add_message_to_chat(self, role, message):
+        """添加消息到聊天界面"""
+        # 创建消息容器
+        msg_container = QWidget()
+        msg_layout = QHBoxLayout(msg_container)
+        msg_layout.setContentsMargins(5, 3, 5, 3)  # 减小上下边距
+        
+        # 设置头像和样式
+        avatar_label = QLabel()
+        avatar_label.setFixedSize(36, 36)
+        avatar_label.setStyleSheet(f"""
+            background-color: {self.get_avatar_color(role)};
+            border-radius: 18px;
+            color: white;
+            font-weight: bold;
+            qproperty-alignment: AlignCenter;
+            font-family: 'SimSun', 'simsun', serif;
+        """)
+        avatar_label.setText(self.get_avatar_text(role))
+        
+        # 消息气泡
+        message_bubble = QWidget()
+        bubble_layout = QVBoxLayout(message_bubble)
+        bubble_layout.setContentsMargins(12, 8, 12, 8)  # 减小上下边距
+        
+        message_label = QLabel(message)
+        message_label.setWordWrap(True)
+        message_label.setTextFormat(Qt.TextFormat.RichText)
+        message_label.setOpenExternalLinks(True)
+        message_label.setStyleSheet(f"""
+            font-family: 'SimSun', 'simsun', serif;
+            font-size: 14px;
+            color: {self.get_text_color(role)};
+            background: transparent;
+            line-height: 1.5;
+        """)
+        
+        bubble_layout.addWidget(message_label)
+        
+        # 设置消息气泡样式
+        message_bubble.setStyleSheet(f"""
+            background-color: {self.get_bubble_color(role)};
+            border-radius: 8px;
+            padding: 2px;
+        """)
+        
+        # 根据角色调整布局
+        if role == "user":
+            msg_layout.addStretch()
+            msg_layout.addWidget(message_bubble)
+            msg_layout.addWidget(avatar_label)
+        else:
+            msg_layout.addWidget(avatar_label)
+            msg_layout.addWidget(message_bubble)
+            msg_layout.addStretch()
+        
+        # 添加到聊天历史
+        self.chat_history_layout.addWidget(msg_container)
+        
+        # 滚动到底部
+        QTimer.singleShot(100, lambda: self.chat_scroll_area.verticalScrollBar().setValue(
+            self.chat_scroll_area.verticalScrollBar().maximum()))
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
