@@ -1,0 +1,934 @@
+2025-04-19 01:28:28,507 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-04-19 01:28:29,534 - CircuitSimulator - DEBUG - 障碍物地图已更新: 0 个障碍物单元
+2025-04-19 01:28:35,253 - CircuitSimulator - DEBUG - 障碍物地图已更新: 36 个障碍物单元
+2025-04-19 01:28:36,441 - CircuitSimulator - DEBUG - 障碍物地图已更新: 61 个障碍物单元
+2025-04-19 01:28:36,538 - CircuitSimulator - DEBUG - 障碍物地图已更新: 61 个障碍物单元
+2025-04-19 01:28:36,538 - CircuitSimulator - DEBUG - 障碍物地图已更新: 61 个障碍物单元
+2025-04-19 01:28:36,683 - CircuitSimulator - DEBUG - 障碍物地图已更新: 61 个障碍物单元
+2025-04-19 01:28:36,683 - CircuitSimulator - DEBUG - 障碍物地图已更新: 61 个障碍物单元
+2025-04-19 01:28:36,762 - CircuitSimulator - DEBUG - 障碍物地图已更新: 61 个障碍物单元
+2025-04-19 01:28:36,762 - CircuitSimulator - DEBUG - 障碍物地图已更新: 61 个障碍物单元
+2025-04-19 01:28:36,811 - CircuitSimulator - DEBUG - 障碍物地图已更新: 61 个障碍物单元
+2025-04-19 01:28:36,811 - CircuitSimulator - DEBUG - 障碍物地图已更新: 61 个障碍物单元
+2025-04-19 01:28:36,835 - CircuitSimulator - DEBUG - 障碍物地图已更新: 61 个障碍物单元
+2025-04-19 01:28:36,835 - CircuitSimulator - DEBUG - 障碍物地图已更新: 61 个障碍物单元
+2025-04-19 01:28:39,569 - CircuitSimulator - DEBUG - 障碍物地图已更新: 97 个障碍物单元
+2025-04-19 01:28:40,771 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:40,871 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:40,877 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:40,900 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:40,902 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:40,938 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:40,940 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:40,956 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:40,958 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:40,971 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:40,971 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:41,320 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:41,322 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:41,369 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:41,371 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:41,756 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -40.0), points=4
+2025-04-19 01:28:41,756 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-160.0, -40.0)
+2025-04-19 01:28:41,756 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:41,762 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:41,768 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -40.0), points=4
+2025-04-19 01:28:41,768 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:41,775 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -40.0), points=4
+2025-04-19 01:28:41,775 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:41,781 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -40.0), points=4
+2025-04-19 01:28:41,781 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:41,792 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -40.0), points=4
+2025-04-19 01:28:41,793 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:41,799 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -40.0), points=4
+2025-04-19 01:28:41,800 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:41,808 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -40.0), points=4
+2025-04-19 01:28:41,809 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:41,814 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -40.0), points=4
+2025-04-19 01:28:41,814 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:41,823 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:41,824 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:41,831 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:41,832 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:41,839 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:41,840 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:41,848 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:41,848 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:41,855 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:41,855 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:41,863 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:41,864 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:42,047 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:42,047 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:42,061 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:42,144 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:42,144 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:42,171 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:42,173 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:42,544 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:42,550 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:42,579 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:42,581 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:42,972 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:42,974 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-140.0, -20.0)
+2025-04-19 01:28:42,974 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:42,974 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:43,012 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:43,012 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:43,027 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:43,028 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:43,035 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:43,035 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,043 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:43,044 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:43,050 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:43,050 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:43,059 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:43,060 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:43,068 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:43,068 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:43,071 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:43,071 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,082 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:43,082 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,087 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:43,087 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,099 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:43,099 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,107 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:43,109 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,123 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -20.0), points=4
+2025-04-19 01:28:43,124 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,316 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -40.0), points=4
+2025-04-19 01:28:43,316 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,319 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -40.0), points=4
+2025-04-19 01:28:43,324 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,339 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -40.0), points=4
+2025-04-19 01:28:43,339 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,347 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -40.0), points=4
+2025-04-19 01:28:43,357 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -40.0), points=4
+2025-04-19 01:28:43,357 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,362 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -40.0), points=4
+2025-04-19 01:28:43,362 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,371 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -40.0), points=4
+2025-04-19 01:28:43,372 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,379 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -40.0), points=4
+2025-04-19 01:28:43,379 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,388 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -40.0), points=4
+2025-04-19 01:28:43,390 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,395 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -40.0), points=4
+2025-04-19 01:28:43,396 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,403 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -40.0), points=4
+2025-04-19 01:28:43,405 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,411 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -40.0), points=4
+2025-04-19 01:28:43,412 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,419 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -40.0), points=4
+2025-04-19 01:28:43,419 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,427 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -40.0), points=4
+2025-04-19 01:28:43,427 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,443 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -40.0), points=4
+2025-04-19 01:28:43,444 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,448 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -40.0), points=4
+2025-04-19 01:28:43,448 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,467 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -60.0), points=4
+2025-04-19 01:28:43,468 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,473 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -60.0), points=4
+2025-04-19 01:28:43,473 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,611 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -60.0), points=4
+2025-04-19 01:28:43,612 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,619 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -60.0), points=4
+2025-04-19 01:28:43,620 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,625 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -60.0), points=4
+2025-04-19 01:28:43,629 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,636 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -60.0), points=4
+2025-04-19 01:28:43,637 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,642 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -60.0), points=4
+2025-04-19 01:28:43,644 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,652 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -60.0), points=4
+2025-04-19 01:28:43,655 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,659 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -60.0), points=4
+2025-04-19 01:28:43,660 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,667 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -60.0), points=4
+2025-04-19 01:28:43,669 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,672 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -60.0), points=4
+2025-04-19 01:28:43,672 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,683 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -60.0), points=4
+2025-04-19 01:28:43,684 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,688 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -60.0), points=4
+2025-04-19 01:28:43,692 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,704 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -60.0), points=4
+2025-04-19 01:28:43,704 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,707 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,707 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,716 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,718 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,721 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,724 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,731 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,731 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,738 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,738 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,747 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,755 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,756 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,768 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,780 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,780 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,787 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,788 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,795 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,801 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,804 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,820 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,820 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,899 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,916 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,931 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,934 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,947 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,947 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,971 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:43,972 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,980 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:43,983 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:43,987 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:43,995 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:43,995 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,003 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:44,004 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,011 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:44,019 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:44,020 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,029 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:44,029 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,035 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:44,036 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,043 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:44,043 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,051 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:44,051 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,058 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:44,058 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,066 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:44,066 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,077 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:44,083 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:44,084 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,091 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:44,092 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,099 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:44,108 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -100.0), points=4
+2025-04-19 01:28:44,108 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,115 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -100.0), points=4
+2025-04-19 01:28:44,116 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,131 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -100.0), points=4
+2025-04-19 01:28:44,131 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,147 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -100.0), points=4
+2025-04-19 01:28:44,148 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,155 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -100.0), points=4
+2025-04-19 01:28:44,440 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,440 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,646 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-140.0, 0.0), end=PyQt6.QtCore.QPointF(-140.0, 0.0), points=4
+2025-04-19 01:28:44,652 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-140.0, 0.0)
+2025-04-19 01:28:44,653 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,655 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:44,768 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,047 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,048 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,260 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -100.0), points=4
+2025-04-19 01:28:45,260 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-160.0, -100.0)
+2025-04-19 01:28:45,260 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,260 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,284 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -100.0), points=4
+2025-04-19 01:28:45,284 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,292 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -100.0), points=4
+2025-04-19 01:28:45,293 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,298 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -100.0), points=4
+2025-04-19 01:28:45,298 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,309 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:45,310 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,316 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:45,316 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,322 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:45,326 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,331 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:45,331 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,341 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -80.0), points=4
+2025-04-19 01:28:45,341 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,343 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:45,348 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,355 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -60.0), points=4
+2025-04-19 01:28:45,357 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,363 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -40.0), points=4
+2025-04-19 01:28:45,364 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,370 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -40.0), points=4
+2025-04-19 01:28:45,372 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,379 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -40.0), points=4
+2025-04-19 01:28:45,380 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,387 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -40.0), points=4
+2025-04-19 01:28:45,388 - CircuitSimulator - DEBUG - 障碍物地图已更新: 127 个障碍物单元
+2025-04-19 01:28:45,395 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:45,395 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:45,405 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:45,411 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:45,411 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:45,425 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -100.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:45,428 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:45,701 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:45,701 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:45,847 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-100.0, 0.0), end=PyQt6.QtCore.QPointF(-100.0, 0.0), points=4
+2025-04-19 01:28:45,853 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-100.0, 0.0)
+2025-04-19 01:28:45,854 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:45,855 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:45,968 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-100.0, 0.0), end=PyQt6.QtCore.QPointF(-100.0, 0.0), points=4
+2025-04-19 01:28:45,968 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:46,465 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-60.0, -20.0), end=PyQt6.QtCore.QPointF(-60.0, -20.0), points=4
+2025-04-19 01:28:46,465 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-60.0, -20.0)
+2025-04-19 01:28:46,465 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:46,471 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:46,592 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:47,277 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:47,277 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:47,447 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-48.0, -20.0), points=4
+2025-04-19 01:28:47,447 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-48.0, -20.0)
+2025-04-19 01:28:47,447 - CircuitSimulator - DEBUG - 导线起点连接到: 开关
+2025-04-19 01:28:47,447 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:47,447 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:47,475 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-60.0, -20.0), points=4
+2025-04-19 01:28:47,475 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:47,483 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-60.0, -20.0), points=4
+2025-04-19 01:28:47,491 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-60.0, -20.0), points=4
+2025-04-19 01:28:47,498 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-60.0, -20.0), points=4
+2025-04-19 01:28:47,509 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-60.0, -20.0), points=4
+2025-04-19 01:28:47,515 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-60.0, -20.0), points=4
+2025-04-19 01:28:47,520 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-60.0, -20.0), points=4
+2025-04-19 01:28:47,531 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -20.0), points=4
+2025-04-19 01:28:47,531 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:47,539 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -20.0), points=4
+2025-04-19 01:28:47,548 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -20.0), points=4
+2025-04-19 01:28:47,555 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -20.0), points=4
+2025-04-19 01:28:47,563 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -20.0), points=4
+2025-04-19 01:28:47,571 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -20.0), points=4
+2025-04-19 01:28:47,580 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -20.0), points=4
+2025-04-19 01:28:47,587 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -20.0), points=4
+2025-04-19 01:28:47,594 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -20.0), points=4
+2025-04-19 01:28:47,604 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -20.0), points=4
+2025-04-19 01:28:47,605 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:47,615 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -20.0), points=4
+2025-04-19 01:28:47,623 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -20.0), points=4
+2025-04-19 01:28:47,637 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -20.0), points=4
+2025-04-19 01:28:47,647 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -20.0), points=4
+2025-04-19 01:28:47,655 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -20.0), points=4
+2025-04-19 01:28:47,662 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -20.0), points=4
+2025-04-19 01:28:47,671 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -20.0), points=4
+2025-04-19 01:28:47,679 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -20.0), points=4
+2025-04-19 01:28:47,715 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -20.0), points=4
+2025-04-19 01:28:47,732 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -20.0), points=4
+2025-04-19 01:28:47,738 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -20.0), points=4
+2025-04-19 01:28:47,748 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -20.0), points=4
+2025-04-19 01:28:47,755 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -20.0), points=4
+2025-04-19 01:28:47,763 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,764 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:47,780 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,787 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,795 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,811 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,820 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,835 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,842 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,852 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,859 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,875 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,892 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,899 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,907 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,915 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,923 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,932 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,939 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:47,947 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-48.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -20.0), points=4
+2025-04-19 01:28:48,147 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:48,150 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:48,200 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:48,205 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:48,628 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:48,629 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:49,074 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:49,077 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:49,223 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-186.0, -20.0), points=4
+2025-04-19 01:28:49,229 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-186.0, -20.0)
+2025-04-19 01:28:49,229 - CircuitSimulator - DEBUG - 导线起点连接到: 定值电阻
+2025-04-19 01:28:49,229 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:49,229 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:49,302 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-180.0, -20.0), points=4
+2025-04-19 01:28:49,302 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:49,319 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-180.0, -20.0), points=4
+2025-04-19 01:28:49,333 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -20.0), points=4
+2025-04-19 01:28:49,333 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:49,349 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -20.0), points=4
+2025-04-19 01:28:49,351 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -20.0), points=4
+2025-04-19 01:28:49,359 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -20.0), points=4
+2025-04-19 01:28:49,370 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -20.0), points=4
+2025-04-19 01:28:49,375 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -20.0), points=4
+2025-04-19 01:28:49,381 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -20.0), points=4
+2025-04-19 01:28:49,392 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -20.0), points=4
+2025-04-19 01:28:49,400 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,401 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:49,407 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,459 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,475 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,568 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,578 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,588 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,607 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,615 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,623 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,629 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,639 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,647 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,662 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,671 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,683 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-186.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -20.0), points=4
+2025-04-19 01:28:49,916 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:49,916 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:50,156 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:50,156 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:50,201 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:50,204 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:50,675 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:50,677 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:50,911 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-288.0, -20.0), points=4
+2025-04-19 01:28:50,911 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-288.0, -20.0)
+2025-04-19 01:28:50,913 - CircuitSimulator - DEBUG - 导线起点连接到: 滑动变阻器
+2025-04-19 01:28:50,913 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:50,916 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:50,995 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -20.0), points=4
+2025-04-19 01:28:50,998 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:51,001 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -20.0), points=4
+2025-04-19 01:28:51,011 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -20.0), points=4
+2025-04-19 01:28:51,019 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -20.0), points=4
+2025-04-19 01:28:51,025 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -40.0), points=4
+2025-04-19 01:28:51,025 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:51,035 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -40.0), points=4
+2025-04-19 01:28:51,044 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -40.0), points=4
+2025-04-19 01:28:51,047 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -40.0), points=4
+2025-04-19 01:28:51,059 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -40.0), points=4
+2025-04-19 01:28:51,060 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:51,067 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -40.0), points=4
+2025-04-19 01:28:51,075 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -40.0), points=4
+2025-04-19 01:28:51,083 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -40.0), points=4
+2025-04-19 01:28:51,091 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -60.0), points=4
+2025-04-19 01:28:51,092 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:51,098 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -60.0), points=4
+2025-04-19 01:28:51,107 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -60.0), points=4
+2025-04-19 01:28:51,113 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -60.0), points=4
+2025-04-19 01:28:51,123 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -60.0), points=4
+2025-04-19 01:28:51,132 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -60.0), points=4
+2025-04-19 01:28:51,139 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -60.0), points=4
+2025-04-19 01:28:51,147 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,147 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:51,155 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,163 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,171 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,179 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,187 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,193 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,203 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,211 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,228 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,235 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,243 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,250 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,260 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,267 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,276 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,283 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,289 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,302 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -80.0), points=4
+2025-04-19 01:28:51,315 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -100.0), points=4
+2025-04-19 01:28:51,316 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:51,320 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -100.0), points=4
+2025-04-19 01:28:51,347 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -100.0), points=4
+2025-04-19 01:28:51,363 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -100.0), points=4
+2025-04-19 01:28:51,387 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -100.0), points=4
+2025-04-19 01:28:51,419 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -100.0), points=4
+2025-04-19 01:28:51,423 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -100.0), points=4
+2025-04-19 01:28:51,435 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -100.0), points=4
+2025-04-19 01:28:51,458 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-300.0, -100.0), points=4
+2025-04-19 01:28:51,465 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,471 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:51,487 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,495 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,508 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,522 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,531 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,547 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,556 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,563 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,571 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,575 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,595 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,602 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,611 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,627 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,635 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,646 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,659 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,675 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,684 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-280.0, -100.0), points=4
+2025-04-19 01:28:51,691 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-260.0, -100.0), points=4
+2025-04-19 01:28:51,692 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:51,699 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-260.0, -100.0), points=4
+2025-04-19 01:28:51,707 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-260.0, -100.0), points=4
+2025-04-19 01:28:51,714 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-260.0, -100.0), points=4
+2025-04-19 01:28:51,722 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-260.0, -100.0), points=4
+2025-04-19 01:28:51,731 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-260.0, -100.0), points=4
+2025-04-19 01:28:51,739 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-260.0, -100.0), points=4
+2025-04-19 01:28:51,749 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-260.0, -100.0), points=4
+2025-04-19 01:28:51,755 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-260.0, -120.0), points=4
+2025-04-19 01:28:51,755 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:51,763 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-260.0, -120.0), points=4
+2025-04-19 01:28:51,771 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,771 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:51,779 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,787 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,799 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,807 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,811 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,819 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,827 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,835 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,843 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,851 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,859 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,868 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,874 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,883 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,891 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,907 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,909 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,939 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-240.0, -120.0), points=4
+2025-04-19 01:28:51,947 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:51,948 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:51,955 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:51,971 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:51,988 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:51,992 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:52,002 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:52,012 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:52,019 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:52,027 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:52,040 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:52,047 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:52,055 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:52,062 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:52,067 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:52,076 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:52,086 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:52,095 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:52,103 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-220.0, -120.0), points=4
+2025-04-19 01:28:52,111 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -120.0), points=4
+2025-04-19 01:28:52,112 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:52,121 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -120.0), points=4
+2025-04-19 01:28:52,127 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -120.0), points=4
+2025-04-19 01:28:52,135 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -120.0), points=4
+2025-04-19 01:28:52,143 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -120.0), points=4
+2025-04-19 01:28:52,151 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -120.0), points=4
+2025-04-19 01:28:52,159 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -120.0), points=4
+2025-04-19 01:28:52,168 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-200.0, -120.0), points=4
+2025-04-19 01:28:52,174 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-180.0, -120.0), points=4
+2025-04-19 01:28:52,174 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:52,183 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-180.0, -120.0), points=4
+2025-04-19 01:28:52,190 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-180.0, -120.0), points=4
+2025-04-19 01:28:52,195 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-180.0, -120.0), points=4
+2025-04-19 01:28:52,203 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-180.0, -120.0), points=4
+2025-04-19 01:28:52,211 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -120.0), points=4
+2025-04-19 01:28:52,211 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:52,219 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -120.0), points=4
+2025-04-19 01:28:52,227 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -120.0), points=4
+2025-04-19 01:28:52,239 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -120.0), points=4
+2025-04-19 01:28:52,247 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -120.0), points=4
+2025-04-19 01:28:52,255 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-160.0, -120.0), points=4
+2025-04-19 01:28:52,262 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -120.0), points=4
+2025-04-19 01:28:52,265 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:52,271 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -120.0), points=4
+2025-04-19 01:28:52,279 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -120.0), points=4
+2025-04-19 01:28:52,287 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -120.0), points=4
+2025-04-19 01:28:52,296 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -120.0), points=4
+2025-04-19 01:28:52,302 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-140.0, -120.0), points=4
+2025-04-19 01:28:52,311 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -120.0), points=4
+2025-04-19 01:28:52,311 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:52,320 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -120.0), points=4
+2025-04-19 01:28:52,320 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -120.0), points=4
+2025-04-19 01:28:52,331 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -120.0), points=4
+2025-04-19 01:28:52,339 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -120.0), points=4
+2025-04-19 01:28:52,346 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -120.0), points=4
+2025-04-19 01:28:52,356 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -120.0), points=4
+2025-04-19 01:28:52,363 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -120.0), points=4
+2025-04-19 01:28:52,379 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -120.0), points=4
+2025-04-19 01:28:52,411 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -120.0), points=4
+2025-04-19 01:28:52,419 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -120.0), points=4
+2025-04-19 01:28:52,426 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-120.0, -120.0), points=4
+2025-04-19 01:28:52,435 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -120.0), points=4
+2025-04-19 01:28:52,436 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:52,441 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -120.0), points=4
+2025-04-19 01:28:52,450 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -120.0), points=4
+2025-04-19 01:28:52,459 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -120.0), points=4
+2025-04-19 01:28:52,467 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -120.0), points=4
+2025-04-19 01:28:52,475 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -120.0), points=4
+2025-04-19 01:28:52,492 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -120.0), points=4
+2025-04-19 01:28:52,521 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-100.0, -120.0), points=4
+2025-04-19 01:28:52,539 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,539 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:52,547 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,556 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,563 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,571 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,574 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,587 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,611 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,619 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,648 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,656 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,675 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,716 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,720 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,730 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,739 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-80.0, -120.0), points=4
+2025-04-19 01:28:52,748 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-60.0, -120.0), points=4
+2025-04-19 01:28:52,748 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:52,756 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-60.0, -120.0), points=4
+2025-04-19 01:28:52,763 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-60.0, -120.0), points=4
+2025-04-19 01:28:52,771 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-60.0, -120.0), points=4
+2025-04-19 01:28:52,780 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-60.0, -120.0), points=4
+2025-04-19 01:28:53,204 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-288.0, -20.0), end=PyQt6.QtCore.QPointF(-68.0, -120.0), points=4
+2025-04-19 01:28:53,204 - CircuitSimulator - DEBUG - 导线终点连接到: 电源
+2025-04-19 01:28:53,205 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:53,253 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:53,255 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:53,291 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:53,294 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:53,623 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:53,629 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:54,007 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:54,007 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:54,219 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:54,219 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:54,236 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:54,237 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:54,648 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:54,648 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:54,847 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(0.0, -120.0), points=4
+2025-04-19 01:28:54,847 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(0.0, -120.0)
+2025-04-19 01:28:54,847 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:54,847 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:54,913 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(0.0, -120.0), points=4
+2025-04-19 01:28:54,931 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(0.0, -120.0), points=4
+2025-04-19 01:28:54,939 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(0.0, -120.0), points=4
+2025-04-19 01:28:54,947 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(0.0, -120.0), points=4
+2025-04-19 01:28:54,955 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(0.0, -120.0), points=4
+2025-04-19 01:28:54,963 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(0.0, -120.0), points=4
+2025-04-19 01:28:54,971 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(0.0, -120.0), points=4
+2025-04-19 01:28:54,978 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(0.0, -120.0), points=4
+2025-04-19 01:28:54,987 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(0.0, -120.0), points=4
+2025-04-19 01:28:54,994 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(0.0, -100.0), points=4
+2025-04-19 01:28:54,996 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:55,003 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(0.0, -100.0), points=4
+2025-04-19 01:28:55,011 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(0.0, -100.0), points=4
+2025-04-19 01:28:55,024 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -100.0), points=4
+2025-04-19 01:28:55,024 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:55,030 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -80.0), points=4
+2025-04-19 01:28:55,030 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:55,038 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -80.0), points=4
+2025-04-19 01:28:55,047 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -80.0), points=4
+2025-04-19 01:28:55,055 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -80.0), points=4
+2025-04-19 01:28:55,059 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -80.0), points=4
+2025-04-19 01:28:55,067 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -80.0), points=4
+2025-04-19 01:28:55,075 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,075 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:55,083 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,091 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,108 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,113 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,123 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,132 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,138 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,147 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,163 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,171 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,188 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,195 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,211 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,220 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,226 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,235 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -60.0), points=4
+2025-04-19 01:28:55,252 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,253 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:55,259 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,265 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,275 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,284 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,291 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,299 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,312 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,323 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,331 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,338 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,346 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,355 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,362 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,371 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,393 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,419 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,475 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,492 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,499 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,507 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,513 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,522 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,538 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -40.0), points=4
+2025-04-19 01:28:55,563 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -20.0), points=4
+2025-04-19 01:28:55,564 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:55,578 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(20.0, -20.0), points=4
+2025-04-19 01:28:55,595 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(0.0, -20.0), points=4
+2025-04-19 01:28:55,596 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:55,611 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(0.0, -20.0), points=4
+2025-04-19 01:28:55,956 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(0.0, -120.0), end=PyQt6.QtCore.QPointF(8.0, -20.0), points=4
+2025-04-19 01:28:55,956 - CircuitSimulator - DEBUG - 导线终点连接到: 开关
+2025-04-19 01:28:55,956 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:56,319 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:56,326 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:56,331 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:56,333 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:56,357 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:56,358 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:56,656 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, 0.0), end=PyQt6.QtCore.QPointF(-20.0, 0.0), points=4
+2025-04-19 01:28:56,656 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-20.0, 0.0)
+2025-04-19 01:28:56,656 - CircuitSimulator - DEBUG - 开关状态改变: True
+2025-04-19 01:28:56,656 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:56,659 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:56,768 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:57,128 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:57,128 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:57,299 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:57,301 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:57,331 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:57,334 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:57,474 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, -20.0), points=4
+2025-04-19 01:28:57,474 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-20.0, -20.0)
+2025-04-19 01:28:57,477 - CircuitSimulator - DEBUG - 开关状态改变: False
+2025-04-19 01:28:57,477 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:57,478 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:57,546 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, -20.0), points=4
+2025-04-19 01:28:57,546 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:57,550 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, -20.0), points=4
+2025-04-19 01:28:57,556 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:57,563 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, -20.0), points=4
+2025-04-19 01:28:57,563 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:57,571 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, -20.0), points=4
+2025-04-19 01:28:57,572 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:57,579 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, 0.0), points=4
+2025-04-19 01:28:57,580 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:57,584 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, 0.0), points=4
+2025-04-19 01:28:57,584 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:57,603 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, 0.0), points=4
+2025-04-19 01:28:57,605 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:57,617 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, 20.0), points=4
+2025-04-19 01:28:57,617 - CircuitSimulator - DEBUG - 障碍物地图已更新: 121 个障碍物单元
+2025-04-19 01:28:57,617 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, 20.0), points=4
+2025-04-19 01:28:57,617 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:57,625 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, 40.0), points=4
+2025-04-19 01:28:57,625 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:57,641 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, 60.0), points=4
+2025-04-19 01:28:57,643 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:57,648 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, 60.0), points=4
+2025-04-19 01:28:57,648 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:57,662 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, 80.0), points=4
+2025-04-19 01:28:57,662 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:57,662 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, 80.0), points=4
+2025-04-19 01:28:57,662 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:57,671 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, 80.0), points=4
+2025-04-19 01:28:57,672 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:57,675 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-20.0, -20.0), end=PyQt6.QtCore.QPointF(-20.0, 80.0), points=4
+2025-04-19 01:28:57,675 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:57,874 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:57,877 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,210 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,210 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,521 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -40.0), points=4
+2025-04-19 01:28:58,521 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-160.0, -40.0)
+2025-04-19 01:28:58,521 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,527 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,555 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -40.0), points=4
+2025-04-19 01:28:58,563 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -40.0), points=4
+2025-04-19 01:28:58,563 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,571 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:58,574 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,578 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:58,580 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,588 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:58,589 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,593 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:58,593 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,602 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:58,605 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,612 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:58,612 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,620 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, -20.0), points=4
+2025-04-19 01:28:58,623 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,627 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 0.0), points=4
+2025-04-19 01:28:58,627 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,634 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 0.0), points=4
+2025-04-19 01:28:58,637 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,644 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 0.0), points=4
+2025-04-19 01:28:58,644 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,649 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 0.0), points=4
+2025-04-19 01:28:58,653 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,660 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 0.0), points=4
+2025-04-19 01:28:58,660 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,666 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 0.0), points=4
+2025-04-19 01:28:58,666 - CircuitSimulator - DEBUG - 障碍物地图已更新: 126 个障碍物单元
+2025-04-19 01:28:58,676 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 20.0), points=4
+2025-04-19 01:28:58,676 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,684 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 20.0), points=4
+2025-04-19 01:28:58,685 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,691 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 20.0), points=4
+2025-04-19 01:28:58,692 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,698 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 20.0), points=4
+2025-04-19 01:28:58,698 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,713 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 20.0), points=4
+2025-04-19 01:28:58,714 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,720 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 20.0), points=4
+2025-04-19 01:28:58,720 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,728 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 20.0), points=4
+2025-04-19 01:28:58,729 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,735 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 20.0), points=4
+2025-04-19 01:28:58,736 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,744 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 20.0), points=4
+2025-04-19 01:28:58,745 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,752 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 20.0), points=4
+2025-04-19 01:28:58,752 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,762 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 20.0), points=4
+2025-04-19 01:28:58,762 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,768 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 40.0), points=4
+2025-04-19 01:28:58,768 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,776 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 40.0), points=4
+2025-04-19 01:28:58,776 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,783 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 40.0), points=4
+2025-04-19 01:28:58,784 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,792 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 40.0), points=4
+2025-04-19 01:28:58,794 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,799 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 40.0), points=4
+2025-04-19 01:28:58,800 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,803 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 40.0), points=4
+2025-04-19 01:28:58,806 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,810 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 40.0), points=4
+2025-04-19 01:28:58,810 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,819 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 40.0), points=4
+2025-04-19 01:28:58,820 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,827 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 40.0), points=4
+2025-04-19 01:28:58,827 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,836 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 40.0), points=4
+2025-04-19 01:28:58,836 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,840 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 40.0), points=4
+2025-04-19 01:28:58,845 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,850 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 40.0), points=4
+2025-04-19 01:28:58,850 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:58,867 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 40.0), points=4
+2025-04-19 01:28:58,874 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-160.0, -40.0), end=PyQt6.QtCore.QPointF(-160.0, 40.0), points=4
+2025-04-19 01:28:58,874 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,125 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,128 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,339 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,339 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,371 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,374 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,521 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-260.0, -40.0), points=4
+2025-04-19 01:28:59,521 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-260.0, -40.0)
+2025-04-19 01:28:59,521 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,527 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,528 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-260.0, -40.0), points=4
+2025-04-19 01:28:59,532 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,547 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-260.0, -20.0), points=4
+2025-04-19 01:28:59,548 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,555 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-260.0, -20.0), points=4
+2025-04-19 01:28:59,557 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,563 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-260.0, -20.0), points=4
+2025-04-19 01:28:59,564 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,571 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-260.0, -20.0), points=4
+2025-04-19 01:28:59,572 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,579 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-260.0, -20.0), points=4
+2025-04-19 01:28:59,580 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,588 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-280.0, 0.0), points=4
+2025-04-19 01:28:59,588 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,593 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-280.0, 0.0), points=4
+2025-04-19 01:28:59,593 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,607 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-280.0, 0.0), points=4
+2025-04-19 01:28:59,608 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,616 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-280.0, 0.0), points=4
+2025-04-19 01:28:59,617 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:28:59,625 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-280.0, 0.0), points=4
+2025-04-19 01:28:59,626 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,630 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-300.0, 0.0), points=4
+2025-04-19 01:28:59,630 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,641 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-300.0, 20.0), points=4
+2025-04-19 01:28:59,642 - CircuitSimulator - DEBUG - 障碍物地图已更新: 132 个障碍物单元
+2025-04-19 01:28:59,649 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-300.0, 20.0), points=4
+2025-04-19 01:28:59,649 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:28:59,658 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-300.0, 20.0), points=4
+2025-04-19 01:28:59,658 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:28:59,665 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-300.0, 20.0), points=4
+2025-04-19 01:28:59,666 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:28:59,674 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-260.0, -40.0), end=PyQt6.QtCore.QPointF(-300.0, 20.0), points=4
+2025-04-19 01:28:59,675 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:28:59,932 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:28:59,932 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,201 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,205 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,220 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,221 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,568 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,568 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,709 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-40.0, -120.0), points=4
+2025-04-19 01:29:00,710 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-40.0, -120.0)
+2025-04-19 01:29:00,711 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,711 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,731 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-40.0, -120.0), points=4
+2025-04-19 01:29:00,732 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,743 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-40.0, -120.0), points=4
+2025-04-19 01:29:00,755 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-40.0, -120.0), points=4
+2025-04-19 01:29:00,756 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,764 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-40.0, -120.0), points=4
+2025-04-19 01:29:00,765 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,771 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-40.0, -140.0), points=4
+2025-04-19 01:29:00,772 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,782 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-40.0, -140.0), points=4
+2025-04-19 01:29:00,783 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,793 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-40.0, -140.0), points=4
+2025-04-19 01:29:00,793 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,801 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-40.0, -140.0), points=4
+2025-04-19 01:29:00,802 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,812 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-60.0, -160.0), points=4
+2025-04-19 01:29:00,812 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,813 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-60.0, -160.0), points=4
+2025-04-19 01:29:00,813 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,824 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-60.0, -160.0), points=4
+2025-04-19 01:29:00,825 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,832 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-60.0, -160.0), points=4
+2025-04-19 01:29:00,834 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,845 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-80.0, -180.0), points=4
+2025-04-19 01:29:00,845 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,857 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-100.0, -200.0), points=4
+2025-04-19 01:29:00,857 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,866 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-120.0, -200.0), points=4
+2025-04-19 01:29:00,866 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,877 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-140.0, -220.0), points=4
+2025-04-19 01:29:00,878 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,886 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-140.0, -240.0), points=4
+2025-04-19 01:29:00,886 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,897 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-160.0, -260.0), points=4
+2025-04-19 01:29:00,898 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:00,940 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-40.0, -120.0), end=PyQt6.QtCore.QPointF(-160.0, -260.0), points=4
+2025-04-19 01:29:00,940 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:01,128 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元
+2025-04-19 01:29:01,128 - CircuitSimulator - DEBUG - 障碍物地图已更新: 138 个障碍物单元

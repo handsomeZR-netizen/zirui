@@ -1,0 +1,1277 @@
+2025-04-19 01:03:25,247 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-04-19 01:03:32,509 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(8.0, -140.0), end=PyQt6.QtCore.QPointF(8.0, -140.0), points=4
+2025-04-19 01:03:32,509 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(8.0, -140.0)
+2025-04-19 01:03:32,509 - CircuitSimulator - DEBUG - 导线起点连接到: 电源
+2025-04-19 01:03:32,515 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,544 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,552 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,564 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,571 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,580 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,588 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,596 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,604 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,611 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,619 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,627 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,635 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,643 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,651 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,659 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,668 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,675 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,683 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,691 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,699 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,707 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,716 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,727 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,740 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,752 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,759 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,775 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,784 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,796 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,803 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,812 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,819 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,827 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,835 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,843 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,851 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,859 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,867 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,871 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,880 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,888 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:32,903 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,076 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,084 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,092 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,100 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,109 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,115 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,124 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,131 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,140 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,149 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,155 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,164 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,171 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,179 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,187 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,201 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,272 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,364 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,371 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,379 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,390 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,395 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,400 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,408 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,416 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,423 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,433 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,443 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,451 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,608 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,615 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,631 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,648 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,655 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,664 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,671 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,680 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,692 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,699 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,972 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:33,972 - CircuitSimulator - DEBUG - 导线终点连接到: 开关
+2025-04-19 01:03:34,862 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(8.0, -140.0), end=PyQt6.QtCore.QPointF(8.0, -140.0), points=4
+2025-04-19 01:03:34,862 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(8.0, -140.0)
+2025-04-19 01:03:34,862 - CircuitSimulator - DEBUG - 导线起点连接到: 电源
+2025-04-19 01:03:34,868 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:34,874 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:34,884 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:34,892 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:34,900 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:34,908 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:34,915 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:34,924 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:34,931 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:34,939 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:34,948 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:34,956 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:34,965 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:34,972 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:34,980 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:34,984 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,003 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,011 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,019 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,028 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,035 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,043 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,052 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,060 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,068 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,077 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,083 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,093 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,099 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,107 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,111 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,120 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,127 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,216 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,249 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,266 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,595 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,607 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,616 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,640 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,940 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,948 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,956 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,967 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,972 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,981 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,987 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:35,997 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:36,004 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:36,014 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 163, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:36,020 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 100, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:36,027 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 100, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:36,032 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 100, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:36,040 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 100, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:36,047 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 100, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:36,060 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 100, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:36,068 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 100, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined
+2025-04-19 01:03:36,075 - CircuitSimulator - ERROR - 更新导线路径时出错: name 'QLineF' is not defined
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 100, in update_path
+    path_obstructed = self.check_path_obstructed(
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 407, in check_path_obstructed
+    if self.line_intersects_rect(start, mid1, component_rect) or \
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 377, in line_intersects_rect
+    line = QLineF(p1, p2)
+NameError: name 'QLineF' is not defined

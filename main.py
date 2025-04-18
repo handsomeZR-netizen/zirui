@@ -8,10 +8,11 @@ from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout,
                            QGraphicsScene, QMessageBox, QLineEdit, QSlider,
                            QDialog, QFormLayout, QDoubleSpinBox, QFileDialog,
                            QGroupBox, QComboBox, QCheckBox, QGridLayout, QMenu,
-                           QTextEdit, QSplitter, QScrollArea)
+                           QTextEdit, QSplitter, QScrollArea, QListWidget, QListWidgetItem)
 from PyQt6.QtCore import Qt, QMimeData, QPointF, QTimer, QLineF, pyqtSignal, QPoint, QSettings
 from PyQt6.QtGui import QDrag, QPainter, QColor, QPen, QBrush, QTransform, QPixmap
 from components import Component, Circuit, Wire, ConnectionPoint, logger
+import experiment_manager
 
 class PropertyDialog(QDialog):
     def __init__(self, component, parent=None):
@@ -72,17 +73,17 @@ class ComponentButton(QPushButton):
         super().__init__(name, parent)
         self.setAcceptDrops(True)
         self.component_name = name
-        self.setMinimumSize(100, 35)
-        self.setMaximumSize(105, 35)
+        self.setMinimumSize(120, 38)  # 更新默认最小大小
+        self.setMaximumSize(130, 38)  # 更新默认最大大小
         self.setStyleSheet("""
             QPushButton {
                 background-color: #2196F3;
                 color: white;
                 border: none;
-                border-radius: 4px;
-                padding: 4px;
-                font-size: 13px;
-                margin: 2px;
+                border-radius: 5px;
+                padding: 6px;
+                font-size: 14px;
+                margin: 3px;
                 text-align: center;
                 qproperty-alignment: AlignCenter;
                 font-family: 'SimSun', 'simsun', serif;
@@ -445,9 +446,17 @@ class WorkArea(QGraphicsView):
             self.scale(1.0 / zoom_factor, 1.0 / zoom_factor)
             
     def clear_circuit(self):
+        """清空电路画布"""
         self.scene().clear()
         self.circuit = Circuit()
-        
+        self.components = []
+        self.wires = []
+        self.current_wire = None
+        # 重置电气参数
+        self.voltage = 5.0
+        self.simulation_running = False
+        self.simulation_status = "未开始"
+    
     def save_circuit(self, filename):
         try:
             with open(filename, 'w', encoding='utf-8') as f:
@@ -511,7 +520,7 @@ class WorkArea(QGraphicsView):
         self.simulation_status = "已停止"
         # 不清除计算结果，只更新状态
         self.update()
-        
+    
     def reset_simulation(self):
         """重置仿真（清除所有计算结果）"""
         self.simulation_running = False
@@ -570,6 +579,13 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("物理电学实验仿真软件")
         self.setMinimumSize(1200, 800)
         
+        # 设置实验配置文件路径
+        self.experiment_file = os.path.join("experiments", "electrical_experiments.json")
+        
+        # 加载实验列表
+        self.experiments = experiment_manager.load_experiments(self.experiment_file)
+        self.current_experiment = None
+        
         # 创建主分割器
         self.main_splitter = QSplitter(Qt.Orientation.Horizontal)
         self.setCentralWidget(self.main_splitter)
@@ -603,6 +619,11 @@ class MainWindow(QMainWindow):
         clear_action = file_menu.addAction("清空电路")
         clear_action.triggered.connect(self.clear_circuit)
         
+        # 添加实验菜单
+        experiments_menu = self.menubar.addMenu("实验")
+        refresh_experiments_action = experiments_menu.addAction("刷新实验列表")
+        refresh_experiments_action.triggered.connect(self.refresh_experiments)
+        
         # 视图菜单
         view_menu = self.menubar.addMenu("视图")
         
@@ -620,23 +641,219 @@ class MainWindow(QMainWindow):
         
         # 创建左侧工具栏
         toolbar = QWidget()
-        toolbar.setFixedWidth(220)  # 固定宽度防止过宽
+        toolbar.setFixedWidth(280)  # 进一步增加工具栏宽度从250到280
         toolbar_layout = QVBoxLayout(toolbar)
-        toolbar_layout.setSpacing(6)  # 减小间距
-        toolbar_layout.setContentsMargins(3, 3, 3, 3)  # 减小边距
+        toolbar_layout.setSpacing(10)  # 进一步增加组件之间的垂直间距
+        toolbar_layout.setContentsMargins(5, 5, 5, 5)  # 调整边距
+        
+        # 添加实验目录分组
+        experiments_group = QGroupBox("物理电学实验目录")
+        experiments_layout = QVBoxLayout(experiments_group)
+        experiments_layout.setSpacing(10)  # 进一步增加内部组件间距
+        experiments_layout.setContentsMargins(10, 25, 10, 10)  # 增加内边距
+        
+        # 添加实验选择提示标签
+        experiment_label = QLabel("请从下方选择一个实验开始探究：")
+        experiment_label.setStyleSheet("font-weight: bold; color: #333; font-size: 14px;")
+        experiment_label.setWordWrap(True)  # 允许文本换行
+        experiment_label.setMinimumHeight(30)  # 设置最小高度
+        experiments_layout.addWidget(experiment_label)
+        
+        # 添加实验列表
+        self.experiment_list = QListWidget()
+        self.experiment_list.setStyleSheet("""
+            QListWidget {
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                background-color: white;
+                font-size: 14px;
+                font-family: 'SimSun', 'simsun', serif;
+                padding: 5px;
+            }
+            QListWidget::item {
+                height: 35px;  /* 进一步增加项目高度 */
+                padding: 6px;
+                border-bottom: 1px solid #eee;
+            }
+            QListWidget::item:selected {
+                background-color: #3498db;
+                color: white;
+            }
+            QListWidget::item:hover {
+                background-color: #e0f0ff;
+            }
+        """)
+        self.experiment_list.setMinimumHeight(200)  # 进一步增加列表最小高度
+        self.populate_experiment_list()
+        self.experiment_list.currentItemChanged.connect(self.handle_experiment_selected)
+        experiments_layout.addWidget(self.experiment_list)
+        
+        # 添加状态显示区域
+        self.experiment_status = QLabel("当前未选择实验")
+        self.experiment_status.setStyleSheet("""
+            font-weight: bold;
+            color: #2c3e50;
+            background-color: #ecf0f1;
+            padding: 10px;  /* 增加内边距 */
+            margin-top: 8px;  /* 增加上边距 */
+            border-radius: 5px;
+            font-size: 14px;  /* 增加字体大小 */
+            font-family: 'SimSun', 'simsun', serif;
+        """)
+        self.experiment_status.setWordWrap(True)  # 允许文本换行
+        self.experiment_status.setMinimumHeight(35)  # 设置最小高度
+        experiments_layout.addWidget(self.experiment_status)
+        
+        # 添加任务目标区域
+        goal_layout = QVBoxLayout()
+        goal_layout.setSpacing(8)  # 增加间距
+        goal_label = QLabel("实验目标：")
+        goal_label.setStyleSheet("font-weight: bold; color: #333; margin-top: 10px; font-size: 14px;")
+        self.goal_text = QTextEdit()
+        self.goal_text.setReadOnly(True)
+        self.goal_text.setMinimumHeight(90)  # 增加最小高度
+        self.goal_text.setMaximumHeight(120)  # 增加最大高度
+        self.goal_text.setStyleSheet("""
+            QTextEdit {
+                background-color: #f8f8f8;
+                border: 1px solid #ddd;
+                border-radius: 5px;
+                font-size: 14px;
+                font-family: 'SimSun', 'simsun', serif;
+                padding: 10px;
+                line-height: 1.5;
+            }
+        """)
+        goal_layout.addWidget(goal_label)
+        goal_layout.addWidget(self.goal_text)
+        experiments_layout.addLayout(goal_layout)
+        
+        # 添加交互按钮 - 优化布局
+        buttons_layout = QVBoxLayout()  # 改为垂直布局
+        buttons_layout.setSpacing(10)  # 增加按钮之间的间距
+        buttons_layout.setContentsMargins(0, 8, 0, 0)  # 增加上边距
+        
+        # 上排按钮（报告进度和请求提示）
+        top_buttons = QHBoxLayout()
+        top_buttons.setSpacing(10)  # 增加按钮间的水平间距
+        
+        self.report_progress_button = QPushButton("报告进度")
+        self.report_progress_button.setStyleSheet("""
+            QPushButton {
+                background-color: #3498db;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                font-weight: bold;
+                font-family: 'SimSun', 'simsun', serif;
+                font-size: 14px;
+                min-height: 36px;
+            }
+            QPushButton:hover {
+                background-color: #2980b9;
+            }
+            QPushButton:disabled {
+                background-color: #cccccc;
+            }
+        """)
+        self.report_progress_button.clicked.connect(self.report_progress)
+        self.report_progress_button.setEnabled(False)
+        
+        self.request_hint_button = QPushButton("请求提示")
+        self.request_hint_button.setStyleSheet("""
+            QPushButton {
+                background-color: #9b59b6;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                font-weight: bold;
+                font-family: 'SimSun', 'simsun', serif;
+                font-size: 14px;
+                min-height: 36px;
+            }
+            QPushButton:hover {
+                background-color: #8e44ad;
+            }
+            QPushButton:disabled {
+                background-color: #cccccc;
+            }
+        """)
+        self.request_hint_button.clicked.connect(self.request_hint)
+        self.request_hint_button.setEnabled(False)
+        
+        top_buttons.addWidget(self.report_progress_button)
+        top_buttons.addWidget(self.request_hint_button)
+        buttons_layout.addLayout(top_buttons)
+        
+        # 下排按钮（重置实验）- 增加间距
+        bottom_buttons = QHBoxLayout()
+        bottom_buttons.setContentsMargins(0, 5, 0, 0)  # 增加上边距
+        
+        self.reset_experiment_button = QPushButton("重置实验")
+        self.reset_experiment_button.setStyleSheet("""
+            QPushButton {
+                background-color: #e74c3c;
+                color: white;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                font-weight: bold;
+                font-family: 'SimSun', 'simsun', serif;
+                font-size: 14px;
+                min-height: 36px;
+            }
+            QPushButton:hover {
+                background-color: #c0392b;
+            }
+            QPushButton:disabled {
+                background-color: #cccccc;
+            }
+        """)
+        self.reset_experiment_button.clicked.connect(self.reset_current_experiment)
+        self.reset_experiment_button.setEnabled(False)
+        
+        bottom_buttons.addWidget(self.reset_experiment_button)
+        buttons_layout.addLayout(bottom_buttons)
+        
+        experiments_layout.addLayout(buttons_layout)
+        
+        toolbar_layout.addWidget(experiments_group)
         
         # 添加组件分组
         components_group = QGroupBox("电路元件")
         components_layout = QGridLayout(components_group)
-        components_layout.setSpacing(6)  # 减小组件间距
-        components_layout.setContentsMargins(5, 15, 5, 5)  # 调整边距，顶部留更多空间给标题
+        components_layout.setSpacing(12)  # 进一步增加组件间距
+        components_layout.setContentsMargins(10, 25, 10, 10)  # 调整边距，顶部留更多空间给标题
         
         # 添加组件按钮
         components = ["电源", "开关", "导线", "定值电阻", "滑动变阻器", "电流表", "电压表"]
         for i, component in enumerate(components):
             btn = ComponentButton(component)
-            btn.setMinimumSize(100, 35)  # 设置最小大小防止重叠
-            btn.setMaximumSize(105, 35)  # 设置最大大小防止过大
+            btn.setMinimumSize(120, 38)  # 进一步增加最小大小
+            btn.setMaximumSize(130, 38)  # 增加最大大小
+            # 更新ComponentButton样式
+            btn.setStyleSheet("""
+                QPushButton {
+                    background-color: #2196F3;
+                    color: white;
+                    border: none;
+                    border-radius: 5px;
+                    padding: 6px;
+                    font-size: 14px;
+                    margin: 3px;
+                    text-align: center;
+                    qproperty-alignment: AlignCenter;
+                    font-family: 'SimSun', 'simsun', serif;
+                }
+                QPushButton:hover {
+                    background-color: #1976D2;
+                }
+                QPushButton:pressed {
+                    background-color: #0D47A1;
+                }
+            """)
             row = i // 2  # 计算行号
             col = i % 2   # 计算列号
             components_layout.addWidget(btn, row, col)
@@ -771,8 +988,8 @@ class MainWindow(QMainWindow):
         self.main_splitter.addWidget(self.circuit_panel)
         self.main_splitter.addWidget(self.work_area)
         
-        # 调整分割器初始比例，左侧工具栏窄一些，中间网格区域宽一些
-        self.main_splitter.setSizes([220, self.width() - 520])
+        # 调整分割器初始比例，左侧工具栏宽一些
+        self.main_splitter.setSizes([280, self.width() - 580])
         
         # 右侧面板 - AI聊天
         self.chat_panel = QWidget()
@@ -1006,7 +1223,7 @@ class MainWindow(QMainWindow):
     def adjust_splitter_sizes(self):
         """调整分割器大小比例"""
         total_width = self.width()
-        left_width = 220  # 左侧工具栏宽度
+        left_width = 280  # 左侧工具栏宽度增加
         right_width = 300  # 右侧聊天区域宽度
         center_width = total_width - left_width - right_width  # 中间工作区宽度
         
@@ -1037,6 +1254,7 @@ class MainWindow(QMainWindow):
                 QMessageBox.information(self, "成功", "电路加载成功！")
                 
     def clear_circuit(self):
+        """清空当前电路（带确认对话框）"""
         reply = QMessageBox.question(
             self,
             "确认",
@@ -1044,57 +1262,58 @@ class MainWindow(QMainWindow):
             QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No
         )
         if reply == QMessageBox.StandardButton.Yes:
-            self.work_area.clear_circuit()
+            self.clear_circuit_silent()
             QMessageBox.information(self, "成功", "电路已清空！")
+    
+    def clear_circuit_silent(self):
+        """无需确认直接清空电路"""
+        # 清空工作区
+        self.work_area.clear_circuit()
+        
+        # 如果有选择的实验，重新启用实验列表
+        if self.current_experiment:
+            self.experiment_list.setEnabled(True)
+            self.current_experiment = None
+            self.experiment_status.setText("当前未选择实验")
+            self.goal_text.clear()
+            self.report_progress_button.setEnabled(False)
+            self.request_hint_button.setEnabled(False)
+            self.reset_experiment_button.setEnabled(False)
             
+        # 更新状态栏
+        self.statusBar().showMessage("电路已清空")
+    
     def start_simulation(self):
         try:
-            voltage = float(self.voltage_input.text())
-            # 调用工作区的静态分析方法，获取计算结果
+            # 重置所有组件的电气参数
+            for comp in self.work_area.circuit.components:
+                comp.voltage = 0
+                comp.current = 0
+            
+            # 更新显示
+            self.work_area.update()
+            
+            # 调用WorkArea的start_simulation方法
+            voltage = 5.0  # 默认电压值
+            # 查找电源组件获取电压值
+            for comp in self.work_area.circuit.components:
+                if comp.name == "电源":
+                    voltage = comp.properties.get("电压值", 5.0)
+                    break
+                    
+            # 执行电路计算
             result = self.work_area.start_simulation(voltage)
             
+            # 更新测量结果
             if result:
-                # 更新状态显示
-                self.simulation_status_label.setText("仿真状态: 已计算")
-                
-                # 更新按钮状态
-                self.start_button.setEnabled(True)  # 允许重新计算
-                self.stop_button.setEnabled(False)  # 不需要停止按钮
-                self.reset_button.setEnabled(True)
-                
-                # 显示测量结果
                 self.update_measurements()
-            else:
-                # 计算失败
-                self.simulation_status_label.setText("仿真状态: 计算失败")
             
-        except ValueError:
-            QMessageBox.warning(self, "错误", "请输入有效的电压值")
-            
-    def stop_simulation(self):
-        # 在静态分析模式下，此方法只用于清除状态
-        self.work_area.stop_simulation()
-        
-        # 更新状态显示
-        self.simulation_status_label.setText("仿真状态: 已停止")
-        
-        # 更新按钮状态
-        self.start_button.setEnabled(True)
-        self.stop_button.setEnabled(False)
-        self.reset_button.setEnabled(True)
-        
-    def reset_simulation(self):
-        self.work_area.reset_simulation()
-        
-        # 更新状态显示
-        self.simulation_status_label.setText("仿真状态: 未开始")
-        self.measurement_label.setText("测量结果: ")
-        
-        # 更新按钮状态
-        self.start_button.setEnabled(True)
-        self.stop_button.setEnabled(False)
-        self.reset_button.setEnabled(False)
-        
+        except Exception as e:
+            # 添加异常处理
+            print(f"仿真启动错误: {str(e)}")
+            logger.error(f"仿真启动错误: {str(e)}", exc_info=True)
+            QMessageBox.warning(self, "仿真错误", f"启动仿真时出现错误：{str(e)}")
+    
     def update_simulation(self):
         """手动触发电路重新计算"""
         if not self.work_area.simulation_running:
@@ -1128,6 +1347,43 @@ class MainWindow(QMainWindow):
             self.work_area.start_simulation(value)
             # 更新测量结果
             self.update_measurements()
+
+    def stop_simulation(self):
+        """停止仿真"""
+        try:
+            # 调用WorkArea的stop_simulation方法
+            self.work_area.stop_simulation()
+            
+            # 更新按钮状态
+            self.start_button.setEnabled(True)
+            self.stop_button.setEnabled(False)
+            self.reset_button.setEnabled(True)
+            
+            # 更新状态显示
+            self.simulation_status_label.setText(f"仿真状态: {self.work_area.simulation_status}")
+            
+        except Exception as e:
+            logger.error(f"停止仿真出错: {str(e)}", exc_info=True)
+            QMessageBox.warning(self, "仿真错误", f"停止仿真时出现错误：{str(e)}")
+    
+    def reset_simulation(self):
+        """重置仿真"""
+        try:
+            # 调用WorkArea的reset_simulation方法
+            self.work_area.reset_simulation()
+            
+            # 更新按钮状态
+            self.start_button.setEnabled(True)
+            self.stop_button.setEnabled(False)
+            self.reset_button.setEnabled(False)
+            
+            # 更新状态显示
+            self.simulation_status_label.setText(f"仿真状态: {self.work_area.simulation_status}")
+            self.measurement_label.setText("测量结果: ")
+            
+        except Exception as e:
+            logger.error(f"重置仿真出错: {str(e)}", exc_info=True)
+            QMessageBox.warning(self, "仿真错误", f"重置仿真时出现错误：{str(e)}")
 
     def save_circuit_to_json(self):
         try:
@@ -1611,6 +1867,302 @@ class MainWindow(QMainWindow):
         # 滚动到底部
         QTimer.singleShot(100, lambda: self.chat_scroll_area.verticalScrollBar().setValue(
             self.chat_scroll_area.verticalScrollBar().maximum()))
+
+    def handle_experiment_selected(self, item):
+        if not item:
+            return
+            
+        # 获取当前选择的实验
+        experiment_index = self.experiment_list.currentIndex().row()
+        self.current_experiment = self.experiments[experiment_index]
+        
+        # 更新实验目标显示
+        self.goal_text.setText(self.current_experiment['goal'])
+        
+        # 更新状态显示
+        self.experiment_status.setText(f"当前实验：{self.current_experiment['name']}")
+        
+        # 清空当前画布
+        self.work_area.clear_circuit()
+        
+        # 放置实验中定义的组件
+        if 'components' in self.current_experiment:
+            for comp_data in self.current_experiment['components']:
+                # 获取组件类型和映射到程序内部名称
+                comp_type = experiment_manager.get_component_mapping(comp_data['type'])
+                x = comp_data['x']
+                y = comp_data['y']
+                properties = comp_data.get('properties', {})
+                
+                # 创建组件并添加到工作区
+                component = Component(comp_type)
+                
+                # 设置组件属性
+                for prop_name, prop_value in properties.items():
+                    component.set_property(prop_name, prop_value)
+                
+                # 添加到场景中
+                component.setPos(x, y)
+                self.work_area.scene().addItem(component)
+                self.work_area.components.append(component)
+                
+                # 通知用户
+                logger.debug(f"已放置组件: {comp_type} 在位置 ({x}, {y})")
+        
+        # 显示实验描述和提示
+        description = self.current_experiment.get('description', '')
+        missing_elements = self.current_experiment.get('missing_elements', [])
+        
+        # 将未知类型映射为中文名称
+        missing_elements_cn = [experiment_manager.get_component_mapping(elem) for elem in missing_elements]
+        
+        # 构建提示信息
+        message = f"<b>{self.current_experiment['name']}</b><br><br>"
+        message += f"{description}<br><br>"
+        message += f"<b>需要添加的元件:</b> {', '.join(missing_elements_cn)}<br><br>"
+        message += "请完成电路搭建，点击「报告进度」查看分析，或点击「请求提示」获取帮助。"
+        
+        # 显示消息框
+        QMessageBox.information(self, "实验已加载", message)
+        
+        # 启用交互按钮
+        self.report_progress_button.setEnabled(True)
+        self.request_hint_button.setEnabled(True)
+        self.reset_experiment_button.setEnabled(True)
+        
+        # 禁用实验列表，直到重置实验
+        self.experiment_list.setEnabled(False)
+        
+        # 在状态栏显示当前实验
+        self.statusBar().showMessage(f"正在进行实验：{self.current_experiment['name']}")
+
+    def reset_current_experiment(self):
+        """重置当前实验到初始状态"""
+        if not self.current_experiment:
+            return
+            
+        reply = QMessageBox.question(
+            self,
+            "确认重置",
+            "确定要重置当前实验吗？这将清除您所做的所有更改。",
+            QMessageBox.StandardButton.Yes | QMessageBox.StandardButton.No,
+            QMessageBox.StandardButton.No
+        )
+        
+        if reply == QMessageBox.StandardButton.Yes:
+            # 保存当前实验的索引
+            current_index = self.experiment_list.currentIndex().row()
+            
+            # 清空画布
+            self.work_area.clear_circuit()
+            
+            # 重新启用实验列表（它会在handle_experiment_selected中被再次禁用）
+            self.experiment_list.setEnabled(True)
+            
+            # 重新加载相同的实验
+            self.experiment_list.setCurrentRow(current_index)
+            
+            # 提示用户
+            QMessageBox.information(self, "实验已重置", "实验已恢复到初始状态。")
+            
+    def refresh_experiments(self):
+        """刷新实验列表"""
+        # 启用实验列表
+        self.experiment_list.setEnabled(True)
+        
+        # 清空当前实验
+        self.current_experiment = None
+        
+        # 更新状态显示
+        self.experiment_status.setText("当前未选择实验")
+        self.goal_text.clear()
+        
+        # 禁用交互按钮
+        self.report_progress_button.setEnabled(False)
+        self.request_hint_button.setEnabled(False)
+        self.reset_experiment_button.setEnabled(False)
+        
+        # 重新加载实验列表
+        self.experiments = experiment_manager.load_experiments(self.experiment_file)
+        self.populate_experiment_list()
+        
+        # 清空画布
+        self.clear_circuit()
+        
+        # 更新状态栏
+        self.statusBar().showMessage("实验列表已刷新")
+        
+    def serialize_circuit(self):
+        """
+        序列化当前画布上的电路状态为文本描述
+        
+        Returns:
+            str: 电路状态的文本描述
+        """
+        result = {}
+        
+        # 获取所有组件
+        components = []
+        for component in self.work_area.components:
+            comp_dict = {
+                "type": component.name,
+                "position": (component.pos().x(), component.pos().y()),
+                "properties": component.properties
+            }
+            components.append(comp_dict)
+        
+        # 获取所有导线
+        wires = []
+        for item in self.work_area.scene().items():
+            if isinstance(item, Wire):
+                wire_dict = {
+                    "start": (item.start_pos.x(), item.start_pos.y()),
+                    "end": (item.end_pos.x(), item.end_pos.y()),
+                    "source_component": item.source_component.name if item.source_component else None,
+                    "target_component": item.target_component.name if item.target_component else None
+                }
+                wires.append(wire_dict)
+        
+        result["components"] = components
+        result["wires"] = wires
+        
+        # 转换为文本描述
+        text_description = "当前电路状态:\n\n"
+        
+        # 描述组件
+        text_description += "组件列表:\n"
+        for i, comp in enumerate(components):
+            text_description += f"{i+1}. {comp['type']} - 位置: ({comp['position'][0]:.1f}, {comp['position'][1]:.1f})"
+            
+            # 添加属性描述
+            if comp['properties']:
+                text_description += ", 属性: "
+                props = []
+                for k, v in comp['properties'].items():
+                    props.append(f"{k}={v}")
+                text_description += ", ".join(props)
+            
+            text_description += "\n"
+        
+        # 描述连接
+        text_description += "\n连接情况:\n"
+        for i, wire in enumerate(wires):
+            source = wire['source_component'] or "未连接"
+            target = wire['target_component'] or "未连接"
+            text_description += f"{i+1}. {source} -> {target}\n"
+        
+        return text_description
+    
+    def report_progress(self):
+        """提交当前电路进度，获取大模型反馈"""
+        if not self.current_experiment:
+            QMessageBox.warning(self, "警告", "请先选择一个实验!")
+            return
+        
+        # 获取当前电路状态
+        circuit_description = self.serialize_circuit()
+        
+        # 构建提交给大模型的提示信息
+        experiment_name = self.current_experiment['name']
+        experiment_goal = self.current_experiment['goal']
+        
+        prompt = f"""
+        这是一个中小学物理电学实验中的 '{experiment_name}' 实验。
+
+        实验目标: {experiment_goal}
+
+        学生当前搭建的电路情况:
+        {circuit_description}
+
+        请分析学生当前的电路状态，评估完成度，提供以下反馈:
+        1. 实验进展: 电路已经完成了哪些部分，还缺少哪些部分?
+        2. 评估: 当前电路是否可以实现实验目标? 如果不能，原因是什么?
+        3. 鼓励性建议: 针对学生当前的进度，提供具体、鼓励性的下一步指导。
+        4. 物理知识点: 简要介绍实验中涉及的1-2个物理知识点，帮助学生理解。
+
+        请用中文回答，语言要友好，适合中小学生理解。
+        """
+        
+        # 调用现有的LLM请求函数
+        thinking_message = self.add_thinking_message()
+        
+        try:
+            # 添加加载中的消息
+            self.add_system_message("进度分析中", "正在分析您的电路...", "blue")
+            
+            # 使用现有的API调用函数发送请求
+            self.stream_llm_request(
+                None,  # LLM客户端在原方法中创建
+                prompt,
+                "你是一位资深的中小学物理老师，擅长电学实验教学。你的任务是分析学生的电路实验状态，给予鼓励性的反馈和指导。",
+                lambda message: self.update_ai_message_content(thinking_message, message)
+            )
+        except Exception as e:
+            self.remove_thinking_message()
+            self.add_system_message("错误", f"分析失败: {str(e)}", "red")
+            logger.error(f"调用大模型API时出错: {str(e)}", exc_info=True)
+    
+    def request_hint(self):
+        """请求大模型提供针对当前实验的提示"""
+        if not self.current_experiment:
+            QMessageBox.warning(self, "警告", "请先选择一个实验!")
+            return
+        
+        # 获取当前电路状态
+        circuit_description = self.serialize_circuit()
+        
+        # 构建提交给大模型的提示信息
+        experiment_name = self.current_experiment['name']
+        experiment_goal = self.current_experiment['goal']
+        missing_elements = self.current_experiment.get('missing_elements', [])
+        missing_elements_cn = [experiment_manager.get_component_mapping(elem) for elem in missing_elements]
+        hints = self.current_experiment.get('hints', [])
+        
+        prompt = f"""
+        这是一个中小学物理电学实验中的 '{experiment_name}' 实验。
+
+        实验目标: {experiment_goal}
+
+        学生当前搭建的电路情况:
+        {circuit_description}
+
+        实验提示信息:
+        - 这个实验可能缺少以下元件: {', '.join(missing_elements_cn)}
+        - 可用的实验提示: {' '.join(hints) if hints else '无'}
+
+        请根据以上信息，提供一个针对性的提示，帮助学生继续完成实验。提示应当:
+        1. 明确指出下一步应当添加什么元件或如何连接
+        2. 解释为什么需要这样做
+        3. 不要直接给出完整解决方案，而是引导学生思考
+        4. 如果发现电路有问题，指出问题所在并提供修正建议
+
+        请用中文回答，语言要简洁清晰，适合中小学生理解。
+        """
+        
+        # 调用现有的LLM请求函数
+        thinking_message = self.add_thinking_message()
+        
+        try:
+            # 添加加载中的消息
+            self.add_system_message("提示生成中", "正在为您生成提示...", "purple")
+            
+            # 使用现有的API调用函数发送请求
+            self.stream_llm_request(
+                None,  # LLM客户端在原方法中创建
+                prompt,
+                "你是一位资深的中小学物理老师，擅长电学实验教学。你的任务是为学生提供有帮助的提示，引导他们完成电路实验。",
+                lambda message: self.update_ai_message_content(thinking_message, message)
+            )
+        except Exception as e:
+            self.remove_thinking_message()
+            self.add_system_message("错误", f"获取提示失败: {str(e)}", "red")
+            logger.error(f"调用大模型API时出错: {str(e)}", exc_info=True)
+
+    def populate_experiment_list(self):
+        """填充实验列表"""
+        self.experiment_list.clear()
+        for experiment in self.experiments:
+            self.experiment_list.addItem(experiment['name'])
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

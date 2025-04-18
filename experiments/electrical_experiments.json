@@ -1,0 +1,119 @@
+[
+  {
+    "name": "点亮小灯泡 (探究)",
+    "description": "尝试用电池、开关和导线点亮小灯泡。初步认识简单电路的组成及工作原理。",
+    "components": [
+      {"type": "DCVoltageSource", "x": 150, "y": 150, "properties": {"电压值": 3.0, "内阻": 0.1}},
+      {"type": "Lamp", "x": 400, "y": 150, "properties": {"电阻值": 10, "额定功率": 3.0}},
+      {"type": "Switch", "x": 250, "y": 250, "properties": {"状态": false}}
+    ],
+    "missing_elements": ["Wire"],
+    "goal": "将所有元件连接起来，闭合开关，使灯泡发光。",
+    "hints": [
+      "电路需要形成一个闭合回路才能导电",
+      "检查开关是否闭合",
+      "灯泡的两个接线柱都需要连接到电路中"
+    ]
+  },
+  {
+    "name": "串联电路探究",
+    "description": "连接两个灯泡，观察串联电路的特点。研究串联电路中电流和电压的规律。",
+    "components": [
+      {"type": "DCVoltageSource", "x": 150, "y": 150, "properties": {"电压值": 6.0, "内阻": 0.1}},
+      {"type": "Lamp", "x": 300, "y": 150, "properties": {"电阻值": 10, "额定功率": 3.0}},
+      {"type": "Switch", "x": 150, "y": 250, "properties": {"状态": false}}
+    ],
+    "missing_elements": ["Wire", "Lamp"],
+    "goal": "将两个灯泡串联接入电路并点亮，观察它们的亮度，思考电流和电压的关系。",
+    "hints": [
+      "串联电路中，所有元件的电流相同",
+      "串联电路中，电压会按照电阻比例分配",
+      "可以尝试改变一个灯泡的电阻，观察两个灯泡亮度的变化"
+    ]
+  },
+  {
+    "name": "并联电路探究",
+    "description": "构建并联电路，观察并联电路的特性和规律。",
+    "components": [
+      {"type": "DCVoltageSource", "x": 150, "y": 200, "properties": {"电压值": 6.0, "内阻": 0.1}},
+      {"type": "Lamp", "x": 300, "y": 150, "properties": {"电阻值": 10, "额定功率": 3.0}},
+      {"type": "Lamp", "x": 300, "y": 250, "properties": {"电阻值": 10, "额定功率": 3.0}}
+    ],
+    "missing_elements": ["Wire", "Switch"],
+    "goal": "将两个灯泡并联接入电路并通过开关控制，观察它们的亮度，思考电流和电压的分配。",
+    "hints": [
+      "并联电路中，所有元件的电压相同",
+      "并联电路中，电流会按照电阻的倒数比例分配",
+      "尝试断开一个灯泡，观察另一个灯泡的亮度是否改变"
+    ]
+  },
+  {
+    "name": "欧姆定律实验",
+    "description": "通过改变电路中的电压和电阻，验证欧姆定律。",
+    "components": [
+      {"type": "DCVoltageSource", "x": 150, "y": 150, "properties": {"电压值": 3.0, "内阻": 0.1}},
+      {"type": "Resistor", "x": 300, "y": 150, "properties": {"电阻值": 10}},
+      {"type": "Ammeter", "x": 450, "y": 150, "properties": {}}
+    ],
+    "missing_elements": ["Wire", "Voltmeter"],
+    "goal": "使用电压表和电流表测量电阻两端的电压和通过电阻的电流，验证 I = U/R。",
+    "hints": [
+      "电流表应串联在电路中",
+      "电压表应并联在电阻两端",
+      "尝试改变电源电压，观察电流的变化",
+      "尝试改变电阻值，观察电流的变化"
+    ]
+  },
+  {
+    "name": "电阻的串并联",
+    "description": "研究不同连接方式下的等效电阻计算方法。",
+    "components": [
+      {"type": "DCVoltageSource", "x": 150, "y": 180, "properties": {"电压值": 6.0, "内阻": 0.1}},
+      {"type": "Resistor", "x": 300, "y": 120, "properties": {"电阻值": 10}},
+      {"type": "Resistor", "x": 300, "y": 240, "properties": {"电阻值": 20}},
+      {"type": "Voltmeter", "x": 450, "y": 120, "properties": {}},
+      {"type": "Ammeter", "x": 450, "y": 240, "properties": {}}
+    ],
+    "missing_elements": ["Wire", "Switch"],
+    "goal": "分别搭建包含两个电阻的串联和并联电路，测量总电流和各电阻两端的电压，验证等效电阻计算公式。",
+    "hints": [
+      "串联电阻的等效电阻: R = R₁ + R₂",
+      "并联电阻的等效电阻: 1/R = 1/R₁ + 1/R₂",
+      "利用测得的电压和电流计算等效电阻: R = U/I"
+    ]
+  },
+  {
+    "name": "滑动变阻器的使用",
+    "description": "学习使用滑动变阻器调节电路中的电流。",
+    "components": [
+      {"type": "DCVoltageSource", "x": 100, "y": 150, "properties": {"电压值": 6.0, "内阻": 0.1}},
+      {"type": "Potentiometer", "x": 250, "y": 150, "properties": {"最大电阻值": 50, "滑动位置": 0.5}},
+      {"type": "Lamp", "x": 400, "y": 150, "properties": {"电阻值": 10, "额定功率": 3.0}},
+      {"type": "Ammeter", "x": 550, "y": 150, "properties": {}}
+    ],
+    "missing_elements": ["Wire"],
+    "goal": "连接滑动变阻器并调节滑片位置，观察灯泡亮度和电流表示数的变化。",
+    "hints": [
+      "滑动变阻器可作为分压器或变阻器使用",
+      "滑片位置决定实际电阻值",
+      "观察滑片移动时灯泡亮度的变化"
+    ]
+  },
+  {
+    "name": "测量未知电阻",
+    "description": "学习如何使用电压表和电流表测量未知电阻的阻值。",
+    "components": [
+      {"type": "DCVoltageSource", "x": 100, "y": 150, "properties": {"电压值": 4.5, "内阻": 0.1}},
+      {"type": "Resistor", "x": 300, "y": 150, "properties": {"电阻值": 15, "label": "未知电阻"}},
+      {"type": "Switch", "x": 200, "y": 250, "properties": {"状态": false}}
+    ],
+    "missing_elements": ["Wire", "Ammeter", "Voltmeter"],
+    "goal": "设计并搭建电路，使用电压表和电流表准确测量未知电阻的阻值。",
+    "hints": [
+      "电流表应串联在电路中",
+      "电压表应并联在未知电阻两端",
+      "根据欧姆定律: R = U/I",
+      "注意电流表和电压表的量程选择"
+    ]
+  }
+] 

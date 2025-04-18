@@ -1,0 +1,16 @@
+2025-04-19 01:42:46,875 - CircuitSimulator - INFO - 成功加载了 7 个实验
+2025-04-19 01:42:46,894 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-04-19 01:42:50,064 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 150)
+2025-04-19 01:42:50,064 - CircuitSimulator - DEBUG - 已放置组件: 灯泡 在位置 (400, 150)
+2025-04-19 01:42:50,064 - CircuitSimulator - DEBUG - 已放置组件: 开关 在位置 (250, 250)
+2025-04-19 01:43:02,175 - CircuitSimulator - ERROR - 流式请求出错: 'NoneType' object has no attribute 'client'
+2025-04-19 01:43:02,178 - CircuitSimulator - ERROR - 调用大模型API时出错: 'NoneType' object has no attribute 'client'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 1900, in report_progress
+    self.stream_llm_request(
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 1454, in stream_llm_request
+    stream = llm_client.client.chat.completions.create(
+AttributeError: 'NoneType' object has no attribute 'client'
+2025-04-19 01:43:07,477 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 150)
+2025-04-19 01:43:07,477 - CircuitSimulator - DEBUG - 已放置组件: 灯泡 在位置 (300, 150)
+2025-04-19 01:43:07,477 - CircuitSimulator - DEBUG - 已放置组件: 开关 在位置 (150, 250)
