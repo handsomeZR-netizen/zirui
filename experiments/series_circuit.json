@@ -1,0 +1,92 @@
+{
+  "name": "串联电路实验",
+  "description": "探究串联电路中的电流与电压分布规律，验证电压、电流和电阻之间的关系。",
+  "learning_objectives": [
+    "理解串联电路的基本原理",
+    "掌握串联电路中的电流分布规律",
+    "掌握串联电路中的电压分布规律",
+    "学会使用电压表和电流表测量串联电路中的电量"
+  ],
+  "steps": [
+    {
+      "description": "组装串联电路",
+      "objective": "使用电源、两个不同的电阻和导线组装一个简单的串联电路",
+      "completion_criteria": [
+        {
+          "type": "circuit_complete",
+          "min_components": 3,
+          "min_connections": 2
+        }
+      ]
+    },
+    {
+      "description": "测量总电流",
+      "objective": "在电路中加入电流表，测量整个电路的电流",
+      "completion_criteria": [
+        {
+          "type": "component_state",
+          "component_name": "电流表",
+          "property_name": "current",
+          "expected_value": 0.5
+        }
+      ]
+    },
+    {
+      "description": "测量不同位置的电流",
+      "objective": "将电流表移动到不同位置，测量串联电路中各个位置的电流，并记录数据",
+      "completion_criteria": [
+        {
+          "type": "measurement",
+          "component_name": "电流表",
+          "measurement_type": "current",
+          "target_value": 0.5,
+          "tolerance": 0.05
+        }
+      ]
+    },
+    {
+      "description": "测量各元件两端的电压",
+      "objective": "使用电压表测量各个电阻元件两端的电压，并记录数据",
+      "completion_criteria": [
+        {
+          "type": "measurement",
+          "component_name": "电压表",
+          "measurement_type": "voltage",
+          "target_value": 2.5,
+          "tolerance": 0.2
+        }
+      ]
+    },
+    {
+      "description": "分析实验结果",
+      "objective": "根据测量数据，分析串联电路中的电流分布和电压分布规律，计算各个电阻的阻值",
+      "completion_criteria": [
+        {
+          "type": "measurement",
+          "component_name": "电压表",
+          "measurement_type": "voltage",
+          "target_value": 5.0,
+          "tolerance": 0.1
+        },
+        {
+          "type": "measurement",
+          "component_name": "电流表",
+          "measurement_type": "current",
+          "target_value": 0.5,
+          "tolerance": 0.05
+        }
+      ]
+    }
+  ],
+  "initial_circuit": {
+    "components": [
+      {
+        "name": "电源",
+        "x": 100,
+        "y": 200,
+        "properties": {}
+      }
+    ],
+    "connections": []
+  }
+} 
