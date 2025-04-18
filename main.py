@@ -85,7 +85,6 @@ class ComponentButton(QPushButton):
                 font-size: 14px;
                 margin: 3px;
                 text-align: center;
-                qproperty-alignment: AlignCenter;
                 font-family: 'SimSun', 'simsun', serif;
             }
             QPushButton:hover {
@@ -624,6 +623,17 @@ class MainWindow(QMainWindow):
         refresh_experiments_action = experiments_menu.addAction("刷新实验列表")
         refresh_experiments_action.triggered.connect(self.refresh_experiments)
         
+        # 添加仿真菜单 - 将部分控制移至菜单栏
+        simulation_menu = self.menubar.addMenu("仿真")
+        start_sim_action = simulation_menu.addAction("开始仿真")
+        start_sim_action.triggered.connect(self.start_simulation)
+        
+        stop_sim_action = simulation_menu.addAction("停止仿真")
+        stop_sim_action.triggered.connect(self.stop_simulation)
+        
+        reset_sim_action = simulation_menu.addAction("重置仿真")
+        reset_sim_action.triggered.connect(self.reset_simulation)
+        
         # 视图菜单
         view_menu = self.menubar.addMenu("视图")
         
@@ -639,80 +649,157 @@ class MainWindow(QMainWindow):
         self.toggle_snap_action.setChecked(True)    # 默认选中
         self.toggle_snap_action.triggered.connect(self.toggle_snap)
         
-        # 创建左侧工具栏
-        toolbar = QWidget()
-        toolbar.setFixedWidth(280)  # 进一步增加工具栏宽度从250到280
-        toolbar_layout = QVBoxLayout(toolbar)
-        toolbar_layout.setSpacing(10)  # 进一步增加组件之间的垂直间距
-        toolbar_layout.setContentsMargins(5, 5, 5, 5)  # 调整边距
+        # 添加网格大小控制
+        grid_size_menu = view_menu.addMenu("网格大小")
+        for size in ["10", "20", "30", "40", "50"]:
+            action = grid_size_menu.addAction(size)
+            action.triggered.connect(lambda checked, s=size: self.work_area.set_grid_size(int(s)))
         
-        # 添加实验目录分组
-        experiments_group = QGroupBox("物理电学实验目录")
-        experiments_layout = QVBoxLayout(experiments_group)
-        experiments_layout.setSpacing(10)  # 进一步增加内部组件间距
-        experiments_layout.setContentsMargins(10, 25, 10, 10)  # 增加内边距
+        # 添加缩放控制
+        zoom_in_action = view_menu.addAction("放大")
+        zoom_in_action.triggered.connect(lambda: self.work_area.scale(1.2, 1.2))
+        zoom_in_action.setShortcut("Ctrl++")
         
-        # 添加实验选择提示标签
-        experiment_label = QLabel("请从下方选择一个实验开始探究：")
-        experiment_label.setStyleSheet("font-weight: bold; color: #333; font-size: 14px;")
-        experiment_label.setWordWrap(True)  # 允许文本换行
-        experiment_label.setMinimumHeight(30)  # 设置最小高度
-        experiments_layout.addWidget(experiment_label)
+        zoom_out_action = view_menu.addAction("缩小")
+        zoom_out_action.triggered.connect(lambda: self.work_area.scale(0.8, 0.8))
+        zoom_out_action.setShortcut("Ctrl+-")
         
-        # 添加实验列表
-        self.experiment_list = QListWidget()
-        self.experiment_list.setStyleSheet("""
-            QListWidget {
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                background-color: white;
-                font-size: 14px;
+        # 添加重置视图动作
+        reset_view_action = view_menu.addAction("重置视图")
+        reset_view_action.triggered.connect(self.work_area.reset_view)
+        
+        # 创建状态栏用于显示仿真信息
+        self.statusBar().setStyleSheet("""
+            QStatusBar {
+                border-top: 1px solid #ccc;
+                background-color: #f0f0f0;
+                padding: 3px;
                 font-family: 'SimSun', 'simsun', serif;
-                padding: 5px;
-            }
-            QListWidget::item {
-                height: 35px;  /* 进一步增加项目高度 */
-                padding: 6px;
-                border-bottom: 1px solid #eee;
-            }
-            QListWidget::item:selected {
-                background-color: #3498db;
-                color: white;
-            }
-            QListWidget::item:hover {
-                background-color: #e0f0ff;
+                font-size: 13px;
             }
         """)
-        self.experiment_list.setMinimumHeight(200)  # 进一步增加列表最小高度
-        self.populate_experiment_list()
-        self.experiment_list.currentItemChanged.connect(self.handle_experiment_selected)
-        experiments_layout.addWidget(self.experiment_list)
         
-        # 添加状态显示区域
+        # 创建用于显示仿真状态的标签控件
+        self.simulation_status_label = QLabel("仿真状态: 未开始")
+        self.simulation_status_label.setStyleSheet("padding: 0 10px; font-weight: bold; color: #2c3e50;")
+        self.simulation_status_label.setMinimumWidth(150)
+
+        self.simulation_step_label = QLabel("仿真步数: 0")
+        self.simulation_step_label.setStyleSheet("padding: 0 10px; color: #16a085;")
+        self.simulation_step_label.setMinimumWidth(120)
+
+        self.measurement_label = QLabel("测量结果: ")
+        self.measurement_label.setStyleSheet("padding: 0 10px; color: #c0392b;")
+        self.measurement_label.setMinimumWidth(180)
+
+        # 添加一个弹性空间占位符到状态栏左侧
+        self.statusBar().addWidget(QWidget(), 1)  # 权重为1，将推动其他控件到右侧
+
+        # 添加到状态栏右侧
+        self.statusBar().addPermanentWidget(self.simulation_status_label, 0)  # 权重为0，使控件保持原始大小
+        self.statusBar().addPermanentWidget(self.simulation_step_label, 0)
+        self.statusBar().addPermanentWidget(self.measurement_label, 0)
+        
+        # 创建左侧工具栏
+        toolbar = QWidget()
+        toolbar.setFixedWidth(280)  # 保持工具栏宽度
+        toolbar_layout = QVBoxLayout(toolbar)
+        toolbar_layout.setSpacing(5)  # 减小组件之间的垂直间距，提高垂直空间利用率
+        toolbar_layout.setContentsMargins(5, 5, 5, 5)  # 缩小边距
+        
+        # 添加实验目录分组
+        experiments_group = QGroupBox("物理电学实验")
+        experiments_layout = QVBoxLayout(experiments_group)
+        experiments_layout.setSpacing(10)  # 调整垂直间距
+        experiments_layout.setContentsMargins(12, 22, 12, 12)  # 保持合适的边距
+        experiments_group.setMinimumHeight(280)  # 减小最小高度，因为列表改为下拉菜单
+        
+        # 使用水平布局组合难度筛选和实验选择
+        selection_layout = QHBoxLayout()
+        selection_layout.setSpacing(8)
+        
+        # 难度筛选部分
+        filter_label = QLabel("难度:")
+        filter_label.setStyleSheet("font-size: 13px; font-weight: bold;")
+        self.difficulty_combo = QComboBox()
+        self.difficulty_combo.addItems(["全部", "初级", "中级", "高级"])
+        self.difficulty_combo.setStyleSheet("""
+            QComboBox {
+                background-color: white;
+                border: 1px solid #ccc;
+                border-radius: 3px;
+                padding: 2px 5px;
+                min-height: 26px;
+                max-width: 80px;
+            }
+            QComboBox::drop-down {
+                border: none;
+                width: 20px;
+            }
+        """)
+        self.difficulty_combo.currentTextChanged.connect(self.filter_experiments_by_difficulty)
+        
+        # 实验选择部分
+        experiment_select_label = QLabel("实验:")
+        experiment_select_label.setStyleSheet("font-size: 13px; font-weight: bold;")
+        self.experiment_list = QComboBox()
+        self.experiment_list.setStyleSheet("""
+            QComboBox {
+                background-color: white;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                padding: 4px 8px;
+                font-size: 14px;
+                font-family: 'SimSun', 'simsun', serif;
+                min-height: 26px;
+            }
+            QComboBox::drop-down {
+                border: none;
+                width: 20px;
+            }
+            QComboBox QAbstractItemView {
+                background-color: white;
+                border: 1px solid #ccc;
+                selection-background-color: #3498db;
+                selection-color: white;
+                font-size: 14px;
+            }
+        """)
+        
+        selection_layout.addWidget(filter_label)
+        selection_layout.addWidget(self.difficulty_combo)
+        selection_layout.addSpacing(5)
+        selection_layout.addWidget(experiment_select_label)
+        selection_layout.addWidget(self.experiment_list, 1)  # 让实验选择框占据更多空间
+        
+        experiments_layout.addLayout(selection_layout)
+        
+        # 添加状态显示区域 - 改进布局和样式
         self.experiment_status = QLabel("当前未选择实验")
         self.experiment_status.setStyleSheet("""
             font-weight: bold;
             color: #2c3e50;
             background-color: #ecf0f1;
-            padding: 10px;  /* 增加内边距 */
-            margin-top: 8px;  /* 增加上边距 */
+            padding: 8px;
+            margin-top: 10px;
+            margin-bottom: 5px;
             border-radius: 5px;
-            font-size: 14px;  /* 增加字体大小 */
+            font-size: 14px;
             font-family: 'SimSun', 'simsun', serif;
+            border-left: 4px solid #3498db;
         """)
-        self.experiment_status.setWordWrap(True)  # 允许文本换行
-        self.experiment_status.setMinimumHeight(35)  # 设置最小高度
+        self.experiment_status.setWordWrap(True)
+        self.experiment_status.setMinimumHeight(40)
         experiments_layout.addWidget(self.experiment_status)
         
-        # 添加任务目标区域
+        # 添加任务目标区域 - 优化布局
         goal_layout = QVBoxLayout()
-        goal_layout.setSpacing(8)  # 增加间距
+        goal_layout.setSpacing(5)
         goal_label = QLabel("实验目标：")
-        goal_label.setStyleSheet("font-weight: bold; color: #333; margin-top: 10px; font-size: 14px;")
+        goal_label.setStyleSheet("font-weight: bold; color: #333; margin-top: 5px; font-size: 14px;")
         self.goal_text = QTextEdit()
         self.goal_text.setReadOnly(True)
-        self.goal_text.setMinimumHeight(90)  # 增加最小高度
-        self.goal_text.setMaximumHeight(120)  # 增加最大高度
+        self.goal_text.setMinimumHeight(100)  # 增加最小高度以容纳更多内容
         self.goal_text.setStyleSheet("""
             QTextEdit {
                 background-color: #f8f8f8;
@@ -728,15 +815,15 @@ class MainWindow(QMainWindow):
         goal_layout.addWidget(self.goal_text)
         experiments_layout.addLayout(goal_layout)
         
-        # 添加交互按钮 - 优化布局
-        buttons_layout = QVBoxLayout()  # 改为垂直布局
-        buttons_layout.setSpacing(10)  # 增加按钮之间的间距
-        buttons_layout.setContentsMargins(0, 8, 0, 0)  # 增加上边距
+        # 初始化填充下拉列表
+        self.populate_experiment_list()
+        self.experiment_list.currentIndexChanged.connect(self.handle_experiment_selected)
         
-        # 上排按钮（报告进度和请求提示）
-        top_buttons = QHBoxLayout()
-        top_buttons.setSpacing(10)  # 增加按钮间的水平间距
-        
+        # 添加交互按钮 - 使用水平布局节省空间
+        buttons_layout = QHBoxLayout()
+        buttons_layout.setSpacing(10)
+        buttons_layout.setContentsMargins(0, 10, 0, 0)
+
         self.report_progress_button = QPushButton("报告进度")
         self.report_progress_button.setStyleSheet("""
             QPushButton {
@@ -744,11 +831,11 @@ class MainWindow(QMainWindow):
                 color: white;
                 border: none;
                 border-radius: 5px;
-                padding: 10px;
+                padding: 6px;
                 font-weight: bold;
                 font-family: 'SimSun', 'simsun', serif;
-                font-size: 14px;
-                min-height: 36px;
+                font-size: 13px;
+                min-height: 28px;
             }
             QPushButton:hover {
                 background-color: #2980b9;
@@ -759,7 +846,7 @@ class MainWindow(QMainWindow):
         """)
         self.report_progress_button.clicked.connect(self.report_progress)
         self.report_progress_button.setEnabled(False)
-        
+
         self.request_hint_button = QPushButton("请求提示")
         self.request_hint_button.setStyleSheet("""
             QPushButton {
@@ -767,11 +854,11 @@ class MainWindow(QMainWindow):
                 color: white;
                 border: none;
                 border-radius: 5px;
-                padding: 10px;
+                padding: 6px;
                 font-weight: bold;
                 font-family: 'SimSun', 'simsun', serif;
-                font-size: 14px;
-                min-height: 36px;
+                font-size: 13px;
+                min-height: 28px;
             }
             QPushButton:hover {
                 background-color: #8e44ad;
@@ -782,15 +869,7 @@ class MainWindow(QMainWindow):
         """)
         self.request_hint_button.clicked.connect(self.request_hint)
         self.request_hint_button.setEnabled(False)
-        
-        top_buttons.addWidget(self.report_progress_button)
-        top_buttons.addWidget(self.request_hint_button)
-        buttons_layout.addLayout(top_buttons)
-        
-        # 下排按钮（重置实验）- 增加间距
-        bottom_buttons = QHBoxLayout()
-        bottom_buttons.setContentsMargins(0, 5, 0, 0)  # 增加上边距
-        
+
         self.reset_experiment_button = QPushButton("重置实验")
         self.reset_experiment_button.setStyleSheet("""
             QPushButton {
@@ -798,11 +877,11 @@ class MainWindow(QMainWindow):
                 color: white;
                 border: none;
                 border-radius: 5px;
-                padding: 10px;
+                padding: 6px;
                 font-weight: bold;
                 font-family: 'SimSun', 'simsun', serif;
-                font-size: 14px;
-                min-height: 36px;
+                font-size: 13px;
+                min-height: 28px;
             }
             QPushButton:hover {
                 background-color: #c0392b;
@@ -813,26 +892,27 @@ class MainWindow(QMainWindow):
         """)
         self.reset_experiment_button.clicked.connect(self.reset_current_experiment)
         self.reset_experiment_button.setEnabled(False)
-        
-        bottom_buttons.addWidget(self.reset_experiment_button)
-        buttons_layout.addLayout(bottom_buttons)
-        
+
+        buttons_layout.addWidget(self.report_progress_button)
+        buttons_layout.addWidget(self.request_hint_button)
+        buttons_layout.addWidget(self.reset_experiment_button)
         experiments_layout.addLayout(buttons_layout)
-        
+
         toolbar_layout.addWidget(experiments_group)
         
         # 添加组件分组
         components_group = QGroupBox("电路元件")
         components_layout = QGridLayout(components_group)
-        components_layout.setSpacing(12)  # 进一步增加组件间距
-        components_layout.setContentsMargins(10, 25, 10, 10)  # 调整边距，顶部留更多空间给标题
+        components_layout.setSpacing(8)  # 减小组件间距
+        components_layout.setContentsMargins(8, 20, 8, 8)  # 减小边距，顶部留空间给标题
+        components_group.setMinimumHeight(170)  # 设置电路元件组的最小高度
         
-        # 添加组件按钮
+        # 添加组件按钮 - 修改为更紧凑的网格布局
         components = ["电源", "开关", "导线", "定值电阻", "滑动变阻器", "电流表", "电压表"]
         for i, component in enumerate(components):
             btn = ComponentButton(component)
-            btn.setMinimumSize(120, 38)  # 进一步增加最小大小
-            btn.setMaximumSize(130, 38)  # 增加最大大小
+            btn.setMinimumSize(120, 34)  # 减小最小大小
+            btn.setMaximumSize(130, 34)  # 减小最大大小
             # 更新ComponentButton样式
             btn.setStyleSheet("""
                 QPushButton {
@@ -840,11 +920,10 @@ class MainWindow(QMainWindow):
                     color: white;
                     border: none;
                     border-radius: 5px;
-                    padding: 6px;
+                    padding: 4px;
                     font-size: 14px;
-                    margin: 3px;
+                    margin: 2px;
                     text-align: center;
-                    qproperty-alignment: AlignCenter;
                     font-family: 'SimSun', 'simsun', serif;
                 }
                 QPushButton:hover {
@@ -857,97 +936,44 @@ class MainWindow(QMainWindow):
             row = i // 2  # 计算行号
             col = i % 2   # 计算列号
             components_layout.addWidget(btn, row, col)
-            
+        
         toolbar_layout.addWidget(components_group)
         
         # 添加控制分组
         control_group = QGroupBox("控制面板")
         control_layout = QVBoxLayout(control_group)
-        control_layout.setSpacing(8)  # 增加间距
-        control_layout.setContentsMargins(8, 20, 8, 8)  # 调整边距，顶部留更多空间给标题
+        control_layout.setSpacing(6)  # 减小间距
+        control_layout.setContentsMargins(8, 15, 8, 8)  # 减小边距
+        control_group.setMinimumHeight(140)     # 设置控制面板的最小高度
         
         # 添加电压控制
         voltage_layout = QHBoxLayout()
         voltage_layout.setSpacing(5)  # 设置水平间距
         voltage_label = QLabel("电源电压(V):")
         self.voltage_input = QLineEdit("12")
-        self.voltage_input.setFixedWidth(70)  # 增加输入框宽度
+        self.voltage_input.setFixedWidth(70)  # 保持输入框宽度
         voltage_layout.addWidget(voltage_label)
         voltage_layout.addWidget(self.voltage_input)
         voltage_layout.addStretch(1)  # 添加弹性空间
         control_layout.addLayout(voltage_layout)
         
-        # 添加网格大小控制
-        grid_size_layout = QHBoxLayout()
-        grid_size_layout.setSpacing(5)  # 设置水平间距
-        grid_size_label = QLabel("网格大小:")
-        self.grid_size_combo = QComboBox()
-        self.grid_size_combo.addItems(["10", "20", "30", "40", "50"])
-        self.grid_size_combo.setCurrentText("20")
-        self.grid_size_combo.setFixedWidth(70)  # 增加下拉框宽度
-        self.grid_size_combo.currentTextChanged.connect(
-            lambda x: self.work_area.set_grid_size(int(x))
-        )
-        grid_size_layout.addWidget(grid_size_label)
-        grid_size_layout.addWidget(self.grid_size_combo)
-        grid_size_layout.addStretch(1)  # 添加弹性空间
-        control_layout.addLayout(grid_size_layout)
-        
-        # 添加缩放控制
-        zoom_layout = QHBoxLayout()
-        zoom_layout.setSpacing(5)  # 设置水平间距
-        zoom_out_button = QPushButton("-")
-        zoom_in_button = QPushButton("+")
-        zoom_out_button.setFixedSize(45, 32)  # 增加按钮大小
-        zoom_in_button.setFixedSize(45, 32)   # 增加按钮大小
-        zoom_out_button.clicked.connect(lambda: self.work_area.scale(0.8, 0.8))
-        zoom_in_button.clicked.connect(lambda: self.work_area.scale(1.2, 1.2))
-        zoom_layout.addWidget(zoom_out_button)
-        zoom_layout.addWidget(zoom_in_button)
-        zoom_layout.addStretch(1)  # 添加弹性空间
-        control_layout.addLayout(zoom_layout)
-        
-        toolbar_layout.addWidget(control_group)
-        
-        # 添加文件操作分组
-        file_group = QGroupBox("文件操作")
-        file_layout = QVBoxLayout(file_group)
-        file_layout.setSpacing(4)  # 减小间距
-        file_layout.setContentsMargins(5, 15, 5, 5)  # 调整边距
-        
-        save_button = QPushButton("保存电路")
-        load_button = QPushButton("加载电路")
-        clear_button = QPushButton("清空电路")
-        
-        # 统一设置按钮大小
-        for btn in [save_button, load_button, clear_button]:
-            btn.setMinimumHeight(28)
-            btn.setMaximumHeight(30)
-        
-        save_button.clicked.connect(self.save_circuit)
-        load_button.clicked.connect(self.load_circuit)
-        clear_button.clicked.connect(self.clear_circuit)
-        
-        file_layout.addWidget(save_button)
-        file_layout.addWidget(load_button)
-        file_layout.addWidget(clear_button)
-        
-        toolbar_layout.addWidget(file_group)
-        
-        # 添加仿真控制分组
-        sim_group = QGroupBox("仿真控制")
-        sim_layout = QVBoxLayout(sim_group)
-        sim_layout.setSpacing(4)  # 减小间距
-        sim_layout.setContentsMargins(5, 15, 5, 5)  # 调整边距
+        # 添加仿真快捷按钮
+        sim_layout = QHBoxLayout()
+        sim_layout.setSpacing(5)
         
         self.start_button = QPushButton("开始仿真")
         self.stop_button = QPushButton("停止仿真")
         self.reset_button = QPushButton("重置仿真")
         
-        # 统一设置按钮大小
+        # 统一设置按钮大小和样式
         for btn in [self.start_button, self.stop_button, self.reset_button]:
-            btn.setMinimumHeight(28)
             btn.setMaximumHeight(30)
+            btn.setStyleSheet("""
+                QPushButton {
+                    padding: 4px;
+                    font-size: 13px;
+                }
+            """)
         
         self.start_button.clicked.connect(self.start_simulation)
         self.stop_button.clicked.connect(self.stop_simulation)
@@ -961,23 +987,13 @@ class MainWindow(QMainWindow):
         sim_layout.addWidget(self.stop_button)
         sim_layout.addWidget(self.reset_button)
         
-        toolbar_layout.addWidget(sim_group)
+        control_layout.addLayout(sim_layout)
         
-        # 添加仿真状态显示
-        status_group = QGroupBox("仿真状态")
-        status_layout = QVBoxLayout(status_group)
-        status_layout.setSpacing(4)  # 减小间距
-        status_layout.setContentsMargins(5, 15, 5, 5)  # 调整边距
+        toolbar_layout.addWidget(components_group)
+        toolbar_layout.addWidget(control_group)
         
-        self.simulation_status_label = QLabel("仿真状态: 未开始")
-        self.simulation_step_label = QLabel("仿真步数: 0")
-        self.measurement_label = QLabel("测量结果: ")
-        
-        status_layout.addWidget(self.simulation_status_label)
-        status_layout.addWidget(self.simulation_step_label)
-        status_layout.addWidget(self.measurement_label)
-        
-        toolbar_layout.addWidget(status_group)
+        # 将实验组件添加到工具栏布局中
+        toolbar_layout.addWidget(experiments_group)
         
         toolbar_layout.addStretch()
         
@@ -987,9 +1003,6 @@ class MainWindow(QMainWindow):
         # 将面板添加到分割器
         self.main_splitter.addWidget(self.circuit_panel)
         self.main_splitter.addWidget(self.work_area)
-        
-        # 调整分割器初始比例，左侧工具栏宽一些
-        self.main_splitter.setSizes([280, self.width() - 580])
         
         # 右侧面板 - AI聊天
         self.chat_panel = QWidget()
@@ -1156,7 +1169,6 @@ class MainWindow(QMainWindow):
                 border-radius: 3px;
                 padding: 5px;
                 text-align: center;
-                qproperty-alignment: AlignCenter;
                 min-height: 28px;
                 max-height: 30px;
                 font-family: 'SimSun', 'simsun', serif;
@@ -1223,9 +1235,14 @@ class MainWindow(QMainWindow):
     def adjust_splitter_sizes(self):
         """调整分割器大小比例"""
         total_width = self.width()
-        left_width = 280  # 左侧工具栏宽度增加
+        left_width = 280  # 左侧工具栏宽度
         right_width = 300  # 右侧聊天区域宽度
         center_width = total_width - left_width - right_width  # 中间工作区宽度
+        
+        if center_width < 100:  # 确保中间区域有最小宽度
+            center_width = 100
+            left_width = min(280, (total_width - center_width) * 0.5)
+            right_width = total_width - left_width - center_width
         
         self.main_splitter.setSizes([left_width, center_width, right_width])
         
@@ -1728,7 +1745,7 @@ class MainWindow(QMainWindow):
             border-radius: 18px;
             color: white;
             font-weight: bold;
-            qproperty-alignment: AlignCenter;
+            text-align: center;
             font-family: 'SimSun', 'simsun', serif;
         """)
         avatar_label.setText(self.get_avatar_text(role))
@@ -1790,7 +1807,7 @@ class MainWindow(QMainWindow):
             border-radius: 18px;
             color: white;
             font-weight: bold;
-            qproperty-alignment: AlignCenter;
+            text-align: center;
             font-family: 'SimSun', 'simsun', serif;
         """)
         avatar_label.setText("AI")
@@ -1868,19 +1885,20 @@ class MainWindow(QMainWindow):
         QTimer.singleShot(100, lambda: self.chat_scroll_area.verticalScrollBar().setValue(
             self.chat_scroll_area.verticalScrollBar().maximum()))
 
-    def handle_experiment_selected(self, item):
-        if not item:
+    def handle_experiment_selected(self, index):
+        if index <= 0:  # 跳过默认选项
             return
             
-        # 获取当前选择的实验
-        experiment_index = self.experiment_list.currentIndex().row()
-        self.current_experiment = self.experiments[experiment_index]
+        # 直接从下拉菜单项获取实验数据
+        self.current_experiment = self.experiment_list.itemData(index)
         
         # 更新实验目标显示
         self.goal_text.setText(self.current_experiment['goal'])
         
         # 更新状态显示
-        self.experiment_status.setText(f"当前实验：{self.current_experiment['name']}")
+        display_name = self.current_experiment['name']
+        difficulty = self.current_experiment.get('difficulty', '未分类')
+        self.experiment_status.setText(f"当前实验：{display_name} [{difficulty}]")
         
         # 清空当前画布
         self.work_area.clear_circuit()
@@ -1930,9 +1948,6 @@ class MainWindow(QMainWindow):
         self.request_hint_button.setEnabled(True)
         self.reset_experiment_button.setEnabled(True)
         
-        # 禁用实验列表，直到重置实验
-        self.experiment_list.setEnabled(False)
-        
         # 在状态栏显示当前实验
         self.statusBar().showMessage(f"正在进行实验：{self.current_experiment['name']}")
 
@@ -1950,26 +1965,21 @@ class MainWindow(QMainWindow):
         )
         
         if reply == QMessageBox.StandardButton.Yes:
-            # 保存当前实验的索引
-            current_index = self.experiment_list.currentIndex().row()
+            # 保存当前实验索引
+            current_index = self.experiment_list.currentIndex()
             
             # 清空画布
             self.work_area.clear_circuit()
             
-            # 重新启用实验列表（它会在handle_experiment_selected中被再次禁用）
-            self.experiment_list.setEnabled(True)
-            
-            # 重新加载相同的实验
-            self.experiment_list.setCurrentRow(current_index)
+            # 重新选择相同的实验（会触发handle_experiment_selected）
+            self.experiment_list.setCurrentIndex(0)  # 先重置
+            self.experiment_list.setCurrentIndex(current_index)  # 再选择
             
             # 提示用户
             QMessageBox.information(self, "实验已重置", "实验已恢复到初始状态。")
             
     def refresh_experiments(self):
         """刷新实验列表"""
-        # 启用实验列表
-        self.experiment_list.setEnabled(True)
-        
         # 清空当前实验
         self.current_experiment = None
         
@@ -1984,6 +1994,7 @@ class MainWindow(QMainWindow):
         
         # 重新加载实验列表
         self.experiments = experiment_manager.load_experiments(self.experiment_file)
+        self.experiment_list.setCurrentIndex(0)  # 选择默认选项
         self.populate_experiment_list()
         
         # 清空画布
@@ -2062,9 +2073,19 @@ class MainWindow(QMainWindow):
         # 获取当前电路状态
         circuit_description = self.serialize_circuit()
         
+        # 获取电路数据，用于评估
+        circuit_data = self.work_area.circuit.to_dict(self.work_area.scene())
+        
+        # 使用experiment_manager评估实验进度
+        progress_result = experiment_manager.evaluate_experiment_progress(
+            self.current_experiment, circuit_data
+        )
+        
         # 构建提交给大模型的提示信息
         experiment_name = self.current_experiment['name']
         experiment_goal = self.current_experiment['goal']
+        completion_percentage = progress_result["completion_percentage"]
+        missing_components = progress_result["missing_components"]
         
         prompt = f"""
         这是一个中小学物理电学实验中的 '{experiment_name}' 实验。
@@ -2073,6 +2094,10 @@ class MainWindow(QMainWindow):
 
         学生当前搭建的电路情况:
         {circuit_description}
+
+        实验评估结果:
+        - 完成度: {completion_percentage}%
+        - 缺少组件: {', '.join(missing_components) if missing_components else '无'}
 
         请分析学生当前的电路状态，评估完成度，提供以下反馈:
         1. 实验进展: 电路已经完成了哪些部分，还缺少哪些部分?
@@ -2083,25 +2108,99 @@ class MainWindow(QMainWindow):
         请用中文回答，语言要友好，适合中小学生理解。
         """
         
-        # 调用现有的LLM请求函数
+        # 禁用交互按钮，防止重复提交
+        self.report_progress_button.setEnabled(False)
+        self.request_hint_button.setEnabled(False)
+        
+        # 调用大模型请求函数
         thinking_message = self.add_thinking_message()
         
         try:
             # 添加加载中的消息
             self.add_system_message("进度分析中", "正在分析您的电路...", "blue")
             
-            # 使用现有的API调用函数发送请求
+            # 创建OpenAI客户端
+            from openai import OpenAI
+            import json
+            
+            # 从config.json加载API密钥
+            try:
+                with open('config.json', 'r', encoding='utf-8') as f:
+                    config_data = json.load(f)
+                    api_key = config_data.get('openai_api_key', '')
+                    if not api_key:
+                        raise ValueError("未找到有效的OpenAI API密钥")
+                    
+                    # 创建API客户端配置
+                    class ClientConfig:
+                        def __init__(self):
+                            self.default_model = config_data.get('model', 'gpt-3.5-turbo')
+                            self.default_temperature = config_data.get('temperature', 0.7)
+                    
+                    # 创建LLM客户端
+                    class LLMClient:
+                        def __init__(self, api_key):
+                            self.client = OpenAI(api_key=api_key)
+                            self.config = ClientConfig()
+                    
+                    llm_client = LLMClient(api_key)
+                    
+            except (FileNotFoundError, json.JSONDecodeError) as e:
+                raise ValueError(f"加载配置文件失败: {str(e)}")
+            
+            # 使用stream_llm_request函数发送请求
             self.stream_llm_request(
-                None,  # LLM客户端在原方法中创建
+                llm_client,
                 prompt,
                 "你是一位资深的中小学物理老师，擅长电学实验教学。你的任务是分析学生的电路实验状态，给予鼓励性的反馈和指导。",
                 lambda message: self.update_ai_message_content(thinking_message, message)
             )
+            
+            # 将AI回复添加到聊天界面
+            if hasattr(self, 'ai_message_label') and self.ai_message_label:
+                response_content = self.ai_message_label.text()
+                # 移除思考消息，添加正式回复
+                self.remove_thinking_message()
+                self.add_message_to_chat("assistant", response_content)
+            
         except Exception as e:
+            # 移除思考消息
             self.remove_thinking_message()
-            self.add_system_message("错误", f"分析失败: {str(e)}", "red")
+            # 显示错误消息
+            error_message = f"分析失败: {str(e)}"
+            self.add_system_message("错误", error_message, "red")
             logger.error(f"调用大模型API时出错: {str(e)}", exc_info=True)
+        finally:
+            # 重新启用交互按钮
+            self.report_progress_button.setEnabled(True)
+            self.request_hint_button.setEnabled(True)
+            
     
+    def update_ai_message_content(self, message_widget, content):
+        """更新AI消息的内容
+        
+        Args:
+            message_widget: 消息组件（未使用）
+            content: 新的消息内容
+        """
+        if hasattr(self, 'ai_message_label') and self.ai_message_label:
+            # 更新标签文本
+            self.ai_message_label.setText(content)
+            
+            # 调整消息气泡大小以适应内容
+            self.ai_message_label.adjustSize()
+            if hasattr(self, 'ai_message_bubble') and self.ai_message_bubble:
+                self.ai_message_bubble.adjustSize()
+                
+            # 更改颜色，表明这是一个完整的消息而非思考状态
+            self.ai_message_label.setStyleSheet("""
+                font-family: 'SimSun', 'simsun', serif;
+                font-size: 14px;
+                color: #2C3E50;
+                background: transparent;
+                line-height: 1.5;
+            """)
+
     def request_hint(self):
         """请求大模型提供针对当前实验的提示"""
         if not self.current_experiment:
@@ -2139,30 +2238,104 @@ class MainWindow(QMainWindow):
         请用中文回答，语言要简洁清晰，适合中小学生理解。
         """
         
-        # 调用现有的LLM请求函数
+        # 禁用交互按钮，防止重复提交
+        self.report_progress_button.setEnabled(False)
+        self.request_hint_button.setEnabled(False)
+        
+        # 调用大模型请求函数
         thinking_message = self.add_thinking_message()
         
         try:
             # 添加加载中的消息
             self.add_system_message("提示生成中", "正在为您生成提示...", "purple")
             
-            # 使用现有的API调用函数发送请求
+            # 创建OpenAI客户端
+            from openai import OpenAI
+            import json
+            
+            # 从config.json加载API密钥
+            try:
+                with open('config.json', 'r', encoding='utf-8') as f:
+                    config_data = json.load(f)
+                    api_key = config_data.get('openai_api_key', '')
+                    if not api_key:
+                        raise ValueError("未找到有效的OpenAI API密钥")
+                    
+                    # 创建API客户端配置
+                    class ClientConfig:
+                        def __init__(self):
+                            self.default_model = config_data.get('model', 'gpt-3.5-turbo')
+                            self.default_temperature = config_data.get('temperature', 0.7)
+                    
+                    # 创建LLM客户端
+                    class LLMClient:
+                        def __init__(self, api_key):
+                            self.client = OpenAI(api_key=api_key)
+                            self.config = ClientConfig()
+                    
+                    llm_client = LLMClient(api_key)
+                    
+            except (FileNotFoundError, json.JSONDecodeError) as e:
+                raise ValueError(f"加载配置文件失败: {str(e)}")
+            
+            # 使用stream_llm_request函数发送请求
             self.stream_llm_request(
-                None,  # LLM客户端在原方法中创建
+                llm_client,
                 prompt,
                 "你是一位资深的中小学物理老师，擅长电学实验教学。你的任务是为学生提供有帮助的提示，引导他们完成电路实验。",
                 lambda message: self.update_ai_message_content(thinking_message, message)
             )
+            
+            # 将AI回复添加到聊天界面
+            if hasattr(self, 'ai_message_label') and self.ai_message_label:
+                response_content = self.ai_message_label.text()
+                # 移除思考消息，添加正式回复
+                self.remove_thinking_message()
+                self.add_message_to_chat("assistant", response_content)
+                
         except Exception as e:
+            # 移除思考消息 
             self.remove_thinking_message()
-            self.add_system_message("错误", f"获取提示失败: {str(e)}", "red")
+            # 显示错误消息
+            error_message = f"获取提示失败: {str(e)}"
+            self.add_system_message("错误", error_message, "red")
             logger.error(f"调用大模型API时出错: {str(e)}", exc_info=True)
+        finally:
+            # 重新启用交互按钮
+            self.report_progress_button.setEnabled(True)
+            self.request_hint_button.setEnabled(True)
 
     def populate_experiment_list(self):
-        """填充实验列表"""
+        """填充实验下拉列表"""
         self.experiment_list.clear()
+        self.experiment_list.addItem("请选择实验...", None)  # 添加一个默认选项
+        
+        # 为实验添加难度标签
         for experiment in self.experiments:
-            self.experiment_list.addItem(experiment['name'])
+            difficulty = experiment.get('difficulty', '未分类')
+            item_text = f"{experiment['name']} [{difficulty}]"
+            self.experiment_list.addItem(item_text, experiment)  # 将实验数据作为项目数据
+
+    def filter_experiments_by_difficulty(self, difficulty):
+        """按难度筛选实验"""
+        if difficulty == "全部":
+            self.experiments = experiment_manager.load_experiments(self.experiment_file)
+        else:
+            all_experiments = experiment_manager.load_experiments(self.experiment_file)
+            self.experiments = experiment_manager.get_experiments_by_difficulty(all_experiments, difficulty)
+        
+        # 记住当前选中的实验名称
+        current_text = self.experiment_list.currentText() if self.experiment_list.currentIndex() > 0 else ""
+        
+        # 重新填充下拉列表
+        self.populate_experiment_list()
+        
+        # 尝试恢复选择
+        if current_text:
+            for i in range(self.experiment_list.count()):
+                if self.experiment_list.itemText(i) == current_text:
+                    self.experiment_list.setCurrentIndex(i)
+                    break
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

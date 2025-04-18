@@ -1,0 +1,6 @@
+2025-04-19 02:35:20,024 - CircuitSimulator - INFO - 成功加载了 10 个实验
+2025-04-19 02:35:20,043 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-04-19 02:35:30,158 - CircuitSimulator - INFO - 成功加载了 10 个实验
+2025-04-19 02:35:30,731 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 150)
+2025-04-19 02:35:30,732 - CircuitSimulator - DEBUG - 已放置组件: 定值电阻 在位置 (300, 150)
+2025-04-19 02:35:30,733 - CircuitSimulator - DEBUG - 已放置组件: 电流表 在位置 (450, 150)
