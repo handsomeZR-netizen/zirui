@@ -1,0 +1,279 @@
+2025-04-18 22:24:11,946 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-04-18 22:24:24,585 - test_api - INFO - OpenAI客户端初始化成功
+2025-04-18 22:24:24,598 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '你是一位专业的物理电学实验助手。请帮助用户理解和构建电路实验。\n            你需要：\n            1. 分析当前电路的组成和连接\n            2. 提供专业的建议和指导\n            3. 回答用户的具体问题\n            4. 指出可能存在的问题和改进建议'}, {'role': 'user', 'content': '\n用户问题: 现在我放置了什么东西\n\n当前电路信息:\n{\n  "components": [\n    {\n      "name": "电源",\n      "pos": {\n        "x": 20.0,\n        "y": -80.0\n      },\n      "properties": {\n        "电压值": 12.0,\n        "可调范围": "0-24"\n      }\n    }\n  ],\n  "wires": []\n}\n\n请根据以上电路信息回答用户问题。如果需要更多信息，请明确指出。\n'}], 'model': 'gpt-4', 'stream': True, 'temperature': 0.1}}
+2025-04-18 22:24:24,620 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.planetzero.live/v1/chat/completions
+2025-04-18 22:24:24,621 - httpcore.connection - DEBUG - connect_tcp.started host='api.planetzero.live' port=443 local_address=None timeout=10 socket_options=None
+2025-04-18 22:24:24,674 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000015AA9896550>
+2025-04-18 22:24:24,674 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000015AA68F7940> server_hostname='api.planetzero.live' timeout=10
+2025-04-18 22:24:24,718 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000015AA9896610>
+2025-04-18 22:24:24,718 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-04-18 22:24:24,719 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-04-18 22:24:24,719 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-04-18 22:24:24,719 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-04-18 22:24:24,719 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-04-18 22:24:29,723 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 18 Apr 2025 14:24:28 GMT'), (b'Content-Type', b'text/event-stream'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Server', b'cloudflare'), (b'Cache-Control', b'no-cache'), (b'X-Oneapi-Request-Id', b'20250418222424366094344t8L6yUbG'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'Cf-Cache-Status', b'DYNAMIC'), (b'CF-RAY', b'9324d3554f4909e0-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-04-18 22:24:29,724 - httpx - INFO - HTTP Request: POST https://api.planetzero.live/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 22:24:29,724 - openai._base_client - DEBUG - HTTP Response: POST https://api.planetzero.live/v1/chat/completions "200 OK" Headers({'date': 'Fri, 18 Apr 2025 14:24:28 GMT', 'content-type': 'text/event-stream', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'server': 'cloudflare', 'cache-control': 'no-cache', 'x-oneapi-request-id': '20250418222424366094344t8L6yUbG', 'strict-transport-security': 'max-age=31536000', 'cf-cache-status': 'DYNAMIC', 'cf-ray': '9324d3554f4909e0-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2025-04-18 22:24:29,724 - openai._base_client - DEBUG - request_id: None
+2025-04-18 22:24:29,724 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-04-18 22:24:30,353 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-04-18 22:24:30,353 - httpcore.http11 - DEBUG - response_closed.started
+2025-04-18 22:24:30,353 - httpcore.http11 - DEBUG - response_closed.complete
+2025-04-18 22:25:18,569 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-75.0, 0.0), points=4
+2025-04-18 22:25:18,570 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-75.0, 0.0)
+2025-04-18 22:25:18,570 - CircuitSimulator - DEBUG - 导线起点连接到: 开关
+2025-04-18 22:25:18,707 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-75.0, 0.0), points=4
+2025-04-18 22:25:18,717 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-75.0, 0.0), points=4
+2025-04-18 22:25:18,727 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-75.0, 0.0), points=4
+2025-04-18 22:25:18,735 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-75.0, 0.0), points=4
+2025-04-18 22:25:18,743 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-75.0, 0.0), points=4
+2025-04-18 22:25:18,754 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-75.0, 0.0), points=4
+2025-04-18 22:25:18,759 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-65.0, 0.0), points=4
+2025-04-18 22:25:18,767 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-61.0, 0.0), points=4
+2025-04-18 22:25:18,775 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-59.0, 0.0), points=4
+2025-04-18 22:25:18,784 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-55.0, 0.0), points=4
+2025-04-18 22:25:18,793 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-51.0, 0.0), points=4
+2025-04-18 22:25:18,798 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-46.0, 0.0), points=4
+2025-04-18 22:25:18,808 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-41.0, 0.0), points=4
+2025-04-18 22:25:18,815 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-37.0, 0.0), points=4
+2025-04-18 22:25:18,824 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-35.0, 0.0), points=4
+2025-04-18 22:25:18,831 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-33.0, 0.0), points=4
+2025-04-18 22:25:18,842 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-31.0, 0.0), points=4
+2025-04-18 22:25:18,847 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-28.0, 0.0), points=4
+2025-04-18 22:25:18,856 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-25.0, 1.0), points=4
+2025-04-18 22:25:18,864 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-23.0, 2.0), points=4
+2025-04-18 22:25:18,872 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-21.0, 2.0), points=4
+2025-04-18 22:25:18,878 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-19.0, 2.0), points=4
+2025-04-18 22:25:18,891 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-18.0, 2.0), points=4
+2025-04-18 22:25:18,897 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-15.0, 2.0), points=4
+2025-04-18 22:25:18,903 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-11.0, 2.0), points=4
+2025-04-18 22:25:18,911 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-6.0, 2.0), points=4
+2025-04-18 22:25:18,921 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(-2.0, 2.0), points=4
+2025-04-18 22:25:18,937 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(1.0, 2.0), points=4
+2025-04-18 22:25:18,943 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(4.0, 2.0), points=4
+2025-04-18 22:25:18,951 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(6.0, 2.0), points=4
+2025-04-18 22:25:18,958 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(7.0, 2.0), points=4
+2025-04-18 22:25:18,967 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(15.0, 0.0), points=4
+2025-04-18 22:25:19,116 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(15.0, 0.0), points=4
+2025-04-18 22:25:19,135 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(15.0, 0.0), points=4
+2025-04-18 22:25:19,147 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(15.0, 0.0), points=4
+2025-04-18 22:25:19,343 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-75.0, 0.0), end=PyQt6.QtCore.QPointF(15.0, 0.0), points=4
+2025-04-18 22:25:19,343 - CircuitSimulator - DEBUG - 导线终点连接到: 导线
+2025-04-18 22:25:20,330 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-125.0, 0.0), points=4
+2025-04-18 22:25:20,330 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(-125.0, 0.0)
+2025-04-18 22:25:20,330 - CircuitSimulator - DEBUG - 导线起点连接到: 开关
+2025-04-18 22:25:20,406 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-125.0, 0.0), points=4
+2025-04-18 22:25:20,418 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-125.0, 0.0), points=4
+2025-04-18 22:25:20,423 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-125.0, 0.0), points=4
+2025-04-18 22:25:20,434 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-125.0, 0.0), points=4
+2025-04-18 22:25:20,447 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-121.0, -9.0), points=4
+2025-04-18 22:25:20,448 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-117.0, -12.0), points=4
+2025-04-18 22:25:20,454 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-112.0, -17.0), points=4
+2025-04-18 22:25:20,464 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-107.0, -20.0), points=4
+2025-04-18 22:25:20,470 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-105.0, -22.0), points=4
+2025-04-18 22:25:20,481 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-100.0, -25.0), points=4
+2025-04-18 22:25:20,486 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-96.0, -30.0), points=4
+2025-04-18 22:25:20,495 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-94.0, -32.0), points=4
+2025-04-18 22:25:20,502 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-89.0, -35.0), points=4
+2025-04-18 22:25:20,512 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-85.0, -40.0), points=4
+2025-04-18 22:25:20,519 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-79.0, -44.0), points=4
+2025-04-18 22:25:20,528 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-75.0, -48.0), points=4
+2025-04-18 22:25:20,535 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-71.0, -53.0), points=4
+2025-04-18 22:25:20,544 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-67.0, -57.0), points=4
+2025-04-18 22:25:20,551 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-64.0, -62.0), points=4
+2025-04-18 22:25:20,560 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-61.0, -65.0), points=4
+2025-04-18 22:25:20,567 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-57.0, -68.0), points=4
+2025-04-18 22:25:20,576 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-54.0, -72.0), points=4
+2025-04-18 22:25:20,583 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-51.0, -74.0), points=4
+2025-04-18 22:25:20,592 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-49.0, -74.0), points=4
+2025-04-18 22:25:20,598 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-47.0, -76.0), points=4
+2025-04-18 22:25:20,611 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-45.0, -78.0), points=4
+2025-04-18 22:25:20,615 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-43.0, -79.0), points=4
+2025-04-18 22:25:20,626 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-41.0, -80.0), points=4
+2025-04-18 22:25:20,631 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-41.0, -80.0), points=4
+2025-04-18 22:25:20,640 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-40.0, -80.0), points=4
+2025-04-18 22:25:20,646 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-39.0, -82.0), points=4
+2025-04-18 22:25:20,656 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-37.0, -82.0), points=4
+2025-04-18 22:25:20,662 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-36.0, -83.0), points=4
+2025-04-18 22:25:20,704 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-35.0, -83.0), points=4
+2025-04-18 22:25:20,710 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-35.0, -83.0), points=4
+2025-04-18 22:25:20,721 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-34.0, -83.0), points=4
+2025-04-18 22:25:20,727 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-30.0, -83.0), points=4
+2025-04-18 22:25:20,734 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-27.0, -83.0), points=4
+2025-04-18 22:25:20,744 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-25.0, -83.0), points=4
+2025-04-18 22:25:20,751 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-23.0, -83.0), points=4
+2025-04-18 22:25:20,763 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-19.0, -83.0), points=4
+2025-04-18 22:25:20,768 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-19.0, -83.0), points=4
+2025-04-18 22:25:20,776 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-18.0, -83.0), points=4
+2025-04-18 22:25:20,831 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-17.0, -83.0), points=4
+2025-04-18 22:25:20,840 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-17.0, -83.0), points=4
+2025-04-18 22:25:20,847 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-16.0, -83.0), points=4
+2025-04-18 22:25:20,857 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-15.0, -83.0), points=4
+2025-04-18 22:25:20,863 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-15.0, -83.0), points=4
+2025-04-18 22:25:20,872 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-13.0, -83.0), points=4
+2025-04-18 22:25:20,888 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-12.0, -83.0), points=4
+2025-04-18 22:25:20,920 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-5.0, -80.0), points=4
+2025-04-18 22:25:21,067 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-5.0, -80.0), points=4
+2025-04-18 22:25:21,095 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-5.0, -80.0), points=4
+2025-04-18 22:25:21,127 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-5.0, -80.0), points=4
+2025-04-18 22:25:21,145 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-5.0, -80.0), points=4
+2025-04-18 22:25:21,251 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(-125.0, 0.0), end=PyQt6.QtCore.QPointF(-5.0, -80.0), points=4
+2025-04-18 22:25:21,252 - CircuitSimulator - DEBUG - 导线终点连接到: 电源
+2025-04-18 22:25:22,208 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(45.0, -80.0), points=4
+2025-04-18 22:25:22,208 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(45.0, -80.0)
+2025-04-18 22:25:22,208 - CircuitSimulator - DEBUG - 导线起点连接到: 电源
+2025-04-18 22:25:22,338 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(45.0, -80.0), points=4
+2025-04-18 22:25:22,343 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(45.0, -80.0), points=4
+2025-04-18 22:25:22,351 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(45.0, -80.0), points=4
+2025-04-18 22:25:22,358 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(45.0, -80.0), points=4
+2025-04-18 22:25:22,366 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(51.0, -75.0), points=4
+2025-04-18 22:25:22,376 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(53.0, -74.0), points=4
+2025-04-18 22:25:22,383 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(53.0, -72.0), points=4
+2025-04-18 22:25:22,392 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(59.0, -70.0), points=4
+2025-04-18 22:25:22,399 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(64.0, -65.0), points=4
+2025-04-18 22:25:22,410 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(69.0, -64.0), points=4
+2025-04-18 22:25:22,424 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(78.0, -58.0), points=4
+2025-04-18 22:25:22,433 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(84.0, -58.0), points=4
+2025-04-18 22:25:22,448 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(90.0, -56.0), points=4
+2025-04-18 22:25:22,451 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(98.0, -54.0), points=4
+2025-04-18 22:25:22,465 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(108.0, -50.0), points=4
+2025-04-18 22:25:22,478 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(113.0, -49.0), points=4
+2025-04-18 22:25:22,492 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(116.0, -48.0), points=4
+2025-04-18 22:25:22,494 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(117.0, -46.0), points=4
+2025-04-18 22:25:22,508 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(118.0, -45.0), points=4
+2025-04-18 22:25:22,524 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(117.0, -44.0), points=4
+2025-04-18 22:25:22,527 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(117.0, -44.0), points=4
+2025-04-18 22:25:22,530 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(117.0, -42.0), points=4
+2025-04-18 22:25:22,535 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(116.0, -42.0), points=4
+2025-04-18 22:25:22,546 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(116.0, -41.0), points=4
+2025-04-18 22:25:22,554 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(114.0, -40.0), points=4
+2025-04-18 22:25:22,559 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(114.0, -40.0), points=4
+2025-04-18 22:25:22,567 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(114.0, -39.0), points=4
+2025-04-18 22:25:22,577 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(112.0, -38.0), points=4
+2025-04-18 22:25:22,583 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(110.0, -37.0), points=4
+2025-04-18 22:25:22,594 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(108.0, -35.0), points=4
+2025-04-18 22:25:22,598 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(106.0, -34.0), points=4
+2025-04-18 22:25:22,608 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(104.0, -32.0), points=4
+2025-04-18 22:25:22,615 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(100.0, -30.0), points=4
+2025-04-18 22:25:22,624 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(97.0, -28.0), points=4
+2025-04-18 22:25:22,631 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(93.0, -26.0), points=4
+2025-04-18 22:25:22,641 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(90.0, -25.0), points=4
+2025-04-18 22:25:22,647 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(88.0, -25.0), points=4
+2025-04-18 22:25:22,656 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(87.0, -24.0), points=4
+2025-04-18 22:25:22,664 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(86.0, -22.0), points=4
+2025-04-18 22:25:22,689 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(85.0, -22.0), points=4
+2025-04-18 22:25:22,704 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(84.0, -22.0), points=4
+2025-04-18 22:25:22,711 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(83.0, -22.0), points=4
+2025-04-18 22:25:22,720 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(82.0, -22.0), points=4
+2025-04-18 22:25:22,727 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(82.0, -21.0), points=4
+2025-04-18 22:25:22,736 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(82.0, -20.0), points=4
+2025-04-18 22:25:22,743 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(81.0, -20.0), points=4
+2025-04-18 22:25:22,752 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(80.0, -19.0), points=4
+2025-04-18 22:25:22,775 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(80.0, -18.0), points=4
+2025-04-18 22:25:22,783 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(79.0, -16.0), points=4
+2025-04-18 22:25:22,799 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(78.0, -15.0), points=4
+2025-04-18 22:25:22,824 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(78.0, -14.0), points=4
+2025-04-18 22:25:22,831 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(77.0, -12.0), points=4
+2025-04-18 22:25:22,849 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(76.0, -12.0), points=4
+2025-04-18 22:25:22,857 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(76.0, -11.0), points=4
+2025-04-18 22:25:22,881 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(75.0, -11.0), points=4
+2025-04-18 22:25:22,883 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(73.0, -10.0), points=4
+2025-04-18 22:25:22,887 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(73.0, -10.0), points=4
+2025-04-18 22:25:22,911 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(72.0, -8.0), points=4
+2025-04-18 22:25:22,959 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(71.0, -7.0), points=4
+2025-04-18 22:25:23,071 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(70.0, -7.0), points=4
+2025-04-18 22:25:23,087 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(70.0, -7.0), points=4
+2025-04-18 22:25:23,095 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(69.0, -6.0), points=4
+2025-04-18 22:25:23,108 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(65.0, 0.0), points=4
+2025-04-18 22:25:23,114 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(65.0, 0.0), points=4
+2025-04-18 22:25:23,120 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(65.0, 0.0), points=4
+2025-04-18 22:25:23,127 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(65.0, 0.0), points=4
+2025-04-18 22:25:23,136 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(65.0, 0.0), points=4
+2025-04-18 22:25:23,143 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(65.0, 0.0), points=4
+2025-04-18 22:25:23,384 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(45.0, -80.0), end=PyQt6.QtCore.QPointF(65.0, 0.0), points=4
+2025-04-18 22:25:23,384 - CircuitSimulator - DEBUG - 导线终点连接到: 导线
+2025-04-18 22:25:30,412 - test_api - INFO - OpenAI客户端初始化成功
+2025-04-18 22:25:30,420 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '你是一位专业的物理电学实验助手。请帮助用户理解和构建电路实验。\n            你需要：\n            1. 分析当前电路的组成和连接\n            2. 提供专业的建议和指导\n            3. 回答用户的具体问题\n            4. 指出可能存在的问题和改进建议'}, {'role': 'user', 'content': '\n用户问题: 现在连接状况如何呢\n\n当前电路信息:\n{\n  "components": [\n    {\n      "name": "电源",\n      "pos": {\n        "x": 20.0,\n        "y": -80.0\n      },\n      "properties": {\n        "电压值": 12.0,\n        "可调范围": "0-24"\n      }\n    },\n    {\n      "name": "开关",\n      "pos": {\n        "x": -100.0,\n        "y": 0.0\n      },\n      "properties": {\n        "状态": false\n      }\n    },\n    {\n      "name": "导线",\n      "pos": {\n        "x": 40.0,\n        "y": 0.0\n      },\n      "properties": {}\n    }\n  ],\n  "wires": [\n    {\n      "path_points": [\n        {\n          "x": 45.0,\n          "y": -80.0\n        },\n        {\n          "x": 45.0,\n          "y": -40.0\n        },\n        {\n          "x": 65.0,\n          "y": -40.0\n        },\n        {\n          "x": 65.0,\n          "y": 0.0\n        }\n      ],\n      "source": {\n        "component_index": 0,\n        "point_index": 0\n      },\n      "target": {\n        "component_index": 2,\n        "point_index": 1\n      }\n    },\n    {\n      "path_points": [\n        {\n          "x": -125.0,\n          "y": 0.0\n        },\n        {\n          "x": -65.0,\n          "y": 0.0\n        },\n        {\n          "x": -65.0,\n          "y": -80.0\n        },\n        {\n          "x": -5.0,\n          "y": -80.0\n        }\n      ],\n      "source": {\n        "component_index": 1,\n        "point_index": 0\n      },\n      "target": {\n        "component_index": 0,\n        "point_index": 1\n      }\n    },\n    {\n      "path_points": [\n        {\n          "x": -75.0,\n          "y": 0.0\n        },\n        {\n          "x": -30.0,\n          "y": 0.0\n        },\n        {\n          "x": -30.0,\n          "y": 0.0\n        },\n        {\n          "x": 15.0,\n          "y": 0.0\n        }\n      ],\n      "source": {\n        "component_index": 1,\n        "point_index": 1\n      },\n      "target": {\n        "component_index": 2,\n        "point_index": 0\n      }\n    }\n  ]\n}\n\n请根据以上电路信息回答用户问题。如果需要更多信息，请明确指出。\n'}], 'model': 'gpt-4', 'stream': True, 'temperature': 0.1}}
+2025-04-18 22:25:30,421 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.planetzero.live/v1/chat/completions
+2025-04-18 22:25:30,421 - httpcore.connection - DEBUG - connect_tcp.started host='api.planetzero.live' port=443 local_address=None timeout=10 socket_options=None
+2025-04-18 22:25:30,463 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000015AA99C1040>
+2025-04-18 22:25:30,463 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000015AA9847BC0> server_hostname='api.planetzero.live' timeout=10
+2025-04-18 22:25:30,532 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000015AA99BEC40>
+2025-04-18 22:25:30,532 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-04-18 22:25:30,533 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-04-18 22:25:30,533 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-04-18 22:25:30,533 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-04-18 22:25:30,533 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-04-18 22:25:40,534 - httpcore.http11 - DEBUG - receive_response_headers.failed exception=ReadTimeout(timeout('The read operation timed out'))
+2025-04-18 22:25:40,534 - httpcore.http11 - DEBUG - response_closed.started
+2025-04-18 22:25:40,534 - httpcore.http11 - DEBUG - response_closed.complete
+2025-04-18 22:25:40,534 - openai._base_client - DEBUG - Encountered httpx.TimeoutException
+Traceback (most recent call last):
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 136, in handle_request
+    raise exc
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_backends\sync.py", line 128, in read
+    return self._sock.recv(max_bytes)
+  File "D:\anaconda3\envs\myenv\lib\contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\openai\_base_client.py", line 955, in _request
+    response = self._client.send(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\anaconda3\envs\myenv\lib\contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+2025-04-18 22:25:40,543 - openai._base_client - DEBUG - 2 retries left
+2025-04-18 22:25:40,543 - openai._base_client - INFO - Retrying request to /chat/completions in 0.386549 seconds
+2025-04-18 22:25:40,930 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '你是一位专业的物理电学实验助手。请帮助用户理解和构建电路实验。\n            你需要：\n            1. 分析当前电路的组成和连接\n            2. 提供专业的建议和指导\n            3. 回答用户的具体问题\n            4. 指出可能存在的问题和改进建议'}, {'role': 'user', 'content': '\n用户问题: 现在连接状况如何呢\n\n当前电路信息:\n{\n  "components": [\n    {\n      "name": "电源",\n      "pos": {\n        "x": 20.0,\n        "y": -80.0\n      },\n      "properties": {\n        "电压值": 12.0,\n        "可调范围": "0-24"\n      }\n    },\n    {\n      "name": "开关",\n      "pos": {\n        "x": -100.0,\n        "y": 0.0\n      },\n      "properties": {\n        "状态": false\n      }\n    },\n    {\n      "name": "导线",\n      "pos": {\n        "x": 40.0,\n        "y": 0.0\n      },\n      "properties": {}\n    }\n  ],\n  "wires": [\n    {\n      "path_points": [\n        {\n          "x": 45.0,\n          "y": -80.0\n        },\n        {\n          "x": 45.0,\n          "y": -40.0\n        },\n        {\n          "x": 65.0,\n          "y": -40.0\n        },\n        {\n          "x": 65.0,\n          "y": 0.0\n        }\n      ],\n      "source": {\n        "component_index": 0,\n        "point_index": 0\n      },\n      "target": {\n        "component_index": 2,\n        "point_index": 1\n      }\n    },\n    {\n      "path_points": [\n        {\n          "x": -125.0,\n          "y": 0.0\n        },\n        {\n          "x": -65.0,\n          "y": 0.0\n        },\n        {\n          "x": -65.0,\n          "y": -80.0\n        },\n        {\n          "x": -5.0,\n          "y": -80.0\n        }\n      ],\n      "source": {\n        "component_index": 1,\n        "point_index": 0\n      },\n      "target": {\n        "component_index": 0,\n        "point_index": 1\n      }\n    },\n    {\n      "path_points": [\n        {\n          "x": -75.0,\n          "y": 0.0\n        },\n        {\n          "x": -30.0,\n          "y": 0.0\n        },\n        {\n          "x": -30.0,\n          "y": 0.0\n        },\n        {\n          "x": 15.0,\n          "y": 0.0\n        }\n      ],\n      "source": {\n        "component_index": 1,\n        "point_index": 1\n      },\n      "target": {\n        "component_index": 2,\n        "point_index": 0\n      }\n    }\n  ]\n}\n\n请根据以上电路信息回答用户问题。如果需要更多信息，请明确指出。\n'}], 'model': 'gpt-4', 'stream': True, 'temperature': 0.1}}
+2025-04-18 22:25:40,931 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.planetzero.live/v1/chat/completions
+2025-04-18 22:25:40,931 - httpcore.connection - DEBUG - connect_tcp.started host='api.planetzero.live' port=443 local_address=None timeout=10 socket_options=None
+2025-04-18 22:25:40,986 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000015AA99C1760>
+2025-04-18 22:25:40,986 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000015AA9847BC0> server_hostname='api.planetzero.live' timeout=10
+2025-04-18 22:25:41,035 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000015AA99C1490>
+2025-04-18 22:25:41,035 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-04-18 22:25:41,035 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-04-18 22:25:41,035 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-04-18 22:25:41,036 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-04-18 22:25:41,036 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-04-18 22:25:47,809 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Fri, 18 Apr 2025 14:25:46 GMT'), (b'Content-Type', b'text/event-stream'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Server', b'cloudflare'), (b'Cache-Control', b'no-cache'), (b'X-Oneapi-Request-Id', b'20250418222540719764025meSLZal3'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'Cf-Cache-Status', b'DYNAMIC'), (b'CF-RAY', b'9324d5324d2f854e-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-04-18 22:25:47,810 - httpx - INFO - HTTP Request: POST https://api.planetzero.live/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-18 22:25:47,810 - openai._base_client - DEBUG - HTTP Response: POST https://api.planetzero.live/v1/chat/completions "200 OK" Headers({'date': 'Fri, 18 Apr 2025 14:25:46 GMT', 'content-type': 'text/event-stream', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'server': 'cloudflare', 'cache-control': 'no-cache', 'x-oneapi-request-id': '20250418222540719764025meSLZal3', 'strict-transport-security': 'max-age=31536000', 'cf-cache-status': 'DYNAMIC', 'cf-ray': '9324d5324d2f854e-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2025-04-18 22:25:47,810 - openai._base_client - DEBUG - request_id: None
+2025-04-18 22:25:47,810 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-04-18 22:25:52,692 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-04-18 22:25:52,692 - httpcore.http11 - DEBUG - response_closed.started
+2025-04-18 22:25:52,692 - httpcore.http11 - DEBUG - response_closed.complete
+2025-04-18 22:26:12,615 - CircuitSimulator - DEBUG - 开关状态改变: True

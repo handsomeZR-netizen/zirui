@@ -154,9 +154,7 @@ class WorkArea(QGraphicsView):
         # 初始化电路
         self.circuit = Circuit()
         self.simulation_running = False
-        self.simulation_timer = None
-        self.simulation_step = 0
-        self.max_simulation_steps = 1000
+        self.simulation_status = "未开始"  # 新增：仿真状态
         
         logger.debug("WorkArea初始化完成")
         
@@ -453,7 +451,7 @@ class WorkArea(QGraphicsView):
     def save_circuit(self, filename):
         try:
             with open(filename, 'w', encoding='utf-8') as f:
-                json.dump(self.circuit.to_dict(), f, ensure_ascii=False, indent=2)
+                json.dump(self.circuit.to_dict(self.scene()), f, ensure_ascii=False, indent=2)
             return True
         except Exception as e:
             QMessageBox.warning(self, "错误", f"保存电路失败：{str(e)}")
@@ -464,24 +462,8 @@ class WorkArea(QGraphicsView):
             with open(filename, 'r', encoding='utf-8') as f:
                 data = json.load(f)
             self.clear_circuit()
-            self.circuit = Circuit.from_dict(data)
-            
-            # 添加组件到场景
-            for comp in self.circuit.components:
-                # 确保组件位置对齐到网格
-                pos = self.snap_to_grid_point(comp.pos())
-                comp.setPos(pos)
-                self.scene().addItem(comp)
-                
-            # 添加连接线
-            for from_comp, to_comp in self.circuit.connections:
-                line = self.scene().addLine(
-                    from_comp.pos().x(),
-                    from_comp.pos().y(),
-                    to_comp.pos().x(),
-                    to_comp.pos().y(),
-                    QPen(Qt.GlobalColor.black, 2)
-                )
+            # 传入场景参数给from_dict
+            self.circuit = Circuit.from_dict(data, self.scene())
             return True
         except Exception as e:
             QMessageBox.warning(self, "错误", f"加载电路失败：{str(e)}")
@@ -502,44 +484,66 @@ class WorkArea(QGraphicsView):
         self.update()
 
     def start_simulation(self, voltage):
-        """开始仿真"""
-        if self.simulation_running:
-            return
-            
+        """执行静态直流分析"""
+        # 设置状态
         self.simulation_running = True
-        self.simulation_step = 0
-        self.circuit.calculate_circuit(voltage)
-        self.update()  # 更新显示
         
+        # 执行一次电路计算
+        result = self.circuit.calculate_circuit(voltage)
+        
+        if result:
+            # 更新状态
+            self.simulation_status = "已计算"
+        else:
+            # 计算失败
+            self.simulation_status = "计算失败"
+            QMessageBox.warning(None, "计算错误", "电路分析失败，请检查电路连接是否正确")
+        
+        # 更新显示
+        self.update()
+        
+        # 返回计算结果状态，用于通知主窗口
+        return result
+    
     def stop_simulation(self):
-        """停止仿真"""
+        """停止仿真（保留计算结果）"""
         self.simulation_running = False
-        if self.simulation_timer:
-            self.simulation_timer.stop()
-            
+        self.simulation_status = "已停止"
+        # 不清除计算结果，只更新状态
+        self.update()
+        
     def reset_simulation(self):
-        """重置仿真"""
-        self.stop_simulation()
-        self.simulation_step = 0
-        # 重置所有组件的状态
+        """重置仿真（清除所有计算结果）"""
+        self.simulation_running = False
+        self.simulation_status = "未开始"
+        
+        # 重置所有组件的电气参数
         for comp in self.circuit.components:
             comp.voltage = 0
             comp.current = 0
-        self.update()
         
+        # 更新显示
+        self.update()
+    
     def update_simulation(self):
-        """更新仿真状态"""
+        """此方法保留用于属性变化后的手动更新"""
         if not self.simulation_running:
             return
             
-        self.simulation_step += 1
-        if self.simulation_step >= self.max_simulation_steps:
-            self.stop_simulation()
-            return
-            
-        # 更新电路状态
-        self.circuit.calculate_circuit()
-        self.update()  # 更新显示
+        # 获取当前电压
+        voltage = 5.0  # 默认值
+        
+        # 查找电源组件获取电压值
+        for comp in self.circuit.components:
+            if comp.name == "电源":
+                voltage = comp.properties.get("电压值", 5.0)
+                break
+        
+        # 重新计算电路
+        self.circuit.calculate_circuit(voltage)
+        
+        # 更新显示
+        self.update()
 
     def remove_component(self, component):
         """从场景和电路中移除组件"""
@@ -993,11 +997,6 @@ class MainWindow(QMainWindow):
             }
         """)
         
-        # 创建定时器用于更新仿真状态
-        self.simulation_timer = QTimer()
-        self.simulation_timer.timeout.connect(self.update_simulation)
-        self.simulation_timer.setInterval(100)  # 100ms更新一次
-        
     def showEvent(self, event):
         """窗口显示时调整分割器比例"""
         super().showEvent(event)
@@ -1051,29 +1050,30 @@ class MainWindow(QMainWindow):
     def start_simulation(self):
         try:
             voltage = float(self.voltage_input.text())
-            self.work_area.start_simulation(voltage)
+            # 调用工作区的静态分析方法，获取计算结果
+            result = self.work_area.start_simulation(voltage)
             
-            # 更新状态显示
-            self.simulation_status_label.setText("仿真状态: 运行中")
-            self.simulation_step_label.setText("仿真步数: 0")
-            
-            # 更新按钮状态
-            self.start_button.setEnabled(False)
-            self.stop_button.setEnabled(True)
-            self.reset_button.setEnabled(True)
-            
-            # 开始定时更新
-            self.simulation_timer.start()
-            
-            # 显示初始测量结果
-            self.update_measurements()
+            if result:
+                # 更新状态显示
+                self.simulation_status_label.setText("仿真状态: 已计算")
+                
+                # 更新按钮状态
+                self.start_button.setEnabled(True)  # 允许重新计算
+                self.stop_button.setEnabled(False)  # 不需要停止按钮
+                self.reset_button.setEnabled(True)
+                
+                # 显示测量结果
+                self.update_measurements()
+            else:
+                # 计算失败
+                self.simulation_status_label.setText("仿真状态: 计算失败")
             
         except ValueError:
             QMessageBox.warning(self, "错误", "请输入有效的电压值")
             
     def stop_simulation(self):
+        # 在静态分析模式下，此方法只用于清除状态
         self.work_area.stop_simulation()
-        self.simulation_timer.stop()
         
         # 更新状态显示
         self.simulation_status_label.setText("仿真状态: 已停止")
@@ -1083,16 +1083,11 @@ class MainWindow(QMainWindow):
         self.stop_button.setEnabled(False)
         self.reset_button.setEnabled(True)
         
-        # 显示最终测量结果
-        self.update_measurements()
-        
     def reset_simulation(self):
         self.work_area.reset_simulation()
-        self.simulation_timer.stop()
         
         # 更新状态显示
-        self.simulation_status_label.setText("仿真状态: 已重置")
-        self.simulation_step_label.setText("仿真步数: 0")
+        self.simulation_status_label.setText("仿真状态: 未开始")
         self.measurement_label.setText("测量结果: ")
         
         # 更新按钮状态
@@ -1101,14 +1096,13 @@ class MainWindow(QMainWindow):
         self.reset_button.setEnabled(False)
         
     def update_simulation(self):
-        """更新仿真状态"""
+        """手动触发电路重新计算"""
         if not self.work_area.simulation_running:
             return
             
         self.work_area.update_simulation()
         
-        # 更新状态显示
-        self.simulation_step_label.setText(f"仿真步数: {self.work_area.simulation_step}")
+        # 更新测量结果
         self.update_measurements()
         
     def update_measurements(self):
@@ -1117,9 +1111,9 @@ class MainWindow(QMainWindow):
         for comp in self.work_area.circuit.components:
             if comp.name in ["电流表", "电压表"]:
                 if comp.name == "电流表":
-                    results.append(f"电流表读数: {comp.current:.2f}A")
+                    results.append(f"电流表读数: {comp.current:.4f}A")
                 else:
-                    results.append(f"电压表读数: {comp.voltage:.2f}V")
+                    results.append(f"电压表读数: {comp.voltage:.4f}V")
                     
         if results:
             self.measurement_label.setText("测量结果: " + "\n".join(results))
@@ -1132,21 +1126,29 @@ class MainWindow(QMainWindow):
         # 如果正在仿真，重新计算电路
         if self.work_area.simulation_running:
             self.work_area.start_simulation(value)
+            # 更新测量结果
+            self.update_measurements()
 
     def save_circuit_to_json(self):
-        """保存电路图到JSON文件"""
-        # 获取电路数据
-        circuit_data = self.get_circuit_data()
-        
-        # 打开文件对话框
-        file_path, _ = QFileDialog.getSaveFileName(self, "保存电路图", "", "JSON文件 (*.json)")
-        if file_path:
-            try:
-                with open(file_path, 'w', encoding='utf-8') as f:
-                    json.dump(circuit_data, f, ensure_ascii=False, indent=4)
-                QMessageBox.information(self, "保存成功", f"电路图已保存到: {file_path}")
-            except Exception as e:
-                QMessageBox.critical(self, "保存失败", f"保存时出错: {str(e)}")
+        try:
+            options = QFileDialog.Option(0)
+            file_name, _ = QFileDialog.getSaveFileName(
+                self, "保存电路", "", "JSON Files (*.json)", options=options
+            )
+            if file_name:
+                if not file_name.endswith('.json'):
+                    file_name += '.json'
+                
+                # 使用 work_area 的 circuit 对象来获取电路数据，传入场景
+                circuit_data = self.work_area.circuit.to_dict(self.work_area.scene())
+                
+                with open(file_name, 'w') as f:
+                    json.dump(circuit_data, f, indent=4)
+                
+                self.statusBar().showMessage(f"电路已保存到 {file_name}", 5000)
+                
+        except Exception as e:
+            QMessageBox.critical(self, "保存失败", f"保存电路失败: {str(e)}")
     
     def get_circuit_data(self):
         """获取电路图的数据结构"""
@@ -1227,8 +1229,9 @@ class MainWindow(QMainWindow):
             # 创建客户端
             llm_client = LLMClient(config)
             
-            # 获取电路数据作为上下文
-            circuit_data = self.get_circuit_data()
+            # 使用完善后的circuit.to_dict()方法获取电路数据，传入场景参数
+            circuit_data = self.work_area.circuit.to_dict(self.work_area.scene())
+            circuit_json = json.dumps(circuit_data, ensure_ascii=False, indent=2)
             
             # 构建提示词
             system_prompt = """你是一位专业的物理电学实验助手。请帮助用户理解和构建电路实验。
@@ -1238,49 +1241,48 @@ class MainWindow(QMainWindow):
             3. 回答用户的具体问题
             4. 指出可能存在的问题和改进建议"""
             
-            # 构建带有电路上下文的提示词
+            # 构建带有完整电路上下文的提示词
             prompt = f"""
 用户问题: {user_message}
 
 当前电路信息:
+{circuit_json}
+
+请根据以上电路信息回答用户问题。如果需要更多信息，请明确指出。
 """
-            # 添加组件信息
-            if circuit_data["components"]:
-                prompt += "\n电路组件:\n"
-                for comp in circuit_data["components"]:
-                    prompt += f"- {comp['name']} (位置: x={comp['x']:.1f}, y={comp['y']:.1f})\n"
-                    if "properties" in comp:
-                        for prop_name, prop_value in comp["properties"].items():
-                            prompt += f"  {prop_name}: {prop_value}\n"
-            else:
-                prompt += "- 电路中没有组件\n"
             
-            # 添加连接信息
-            if circuit_data["connections"]:
-                prompt += "\n电路连接情况:\n"
-                for i, conn in enumerate(circuit_data["connections"]):
-                    prompt += f"- 连接{i+1}: 从组件ID {conn['start_component']} 到 {conn['end_component']}\n"
-            else:
-                prompt += "\n电路中没有连接\n"
-            
-            # 添加电源设置信息
-            prompt += f"\n电源电压设置: {circuit_data['settings']['voltage']}V\n"
-            prompt += "\n请根据以上电路信息回答用户问题。如果需要更多信息，请明确指出。"
+            # 创建AI回复的消息气泡（空内容，后续流式填充）
+            ai_message_widget = self.create_empty_ai_message()
             
             # 显示正在获取回复的提示
             self.add_thinking_message()
             QApplication.processEvents()
             
-            # 调用API获取回复
-            response = llm_client.run_llm(
-                prompt,
-                system_prompt=system_prompt,
-                temperature=0.1  # 使用较低的温度以获得更确定的回答
-            )
+            # 准备流式响应处理
+            def handle_stream_chunk(chunk):
+                # 移除"正在思考"消息
+                if hasattr(self, 'thinking_container') and self.thinking_container:
+                    self.remove_thinking_message()
+                
+                # 更新AI消息内容
+                self.update_ai_message_content(ai_message_widget, chunk)
+                QApplication.processEvents()  # 刷新UI
             
-            # 移除"正在思考"消息并显示回复
-            self.remove_thinking_message()
-            self.add_message_to_chat("assistant", response)
+            # 使用流式API调用
+            try:
+                # 执行流式调用
+                self.stream_llm_request(
+                    llm_client, 
+                    prompt, 
+                    system_prompt, 
+                    handle_stream_chunk
+                )
+            except Exception as e:
+                # 移除"正在思考"消息
+                self.remove_thinking_message()
+                # 显示错误信息
+                error_msg = f"流式API请求失败: {str(e)}"
+                self.add_system_message("错误", error_msg, "red")
             
         except ImportError as e:
             error_msg = "无法导入test_api模块，请确保已安装必要的库"
@@ -1291,92 +1293,117 @@ class MainWindow(QMainWindow):
             error_msg = f"API请求失败: {str(e)}"
             self.add_system_message("错误", error_msg, "red")
             QMessageBox.critical(self, "API错误", f"调用API时出错:\n{str(e)}")
-
-    def add_thinking_message(self):
-        """添加正在思考的消息提示"""
-        self.thinking_container = QWidget()
-        thinking_layout = QHBoxLayout(self.thinking_container)
-        thinking_layout.setContentsMargins(5, 5, 5, 5)
+    
+    def stream_llm_request(self, llm_client, prompt, system_prompt, callback_fn):
+        """执行流式LLM请求"""
+        try:
+            messages = [
+                {"role": "system", "content": system_prompt},
+                {"role": "user", "content": prompt}
+            ]
+            
+            # 流式响应
+            full_response = ""
+            
+            # 直接使用OpenAI客户端进行流式请求
+            stream = llm_client.client.chat.completions.create(
+                model=llm_client.config.default_model,
+                messages=messages,
+                temperature=llm_client.config.default_temperature,
+                stream=True  # 启用流式输出
+            )
+            
+            # 处理流式响应
+            for chunk in stream:
+                if hasattr(chunk, 'choices') and chunk.choices:
+                    delta = chunk.choices[0].delta
+                    if hasattr(delta, 'content') and delta.content:
+                        content = delta.content
+                        full_response += content
+                        callback_fn(full_response)
+            
+            # 确保最后一次更新
+            if full_response:
+                callback_fn(full_response)
+                
+            return full_response
+            
+        except Exception as e:
+            logger.error(f"流式请求出错: {str(e)}")
+            raise
+    
+    def create_empty_ai_message(self):
+        """创建空的AI消息气泡，准备流式填充内容"""
+        # 创建消息容器
+        msg_container = QWidget()
+        msg_layout = QHBoxLayout(msg_container)
+        msg_layout.setContentsMargins(5, 3, 5, 3)
         
         # 设置头像
         avatar_label = QLabel()
         avatar_label.setFixedSize(36, 36)
-        avatar_label.setStyleSheet("""
-            background-color: #5E35B1;
+        avatar_label.setStyleSheet(f"""
+            background-color: {self.get_avatar_color("assistant")};
             border-radius: 18px;
             color: white;
             font-weight: bold;
             qproperty-alignment: AlignCenter;
             font-family: 'SimSun', 'simsun', serif;
         """)
-        avatar_label.setText("AI")
+        avatar_label.setText(self.get_avatar_text("assistant"))
         
-        # 思考中气泡
-        thinking_bubble = QWidget()
-        bubble_layout = QVBoxLayout(thinking_bubble)
-        bubble_layout.setContentsMargins(12, 10, 12, 10)
+        # 消息气泡
+        message_bubble = QWidget()
+        bubble_layout = QVBoxLayout(message_bubble)
+        bubble_layout.setContentsMargins(12, 8, 12, 8)
         
-        thinking_label = QLabel("正在思考...")
-        thinking_label.setStyleSheet("""
+        # 创建用于显示内容的标签
+        message_label = QLabel("")
+        message_label.setWordWrap(True)
+        message_label.setTextFormat(Qt.TextFormat.RichText)
+        message_label.setOpenExternalLinks(True)
+        message_label.setStyleSheet(f"""
             font-family: 'SimSun', 'simsun', serif;
             font-size: 14px;
-            color: #666666;
+            color: {self.get_text_color("assistant")};
             background: transparent;
+            line-height: 1.5;
         """)
         
-        bubble_layout.addWidget(thinking_label)
+        bubble_layout.addWidget(message_label)
         
-        # 设置气泡样式
-        thinking_bubble.setStyleSheet("""
-            background-color: #f1f0f0;
+        # 设置消息气泡样式
+        message_bubble.setStyleSheet(f"""
+            background-color: {self.get_bubble_color("assistant")};
             border-radius: 8px;
             padding: 2px;
         """)
         
-        thinking_layout.addWidget(avatar_label)
-        thinking_layout.addWidget(thinking_bubble)
-        thinking_layout.addStretch()
+        # 添加到布局
+        msg_layout.addWidget(avatar_label)
+        msg_layout.addWidget(message_bubble)
+        msg_layout.addStretch()
         
         # 添加到聊天历史
-        self.chat_history_layout.addWidget(self.thinking_container)
+        self.chat_history_layout.addWidget(msg_container)
         
         # 滚动到底部
         QTimer.singleShot(100, lambda: self.chat_scroll_area.verticalScrollBar().setValue(
             self.chat_scroll_area.verticalScrollBar().maximum()))
+        
+        # 返回消息气泡，以便后续更新内容
+        return {"container": msg_container, "label": message_label}
     
-    def remove_thinking_message(self):
-        """移除思考中的消息"""
-        if hasattr(self, 'thinking_container') and self.thinking_container:
-            self.thinking_container.deleteLater()
-            self.thinking_container = None
-    
-    def add_system_message(self, title, message, color="blue"):
-        """添加系统消息"""
-        system_container = QWidget()
-        system_layout = QVBoxLayout(system_container)
-        system_layout.setContentsMargins(5, 5, 5, 5)
-        
-        system_label = QLabel(f"<b>{title}:</b> {message}")
-        system_label.setWordWrap(True)
-        system_label.setStyleSheet(f"""
-            font-family: 'SimSun', 'simsun', serif;
-            font-size: 13px;
-            color: {color};
-            background-color: #f9f9f9;
-            border-radius: 6px;
-            padding: 8px;
-            border: 1px solid #eeeeee;
-        """)
-        
-        system_layout.addWidget(system_label)
-        
-        # 添加到聊天历史
-        self.chat_history_layout.addWidget(system_container)
-        
+    def update_ai_message_content(self, message_widget, content):
+        """更新AI消息内容"""
+        # 转换Markdown/纯文本为HTML
+        html_content = content.replace("\n", "<br>")
+        # 设置内容
+        message_widget["label"].setText(html_content)
         # 滚动到底部
-        QTimer.singleShot(100, lambda: self.chat_scroll_area.verticalScrollBar().setValue(
-            self.chat_scroll_area.verticalScrollBar().maximum()))
-    
+        self.chat_scroll_area.verticalScrollBar().setValue(
+            self.chat_scroll_area.verticalScrollBar().maximum())
+
     def get_avatar_color(self, role):
         """根据角色获取头像背景颜色"""
         if role == "user":
@@ -1521,6 +1548,91 @@ class MainWindow(QMainWindow):
         
         # 添加到聊天历史
         self.chat_history_layout.addWidget(msg_container)
+        
+        # 滚动到底部
+        QTimer.singleShot(100, lambda: self.chat_scroll_area.verticalScrollBar().setValue(
+            self.chat_scroll_area.verticalScrollBar().maximum()))
+
+    def add_thinking_message(self):
+        """添加正在思考的消息提示"""
+        self.thinking_container = QWidget()
+        thinking_layout = QHBoxLayout(self.thinking_container)
+        thinking_layout.setContentsMargins(5, 5, 5, 5)
+        
+        # 设置头像
+        avatar_label = QLabel()
+        avatar_label.setFixedSize(36, 36)
+        avatar_label.setStyleSheet("""
+            background-color: #5E35B1;
+            border-radius: 18px;
+            color: white;
+            font-weight: bold;
+            qproperty-alignment: AlignCenter;
+            font-family: 'SimSun', 'simsun', serif;
+        """)
+        avatar_label.setText("AI")
+        
+        # 思考中气泡
+        thinking_bubble = QWidget()
+        bubble_layout = QVBoxLayout(thinking_bubble)
+        bubble_layout.setContentsMargins(12, 10, 12, 10)
+        
+        thinking_label = QLabel("正在思考...")
+        thinking_label.setStyleSheet("""
+            font-family: 'SimSun', 'simsun', serif;
+            font-size: 14px;
+            color: #666666;
+            background: transparent;
+        """)
+        
+        bubble_layout.addWidget(thinking_label)
+        
+        # 设置气泡样式
+        thinking_bubble.setStyleSheet("""
+            background-color: #f1f0f0;
+            border-radius: 8px;
+            padding: 2px;
+        """)
+        
+        thinking_layout.addWidget(avatar_label)
+        thinking_layout.addWidget(thinking_bubble)
+        thinking_layout.addStretch()
+        
+        # 添加到聊天历史
+        self.chat_history_layout.addWidget(self.thinking_container)
+        
+        # 滚动到底部
+        QTimer.singleShot(100, lambda: self.chat_scroll_area.verticalScrollBar().setValue(
+            self.chat_scroll_area.verticalScrollBar().maximum()))
+    
+    def remove_thinking_message(self):
+        """移除思考中的消息"""
+        if hasattr(self, 'thinking_container') and self.thinking_container:
+            self.thinking_container.deleteLater()
+            self.thinking_container = None
+    
+    def add_system_message(self, title, message, color="blue"):
+        """添加系统消息"""
+        system_container = QWidget()
+        system_layout = QVBoxLayout(system_container)
+        system_layout.setContentsMargins(5, 5, 5, 5)
+        
+        system_label = QLabel(f"<b>{title}:</b> {message}")
+        system_label.setWordWrap(True)
+        system_label.setStyleSheet(f"""
+            font-family: 'SimSun', 'simsun', serif;
+            font-size: 13px;
+            color: {color};
+            background-color: #f9f9f9;
+            border-radius: 6px;
+            padding: 8px;
+            border: 1px solid #eeeeee;
+        """)
+        
+        system_layout.addWidget(system_label)
+        
+        # 添加到聊天历史
+        self.chat_history_layout.addWidget(system_container)
         
         # 滚动到底部
         QTimer.singleShot(100, lambda: self.chat_scroll_area.verticalScrollBar().setValue(

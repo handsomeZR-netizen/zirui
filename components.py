@@ -8,7 +8,7 @@ from PyQt6.QtWidgets import (QGraphicsItem, QGraphicsEllipseItem, QGraphicsRectI
                             QGraphicsLineItem, QGraphicsPathItem, QGraphicsSimpleTextItem,
                             QMenu, QInputDialog, QDialog, QVBoxLayout, QFormLayout,
                             QLineEdit, QPushButton, QLabel, QDoubleSpinBox, QMessageBox,
-                            QCheckBox, QHBoxLayout)
+                            QCheckBox, QHBoxLayout, QFileDialog)
 from PyQt6.QtCore import Qt, QRectF, QPointF
 from PyQt6.QtGui import QPainter, QPen, QColor, QBrush, QPainterPath, QFont
 import numpy as np
@@ -636,13 +636,25 @@ class Component(QGraphicsItem):
             return self.properties["当前电阻值"]
         elif self.name == "导线":
             return 0.001  # 接近0欧姆
-        elif self.name == "开关" and self.properties["状态"]:
-            return 0.001  # 开关闭合时接近0欧姆
-        return float('inf')  # 其他元件（开关断开、电表等）视为开路
+        elif self.name == "开关":
+            if self.properties["状态"]:
+                return 0.001  # 开关闭合时接近0欧姆
+            else:
+                return float('inf')  # 开关断开时无穷大
+        elif self.name == "电流表":
+            return 0.001  # 理想电流表接近0欧姆
+        elif self.name == "电压表":
+            return 1000000.0  # 理想电压表有很大的电阻（接近无穷大）
+        elif self.name == "电源":
+            return 0.001  # 理想电源内阻接近0欧姆
+        return float('inf')  # 其他元件默认视为开路
         
     def set_property(self, name, value):
         try:
             if name in self.properties:
+                # 检查值是否实际改变
+                old_value = self.properties[name]
+                
                 # 对滑动变阻器的特殊处理
                 if self.name == "滑动变阻器":
                     if name == "滑动位置":
@@ -654,13 +666,25 @@ class Component(QGraphicsItem):
                         value = float(value)
                         value = max(0.1, value)
                         
+                # 更新属性值
                 self.properties[name] = value
                 
                 # 更新当前电阻值
                 if self.name == "滑动变阻器":
                     self._update_current_resistance()
                     
-                self.update()  # 更新显示
+                # 更新显示
+                self.update()
+                
+                # 如果属性值实际发生变化，触发电路重新计算
+                if old_value != value and self.scene():
+                    # 查找WorkArea视图，触发电路重新计算
+                    for view in self.scene().views():
+                        if hasattr(view, 'update_simulation'):
+                            # 确保仿真已开始
+                            if hasattr(view, 'simulation_running') and view.simulation_running:
+                                view.update_simulation()
+                                break
                 
         except (ValueError, TypeError) as e:
             print(f"设置属性时出错: {e}")
@@ -670,9 +694,21 @@ class Component(QGraphicsItem):
         if event.button() == Qt.MouseButton.LeftButton:
             if self.name == "开关":
                 # 切换开关状态
-                self.properties["状态"] = not self.properties["状态"]
+                old_state = self.properties["状态"]
+                self.properties["状态"] = not old_state
                 logger.debug(f"开关状态改变: {self.properties['状态']}")
                 self.update()  # 重绘开关
+                
+                # 如果状态改变且电路仿真正在进行，触发电路重新计算
+                if self.scene():
+                    # 查找WorkArea视图，触发电路重新计算
+                    for view in self.scene().views():
+                        if hasattr(view, 'update_simulation'):
+                            # 确保仿真已开始
+                            if hasattr(view, 'simulation_running') and view.simulation_running:
+                                view.update_simulation()
+                                break
+                
                 event.accept()
                 return
         super().mousePressEvent(event)
@@ -792,111 +828,375 @@ class Circuit:
     def add_connection(self, from_comp, to_comp):
         self.connections.append((from_comp, to_comp))
         
-    def build_circuit_matrix(self):
-        # 构建节点导纳矩阵
-        n = len(self.nodes)  # 节点数
-        Y = np.zeros((n, n), dtype=complex)
-        I = np.zeros(n, dtype=complex)
-        
-        # 填充导纳矩阵
-        for comp in self.components:
-            if comp.name == "导线" or (comp.name == "开关" and comp.properties["状态"]):
-                continue
-                
-            R = comp.get_resistance()
-            if R == float('inf'):
-                continue
-                
-            # 获取组件连接的节点
-            node1 = comp.node1
-            node2 = comp.node2
-            
-            if node1 is not None and node2 is not None:
-                i = self.nodes[node1]
-                j = self.nodes[node2]
-                Y[i, i] += 1/R
-                Y[j, j] += 1/R
-                Y[i, j] -= 1/R
-                Y[j, i] -= 1/R
-                
-        return Y, I
-        
     def calculate_circuit(self, voltage=12):
-        # 使用节点电压法分析电路
-        # 1. 识别节点
-        self.nodes = {}
-        node_count = 0
+        """
+        使用改进节点分析法(MNA)对电路进行分析
+        """
+        # 第1步：识别电路中的节点
+        nodes = self.identify_nodes()
+        if not nodes:
+            logging.error("电路节点识别失败，可能是电路不完整")
+            return False
         
-        # 添加参考节点（地）
-        self.nodes["GND"] = node_count
-        node_count += 1
+        # 第2步：分配节点ID给组件
+        self.assign_node_ids(nodes)
+        
+        # 第3步：构建MNA方程组 Ax = z
+        A, z, var_index_map = self.build_mna_matrices()
+        if A is None:
+            logging.error("构建方程组失败")
+            return False
+        
+        # 第4步：求解方程组
+        try:
+            x = np.linalg.solve(A, z)
+            # 更新组件的电压和电流
+            self.update_component_values(x, var_index_map)
+            return True
+        except np.linalg.LinAlgError as e:
+            logging.error(f"电路方程组求解失败: {e}")
+            return False
+        
+    def identify_nodes(self):
+        """
+        使用BFS算法识别电路中的节点
+        节点定义为一组相互连接的连接点
+        返回: 字典 {节点ID: 连接点列表}
+        """
+        # 获取所有连接点
+        all_connection_points = []
+        for component in self.components:
+            all_connection_points.extend(component.connection_points)
+        
+        # 使用BFS查找连接的节点
+        nodes = {}  # {node_id: [connection_points]}
+        node_id = 0
+        visited = set()
+        
+        for start_point in all_connection_points:
+            if start_point in visited:
+                continue
+            
+            # 开始BFS
+            node_points = []
+            queue = [start_point]
+            while queue:
+                current_point = queue.pop(0)
+                if current_point in visited:
+                    continue
+                
+                visited.add(current_point)
+                node_points.append(current_point)
+                
+                # 查找所有连接的导线
+                for wire in current_point.connected_wires:
+                    # 获取导线另一端的连接点
+                    next_point = None
+                    if wire.source_point == current_point and wire.target_point:
+                        next_point = wire.target_point
+                    elif wire.target_point == current_point and wire.source_point:
+                        next_point = wire.source_point
+                    
+                    if next_point and next_point not in visited:
+                        queue.append(next_point)
+        
+            # 创建新节点
+            if node_points:
+                nodes[node_id] = node_points
+                node_id += 1
+        
+        # 默认第0个节点为参考节点(地)
+        logging.debug(f"识别到 {len(nodes)} 个节点")
+        return nodes
+
+    def assign_node_ids(self, nodes):
+        """为每个组件分配节点ID"""
+        # 清除先前的节点分配
+        for component in self.components:
+            component.node1 = None
+            component.node2 = None
+        
+        # 创建连接点到节点ID的映射
+        point_to_node = {}
+        for node_id, points in nodes.items():
+            for point in points:
+                point_to_node[point] = node_id
         
         # 为每个组件分配节点
-        for comp in self.components:
-            if comp.node1 is None:
-                comp.node1 = f"node_{node_count}"
-                self.nodes[comp.node1] = node_count
-                node_count += 1
-            if comp.node2 is None:
-                comp.node2 = f"node_{node_count}"
-                self.nodes[comp.node2] = node_count
-                node_count += 1
-                
-        # 2. 构建电路矩阵
-        Y, I = self.build_circuit_matrix()
+        for component in self.components:
+            if len(component.connection_points) >= 2:
+                component.node1 = point_to_node.get(component.connection_points[0])
+                component.node2 = point_to_node.get(component.connection_points[1])
+                logging.debug(f"组件 {component.name} 分配节点: {component.node1}, {component.node2}")
         
-        # 3. 添加电压源
-        # 假设第一个组件是电压源
-        if self.components and self.components[0].name == "导线":
-            voltage_node = self.components[0].node1
-            if voltage_node in self.nodes:
-                i = self.nodes[voltage_node]
-                I[i] = voltage
-                
-        # 4. 求解节点电压
-        try:
-            V = np.linalg.solve(Y, I)
-        except np.linalg.LinAlgError:
-            print("电路矩阵求解失败，可能是电路结构有问题")
-            return
+        return True
+
+    def build_mna_matrices(self):
+        """
+        构建改进节点分析(MNA)的矩阵
+        返回: A矩阵, z向量, 变量索引映射
+        """
+        # 计算节点数和电压源数量
+        nodes = set()
+        voltage_sources = []
+        
+        for component in self.components:
+            if component.node1 is not None:
+                nodes.add(component.node1)
+            if component.node2 is not None:
+                nodes.add(component.node2)
             
-        # 5. 计算各组件电压和电流
-        for comp in self.components:
-            if comp.node1 in self.nodes and comp.node2 in self.nodes:
-                i = self.nodes[comp.node1]
-                j = self.nodes[comp.node2]
-                comp.voltage = abs(V[i] - V[j])
+            # 识别电压源
+            if component.name == "电源":
+                voltage_sources.append(component)
+        
+        num_nodes = len(nodes)
+        num_voltage_sources = len(voltage_sources)
+        
+        # MNA矩阵大小: [节点数-1 + 电压源数]
+        # 节点0作为参考节点(地)，不包含在方程中
+        n = num_nodes - 1 + num_voltage_sources
+        if n <= 0:
+            return None, None, None
+        
+        # 创建MNA矩阵
+        A = np.zeros((n, n), dtype=float)
+        z = np.zeros(n, dtype=float)
+        
+        # 创建变量索引映射
+        var_index_map = {
+            'node_voltages': {}, # 节点电压索引
+            'branch_currents': {} # 支路电流索引
+        }
+        
+        # 为非参考节点分配索引
+        node_index = 0
+        for node in sorted(nodes):
+            if node != 0:  # 跳过参考节点
+                var_index_map['node_voltages'][node] = node_index
+                node_index += 1
+        
+        # 为电压源分配索引
+        for i, vsource in enumerate(voltage_sources):
+            var_index_map['branch_currents'][id(vsource)] = num_nodes - 1 + i
+        
+        # 填充导纳矩阵(G子矩阵)
+        for component in self.components:
+            if component.node1 is None or component.node2 is None:
+                continue
+            
+            # 跳过电压源
+            if component.name == "电源":
+                continue
+            
+            # 获取组件的电阻
+            r = component.get_resistance()
+            if r <= 0 or r == float('inf'):
+                continue
+            
+            g = 1.0 / r  # 导纳 = 1/电阻
+            
+            # 获取组件连接的节点索引
+            node1 = component.node1
+            node2 = component.node2
+            
+            # 如果节点是参考节点(0)，则忽略
+            if node1 != 0 and node2 != 0:
+                idx1 = var_index_map['node_voltages'][node1]
+                idx2 = var_index_map['node_voltages'][node2]
                 
-                if comp.name in ["定值电阻", "滑动变阻器"]:
-                    R = comp.get_resistance()
-                    if R != float('inf'):
-                        comp.current = comp.voltage / R
-                elif comp.name in ["电流表", "电压表"]:
-                    comp.current = 0
+                # 填充导纳矩阵
+                A[idx1, idx1] += g
+                A[idx2, idx2] += g
+                A[idx1, idx2] -= g
+                A[idx2, idx1] -= g
+            elif node1 != 0:
+                idx1 = var_index_map['node_voltages'][node1]
+                A[idx1, idx1] += g
+            elif node2 != 0:
+                idx2 = var_index_map['node_voltages'][node2]
+                A[idx2, idx2] += g
+        
+        # 处理电压源
+        for i, vsource in enumerate(voltage_sources):
+            # 电压源电流变量索引
+            idx_i = var_index_map['branch_currents'][id(vsource)]
+            
+            # 电压源节点
+            node1 = vsource.node1
+            node2 = vsource.node2
+            
+            # 电压源方程: v1 - v2 = V
+            if node1 != 0:
+                idx1 = var_index_map['node_voltages'][node1]
+                A[idx_i, idx1] = 1
+                A[idx1, idx_i] = 1
+            
+            if node2 != 0:
+                idx2 = var_index_map['node_voltages'][node2]
+                A[idx_i, idx2] = -1
+                A[idx2, idx_i] = -1
+            
+            # 电压值
+            z[idx_i] = vsource.properties.get("电压值", 12.0)
+        
+        return A, z, var_index_map
+
+    def update_component_values(self, x, var_index_map):
+        """根据求解结果更新组件的电压和电流值"""
+        # 更新节点电压
+        node_voltages = {}
+        node_voltages[0] = 0.0  # 参考节点电压为0
+        
+        for node, idx in var_index_map['node_voltages'].items():
+            node_voltages[node] = x[idx]
+        
+        # 更新组件电压和电流
+        for component in self.components:
+            if component.node1 is None or component.node2 is None:
+                continue
+            
+            # 计算端点电压
+            v1 = node_voltages.get(component.node1, 0.0)
+            v2 = node_voltages.get(component.node2, 0.0)
+            
+            # 组件电压
+            component.voltage = abs(v1 - v2)
+            
+            # 计算电流
+            if component.name == "电源":
+                # 电源电流从支路电流变量获取
+                if id(component) in var_index_map['branch_currents']:
+                    idx = var_index_map['branch_currents'][id(component)]
+                    component.current = x[idx]
+            else:
+                # 其他元件的电流通过电压和电阻计算
+                r = component.get_resistance()
+                if r != float('inf') and r > 0:
+                    component.current = component.voltage / r
+                    # 确定电流方向
+                    if v1 > v2:
+                        component.current *= -1  # 从高电位流向低电位
+
+    def to_dict(self, scene=None):
+        # 组件字典
+        components_dict = []
+        for comp in self.components:
+            comp_dict = comp.to_dict()
+            components_dict.append(comp_dict)
+        
+        # 导线字典
+        wires_dict = []
+        if scene:  # 如果提供了场景参数
+            for scene_item in scene.items():
+                if isinstance(scene_item, Wire):
+                    wire = scene_item
+                    wire_dict = {
+                        "path_points": [{"x": p.x(), "y": p.y()} for p in wire.path_points],
+                        "source": None,
+                        "target": None
+                    }
                     
-    def to_dict(self):
+                    # 保存源连接点信息
+                    if wire.source_point and wire.source_component:
+                        source_comp_idx = self.components.index(wire.source_component) if wire.source_component in self.components else -1
+                        if source_comp_idx >= 0:
+                            source_point_idx = wire.source_component.connection_points.index(wire.source_point) if wire.source_point in wire.source_component.connection_points else -1
+                            if source_point_idx >= 0:
+                                wire_dict["source"] = {
+                                    "component_index": source_comp_idx,
+                                    "point_index": source_point_idx
+                                }
+                    
+                    # 保存目标连接点信息
+                    if wire.target_point and wire.target_component:
+                        target_comp_idx = self.components.index(wire.target_component) if wire.target_component in self.components else -1
+                        if target_comp_idx >= 0:
+                            target_point_idx = wire.target_component.connection_points.index(wire.target_point) if wire.target_point in wire.target_component.connection_points else -1
+                            if target_point_idx >= 0:
+                                wire_dict["target"] = {
+                                    "component_index": target_comp_idx,
+                                    "point_index": target_point_idx
+                                }
+                    
+                    wires_dict.append(wire_dict)
+        
         return {
-            "components": [comp.to_dict() for comp in self.components],
-            "connections": [
-                {
-                    "from": self.components.index(from_comp),
-                    "to": self.components.index(to_comp)
-                }
-                for from_comp, to_comp in self.connections
-            ]
+            "components": components_dict,
+            "wires": wires_dict
         }
         
     @classmethod
-    def from_dict(cls, data):
+    def from_dict(cls, data, scene=None):
         circuit = cls()
+        
         # 首先创建所有组件
-        components = [Component.from_dict(comp_data) for comp_data in data["components"]]
+        components = []
+        for comp_data in data["components"]:
+            component = Component(comp_data["name"])
+            # 如果有位置信息，设置位置
+            if "pos" in comp_data:
+                component.setPos(comp_data["pos"]["x"], comp_data["pos"]["y"])
+            # 如果有属性信息，设置属性
+            if "properties" in comp_data:
+                component.properties = comp_data["properties"]
+            components.append(component)
+            if scene:  # 如果提供了场景，则将组件添加到场景
+                scene.addItem(component)
+        
         circuit.components = components
         
-        # 然后创建连接
-        for conn in data["connections"]:
-            from_comp = components[conn["from"]]
-            to_comp = components[conn["to"]]
-            circuit.add_connection(from_comp, to_comp)
-            
+        # 如果存在导线信息，创建导线
+        if "wires" in data and scene:
+            for wire_data in data["wires"]:
+                # 创建新导线
+                if "path_points" in wire_data and wire_data["path_points"]:
+                    start_point = QPointF(wire_data["path_points"][0]["x"], wire_data["path_points"][0]["y"])
+                    wire = Wire(start_point)
+                    scene.addItem(wire)
+                    
+                    # 恢复路径点
+                    wire.path_points = [QPointF(p["x"], p["y"]) for p in wire_data["path_points"]]
+                    wire.start_pos = wire.path_points[0]
+                    wire.end_pos = wire.path_points[-1]
+                    wire.update_path_from_points()
+                    
+                    # 恢复连接
+                    if "source" in wire_data and wire_data["source"]:
+                        source_comp_idx = wire_data["source"]["component_index"]
+                        source_point_idx = wire_data["source"]["point_index"]
+                        if 0 <= source_comp_idx < len(components) and 0 <= source_point_idx < len(components[source_comp_idx].connection_points):
+                            source_comp = components[source_comp_idx]
+                            source_point = source_comp.connection_points[source_point_idx]
+                            wire.connect_endpoint(source_point, True)
+                    
+                    if "target" in wire_data and wire_data["target"]:
+                        target_comp_idx = wire_data["target"]["component_index"]
+                        target_point_idx = wire_data["target"]["point_index"]
+                        if 0 <= target_comp_idx < len(components) and 0 <= target_point_idx < len(components[target_comp_idx].connection_points):
+                            target_comp = components[target_comp_idx]
+                            target_point = target_comp.connection_points[target_point_idx]
+                            wire.connect_endpoint(target_point, False)
+        
         return circuit 
+
+def save_circuit_to_json(self):
+    try:
+        options = QFileDialog.Option(0)
+        file_name, _ = QFileDialog.getSaveFileName(
+            self, "保存电路", "", "JSON Files (*.json)", options=options
+        )
+        if file_name:
+            if not file_name.endswith('.json'):
+                file_name += '.json'
+            
+            # 使用 work_area 的 circuit 对象来获取电路数据
+            circuit_data = self.work_area.circuit.to_dict()
+            
+            with open(file_name, 'w') as f:
+                json.dump(circuit_data, f, indent=4)
+            
+            self.statusBar().showMessage(f"电路已保存到 {file_name}", 5000)
+            
+    except Exception as e:
+        QMessageBox.critical(self, "保存失败", f"保存电路失败: {str(e)}") 
