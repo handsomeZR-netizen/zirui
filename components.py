@@ -32,6 +32,7 @@ logger = logging.getLogger('CircuitSimulator')
 class Wire(QGraphicsPathItem):
     def __init__(self, start_pos, parent=None):
         super().__init__(parent)
+        self.setZValue(0)
         self.start_pos = start_pos
         self.end_pos = start_pos
         self.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsSelectable)
@@ -261,6 +262,7 @@ class ConnectionPoint(QGraphicsEllipseItem):
 class Component(QGraphicsItem):
     def __init__(self, name, parent=None):
         super().__init__(parent)
+        self.setZValue(1)
         self.name = name
         self.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsMovable)
         self.setFlag(QGraphicsItem.GraphicsItemFlag.ItemIsSelectable)
@@ -296,36 +298,36 @@ class Component(QGraphicsItem):
         if self.name in ["定值电阻", "滑动变阻器", "导线", "开关"]:
             # 左侧输入点
             input_point = ConnectionPoint(self, "input")
-            input_point.setPos(-25, 0)
+            input_point.setPos(-self.boundingRect().width() / 2 - 3, 0)
             self.connection_points.append(input_point)
             
             # 右侧输出点
             output_point = ConnectionPoint(self, "output")
-            output_point.setPos(25, 0)
+            output_point.setPos(self.boundingRect().width() / 2 + 3, 0)
             self.connection_points.append(output_point)
         elif self.name == "电源":
             # 正极（右侧）
             pos_point = ConnectionPoint(self, "output")
-            pos_point.setPos(25, 0)
+            pos_point.setPos(self.boundingRect().width() / 2 + 3, 0)
             pos_point.setBrush(QBrush(Qt.GlobalColor.red))
             self.connection_points.append(pos_point)
             
             # 负极（左侧）
             neg_point = ConnectionPoint(self, "input")
-            neg_point.setPos(-25, 0)
+            neg_point.setPos(-self.boundingRect().width() / 2 - 3, 0)
             neg_point.setBrush(QBrush(Qt.GlobalColor.black))
             self.connection_points.append(neg_point)
             
         elif self.name in ["电流表", "电压表"]:
             # 左侧输入点（正极）
             input_point = ConnectionPoint(self, "input")
-            input_point.setPos(-25, 0)
+            input_point.setPos(-self.boundingRect().width() / 2 - 3, 0)
             input_point.setBrush(QBrush(Qt.GlobalColor.red))
             self.connection_points.append(input_point)
             
             # 右侧输出点（负极）
             output_point = ConnectionPoint(self, "output")
-            output_point.setPos(25, 0)
+            output_point.setPos(self.boundingRect().width() / 2 + 3, 0)
             output_point.setBrush(QBrush(Qt.GlobalColor.black))
             self.connection_points.append(output_point)
             
@@ -409,10 +411,12 @@ class Component(QGraphicsItem):
             # 绘制连接点
             painter.setPen(QPen(Qt.GlobalColor.black, 2))
             painter.setBrush(QBrush(Qt.GlobalColor.yellow))
-            # 左连接点
-            painter.drawEllipse(-25, -3, 6, 6)
-            # 右连接点
-            painter.drawEllipse(19, -3, 6, 6)
+            # 左连接点 - 修改为与setup_connection_points方法中相同的计算方式
+            left_x = -self.boundingRect().width() / 2 - 3
+            painter.drawEllipse(left_x, -3, 6, 6)
+            # 右连接点 - 修改为与setup_connection_points方法中相同的计算方式
+            right_x = self.boundingRect().width() / 2 + 3
+            painter.drawEllipse(right_x, -3, 6, 6)
             
             # 设置默认画笔和画刷
             painter.setPen(QPen(Qt.GlobalColor.black, 2))
@@ -461,9 +465,13 @@ class Component(QGraphicsItem):
             painter.drawText(-20, 0, "错误")
             
     def _paint_switch(self, painter):
+        # 获取连接点位置
+        left_x = -15
+        right_x = 15
+        
         # 绘制开关底座
-        painter.drawLine(-15, 0, -5, 0)
-        painter.drawLine(5, 0, 15, 0)
+        painter.drawLine(left_x, 0, -5, 0)
+        painter.drawLine(5, 0, right_x, 0)
         # 绘制开关触点
         if self.properties["状态"]:
             # 闭合状态
@@ -476,12 +484,20 @@ class Component(QGraphicsItem):
         painter.drawEllipse(-7, -2, 4, 4)
         
     def _paint_wire(self, painter):
-        painter.drawLine(-15, 0, 15, 0)
+        # 获取连接点位置
+        left_x = -15
+        right_x = 15
+        
+        painter.drawLine(left_x, 0, right_x, 0)
         
     def _paint_resistor(self, painter):
+        # 获取连接点位置
+        left_x = -15
+        right_x = 15
+        
         # 绘制电阻符号
-        painter.drawLine(-15, 0, -10, 0)
-        painter.drawLine(10, 0, 15, 0)
+        painter.drawLine(left_x, 0, -10, 0)
+        painter.drawLine(10, 0, right_x, 0)
         
         # 绘制锯齿形电阻
         path = QPainterPath()
@@ -496,9 +512,13 @@ class Component(QGraphicsItem):
         
     def _paint_potentiometer(self, painter):
         try:
+            # 获取连接点位置
+            left_x = -15
+            right_x = 15
+            
             # 绘制电阻本体
-            painter.drawLine(-15, 0, -10, 0)
-            painter.drawLine(10, 0, 15, 0)
+            painter.drawLine(left_x, 0, -10, 0)
+            painter.drawLine(10, 0, right_x, 0)
             
             # 绘制矩形电阻体
             painter.drawRect(-10, -8, 20, 16)
@@ -547,9 +567,11 @@ class Component(QGraphicsItem):
         painter.setBrush(QBrush(Qt.GlobalColor.white))
         painter.drawEllipse(-20, -20, 40, 40)
         
-        # 绘制连接线
-        painter.drawLine(-25, 0, -20, 0)  # 左侧连接线
-        painter.drawLine(20, 0, 25, 0)   # 右侧连接线
+        # 绘制连接线 - 修改位置以匹配新的连接点
+        left_x = -self.boundingRect().width() / 2 - 3
+        right_x = self.boundingRect().width() / 2 + 3
+        painter.drawLine(left_x, 0, -20, 0)  # 左侧连接线
+        painter.drawLine(20, 0, right_x, 0)   # 右侧连接线
         
         # 绘制内部装饰
         painter.drawArc(-15, -15, 30, 30, 30 * 16, 120 * 16)
@@ -589,9 +611,11 @@ class Component(QGraphicsItem):
         painter.setBrush(QBrush(Qt.GlobalColor.white))
         painter.drawEllipse(-20, -20, 40, 40)
         
-        # 绘制连接线
-        painter.drawLine(-25, 0, -20, 0)  # 左侧连接线
-        painter.drawLine(20, 0, 25, 0)   # 右侧连接线
+        # 绘制连接线 - 修改位置以匹配新的连接点
+        left_x = -self.boundingRect().width() / 2 - 3
+        right_x = self.boundingRect().width() / 2 + 3
+        painter.drawLine(left_x, 0, -20, 0)  # 左侧连接线
+        painter.drawLine(20, 0, right_x, 0)   # 右侧连接线
         
         # 绘制内部装饰
         painter.drawArc(-15, -15, 30, 30, 30 * 16, 120 * 16)
@@ -627,7 +651,9 @@ class Component(QGraphicsItem):
         
     def get_connection_points(self):
         # 返回左右两个连接点的坐标
-        return [QPointF(-22, 0), QPointF(22, 0)]
+        left_x = -self.boundingRect().width() / 2 - 3
+        right_x = self.boundingRect().width() / 2 + 3
+        return [QPointF(left_x, 0), QPointF(right_x, 0)]
         
     def get_resistance(self):
         if self.name == "定值电阻":

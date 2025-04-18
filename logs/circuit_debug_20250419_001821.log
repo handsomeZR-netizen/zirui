@@ -1,0 +1,263 @@
+2025-04-19 00:18:21,061 - CircuitSimulator - DEBUG - 成功导入 components 模块
+2025-04-19 00:18:21,062 - CircuitSimulator - DEBUG - 成功导入 routing 模块
+2025-04-19 00:18:21,079 - CircuitSimulator - DEBUG - 组件边界矩形: PyQt6.QtCore.QRectF(-25.0, -25.0, 50.0, 50.0)
+2025-04-19 00:18:21,080 - CircuitSimulator - DEBUG - 开始测试组件绘制...
+2025-04-19 00:18:21,143 - CircuitSimulator - DEBUG - 组件绘制测试完成，结果保存到test_component.png
+2025-04-19 00:18:21,143 - CircuitSimulator - DEBUG - 组件绘制测试通过
+2025-04-19 00:18:21,143 - CircuitSimulator - INFO - 启动应用程序
+2025-04-19 00:18:21,143 - CircuitSimulator - DEBUG - 创建主窗口...
+2025-04-19 00:18:21,143 - CircuitSimulator - DEBUG - Component类已导入: <class 'components.Component'>
+2025-04-19 00:18:21,143 - CircuitSimulator - DEBUG - 创建测试组件: 测试组件
+2025-04-19 00:18:21,143 - CircuitSimulator - DEBUG - 组件具有paint方法
+2025-04-19 00:18:21,149 - CircuitSimulator - DEBUG - 障碍物地图已初始化
+2025-04-19 00:18:21,150 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-04-19 00:18:22,046 - CircuitSimulator - DEBUG - 更新整个障碍物地图
+2025-04-19 00:18:22,232 - CircuitSimulator - DEBUG - 工作区创建: <__main__.WorkArea object at 0x00000249D8704700>
+2025-04-19 00:18:22,232 - CircuitSimulator - DEBUG - 场景创建: <PyQt6.QtWidgets.QGraphicsScene object at 0x00000249D8704790>
+2025-04-19 00:18:22,233 - CircuitSimulator - DEBUG - 添加测试组件到场景: 测试组件
+2025-04-19 00:18:22,237 - CircuitSimulator - DEBUG - 标记组件为障碍物: 测试组件, 位置: (100.0, 100.0)
+2025-04-19 00:18:22,237 - CircuitSimulator - DEBUG - 更新整个障碍物地图
+2025-04-19 00:18:23,751 - CircuitSimulator - DEBUG - 准备放置组件: 电源
+2025-04-19 00:18:23,751 - CircuitSimulator - DEBUG - 原始位置: (118.0, 24.0)
+2025-04-19 00:18:23,752 - CircuitSimulator - DEBUG - 对齐网格后位置: (120.0, 20.0)
+2025-04-19 00:18:23,752 - CircuitSimulator - ERROR - 处理拖放事件时出错: 'ConnectionPoint' object has no attribute 'setBrush'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 325, in dropEvent
+    component = Component(component_name)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 511, in __init__
+    self.setup_connection_points()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 546, in setup_connection_points
+    pos_point.setBrush(QBrush(Qt.GlobalColor.red))
+AttributeError: 'ConnectionPoint' object has no attribute 'setBrush'
+2025-04-19 00:18:24,909 - CircuitSimulator - DEBUG - 准备放置组件: 开关
+2025-04-19 00:18:24,909 - CircuitSimulator - DEBUG - 原始位置: (109.0, -83.0)
+2025-04-19 00:18:24,909 - CircuitSimulator - DEBUG - 对齐网格后位置: (100.0, -80.0)
+2025-04-19 00:18:24,909 - CircuitSimulator - DEBUG - 组件 开关 添加到场景: <components.Component object at 0x00000249DFCFD280>
+2025-04-19 00:18:24,909 - CircuitSimulator - DEBUG - 标记组件为障碍物: 开关, 位置: (100.0, -80.0)
+2025-04-19 00:18:24,909 - CircuitSimulator - DEBUG - 已添加组件 开关 并更新障碍物地图
+2025-04-19 00:18:24,909 - CircuitSimulator - DEBUG - 已更新所有导线路径
+2025-04-19 00:18:24,978 - CircuitSimulator - ERROR - 鼠标移动事件出错: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 502, in mouseMoveEvent
+    connection_point = self.find_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 594, in find_connection_point
+    point = item.get_closest_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 584, in get_closest_connection_point
+    point_pos = point.scenePos()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 50, in scenePos
+    transform.rotate(self.parent_component.rotation)
+TypeError: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+2025-04-19 00:18:24,993 - CircuitSimulator - ERROR - 鼠标移动事件出错: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 502, in mouseMoveEvent
+    connection_point = self.find_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 594, in find_connection_point
+    point = item.get_closest_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 584, in get_closest_connection_point
+    point_pos = point.scenePos()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 50, in scenePos
+    transform.rotate(self.parent_component.rotation)
+TypeError: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+2025-04-19 00:18:25,000 - CircuitSimulator - ERROR - 鼠标移动事件出错: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 502, in mouseMoveEvent
+    connection_point = self.find_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 594, in find_connection_point
+    point = item.get_closest_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 584, in get_closest_connection_point
+    point_pos = point.scenePos()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 50, in scenePos
+    transform.rotate(self.parent_component.rotation)
+TypeError: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+2025-04-19 00:18:25,010 - CircuitSimulator - ERROR - 鼠标移动事件出错: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 502, in mouseMoveEvent
+    connection_point = self.find_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 594, in find_connection_point
+    point = item.get_closest_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 584, in get_closest_connection_point
+    point_pos = point.scenePos()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 50, in scenePos
+    transform.rotate(self.parent_component.rotation)
+TypeError: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+2025-04-19 00:18:25,016 - CircuitSimulator - ERROR - 鼠标移动事件出错: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 502, in mouseMoveEvent
+    connection_point = self.find_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 594, in find_connection_point
+    point = item.get_closest_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 584, in get_closest_connection_point
+    point_pos = point.scenePos()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 50, in scenePos
+    transform.rotate(self.parent_component.rotation)
+TypeError: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+2025-04-19 00:18:25,024 - CircuitSimulator - ERROR - 鼠标移动事件出错: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 502, in mouseMoveEvent
+    connection_point = self.find_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 594, in find_connection_point
+    point = item.get_closest_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 584, in get_closest_connection_point
+    point_pos = point.scenePos()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 50, in scenePos
+    transform.rotate(self.parent_component.rotation)
+TypeError: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+2025-04-19 00:18:25,028 - CircuitSimulator - ERROR - 鼠标移动事件出错: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 502, in mouseMoveEvent
+    connection_point = self.find_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 594, in find_connection_point
+    point = item.get_closest_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 584, in get_closest_connection_point
+    point_pos = point.scenePos()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 50, in scenePos
+    transform.rotate(self.parent_component.rotation)
+TypeError: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+2025-04-19 00:18:25,036 - CircuitSimulator - ERROR - 鼠标移动事件出错: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 502, in mouseMoveEvent
+    connection_point = self.find_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 594, in find_connection_point
+    point = item.get_closest_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 584, in get_closest_connection_point
+    point_pos = point.scenePos()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 50, in scenePos
+    transform.rotate(self.parent_component.rotation)
+TypeError: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+2025-04-19 00:18:25,044 - CircuitSimulator - ERROR - 鼠标移动事件出错: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 502, in mouseMoveEvent
+    connection_point = self.find_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 594, in find_connection_point
+    point = item.get_closest_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 584, in get_closest_connection_point
+    point_pos = point.scenePos()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 50, in scenePos
+    transform.rotate(self.parent_component.rotation)
+TypeError: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+2025-04-19 00:18:25,052 - CircuitSimulator - ERROR - 鼠标移动事件出错: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 502, in mouseMoveEvent
+    connection_point = self.find_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 594, in find_connection_point
+    point = item.get_closest_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 584, in get_closest_connection_point
+    point_pos = point.scenePos()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 50, in scenePos
+    transform.rotate(self.parent_component.rotation)
+TypeError: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+2025-04-19 00:18:25,060 - CircuitSimulator - ERROR - 鼠标移动事件出错: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 502, in mouseMoveEvent
+    connection_point = self.find_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 594, in find_connection_point
+    point = item.get_closest_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 584, in get_closest_connection_point
+    point_pos = point.scenePos()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 50, in scenePos
+    transform.rotate(self.parent_component.rotation)
+TypeError: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+2025-04-19 00:18:25,067 - CircuitSimulator - ERROR - 鼠标移动事件出错: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 502, in mouseMoveEvent
+    connection_point = self.find_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 594, in find_connection_point
+    point = item.get_closest_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 584, in get_closest_connection_point
+    point_pos = point.scenePos()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 50, in scenePos
+    transform.rotate(self.parent_component.rotation)
+TypeError: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+2025-04-19 00:18:25,072 - CircuitSimulator - ERROR - 鼠标移动事件出错: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 502, in mouseMoveEvent
+    connection_point = self.find_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 594, in find_connection_point
+    point = item.get_closest_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 584, in get_closest_connection_point
+    point_pos = point.scenePos()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 50, in scenePos
+    transform.rotate(self.parent_component.rotation)
+TypeError: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+2025-04-19 00:18:25,076 - CircuitSimulator - ERROR - 鼠标移动事件出错: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 502, in mouseMoveEvent
+    connection_point = self.find_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 594, in find_connection_point
+    point = item.get_closest_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 584, in get_closest_connection_point
+    point_pos = point.scenePos()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 50, in scenePos
+    transform.rotate(self.parent_component.rotation)
+TypeError: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+2025-04-19 00:18:25,084 - CircuitSimulator - ERROR - 鼠标移动事件出错: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'
+Traceback (most recent call last):
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 502, in mouseMoveEvent
+    connection_point = self.find_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\main.py", line 594, in find_connection_point
+    point = item.get_closest_connection_point(scene_pos)
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 584, in get_closest_connection_point
+    point_pos = point.scenePos()
+  File "C:\Users\86151\Desktop\物理电学实验\components.py", line 50, in scenePos
+    transform.rotate(self.parent_component.rotation)
+TypeError: arguments did not match any overloaded call:
+  rotate(self, angle: float, axis: Qt.Axis = Qt.ZAxis): argument 1 has unexpected type 'builtin_function_or_method'
+  rotate(self, a: float, axis: Qt.Axis, distanceToPlane: float): argument 1 has unexpected type 'builtin_function_or_method'

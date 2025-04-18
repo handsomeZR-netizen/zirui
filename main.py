@@ -1251,21 +1251,38 @@ class MainWindow(QMainWindow):
 请根据以上电路信息回答用户问题。如果需要更多信息，请明确指出。
 """
             
-            # 创建AI回复的消息气泡（空内容，后续流式填充）
-            ai_message_widget = self.create_empty_ai_message()
-            
             # 显示正在获取回复的提示
             self.add_thinking_message()
             QApplication.processEvents()
             
             # 准备流式响应处理
             def handle_stream_chunk(chunk):
-                # 移除"正在思考"消息
-                if hasattr(self, 'thinking_container') and self.thinking_container:
-                    self.remove_thinking_message()
-                
                 # 更新AI消息内容
-                self.update_ai_message_content(ai_message_widget, chunk)
+                if hasattr(self, 'ai_message_label') and self.ai_message_label:
+                    # 如果是第一次收到内容，更改气泡样式为正式回复样式
+                    if not hasattr(self, '_response_started') or not self._response_started:
+                        self._response_started = True
+                        # 更新气泡样式为回复样式
+                        self.ai_message_bubble.setStyleSheet(f"""
+                            background-color: {self.get_bubble_color("assistant")};
+                            border-radius: 8px;
+                            padding: 2px;
+                        """)
+                        # 更新文本样式
+                        self.ai_message_label.setStyleSheet(f"""
+                            font-family: 'SimSun', 'simsun', serif;
+                            font-size: 14px;
+                            color: {self.get_text_color("assistant")};
+                            background: transparent;
+                            line-height: 1.5;
+                        """)
+                    
+                    # 更新AI消息内容
+                    html_content = chunk.replace("\n", "<br>")
+                    self.ai_message_label.setText(html_content)
+                    # 滚动到底部
+                    self.chat_scroll_area.verticalScrollBar().setValue(
+                        self.chat_scroll_area.verticalScrollBar().maximum())
                 QApplication.processEvents()  # 刷新UI
             
             # 使用流式API调用
@@ -1277,19 +1294,29 @@ class MainWindow(QMainWindow):
                     system_prompt, 
                     handle_stream_chunk
                 )
+                # 清理临时标记
+                if hasattr(self, '_response_started'):
+                    delattr(self, '_response_started')
             except Exception as e:
                 # 移除"正在思考"消息
                 self.remove_thinking_message()
+                # 清理临时标记
+                if hasattr(self, '_response_started'):
+                    delattr(self, '_response_started')
                 # 显示错误信息
                 error_msg = f"流式API请求失败: {str(e)}"
                 self.add_system_message("错误", error_msg, "red")
             
         except ImportError as e:
+            # 移除"正在思考"消息
+            self.remove_thinking_message()
             error_msg = "无法导入test_api模块，请确保已安装必要的库"
             self.add_system_message("错误", error_msg, "red")
             QMessageBox.critical(self, "模块错误", error_msg)
             
         except Exception as e:
+            # 移除"正在思考"消息
+            self.remove_thinking_message()
             error_msg = f"API请求失败: {str(e)}"
             self.add_system_message("错误", error_msg, "red")
             QMessageBox.critical(self, "API错误", f"调用API时出错:\n{str(e)}")
@@ -1333,76 +1360,16 @@ class MainWindow(QMainWindow):
             raise
     
     def create_empty_ai_message(self):
-        """创建空的AI消息气泡，准备流式填充内容"""
-        # 创建消息容器
-        msg_container = QWidget()
-        msg_layout = QHBoxLayout(msg_container)
-        msg_layout.setContentsMargins(5, 3, 5, 3)
-        
-        # 设置头像
-        avatar_label = QLabel()
-        avatar_label.setFixedSize(36, 36)
-        avatar_label.setStyleSheet(f"""
-            background-color: {self.get_avatar_color("assistant")};
-            border-radius: 18px;
-            color: white;
-            font-weight: bold;
-            qproperty-alignment: AlignCenter;
-            font-family: 'SimSun', 'simsun', serif;
-        """)
-        avatar_label.setText(self.get_avatar_text("assistant"))
-        
-        # 消息气泡
-        message_bubble = QWidget()
-        bubble_layout = QVBoxLayout(message_bubble)
-        bubble_layout.setContentsMargins(12, 8, 12, 8)
-        
-        # 创建用于显示内容的标签
-        message_label = QLabel("")
-        message_label.setWordWrap(True)
-        message_label.setTextFormat(Qt.TextFormat.RichText)
-        message_label.setOpenExternalLinks(True)
-        message_label.setStyleSheet(f"""
-            font-family: 'SimSun', 'simsun', serif;
-            font-size: 14px;
-            color: {self.get_text_color("assistant")};
-            background: transparent;
-            line-height: 1.5;
-        """)
-        
-        bubble_layout.addWidget(message_label)
-        
-        # 设置消息气泡样式
-        message_bubble.setStyleSheet(f"""
-            background-color: {self.get_bubble_color("assistant")};
-            border-radius: 8px;
-            padding: 2px;
-        """)
-        
-        # 添加到布局
-        msg_layout.addWidget(avatar_label)
-        msg_layout.addWidget(message_bubble)
-        msg_layout.addStretch()
-        
-        # 添加到聊天历史
-        self.chat_history_layout.addWidget(msg_container)
-        
-        # 滚动到底部
-        QTimer.singleShot(100, lambda: self.chat_scroll_area.verticalScrollBar().setValue(
-            self.chat_scroll_area.verticalScrollBar().maximum()))
-        
-        # 返回消息气泡，以便后续更新内容
-        return {"container": msg_container, "label": message_label}
+        """[已废弃] 创建空的AI消息气泡，准备流式填充内容"""
+        # 此方法已废弃，我们现在改用directly modifying the thinking message
+        # 保留此方法仅为了避免潜在的引用错误
+        return None
     
     def update_ai_message_content(self, message_widget, content):
-        """更新AI消息内容"""
-        # 转换Markdown/纯文本为HTML
-        html_content = content.replace("\n", "<br>")
-        # 设置内容
-        message_widget["label"].setText(html_content)
-        # 滚动到底部
-        self.chat_scroll_area.verticalScrollBar().setValue(
-            self.chat_scroll_area.verticalScrollBar().maximum())
+        """[已废弃] 更新AI消息内容"""
+        # 此方法已废弃，我们现在直接更新ai_message_label
+        # 保留此方法仅为了避免潜在的引用错误
+        pass
 
     def get_avatar_color(self, role):
         """根据角色获取头像背景颜色"""
@@ -1554,16 +1521,16 @@ class MainWindow(QMainWindow):
             self.chat_scroll_area.verticalScrollBar().maximum()))
 
     def add_thinking_message(self):
-        """添加正在思考的消息提示"""
-        self.thinking_container = QWidget()
-        thinking_layout = QHBoxLayout(self.thinking_container)
+        """添加正在思考的消息提示（这个组件后续会被直接用于显示回复）"""
+        self.ai_message_container = QWidget()
+        thinking_layout = QHBoxLayout(self.ai_message_container)
         thinking_layout.setContentsMargins(5, 5, 5, 5)
         
         # 设置头像
         avatar_label = QLabel()
         avatar_label.setFixedSize(36, 36)
         avatar_label.setStyleSheet("""
-            background-color: #5E35B1;
+            background-color: #8E44AD;
             border-radius: 18px;
             color: white;
             font-weight: bold;
@@ -1572,34 +1539,39 @@ class MainWindow(QMainWindow):
         """)
         avatar_label.setText("AI")
         
-        # 思考中气泡
-        thinking_bubble = QWidget()
-        bubble_layout = QVBoxLayout(thinking_bubble)
+        # 消息气泡
+        self.ai_message_bubble = QWidget()
+        bubble_layout = QVBoxLayout(self.ai_message_bubble)
         bubble_layout.setContentsMargins(12, 10, 12, 10)
         
-        thinking_label = QLabel("正在思考...")
-        thinking_label.setStyleSheet("""
+        # 创建标签用于显示内容
+        self.ai_message_label = QLabel("正在思考...")
+        self.ai_message_label.setWordWrap(True)
+        self.ai_message_label.setTextFormat(Qt.TextFormat.RichText)
+        self.ai_message_label.setOpenExternalLinks(True)
+        self.ai_message_label.setStyleSheet("""
             font-family: 'SimSun', 'simsun', serif;
             font-size: 14px;
             color: #666666;
             background: transparent;
+            line-height: 1.5;
         """)
         
-        bubble_layout.addWidget(thinking_label)
+        bubble_layout.addWidget(self.ai_message_label)
         
         # 设置气泡样式
-        thinking_bubble.setStyleSheet("""
+        self.ai_message_bubble.setStyleSheet("""
             background-color: #f1f0f0;
             border-radius: 8px;
             padding: 2px;
         """)
         
         thinking_layout.addWidget(avatar_label)
-        thinking_layout.addWidget(thinking_bubble)
+        thinking_layout.addWidget(self.ai_message_bubble)
         thinking_layout.addStretch()
         
         # 添加到聊天历史
-        self.chat_history_layout.addWidget(self.thinking_container)
+        self.chat_history_layout.addWidget(self.ai_message_container)
         
         # 滚动到底部
         QTimer.singleShot(100, lambda: self.chat_scroll_area.verticalScrollBar().setValue(
@@ -1607,9 +1579,11 @@ class MainWindow(QMainWindow):
     
     def remove_thinking_message(self):
         """移除思考中的消息"""
-        if hasattr(self, 'thinking_container') and self.thinking_container:
-            self.thinking_container.deleteLater()
-            self.thinking_container = None
+        if hasattr(self, 'ai_message_container') and self.ai_message_container:
+            self.ai_message_container.deleteLater()
+            self.ai_message_container = None
+            self.ai_message_bubble = None
+            self.ai_message_label = None
     
     def add_system_message(self, title, message, color="blue"):
         """添加系统消息"""
