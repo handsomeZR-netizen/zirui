@@ -1,0 +1,202 @@
+2025-04-19 11:12:47,231 - CircuitSimulator - INFO - 成功加载了 10 个实验
+2025-04-19 11:12:47,255 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-04-19 11:12:55,358 - root - DEBUG - 识别到 0 个节点
+2025-04-19 11:12:55,359 - root - ERROR - 电路节点识别失败，可能是电路不完整
+2025-04-19 11:13:01,506 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 150)
+2025-04-19 11:13:01,506 - CircuitSimulator - DEBUG - 已放置组件: 定值电阻 在位置 (300, 150)
+2025-04-19 11:13:01,508 - CircuitSimulator - DEBUG - 已放置组件: 电流表 在位置 (450, 150)
+2025-04-19 11:13:03,991 - root - DEBUG - 识别到 0 个节点
+2025-04-19 11:13:03,991 - root - ERROR - 电路节点识别失败，可能是电路不完整
+2025-04-19 11:13:13,567 - test_api - INFO - OpenAI客户端初始化成功
+2025-04-19 11:13:13,578 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '你是一位专业的物理电学实验助手。请帮助用户理解和构建电路实验。\n            你需要：\n            1. 分析当前电路的组成和连接\n            2. 提供专业的建议和指导\n            3. 回答用户的具体问题\n            4. 指出可能存在的问题和改进建议'}, {'role': 'user', 'content': '\n用户问题: 你好现在放置了什么\n\n当前电路信息:\n{\n  "components": [],\n  "wires": []\n}\n\n请根据以上电路信息回答用户问题。如果需要更多信息，请明确指出。\n'}], 'model': 'gpt-4', 'stream': True, 'temperature': 0.1}}
+2025-04-19 11:13:13,603 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.planetzero.live/v1/chat/completions
+2025-04-19 11:13:13,603 - httpcore.connection - DEBUG - connect_tcp.started host='api.planetzero.live' port=443 local_address=None timeout=10 socket_options=None
+2025-04-19 11:13:13,655 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002621AC6F5E0>
+2025-04-19 11:13:13,655 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000002621AB60D40> server_hostname='api.planetzero.live' timeout=10
+2025-04-19 11:13:13,704 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002621AC6F6A0>
+2025-04-19 11:13:13,705 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-04-19 11:13:13,705 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-04-19 11:13:13,705 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-04-19 11:13:13,705 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-04-19 11:13:13,705 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-04-19 11:13:23,706 - httpcore.http11 - DEBUG - receive_response_headers.failed exception=ReadTimeout(timeout('The read operation timed out'))
+2025-04-19 11:13:23,706 - httpcore.http11 - DEBUG - response_closed.started
+2025-04-19 11:13:23,706 - httpcore.http11 - DEBUG - response_closed.complete
+2025-04-19 11:13:23,706 - openai._base_client - DEBUG - Encountered httpx.TimeoutException
+Traceback (most recent call last):
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 136, in handle_request
+    raise exc
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_backends\sync.py", line 128, in read
+    return self._sock.recv(max_bytes)
+  File "D:\anaconda3\envs\myenv\lib\contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\openai\_base_client.py", line 955, in _request
+    response = self._client.send(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\anaconda3\envs\myenv\lib\contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+2025-04-19 11:13:23,708 - openai._base_client - DEBUG - 2 retries left
+2025-04-19 11:13:23,708 - openai._base_client - INFO - Retrying request to /chat/completions in 0.464449 seconds
+2025-04-19 11:13:24,174 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '你是一位专业的物理电学实验助手。请帮助用户理解和构建电路实验。\n            你需要：\n            1. 分析当前电路的组成和连接\n            2. 提供专业的建议和指导\n            3. 回答用户的具体问题\n            4. 指出可能存在的问题和改进建议'}, {'role': 'user', 'content': '\n用户问题: 你好现在放置了什么\n\n当前电路信息:\n{\n  "components": [],\n  "wires": []\n}\n\n请根据以上电路信息回答用户问题。如果需要更多信息，请明确指出。\n'}], 'model': 'gpt-4', 'stream': True, 'temperature': 0.1}}
+2025-04-19 11:13:24,174 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.planetzero.live/v1/chat/completions
+2025-04-19 11:13:24,175 - httpcore.connection - DEBUG - connect_tcp.started host='api.planetzero.live' port=443 local_address=None timeout=10 socket_options=None
+2025-04-19 11:13:24,223 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002621AF17580>
+2025-04-19 11:13:24,223 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000002621AB60D40> server_hostname='api.planetzero.live' timeout=10
+2025-04-19 11:13:24,282 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002621AF17310>
+2025-04-19 11:13:24,282 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-04-19 11:13:24,283 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-04-19 11:13:24,283 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-04-19 11:13:24,283 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-04-19 11:13:24,283 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-04-19 11:13:34,284 - httpcore.http11 - DEBUG - receive_response_headers.failed exception=ReadTimeout(timeout('The read operation timed out'))
+2025-04-19 11:13:34,284 - httpcore.http11 - DEBUG - response_closed.started
+2025-04-19 11:13:34,285 - httpcore.http11 - DEBUG - response_closed.complete
+2025-04-19 11:13:34,285 - openai._base_client - DEBUG - Encountered httpx.TimeoutException
+Traceback (most recent call last):
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 136, in handle_request
+    raise exc
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_backends\sync.py", line 128, in read
+    return self._sock.recv(max_bytes)
+  File "D:\anaconda3\envs\myenv\lib\contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\openai\_base_client.py", line 955, in _request
+    response = self._client.send(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\anaconda3\envs\myenv\lib\contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+2025-04-19 11:13:34,287 - openai._base_client - DEBUG - 1 retry left
+2025-04-19 11:13:34,287 - openai._base_client - INFO - Retrying request to /chat/completions in 0.893660 seconds
+2025-04-19 11:13:35,181 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '你是一位专业的物理电学实验助手。请帮助用户理解和构建电路实验。\n            你需要：\n            1. 分析当前电路的组成和连接\n            2. 提供专业的建议和指导\n            3. 回答用户的具体问题\n            4. 指出可能存在的问题和改进建议'}, {'role': 'user', 'content': '\n用户问题: 你好现在放置了什么\n\n当前电路信息:\n{\n  "components": [],\n  "wires": []\n}\n\n请根据以上电路信息回答用户问题。如果需要更多信息，请明确指出。\n'}], 'model': 'gpt-4', 'stream': True, 'temperature': 0.1}}
+2025-04-19 11:13:35,181 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.planetzero.live/v1/chat/completions
+2025-04-19 11:13:35,182 - httpcore.connection - DEBUG - connect_tcp.started host='api.planetzero.live' port=443 local_address=None timeout=10 socket_options=None
+2025-04-19 11:13:35,266 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002621AF1D280>
+2025-04-19 11:13:35,266 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000002621AB60D40> server_hostname='api.planetzero.live' timeout=10
+2025-04-19 11:13:35,438 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000002621AF1D0D0>
+2025-04-19 11:13:35,438 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-04-19 11:13:35,439 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-04-19 11:13:35,439 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-04-19 11:13:35,439 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-04-19 11:13:35,439 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-04-19 11:13:45,439 - httpcore.http11 - DEBUG - receive_response_headers.failed exception=ReadTimeout(timeout('The read operation timed out'))
+2025-04-19 11:13:45,439 - httpcore.http11 - DEBUG - response_closed.started
+2025-04-19 11:13:45,439 - httpcore.http11 - DEBUG - response_closed.complete
+2025-04-19 11:13:45,439 - openai._base_client - DEBUG - Encountered httpx.TimeoutException
+Traceback (most recent call last):
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 136, in handle_request
+    raise exc
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_sync\http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_backends\sync.py", line 128, in read
+    return self._sock.recv(max_bytes)
+  File "D:\anaconda3\envs\myenv\lib\contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: The read operation timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\openai\_base_client.py", line 955, in _request
+    response = self._client.send(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+  File "D:\anaconda3\envs\myenv\lib\contextlib.py", line 137, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: The read operation timed out
+2025-04-19 11:13:45,442 - openai._base_client - DEBUG - Raising timeout error
+2025-04-19 11:13:45,442 - CircuitSimulator - ERROR - 流式请求出错: Request timed out.

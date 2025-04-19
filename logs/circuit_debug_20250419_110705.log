@@ -1,0 +1,14 @@
+2025-04-19 11:07:05,122 - CircuitSimulator - INFO - 成功加载了 10 个实验
+2025-04-19 11:07:05,141 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-04-19 11:07:09,437 - test_api - INFO - OpenAI客户端初始化成功
+2025-04-19 11:07:09,446 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '你是一位专业的物理电学实验助手。请帮助用户理解和构建电路实验。\n            你需要：\n            1. 分析当前电路的组成和连接\n            2. 提供专业的建议和指导\n            3. 回答用户的具体问题\n            4. 指出可能存在的问题和改进建议'}, {'role': 'user', 'content': '\n用户问题: 你好\n\n当前电路信息:\n{\n  "components": [],\n  "wires": []\n}\n\n请根据以上电路信息回答用户问题。如果需要更多信息，请明确指出。\n'}], 'model': 'gpt-4', 'stream': True, 'temperature': 0.1}}
+2025-04-19 11:07:09,471 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.planetzero.live/v1/chat/completions
+2025-04-19 11:07:09,472 - httpcore.connection - DEBUG - connect_tcp.started host='api.planetzero.live' port=443 local_address=None timeout=60.0 socket_options=None
+2025-04-19 11:07:09,527 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001C42B81E6A0>
+2025-04-19 11:07:09,527 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x000001C42B714940> server_hostname='api.planetzero.live' timeout=60.0
+2025-04-19 11:07:09,575 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001C42B81E760>
+2025-04-19 11:07:09,576 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-04-19 11:07:09,576 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-04-19 11:07:09,576 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-04-19 11:07:09,576 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-04-19 11:07:09,576 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>

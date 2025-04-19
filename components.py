@@ -1203,6 +1203,9 @@ class Circuit:
                             target_comp = components[target_comp_idx]
                             target_point = target_comp.connection_points[target_point_idx]
                             wire.connect_endpoint(target_point, False)
+                    
+                    # 在连接完端点后，强制更新导线路径以匹配连接点位置
+                    wire.update_endpoints_from_connection_points()
         
         return circuit 
 

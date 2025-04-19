@@ -1,0 +1,27 @@
+2025-04-19 11:37:10,205 - CircuitSimulator - INFO - 成功加载了 10 个实验
+2025-04-19 11:37:10,225 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-04-19 11:37:22,489 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 150)
+2025-04-19 11:37:22,489 - CircuitSimulator - DEBUG - 已放置组件: 灯泡 在位置 (300, 150)
+2025-04-19 11:37:22,489 - CircuitSimulator - DEBUG - 已放置组件: 开关 在位置 (150, 250)
+2025-04-19 11:37:29,999 - test_api - INFO - OpenAI客户端初始化成功
+2025-04-19 11:37:30,009 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '你是一位专业的物理电学实验助手。请帮助用户理解和构建电路实验。\n            你需要：\n            1. 分析当前电路的组成和连接\n            2. 提供专业的建议和指导\n            3. 回答用户的具体问题\n            4. 指出可能存在的问题和改进建议'}, {'role': 'user', 'content': '\n用户问题: 你好\n\n当前电路信息:\n{\n  "components": [],\n  "wires": []\n}\n\n请根据以上电路信息回答用户问题。如果需要更多信息，请明确指出。\n'}], 'model': 'gpt-4', 'stream': True, 'temperature': 0.1}}
+2025-04-19 11:37:30,042 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.planetzero.live/v1/chat/completions
+2025-04-19 11:37:30,043 - httpcore.connection - DEBUG - connect_tcp.started host='api.planetzero.live' port=443 local_address=None timeout=10 socket_options=None
+2025-04-19 11:37:30,096 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000155BFD2E700>
+2025-04-19 11:37:30,096 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000155BFC21C40> server_hostname='api.planetzero.live' timeout=10
+2025-04-19 11:37:30,156 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x00000155BFD2E7C0>
+2025-04-19 11:37:30,156 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-04-19 11:37:30,156 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-04-19 11:37:30,157 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-04-19 11:37:30,157 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-04-19 11:37:30,157 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-04-19 11:37:36,499 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sat, 19 Apr 2025 03:37:34 GMT'), (b'Content-Type', b'text/event-stream'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Server', b'cloudflare'), (b'Cache-Control', b'no-cache'), (b'X-Oneapi-Request-Id', b'20250419113729143470057LpQDOGQq'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'Cf-Cache-Status', b'DYNAMIC'), (b'CF-RAY', b'93295d1208088557-HKG'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-04-19 11:37:36,499 - httpx - INFO - HTTP Request: POST https://api.planetzero.live/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-19 11:37:36,499 - openai._base_client - DEBUG - HTTP Response: POST https://api.planetzero.live/v1/chat/completions "200 OK" Headers({'date': 'Sat, 19 Apr 2025 03:37:34 GMT', 'content-type': 'text/event-stream', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'server': 'cloudflare', 'cache-control': 'no-cache', 'x-oneapi-request-id': '20250419113729143470057LpQDOGQq', 'strict-transport-security': 'max-age=31536000', 'cf-cache-status': 'DYNAMIC', 'cf-ray': '93295d1208088557-HKG', 'alt-svc': 'h3=":443"; ma=86400'})
+2025-04-19 11:37:36,499 - openai._base_client - DEBUG - request_id: None
+2025-04-19 11:37:36,499 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-04-19 11:37:36,896 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-04-19 11:37:36,896 - httpcore.http11 - DEBUG - response_closed.started
+2025-04-19 11:37:36,896 - httpcore.http11 - DEBUG - response_closed.complete
+2025-04-19 11:37:58,491 - httpcore.connection - DEBUG - close.started
+2025-04-19 11:37:58,492 - httpcore.connection - DEBUG - close.complete

@@ -723,18 +723,38 @@ class MainWindow(QMainWindow):
         filter_label.setStyleSheet("font-size: 13px; font-weight: bold;")
         self.difficulty_combo = QComboBox()
         self.difficulty_combo.addItems(["全部", "初级", "中级", "高级"])
+        # 设置难度过滤下拉框样式
         self.difficulty_combo.setStyleSheet("""
             QComboBox {
+                color: #333333;
                 background-color: white;
                 border: 1px solid #ccc;
                 border-radius: 3px;
-                padding: 2px 5px;
-                min-height: 26px;
-                max-width: 80px;
+                padding: 3px;
+                min-height: 24px;
+                font-family: 'SimSun', 'simsun', serif;
+                /* 限制宽度以避免与"实验"文字重叠 */
+                max-width: 70px;
+                min-width: 70px;
+            }
+            QComboBox QAbstractItemView {
+                selection-background-color: #4CAF50;
+                color: #333333;
+                background-color: white;
+                /* 确保下拉项目不会被截断 */
+                min-width: 100px;
             }
             QComboBox::drop-down {
                 border: none;
-                width: 20px;
+            }
+            QComboBox::down-arrow {
+                image: none;
+                border-left: 5px solid transparent;
+                border-right: 5px solid transparent;
+                border-top: 5px solid #333333;
+                width: 0;
+                height: 0;
+                margin-right: 5px;
             }
         """)
         self.difficulty_combo.currentTextChanged.connect(self.filter_experiments_by_difficulty)
@@ -752,6 +772,7 @@ class MainWindow(QMainWindow):
                 font-size: 14px;
                 font-family: 'SimSun', 'simsun', serif;
                 min-height: 26px;
+                min-width: 200px; /* 增加宽度确保实验名称完整显示 */
             }
             QComboBox::drop-down {
                 border: none;
@@ -763,6 +784,7 @@ class MainWindow(QMainWindow):
                 selection-background-color: #3498db;
                 selection-color: white;
                 font-size: 14px;
+                min-width: 400px; /* 确保下拉列表足够宽显示完整实验名称 */
             }
         """)
         
@@ -1012,19 +1034,20 @@ class MainWindow(QMainWindow):
         
         # 添加Logo区域
         self.logo_area = QWidget()
+        self.logo_area.setMaximumHeight(40)  # 降低标题栏高度
         self.logo_layout = QHBoxLayout(self.logo_area)
-        self.logo_layout.setContentsMargins(10, 10, 10, 5)  # 减小底部边距
+        self.logo_layout.setContentsMargins(8, 5, 8, 2)  # 减小所有边距
         
         # 添加logo图片
         self.logo_image = QLabel()
         logo_pixmap = QPixmap("logo.png")
-        logo_pixmap = logo_pixmap.scaledToHeight(48, Qt.TransformationMode.SmoothTransformation)  # 放大logo
+        logo_pixmap = logo_pixmap.scaledToHeight(32, Qt.TransformationMode.SmoothTransformation)  # 调整logo大小
         self.logo_image.setPixmap(logo_pixmap)
-        self.logo_image.setFixedSize(48, 48)  # 放大logo区域
+        self.logo_image.setFixedSize(32, 32)  # 适当的图片大小
         
-        self.logo_label = QLabel("AI 物理助手")
+        self.logo_label = QLabel("问道物理实验一站式助手")
         self.logo_label.setStyleSheet("""
-            font-size: 22px;  # 放大字体
+            font-size: 18px;
             font-weight: bold;
             color: #333333;
             font-family: 'SimSun', 'simsun', serif;
@@ -1140,7 +1163,7 @@ class MainWindow(QMainWindow):
         self.main_splitter.addWidget(self.chat_panel)
         
         # 添加一条欢迎消息 - 修改为直接调用而不是使用计时器延迟
-        self.add_message_to_chat("assistant", "你好！我是物理电学实验AI助手，有关于电路实验的问题都可以问我。")
+        self.add_message_to_chat("assistant", "你好！我是<span style='font-size:16px;font-weight:bold;'>问道物理实验一站式助手</span>，有关于电路实验的问题都可以问我。")
         
         # 设置样式
         self.setStyleSheet("""
@@ -1205,6 +1228,15 @@ class MainWindow(QMainWindow):
                 padding: 3px;
                 min-height: 24px;
                 font-family: 'SimSun', 'simsun', serif;
+                /* 确保可以显示完整内容，不会被截断 */
+                min-width: 180px;
+            }
+            QComboBox QAbstractItemView {
+                selection-background-color: #4CAF50;
+                color: #333333;
+                background-color: white;
+                /* 确保下拉项目不会被截断 */
+                min-width: 300px;
             }
             QComboBox::drop-down {
                 border: none;
@@ -1514,14 +1546,24 @@ class MainWindow(QMainWindow):
             3. 回答用户的具体问题
             4. 指出可能存在的问题和改进建议"""
             
+            # 添加实验上下文
+            experiment_context = ""
+            if self.current_experiment:
+                exp_name = self.current_experiment.get('name', '未知实验')
+                exp_goal = self.current_experiment.get('goal', '无特定目标')
+                experiment_context = f"""
+当前进行的实验: {exp_name}
+实验目标: {exp_goal}
+"""
+
             # 构建带有完整电路上下文的提示词
             prompt = f"""
 用户问题: {user_message}
-
-当前电路信息:
+{experiment_context}
+当前电路信息 (JSON格式):
 {circuit_json}
 
-请根据以上电路信息回答用户问题。如果需要更多信息，请明确指出。
+请根据以上实验上下文和电路信息回答用户问题。如果需要更多信息，请明确指出。
 """
             
             # 显示正在获取回复的提示
@@ -1544,10 +1586,10 @@ class MainWindow(QMainWindow):
                         # 更新文本样式
                         self.ai_message_label.setStyleSheet(f"""
                             font-family: 'SimSun', 'simsun', serif;
-                            font-size: 14px;
-                            color: {self.get_text_color("assistant")};
+                            font-size: 16px;  /* 增大字体大小 */
+                            color: #666666;
                             background: transparent;
-                            line-height: 1.5;
+                            line-height: 1.6;  /* 增大行间距 */
                         """)
                     
                     # 更新AI消息内容
@@ -1654,9 +1696,9 @@ class MainWindow(QMainWindow):
     def get_avatar_text(self, role):
         """根据角色获取头像文本"""
         if role == "user":
-            return "用"
+            return "我"
         else:
-            return "AI"
+            return "问道" # 修改为完整的"问道"二字
             
     def get_bubble_color(self, role):
         """根据角色获取气泡背景颜色"""
@@ -1739,14 +1781,17 @@ class MainWindow(QMainWindow):
         
         # 设置头像和样式
         avatar_label = QLabel()
-        avatar_label.setFixedSize(36, 36)
+        avatar_label.setFixedSize(42, 42)  # 增大头像尺寸以容纳两个字
         avatar_label.setStyleSheet(f"""
             background-color: {self.get_avatar_color(role)};
-            border-radius: 18px;
+            border-radius: 21px;
             color: white;
             font-weight: bold;
             text-align: center;
+            line-height: 42px; /* 确保文本垂直居中 */
             font-family: 'SimSun', 'simsun', serif;
+            font-size: 13px; /* 减小字体以适应两个字 */
+            qproperty-alignment: AlignCenter; /* 确保文本水平和垂直居中 */
         """)
         avatar_label.setText(self.get_avatar_text(role))
         
@@ -1761,10 +1806,10 @@ class MainWindow(QMainWindow):
         message_label.setOpenExternalLinks(True)
         message_label.setStyleSheet(f"""
             font-family: 'SimSun', 'simsun', serif;
-            font-size: 14px;
+            font-size: 16px;  /* 增大字体大小 */
             color: {self.get_text_color(role)};
             background: transparent;
-            line-height: 1.5;
+            line-height: 1.6;  /* 增大行间距 */
         """)
         
         bubble_layout.addWidget(message_label)
@@ -1801,16 +1846,19 @@ class MainWindow(QMainWindow):
         
         # 设置头像
         avatar_label = QLabel()
-        avatar_label.setFixedSize(36, 36)
+        avatar_label.setFixedSize(42, 42)  # 增大头像尺寸以容纳两个字
         avatar_label.setStyleSheet("""
             background-color: #8E44AD;
-            border-radius: 18px;
+            border-radius: 21px;
             color: white;
             font-weight: bold;
             text-align: center;
+            line-height: 42px; /* 确保文本垂直居中 */
             font-family: 'SimSun', 'simsun', serif;
+            font-size: 13px; /* 减小字体以适应两个字 */
+            qproperty-alignment: AlignCenter; /* 确保文本水平和垂直居中 */
         """)
-        avatar_label.setText("AI")
+        avatar_label.setText("问道")
         
         # 消息气泡
         self.ai_message_bubble = QWidget()
@@ -1824,10 +1872,10 @@ class MainWindow(QMainWindow):
         self.ai_message_label.setOpenExternalLinks(True)
         self.ai_message_label.setStyleSheet("""
             font-family: 'SimSun', 'simsun', serif;
-            font-size: 14px;
+            font-size: 16px;  /* 增大字体大小 */
             color: #666666;
             background: transparent;
-            line-height: 1.5;
+            line-height: 1.6;  /* 增大行间距 */
         """)
         
         bubble_layout.addWidget(self.ai_message_label)
@@ -1868,7 +1916,7 @@ class MainWindow(QMainWindow):
         system_label.setWordWrap(True)
         system_label.setStyleSheet(f"""
             font-family: 'SimSun', 'simsun', serif;
-            font-size: 13px;
+            font-size: 15px;  /* 增大字体大小 */
             color: {color};
             background-color: #f9f9f9;
             border-radius: 6px;
@@ -1943,13 +1991,12 @@ class MainWindow(QMainWindow):
         # 显示消息框
         QMessageBox.information(self, "实验已加载", message)
         
+        # 强制更新场景以确保所有项目（包括导线）正确绘制
+        self.work_area.scene().update()
+        self.work_area.viewport().update()
+        
         # 启用交互按钮
         self.report_progress_button.setEnabled(True)
-        self.request_hint_button.setEnabled(True)
-        self.reset_experiment_button.setEnabled(True)
-        
-        # 在状态栏显示当前实验
-        self.statusBar().showMessage(f"正在进行实验：{self.current_experiment['name']}")
 
     def reset_current_experiment(self):
         """重置当前实验到初始状态"""
@@ -2070,34 +2117,39 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "警告", "请先选择一个实验!")
             return
         
-        # 获取当前电路状态
-        circuit_description = self.serialize_circuit()
-        
-        # 获取电路数据，用于评估
-        circuit_data = self.work_area.circuit.to_dict(self.work_area.scene())
+        # 获取电路数据 (JSON格式)，用于评估和发送给LLM
+        try:
+            circuit_data = self.work_area.circuit.to_dict(self.work_area.scene())
+            circuit_json = json.dumps(circuit_data, ensure_ascii=False, indent=2)
+        except Exception as e:
+            logger.error(f"序列化电路时出错: {e}", exc_info=True)
+            QMessageBox.critical(self, "错误", "无法序列化当前电路状态。")
+            return
         
         # 使用experiment_manager评估实验进度
         progress_result = experiment_manager.evaluate_experiment_progress(
-            self.current_experiment, circuit_data
+            self.current_experiment, circuit_data # 使用字典数据评估
         )
         
         # 构建提交给大模型的提示信息
         experiment_name = self.current_experiment['name']
         experiment_goal = self.current_experiment['goal']
         completion_percentage = progress_result["completion_percentage"]
-        missing_components = progress_result["missing_components"]
-        
+        missing_components = progress_result["missing_components"] # 假设 evaluate_experiment_progress 返回的是组件类型名称
+        # 将可能存在的英文组件类型名映射为中文
+        missing_components_cn = [experiment_manager.get_component_mapping(comp) for comp in missing_components]
+
         prompt = f"""
         这是一个中小学物理电学实验中的 '{experiment_name}' 实验。
 
         实验目标: {experiment_goal}
 
-        学生当前搭建的电路情况:
-        {circuit_description}
+        学生当前搭建的电路情况 (JSON格式):
+        {circuit_json}
 
         实验评估结果:
         - 完成度: {completion_percentage}%
-        - 缺少组件: {', '.join(missing_components) if missing_components else '无'}
+        - 缺少组件: {', '.join(missing_components_cn) if missing_components_cn else '无'}
 
         请分析学生当前的电路状态，评估完成度，提供以下反馈:
         1. 实验进展: 电路已经完成了哪些部分，还缺少哪些部分?
@@ -2195,10 +2247,10 @@ class MainWindow(QMainWindow):
             # 更改颜色，表明这是一个完整的消息而非思考状态
             self.ai_message_label.setStyleSheet("""
                 font-family: 'SimSun', 'simsun', serif;
-                font-size: 14px;
-                color: #2C3E50;
+                font-size: 16px;  /* 增大字体大小 */
+                color: #666666;
                 background: transparent;
-                line-height: 1.5;
+                line-height: 1.6;  /* 增大行间距 */
             """)
 
     def request_hint(self):
@@ -2207,8 +2259,14 @@ class MainWindow(QMainWindow):
             QMessageBox.warning(self, "警告", "请先选择一个实验!")
             return
         
-        # 获取当前电路状态
-        circuit_description = self.serialize_circuit()
+        # 获取电路数据 (JSON格式)
+        try:
+            circuit_data = self.work_area.circuit.to_dict(self.work_area.scene())
+            circuit_json = json.dumps(circuit_data, ensure_ascii=False, indent=2)
+        except Exception as e:
+            logger.error(f"序列化电路时出错: {e}", exc_info=True)
+            QMessageBox.critical(self, "错误", "无法序列化当前电路状态。")
+            return
         
         # 构建提交给大模型的提示信息
         experiment_name = self.current_experiment['name']
@@ -2222,8 +2280,8 @@ class MainWindow(QMainWindow):
 
         实验目标: {experiment_goal}
 
-        学生当前搭建的电路情况:
-        {circuit_description}
+        学生当前搭建的电路情况 (JSON格式):
+        {circuit_json}
 
         实验提示信息:
         - 这个实验可能缺少以下元件: {', '.join(missing_elements_cn)}
