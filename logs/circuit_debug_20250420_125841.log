@@ -1,0 +1,592 @@
+2025-04-20 12:58:41,704 - CircuitSimulator - INFO - 成功加载了 10 个实验
+2025-04-20 12:58:41,722 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-04-20 12:58:46,440 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 150)
+2025-04-20 12:58:46,440 - CircuitSimulator - DEBUG - 已放置组件: 灯泡 在位置 (300, 150)
+2025-04-20 12:58:46,440 - CircuitSimulator - DEBUG - 已放置组件: 开关 在位置 (150, 250)
+2025-04-20 12:58:46,442 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(178.0, 150.0)
+2025-04-20 12:58:46,442 - CircuitSimulator - DEBUG - 导线起点连接到: 电源
+2025-04-20 12:58:46,443 - CircuitSimulator - DEBUG - 导线终点连接到: 开关
+2025-04-20 12:58:46,443 - CircuitSimulator - DEBUG - 已创建导线连接: 电源 -> 开关
+2025-04-20 12:58:46,443 - CircuitSimulator - ERROR - 无效的连接点索引: 1, 0
+2025-04-20 12:58:52,562 - CircuitSimulator - DEBUG - 开关状态改变: True
+2025-04-20 12:58:55,962 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 150)
+2025-04-20 12:58:55,962 - CircuitSimulator - DEBUG - 已放置组件: 灯泡 在位置 (400, 150)
+2025-04-20 12:58:55,962 - CircuitSimulator - DEBUG - 已放置组件: 开关 在位置 (250, 250)
+2025-04-20 12:58:55,962 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(178.0, 150.0)
+2025-04-20 12:58:55,962 - CircuitSimulator - DEBUG - 导线起点连接到: 电源
+2025-04-20 12:58:55,963 - CircuitSimulator - DEBUG - 导线终点连接到: 开关
+2025-04-20 12:58:55,963 - CircuitSimulator - DEBUG - 已创建导线连接: 电源 -> 开关
+2025-04-20 12:58:55,963 - CircuitSimulator - ERROR - 无效的连接点索引: 1, 0
+2025-04-20 12:58:55,963 - CircuitSimulator - WARNING - 连接点已被占用，跳过连接
+2025-04-20 12:58:55,963 - CircuitSimulator - ERROR - 创建环路失败: 无法连接 电源 到 开关
+2025-04-20 12:58:55,963 - CircuitSimulator - WARNING - 创建闭合电路环路失败
+2025-04-20 12:59:04,222 - CircuitSimulator - DEBUG - 组件已移除: 灯泡
+2025-04-20 13:00:12,001 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 180)
+2025-04-20 13:00:12,001 - CircuitSimulator - DEBUG - 已放置组件: 定值电阻 在位置 (300, 120)
+2025-04-20 13:00:12,001 - CircuitSimulator - DEBUG - 已放置组件: 定值电阻 在位置 (300, 240)
+2025-04-20 13:00:12,003 - CircuitSimulator - DEBUG - 已放置组件: 电压表 在位置 (450, 120)
+2025-04-20 13:00:12,003 - CircuitSimulator - DEBUG - 已放置组件: 电流表 在位置 (450, 240)
+2025-04-20 13:00:17,968 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 150)
+2025-04-20 13:00:17,968 - CircuitSimulator - DEBUG - 已放置组件: 灯泡 在位置 (400, 150)
+2025-04-20 13:00:17,968 - CircuitSimulator - DEBUG - 已放置组件: 开关 在位置 (250, 250)
+2025-04-20 13:00:17,968 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(178.0, 150.0)
+2025-04-20 13:00:17,968 - CircuitSimulator - DEBUG - 导线起点连接到: 电源
+2025-04-20 13:00:17,968 - CircuitSimulator - DEBUG - 导线终点连接到: 开关
+2025-04-20 13:00:17,968 - CircuitSimulator - DEBUG - 已创建导线连接: 电源 -> 开关
+2025-04-20 13:00:17,968 - CircuitSimulator - ERROR - 无效的连接点索引: 1, 0
+2025-04-20 13:00:17,968 - CircuitSimulator - WARNING - 连接点已被占用，跳过连接
+2025-04-20 13:00:17,968 - CircuitSimulator - ERROR - 创建环路失败: 无法连接 电源 到 开关
+2025-04-20 13:00:17,968 - CircuitSimulator - WARNING - 创建闭合电路环路失败
+2025-04-20 13:00:28,140 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 150)
+2025-04-20 13:00:28,141 - CircuitSimulator - DEBUG - 已放置组件: 定值电阻 在位置 (300, 150)
+2025-04-20 13:00:28,141 - CircuitSimulator - DEBUG - 已放置组件: 电流表 在位置 (450, 150)
+2025-04-20 13:00:32,955 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(178.0, 150.0)
+2025-04-20 13:00:32,955 - CircuitSimulator - DEBUG - 导线起点连接到: 电源
+2025-04-20 13:00:33,130 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(190.0, 148.0), points=4
+2025-04-20 13:00:33,137 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(198.0, 150.0), points=4
+2025-04-20 13:00:33,143 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(207.0, 151.0), points=4
+2025-04-20 13:00:33,151 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(215.0, 151.0), points=4
+2025-04-20 13:00:33,157 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(223.0, 151.0), points=4
+2025-04-20 13:00:33,165 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(231.0, 152.0), points=4
+2025-04-20 13:00:33,172 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(236.0, 152.0), points=4
+2025-04-20 13:00:33,178 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(242.0, 152.0), points=4
+2025-04-20 13:00:33,185 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(245.0, 152.0), points=4
+2025-04-20 13:00:33,192 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(249.0, 154.0), points=4
+2025-04-20 13:00:33,199 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(252.0, 154.0), points=4
+2025-04-20 13:00:33,206 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(254.0, 156.0), points=4
+2025-04-20 13:00:33,212 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(255.0, 156.0), points=4
+2025-04-20 13:00:33,218 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(257.0, 156.0), points=4
+2025-04-20 13:00:33,239 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(257.0, 157.0), points=4
+2025-04-20 13:00:33,247 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(258.0, 157.0), points=4
+2025-04-20 13:00:33,266 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(259.0, 158.0), points=4
+2025-04-20 13:00:33,280 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(259.0, 159.0), points=4
+2025-04-20 13:00:33,288 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(259.0, 160.0), points=4
+2025-04-20 13:00:33,294 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(260.0, 160.0), points=4
+2025-04-20 13:00:33,300 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(261.0, 160.0), points=4
+2025-04-20 13:00:33,308 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(261.0, 161.0), points=4
+2025-04-20 13:00:33,314 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(261.0, 162.0), points=4
+2025-04-20 13:00:33,322 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(263.0, 163.0), points=4
+2025-04-20 13:00:33,327 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(264.0, 164.0), points=4
+2025-04-20 13:00:33,335 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(265.0, 164.0), points=4
+2025-04-20 13:00:33,348 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(267.0, 164.0), points=4
+2025-04-20 13:00:33,369 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(268.0, 164.0), points=4
+2025-04-20 13:00:33,383 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(269.0, 164.0), points=4
+2025-04-20 13:00:33,417 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(269.0, 163.0), points=4
+2025-04-20 13:00:33,443 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(271.0, 163.0), points=4
+2025-04-20 13:00:33,457 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(271.0, 162.0), points=4
+2025-04-20 13:00:33,498 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(271.0, 161.0), points=4
+2025-04-20 13:00:33,504 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(271.0, 160.0), points=4
+2025-04-20 13:00:33,512 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(270.0, 160.0), points=4
+2025-04-20 13:00:33,539 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(271.0, 159.0), points=4
+2025-04-20 13:00:33,546 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(178.0, 150.0), end=PyQt6.QtCore.QPointF(272.0, 150.0), points=4
+2025-04-20 13:00:34,096 - CircuitSimulator - DEBUG - 导线终点连接到: 定值电阻
+2025-04-20 13:00:35,519 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(328.0, 150.0)
+2025-04-20 13:00:35,519 - CircuitSimulator - DEBUG - 导线起点连接到: 定值电阻
+2025-04-20 13:00:35,717 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(341.0, 148.0), points=4
+2025-04-20 13:00:35,723 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(353.0, 148.0), points=4
+2025-04-20 13:00:35,730 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(361.0, 148.0), points=4
+2025-04-20 13:00:35,737 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(368.0, 148.0), points=4
+2025-04-20 13:00:35,744 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(377.0, 148.0), points=4
+2025-04-20 13:00:35,751 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(383.0, 148.0), points=4
+2025-04-20 13:00:35,758 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(391.0, 148.0), points=4
+2025-04-20 13:00:35,764 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(397.0, 148.0), points=4
+2025-04-20 13:00:35,771 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(401.0, 145.0), points=4
+2025-04-20 13:00:35,779 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(406.0, 144.0), points=4
+2025-04-20 13:00:35,785 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(409.0, 142.0), points=4
+2025-04-20 13:00:35,792 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(412.0, 141.0), points=4
+2025-04-20 13:00:35,799 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(414.0, 141.0), points=4
+2025-04-20 13:00:35,806 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(415.0, 141.0), points=4
+2025-04-20 13:00:35,812 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(417.0, 140.0), points=4
+2025-04-20 13:00:35,825 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(418.0, 140.0), points=4
+2025-04-20 13:00:35,982 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(419.0, 141.0), points=4
+2025-04-20 13:00:35,989 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(419.0, 142.0), points=4
+2025-04-20 13:00:35,997 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(419.0, 143.0), points=4
+2025-04-20 13:00:36,003 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(328.0, 150.0), end=PyQt6.QtCore.QPointF(422.0, 150.0), points=4
+2025-04-20 13:00:36,499 - CircuitSimulator - DEBUG - 导线终点连接到: 电流表
+2025-04-20 13:00:37,806 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(478.0, 150.0)
+2025-04-20 13:00:37,806 - CircuitSimulator - DEBUG - 导线起点连接到: 电流表
+2025-04-20 13:00:38,038 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(480.0, 168.0), points=4
+2025-04-20 13:00:38,044 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(480.0, 178.0), points=4
+2025-04-20 13:00:38,051 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(480.0, 188.0), points=4
+2025-04-20 13:00:38,058 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(479.0, 197.0), points=4
+2025-04-20 13:00:38,065 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(479.0, 208.0), points=4
+2025-04-20 13:00:38,073 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(479.0, 222.0), points=4
+2025-04-20 13:00:38,078 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(476.0, 236.0), points=4
+2025-04-20 13:00:38,085 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(475.0, 248.0), points=4
+2025-04-20 13:00:38,092 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(473.0, 258.0), points=4
+2025-04-20 13:00:38,100 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(471.0, 262.0), points=4
+2025-04-20 13:00:38,106 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(469.0, 267.0), points=4
+2025-04-20 13:00:38,113 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(467.0, 270.0), points=4
+2025-04-20 13:00:38,120 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(465.0, 273.0), points=4
+2025-04-20 13:00:38,126 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(463.0, 276.0), points=4
+2025-04-20 13:00:38,133 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(459.0, 281.0), points=4
+2025-04-20 13:00:38,142 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(455.0, 287.0), points=4
+2025-04-20 13:00:38,147 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(450.0, 294.0), points=4
+2025-04-20 13:00:38,157 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(445.0, 302.0), points=4
+2025-04-20 13:00:38,165 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(440.0, 310.0), points=4
+2025-04-20 13:00:38,173 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(437.0, 317.0), points=4
+2025-04-20 13:00:38,178 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(432.0, 323.0), points=4
+2025-04-20 13:00:38,185 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(429.0, 328.0), points=4
+2025-04-20 13:00:38,190 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(425.0, 331.0), points=4
+2025-04-20 13:00:38,196 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(419.0, 337.0), points=4
+2025-04-20 13:00:38,203 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(417.0, 342.0), points=4
+2025-04-20 13:00:38,210 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(412.0, 348.0), points=4
+2025-04-20 13:00:38,217 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(410.0, 353.0), points=4
+2025-04-20 13:00:38,223 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(405.0, 358.0), points=4
+2025-04-20 13:00:38,229 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(402.0, 361.0), points=4
+2025-04-20 13:00:38,237 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(398.0, 363.0), points=4
+2025-04-20 13:00:38,243 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(391.0, 366.0), points=4
+2025-04-20 13:00:38,250 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(381.0, 370.0), points=4
+2025-04-20 13:00:38,259 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(369.0, 376.0), points=4
+2025-04-20 13:00:38,269 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(357.0, 382.0), points=4
+2025-04-20 13:00:38,269 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(346.0, 387.0), points=4
+2025-04-20 13:00:38,276 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(335.0, 391.0), points=4
+2025-04-20 13:00:38,285 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(323.0, 393.0), points=4
+2025-04-20 13:00:38,295 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(312.0, 394.0), points=4
+2025-04-20 13:00:38,302 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(301.0, 390.0), points=4
+2025-04-20 13:00:38,305 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(287.0, 388.0), points=4
+2025-04-20 13:00:38,312 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(273.0, 382.0), points=4
+2025-04-20 13:00:38,317 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(260.0, 375.0), points=4
+2025-04-20 13:00:38,323 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(246.0, 369.0), points=4
+2025-04-20 13:00:38,330 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(234.0, 362.0), points=4
+2025-04-20 13:00:38,337 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(224.0, 354.0), points=4
+2025-04-20 13:00:38,344 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(215.0, 347.0), points=4
+2025-04-20 13:00:38,353 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(207.0, 340.0), points=4
+2025-04-20 13:00:38,358 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(200.0, 335.0), points=4
+2025-04-20 13:00:38,364 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(196.0, 330.0), points=4
+2025-04-20 13:00:38,372 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(193.0, 326.0), points=4
+2025-04-20 13:00:38,378 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(191.0, 324.0), points=4
+2025-04-20 13:00:38,385 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(189.0, 320.0), points=4
+2025-04-20 13:00:38,392 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(187.0, 316.0), points=4
+2025-04-20 13:00:38,400 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(183.0, 311.0), points=4
+2025-04-20 13:00:38,405 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(182.0, 307.0), points=4
+2025-04-20 13:00:38,412 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(181.0, 302.0), points=4
+2025-04-20 13:00:38,419 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(179.0, 296.0), points=4
+2025-04-20 13:00:38,426 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(179.0, 289.0), points=4
+2025-04-20 13:00:38,434 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(179.0, 282.0), points=4
+2025-04-20 13:00:38,439 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(179.0, 275.0), points=4
+2025-04-20 13:00:38,446 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(179.0, 269.0), points=4
+2025-04-20 13:00:38,452 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(177.0, 265.0), points=4
+2025-04-20 13:00:38,460 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(177.0, 262.0), points=4
+2025-04-20 13:00:38,466 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(177.0, 259.0), points=4
+2025-04-20 13:00:38,473 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(176.0, 257.0), points=4
+2025-04-20 13:00:38,481 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(176.0, 255.0), points=4
+2025-04-20 13:00:38,487 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(176.0, 254.0), points=4
+2025-04-20 13:00:38,495 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(175.0, 252.0), points=4
+2025-04-20 13:00:38,508 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(175.0, 251.0), points=4
+2025-04-20 13:00:38,514 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(175.0, 250.0), points=4
+2025-04-20 13:00:38,528 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(174.0, 248.0), points=4
+2025-04-20 13:00:38,543 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(173.0, 247.0), points=4
+2025-04-20 13:00:38,549 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(172.0, 244.0), points=4
+2025-04-20 13:00:38,555 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(171.0, 242.0), points=4
+2025-04-20 13:00:38,562 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(170.0, 240.0), points=4
+2025-04-20 13:00:38,569 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(169.0, 238.0), points=4
+2025-04-20 13:00:38,575 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(167.0, 234.0), points=4
+2025-04-20 13:00:38,582 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(166.0, 232.0), points=4
+2025-04-20 13:00:38,589 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(164.0, 230.0), points=4
+2025-04-20 13:00:38,596 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(163.0, 228.0), points=4
+2025-04-20 13:00:38,603 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(162.0, 226.0), points=4
+2025-04-20 13:00:38,610 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(161.0, 224.0), points=4
+2025-04-20 13:00:38,617 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(159.0, 224.0), points=4
+2025-04-20 13:00:38,624 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(159.0, 220.0), points=4
+2025-04-20 13:00:38,630 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(157.0, 218.0), points=4
+2025-04-20 13:00:38,639 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(155.0, 218.0), points=4
+2025-04-20 13:00:38,645 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(153.0, 216.0), points=4
+2025-04-20 13:00:38,651 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(151.0, 214.0), points=4
+2025-04-20 13:00:38,657 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(149.0, 213.0), points=4
+2025-04-20 13:00:38,665 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(147.0, 210.0), points=4
+2025-04-20 13:00:38,671 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(143.0, 208.0), points=4
+2025-04-20 13:00:38,678 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(141.0, 206.0), points=4
+2025-04-20 13:00:38,684 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(139.0, 204.0), points=4
+2025-04-20 13:00:38,692 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(139.0, 203.0), points=4
+2025-04-20 13:00:38,699 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(137.0, 203.0), points=4
+2025-04-20 13:00:38,705 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(136.0, 202.0), points=4
+2025-04-20 13:00:38,713 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(135.0, 201.0), points=4
+2025-04-20 13:00:38,718 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(134.0, 198.0), points=4
+2025-04-20 13:00:38,726 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(132.0, 196.0), points=4
+2025-04-20 13:00:38,732 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(131.0, 194.0), points=4
+2025-04-20 13:00:38,739 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(129.0, 194.0), points=4
+2025-04-20 13:00:38,746 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(129.0, 190.0), points=4
+2025-04-20 13:00:38,753 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(127.0, 190.0), points=4
+2025-04-20 13:00:38,761 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(125.0, 188.0), points=4
+2025-04-20 13:00:38,767 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(125.0, 187.0), points=4
+2025-04-20 13:00:38,774 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(124.0, 186.0), points=4
+2025-04-20 13:00:38,780 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(123.0, 185.0), points=4
+2025-04-20 13:00:38,787 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(122.0, 184.0), points=4
+2025-04-20 13:00:38,800 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(121.0, 182.0), points=4
+2025-04-20 13:00:38,821 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(121.0, 181.0), points=4
+2025-04-20 13:00:38,827 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(121.0, 180.0), points=4
+2025-04-20 13:00:38,834 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(120.0, 180.0), points=4
+2025-04-20 13:00:38,869 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(119.0, 180.0), points=4
+2025-04-20 13:00:38,875 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(119.0, 178.0), points=4
+2025-04-20 13:00:38,888 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(119.0, 177.0), points=4
+2025-04-20 13:00:38,895 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(118.0, 176.0), points=4
+2025-04-20 13:00:38,917 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(117.0, 174.0), points=4
+2025-04-20 13:00:38,949 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(117.0, 173.0), points=4
+2025-04-20 13:00:39,018 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(117.0, 172.0), points=4
+2025-04-20 13:00:39,039 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(119.0, 172.0), points=4
+2025-04-20 13:00:39,148 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(119.0, 171.0), points=4
+2025-04-20 13:00:39,174 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(120.0, 170.0), points=4
+2025-04-20 13:00:39,181 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(120.0, 169.0), points=4
+2025-04-20 13:00:39,187 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(121.0, 168.0), points=4
+2025-04-20 13:00:39,196 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(121.0, 166.0), points=4
+2025-04-20 13:00:39,203 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(123.0, 161.0), points=4
+2025-04-20 13:00:39,209 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(124.0, 159.0), points=4
+2025-04-20 13:00:39,216 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(124.0, 158.0), points=4
+2025-04-20 13:00:39,222 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(122.0, 150.0), points=4
+2025-04-20 13:00:40,222 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(127.0, 157.0), points=4
+2025-04-20 13:00:40,231 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(127.0, 158.0), points=4
+2025-04-20 13:00:40,236 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(127.0, 159.0), points=4
+2025-04-20 13:00:40,243 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(127.0, 161.0), points=4
+2025-04-20 13:00:40,249 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(127.0, 164.0), points=4
+2025-04-20 13:00:40,258 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(127.0, 166.0), points=4
+2025-04-20 13:00:40,263 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(129.0, 169.0), points=4
+2025-04-20 13:00:40,270 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(129.0, 172.0), points=4
+2025-04-20 13:00:40,277 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(129.0, 175.0), points=4
+2025-04-20 13:00:40,283 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(129.0, 177.0), points=4
+2025-04-20 13:00:40,290 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(129.0, 180.0), points=4
+2025-04-20 13:00:40,304 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(129.0, 182.0), points=4
+2025-04-20 13:00:40,325 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(130.0, 183.0), points=4
+2025-04-20 13:00:40,338 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(130.0, 184.0), points=4
+2025-04-20 13:00:40,358 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(131.0, 186.0), points=4
+2025-04-20 13:00:40,367 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(131.0, 190.0), points=4
+2025-04-20 13:00:40,372 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(131.0, 199.0), points=4
+2025-04-20 13:00:40,379 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(133.0, 211.0), points=4
+2025-04-20 13:00:40,387 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(134.0, 218.0), points=4
+2025-04-20 13:00:40,392 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(135.0, 228.0), points=4
+2025-04-20 13:00:40,399 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(135.0, 236.0), points=4
+2025-04-20 13:00:40,406 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(137.0, 244.0), points=4
+2025-04-20 13:00:40,415 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(139.0, 254.0), points=4
+2025-04-20 13:00:40,421 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(141.0, 261.0), points=4
+2025-04-20 13:00:40,428 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(142.0, 268.0), points=4
+2025-04-20 13:00:40,433 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(143.0, 274.0), points=4
+2025-04-20 13:00:40,440 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(144.0, 276.0), points=4
+2025-04-20 13:00:40,448 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(144.0, 278.0), points=4
+2025-04-20 13:00:40,454 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(145.0, 282.0), points=4
+2025-04-20 13:00:40,462 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(146.0, 287.0), points=4
+2025-04-20 13:00:40,467 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(147.0, 291.0), points=4
+2025-04-20 13:00:40,476 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(149.0, 296.0), points=4
+2025-04-20 13:00:40,482 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(149.0, 302.0), points=4
+2025-04-20 13:00:40,488 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(149.0, 304.0), points=4
+2025-04-20 13:00:40,495 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(149.0, 308.0), points=4
+2025-04-20 13:00:40,502 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(151.0, 310.0), points=4
+2025-04-20 13:00:40,509 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(151.0, 314.0), points=4
+2025-04-20 13:00:40,517 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(153.0, 316.0), points=4
+2025-04-20 13:00:40,522 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(153.0, 318.0), points=4
+2025-04-20 13:00:40,529 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(155.0, 319.0), points=4
+2025-04-20 13:00:40,536 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(155.0, 320.0), points=4
+2025-04-20 13:00:40,542 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(157.0, 322.0), points=4
+2025-04-20 13:00:40,548 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(159.0, 324.0), points=4
+2025-04-20 13:00:40,557 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(161.0, 326.0), points=4
+2025-04-20 13:00:40,563 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(163.0, 328.0), points=4
+2025-04-20 13:00:40,571 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(165.0, 329.0), points=4
+2025-04-20 13:00:40,576 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(167.0, 331.0), points=4
+2025-04-20 13:00:40,583 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(169.0, 332.0), points=4
+2025-04-20 13:00:40,593 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(171.0, 333.0), points=4
+2025-04-20 13:00:40,604 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(172.0, 333.0), points=4
+2025-04-20 13:00:40,610 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(173.0, 333.0), points=4
+2025-04-20 13:00:40,618 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(174.0, 333.0), points=4
+2025-04-20 13:00:40,624 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(175.0, 333.0), points=4
+2025-04-20 13:00:40,631 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(177.0, 333.0), points=4
+2025-04-20 13:00:40,637 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(181.0, 332.0), points=4
+2025-04-20 13:00:40,644 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(186.0, 332.0), points=4
+2025-04-20 13:00:40,652 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(194.0, 331.0), points=4
+2025-04-20 13:00:40,657 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(202.0, 330.0), points=4
+2025-04-20 13:00:40,665 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(213.0, 330.0), points=4
+2025-04-20 13:00:40,671 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(222.0, 330.0), points=4
+2025-04-20 13:00:40,679 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(232.0, 328.0), points=4
+2025-04-20 13:00:40,685 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(240.0, 327.0), points=4
+2025-04-20 13:00:40,692 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(249.0, 326.0), points=4
+2025-04-20 13:00:40,700 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(259.0, 324.0), points=4
+2025-04-20 13:00:40,706 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(269.0, 323.0), points=4
+2025-04-20 13:00:40,713 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(281.0, 318.0), points=4
+2025-04-20 13:00:40,720 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(294.0, 312.0), points=4
+2025-04-20 13:00:40,727 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(308.0, 305.0), points=4
+2025-04-20 13:00:40,732 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(320.0, 294.0), points=4
+2025-04-20 13:00:40,739 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(334.0, 283.0), points=4
+2025-04-20 13:00:40,747 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(348.0, 271.0), points=4
+2025-04-20 13:00:40,754 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(361.0, 258.0), points=4
+2025-04-20 13:00:40,760 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(371.0, 248.0), points=4
+2025-04-20 13:00:40,766 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(380.0, 239.0), points=4
+2025-04-20 13:00:40,774 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(388.0, 234.0), points=4
+2025-04-20 13:00:40,780 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(393.0, 228.0), points=4
+2025-04-20 13:00:40,788 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(399.0, 226.0), points=4
+2025-04-20 13:00:40,794 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(403.0, 223.0), points=4
+2025-04-20 13:00:40,800 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(408.0, 219.0), points=4
+2025-04-20 13:00:40,809 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(413.0, 217.0), points=4
+2025-04-20 13:00:40,814 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(415.0, 215.0), points=4
+2025-04-20 13:00:40,821 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(417.0, 212.0), points=4
+2025-04-20 13:00:40,828 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(419.0, 212.0), points=4
+2025-04-20 13:00:40,835 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(420.0, 211.0), points=4
+2025-04-20 13:00:40,842 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(422.0, 211.0), points=4
+2025-04-20 13:00:40,848 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(423.0, 210.0), points=4
+2025-04-20 13:00:40,870 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(424.0, 210.0), points=4
+2025-04-20 13:00:40,944 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(424.0, 211.0), points=4
+2025-04-20 13:00:40,950 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(424.0, 212.0), points=4
+2025-04-20 13:00:40,966 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(425.0, 214.0), points=4
+2025-04-20 13:00:40,970 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(426.0, 214.0), points=4
+2025-04-20 13:00:40,979 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(427.0, 215.0), points=4
+2025-04-20 13:00:40,985 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(429.0, 216.0), points=4
+2025-04-20 13:00:40,992 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(431.0, 217.0), points=4
+2025-04-20 13:00:40,998 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(433.0, 218.0), points=4
+2025-04-20 13:00:41,006 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(437.0, 218.0), points=4
+2025-04-20 13:00:41,012 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(439.0, 219.0), points=4
+2025-04-20 13:00:41,019 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(441.0, 219.0), points=4
+2025-04-20 13:00:41,026 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(444.0, 220.0), points=4
+2025-04-20 13:00:41,032 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(447.0, 220.0), points=4
+2025-04-20 13:00:41,039 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(450.0, 220.0), points=4
+2025-04-20 13:00:41,046 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(452.0, 220.0), points=4
+2025-04-20 13:00:41,054 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(454.0, 220.0), points=4
+2025-04-20 13:00:41,059 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(455.0, 220.0), points=4
+2025-04-20 13:00:41,066 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(457.0, 220.0), points=4
+2025-04-20 13:00:41,079 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(457.0, 219.0), points=4
+2025-04-20 13:00:41,088 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(458.0, 219.0), points=4
+2025-04-20 13:00:41,094 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(459.0, 218.0), points=4
+2025-04-20 13:00:41,141 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(459.0, 217.0), points=4
+2025-04-20 13:00:41,155 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(459.0, 216.0), points=4
+2025-04-20 13:00:41,169 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(459.0, 214.0), points=4
+2025-04-20 13:00:41,175 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(459.0, 212.0), points=4
+2025-04-20 13:00:41,182 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(459.0, 210.0), points=4
+2025-04-20 13:00:41,188 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(459.0, 208.0), points=4
+2025-04-20 13:00:41,196 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(459.0, 207.0), points=4
+2025-04-20 13:00:41,202 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(459.0, 204.0), points=4
+2025-04-20 13:00:41,209 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(459.0, 201.0), points=4
+2025-04-20 13:00:41,216 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(459.0, 197.0), points=4
+2025-04-20 13:00:41,223 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(459.0, 194.0), points=4
+2025-04-20 13:00:41,229 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(459.0, 191.0), points=4
+2025-04-20 13:00:41,237 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(459.0, 186.0), points=4
+2025-04-20 13:00:41,244 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(461.0, 184.0), points=4
+2025-04-20 13:00:41,250 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(461.0, 180.0), points=4
+2025-04-20 13:00:41,258 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(462.0, 178.0), points=4
+2025-04-20 13:00:41,264 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(463.0, 174.0), points=4
+2025-04-20 13:00:41,270 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(463.0, 172.0), points=4
+2025-04-20 13:00:41,277 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(463.0, 170.0), points=4
+2025-04-20 13:00:41,294 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(463.0, 169.0), points=4
+2025-04-20 13:00:41,298 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(465.0, 168.0), points=4
+2025-04-20 13:00:41,306 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(465.0, 166.0), points=4
+2025-04-20 13:00:41,312 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(466.0, 166.0), points=4
+2025-04-20 13:00:41,318 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(466.0, 164.0), points=4
+2025-04-20 13:00:41,325 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(466.0, 163.0), points=4
+2025-04-20 13:00:41,332 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(467.0, 162.0), points=4
+2025-04-20 13:00:41,338 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(468.0, 162.0), points=4
+2025-04-20 13:00:41,345 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(468.0, 161.0), points=4
+2025-04-20 13:00:41,354 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(469.0, 160.0), points=4
+2025-04-20 13:00:41,358 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(470.0, 159.0), points=4
+2025-04-20 13:00:41,366 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(472.0, 158.0), points=4
+2025-04-20 13:00:41,372 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(473.0, 158.0), points=4
+2025-04-20 13:00:41,379 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(475.0, 158.0), points=4
+2025-04-20 13:00:41,393 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(476.0, 158.0), points=4
+2025-04-20 13:00:41,488 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(480.0, 158.0), points=4
+2025-04-20 13:00:41,686 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(486.0, 148.0), points=4
+2025-04-20 13:00:41,706 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(489.0, 148.0), points=4
+2025-04-20 13:00:41,754 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(490.0, 148.0), points=4
+2025-04-20 13:00:41,767 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(490.0, 147.0), points=4
+2025-04-20 13:00:41,937 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(490.0, 148.0), points=4
+2025-04-20 13:00:41,972 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(489.0, 148.0), points=4
+2025-04-20 13:00:41,984 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(488.0, 148.0), points=4
+2025-04-20 13:00:41,992 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(487.0, 148.0), points=4
+2025-04-20 13:00:41,999 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(478.0, 150.0), end=PyQt6.QtCore.QPointF(486.0, 148.0), points=4
+2025-04-20 13:00:42,440 - CircuitSimulator - DEBUG - 导线终点连接到: 电流表
+2025-04-20 13:00:50,409 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(160.0, 253.0)
+2025-04-20 13:00:50,410 - CircuitSimulator - DEBUG - 导线起点连接到: 电源
+2025-04-20 13:00:50,616 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(160.0, 264.0), points=4
+2025-04-20 13:00:50,621 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(161.0, 278.0), points=4
+2025-04-20 13:00:50,628 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(162.0, 291.0), points=4
+2025-04-20 13:00:50,636 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(166.0, 304.0), points=4
+2025-04-20 13:00:50,642 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(166.0, 319.0), points=4
+2025-04-20 13:00:50,649 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(168.0, 334.0), points=4
+2025-04-20 13:00:50,655 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(170.0, 348.0), points=4
+2025-04-20 13:00:50,664 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(172.0, 359.0), points=4
+2025-04-20 13:00:50,669 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(172.0, 368.0), points=4
+2025-04-20 13:00:50,675 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(172.0, 376.0), points=4
+2025-04-20 13:00:50,683 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(172.0, 380.0), points=4
+2025-04-20 13:00:50,689 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(172.0, 386.0), points=4
+2025-04-20 13:00:50,697 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(172.0, 389.0), points=4
+2025-04-20 13:00:50,703 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(172.0, 392.0), points=4
+2025-04-20 13:00:50,710 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(172.0, 393.0), points=4
+2025-04-20 13:00:50,717 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(174.0, 394.0), points=4
+2025-04-20 13:00:50,724 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(173.0, 394.0), points=4
+2025-04-20 13:00:50,744 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(173.0, 395.0), points=4
+2025-04-20 13:00:50,751 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(173.0, 397.0), points=4
+2025-04-20 13:00:50,765 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(173.0, 400.0), points=4
+2025-04-20 13:00:50,774 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(173.0, 401.0), points=4
+2025-04-20 13:00:50,786 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(172.0, 405.0), points=4
+2025-04-20 13:00:50,793 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(172.0, 409.0), points=4
+2025-04-20 13:00:50,803 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(172.0, 412.0), points=4
+2025-04-20 13:00:50,815 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(172.0, 414.0), points=4
+2025-04-20 13:00:50,815 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(172.0, 416.0), points=4
+2025-04-20 13:00:50,822 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(172.0, 418.0), points=4
+2025-04-20 13:00:50,837 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(160.0, 253.0), end=PyQt6.QtCore.QPointF(172.0, 421.0), points=4
+2025-04-20 13:00:53,841 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(437.0, 300.0)
+2025-04-20 13:00:53,841 - CircuitSimulator - DEBUG - 导线起点连接到: 电流表
+2025-04-20 13:00:54,051 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(442.0, 312.0), points=4
+2025-04-20 13:00:54,058 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(442.0, 323.0), points=4
+2025-04-20 13:00:54,065 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(442.0, 336.0), points=4
+2025-04-20 13:00:54,072 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(441.0, 349.0), points=4
+2025-04-20 13:00:54,078 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(439.0, 362.0), points=4
+2025-04-20 13:00:54,086 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(439.0, 374.0), points=4
+2025-04-20 13:00:54,092 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(438.0, 383.0), points=4
+2025-04-20 13:00:54,100 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(436.0, 389.0), points=4
+2025-04-20 13:00:54,106 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(436.0, 394.0), points=4
+2025-04-20 13:00:54,112 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(436.0, 396.0), points=4
+2025-04-20 13:00:54,120 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(434.0, 400.0), points=4
+2025-04-20 13:00:54,126 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(434.0, 402.0), points=4
+2025-04-20 13:00:54,133 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(434.0, 406.0), points=4
+2025-04-20 13:00:54,139 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(432.0, 408.0), points=4
+2025-04-20 13:00:54,146 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(432.0, 410.0), points=4
+2025-04-20 13:00:54,153 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(431.0, 411.0), points=4
+2025-04-20 13:00:54,159 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(430.0, 413.0), points=4
+2025-04-20 13:00:54,166 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(429.0, 414.0), points=4
+2025-04-20 13:00:54,174 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(429.0, 416.0), points=4
+2025-04-20 13:00:54,194 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(428.0, 416.0), points=4
+2025-04-20 13:00:54,208 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(428.0, 417.0), points=4
+2025-04-20 13:00:54,241 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(428.0, 418.0), points=4
+2025-04-20 13:00:54,276 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(426.0, 419.0), points=4
+2025-04-20 13:00:54,283 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(424.0, 420.0), points=4
+2025-04-20 13:00:54,290 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(422.0, 421.0), points=4
+2025-04-20 13:00:54,296 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(419.0, 423.0), points=4
+2025-04-20 13:00:54,307 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(414.0, 425.0), points=4
+2025-04-20 13:00:54,324 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(406.0, 428.0), points=4
+2025-04-20 13:00:54,336 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(400.0, 431.0), points=4
+2025-04-20 13:00:54,340 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(390.0, 437.0), points=4
+2025-04-20 13:00:54,340 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(382.0, 439.0), points=4
+2025-04-20 13:00:54,352 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(366.0, 449.0), points=4
+2025-04-20 13:00:54,362 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(358.0, 455.0), points=4
+2025-04-20 13:00:54,370 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(352.0, 459.0), points=4
+2025-04-20 13:00:54,380 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(346.0, 462.0), points=4
+2025-04-20 13:00:54,384 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(340.0, 464.0), points=4
+2025-04-20 13:00:54,390 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(333.0, 468.0), points=4
+2025-04-20 13:00:54,391 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(325.0, 471.0), points=4
+2025-04-20 13:00:54,399 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(319.0, 475.0), points=4
+2025-04-20 13:00:54,407 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(313.0, 477.0), points=4
+2025-04-20 13:00:54,416 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(307.0, 479.0), points=4
+2025-04-20 13:00:54,425 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(300.0, 480.0), points=4
+2025-04-20 13:00:54,426 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(290.0, 481.0), points=4
+2025-04-20 13:00:54,433 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(284.0, 482.0), points=4
+2025-04-20 13:00:54,445 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(276.0, 482.0), points=4
+2025-04-20 13:00:54,446 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(270.0, 480.0), points=4
+2025-04-20 13:00:54,452 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(262.0, 478.0), points=4
+2025-04-20 13:00:54,459 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(256.0, 475.0), points=4
+2025-04-20 13:00:54,466 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(250.0, 472.0), points=4
+2025-04-20 13:00:54,473 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(243.0, 470.0), points=4
+2025-04-20 13:00:54,480 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(235.0, 466.0), points=4
+2025-04-20 13:00:54,487 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(228.0, 460.0), points=4
+2025-04-20 13:00:54,494 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(222.0, 456.0), points=4
+2025-04-20 13:00:54,500 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(217.0, 453.0), points=4
+2025-04-20 13:00:54,508 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(212.0, 450.0), points=4
+2025-04-20 13:00:54,515 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(208.0, 447.0), points=4
+2025-04-20 13:00:54,521 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(200.0, 442.0), points=4
+2025-04-20 13:00:54,527 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(194.0, 436.0), points=4
+2025-04-20 13:00:54,534 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(189.0, 431.0), points=4
+2025-04-20 13:00:54,542 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(184.0, 426.0), points=4
+2025-04-20 13:00:54,548 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(180.0, 421.0), points=4
+2025-04-20 13:00:54,557 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(175.0, 414.0), points=4
+2025-04-20 13:00:54,562 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(171.0, 408.0), points=4
+2025-04-20 13:00:54,569 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(168.0, 398.0), points=4
+2025-04-20 13:00:54,574 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(164.0, 390.0), points=4
+2025-04-20 13:00:54,581 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(161.0, 380.0), points=4
+2025-04-20 13:00:54,589 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(158.0, 370.0), points=4
+2025-04-20 13:00:54,595 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(157.0, 362.0), points=4
+2025-04-20 13:00:54,603 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(154.0, 354.0), points=4
+2025-04-20 13:00:54,609 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(153.0, 350.0), points=4
+2025-04-20 13:00:54,615 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(153.0, 346.0), points=4
+2025-04-20 13:00:54,622 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(152.0, 344.0), points=4
+2025-04-20 13:00:54,629 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(152.0, 342.0), points=4
+2025-04-20 13:00:54,636 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(152.0, 340.0), points=4
+2025-04-20 13:00:54,651 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(152.0, 339.0), points=4
+2025-04-20 13:00:54,656 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(152.0, 338.0), points=4
+2025-04-20 13:00:54,663 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(152.0, 337.0), points=4
+2025-04-20 13:00:54,676 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(152.0, 336.0), points=4
+2025-04-20 13:00:54,698 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(152.0, 333.0), points=4
+2025-04-20 13:00:54,704 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(152.0, 330.0), points=4
+2025-04-20 13:00:54,712 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(154.0, 328.0), points=4
+2025-04-20 13:00:54,718 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(154.0, 325.0), points=4
+2025-04-20 13:00:54,725 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(156.0, 323.0), points=4
+2025-04-20 13:00:54,731 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(156.0, 322.0), points=4
+2025-04-20 13:00:54,738 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(156.0, 320.0), points=4
+2025-04-20 13:00:54,747 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(156.0, 318.0), points=4
+2025-04-20 13:00:54,753 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(158.0, 316.0), points=4
+2025-04-20 13:00:54,759 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(158.0, 315.0), points=4
+2025-04-20 13:00:54,766 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(158.0, 313.0), points=4
+2025-04-20 13:00:54,774 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(159.0, 312.0), points=4
+2025-04-20 13:00:54,779 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(159.0, 311.0), points=4
+2025-04-20 13:00:54,786 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(159.0, 310.0), points=4
+2025-04-20 13:00:54,793 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 310.0), points=4
+2025-04-20 13:00:54,800 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 309.0), points=4
+2025-04-20 13:00:54,807 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 308.0), points=4
+2025-04-20 13:00:54,813 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 307.0), points=4
+2025-04-20 13:00:54,827 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 306.0), points=4
+2025-04-20 13:00:54,834 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 305.0), points=4
+2025-04-20 13:00:54,840 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 303.0), points=4
+2025-04-20 13:00:54,847 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 300.0), points=4
+2025-04-20 13:00:54,854 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 298.0), points=4
+2025-04-20 13:00:54,860 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 296.0), points=4
+2025-04-20 13:00:54,875 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 294.0), points=4
+2025-04-20 13:00:54,882 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 293.0), points=4
+2025-04-20 13:00:54,895 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 292.0), points=4
+2025-04-20 13:00:54,930 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 291.0), points=4
+2025-04-20 13:00:54,942 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 290.0), points=4
+2025-04-20 13:00:54,949 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 289.0), points=4
+2025-04-20 13:00:54,956 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 288.0), points=4
+2025-04-20 13:00:54,963 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 286.0), points=4
+2025-04-20 13:00:54,969 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 284.0), points=4
+2025-04-20 13:00:54,978 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 283.0), points=4
+2025-04-20 13:00:54,985 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 282.0), points=4
+2025-04-20 13:00:54,997 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 280.0), points=4
+2025-04-20 13:00:55,011 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 279.0), points=4
+2025-04-20 13:00:55,017 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 278.0), points=4
+2025-04-20 13:00:55,031 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 277.0), points=4
+2025-04-20 13:00:55,064 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 276.0), points=4
+2025-04-20 13:00:55,113 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 275.0), points=4
+2025-04-20 13:00:55,121 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 274.0), points=4
+2025-04-20 13:00:55,127 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 273.0), points=4
+2025-04-20 13:00:55,142 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 272.0), points=4
+2025-04-20 13:00:55,161 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 271.0), points=4
+2025-04-20 13:00:55,174 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 270.0), points=4
+2025-04-20 13:00:55,196 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 268.0), points=4
+2025-04-20 13:00:55,218 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 267.0), points=4
+2025-04-20 13:00:55,229 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 266.0), points=4
+2025-04-20 13:00:55,317 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 264.0), points=4
+2025-04-20 13:00:55,364 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 263.0), points=4
+2025-04-20 13:00:55,372 - CircuitSimulator - DEBUG - 更新导线路径: start=PyQt6.QtCore.QPointF(437.0, 300.0), end=PyQt6.QtCore.QPointF(160.0, 253.0), points=4
+2025-04-20 13:00:56,167 - CircuitSimulator - DEBUG - 导线终点连接到: 电源
+2025-04-20 13:01:00,175 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 180)
+2025-04-20 13:01:00,175 - CircuitSimulator - DEBUG - 已放置组件: 定值电阻 在位置 (300, 120)
+2025-04-20 13:01:00,175 - CircuitSimulator - DEBUG - 已放置组件: 定值电阻 在位置 (300, 240)
+2025-04-20 13:01:00,176 - CircuitSimulator - DEBUG - 已放置组件: 电压表 在位置 (450, 120)
+2025-04-20 13:01:00,176 - CircuitSimulator - DEBUG - 已放置组件: 电流表 在位置 (450, 240)
+2025-04-20 13:01:03,902 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (100, 150)
+2025-04-20 13:01:03,902 - CircuitSimulator - DEBUG - 已放置组件: 定值电阻 在位置 (300, 150)
+2025-04-20 13:01:03,902 - CircuitSimulator - DEBUG - 已放置组件: 开关 在位置 (200, 250)
+2025-04-20 13:01:08,790 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 150)
+2025-04-20 13:01:08,790 - CircuitSimulator - DEBUG - 已放置组件: 灯泡 在位置 (400, 150)
+2025-04-20 13:01:08,790 - CircuitSimulator - DEBUG - 已放置组件: 开关 在位置 (250, 250)
+2025-04-20 13:01:08,790 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(178.0, 150.0)
+2025-04-20 13:01:08,790 - CircuitSimulator - DEBUG - 导线起点连接到: 电源
+2025-04-20 13:01:08,790 - CircuitSimulator - DEBUG - 导线终点连接到: 开关
+2025-04-20 13:01:08,790 - CircuitSimulator - DEBUG - 已创建导线连接: 电源 -> 开关
+2025-04-20 13:01:08,790 - CircuitSimulator - ERROR - 无效的连接点索引: 1, 0
+2025-04-20 13:01:08,790 - CircuitSimulator - WARNING - 连接点已被占用，跳过连接
+2025-04-20 13:01:08,790 - CircuitSimulator - ERROR - 创建环路失败: 无法连接 电源 到 开关
+2025-04-20 13:01:08,790 - CircuitSimulator - WARNING - 创建闭合电路环路失败
+2025-04-20 13:01:13,170 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 150)
+2025-04-20 13:01:13,170 - CircuitSimulator - DEBUG - 已放置组件: 灯泡 在位置 (300, 150)
+2025-04-20 13:01:13,170 - CircuitSimulator - DEBUG - 已放置组件: 开关 在位置 (150, 250)
+2025-04-20 13:01:13,170 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(178.0, 150.0)
+2025-04-20 13:01:13,170 - CircuitSimulator - DEBUG - 导线起点连接到: 电源
+2025-04-20 13:01:13,170 - CircuitSimulator - DEBUG - 导线终点连接到: 开关
+2025-04-20 13:01:13,170 - CircuitSimulator - DEBUG - 已创建导线连接: 电源 -> 开关
+2025-04-20 13:01:13,170 - CircuitSimulator - ERROR - 无效的连接点索引: 1, 0
+2025-04-20 13:01:25,467 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 200)
+2025-04-20 13:01:25,467 - CircuitSimulator - DEBUG - 已放置组件: 灯泡 在位置 (300, 150)
+2025-04-20 13:01:25,467 - CircuitSimulator - DEBUG - 已放置组件: 灯泡 在位置 (300, 250)
+2025-04-20 13:01:25,467 - CircuitSimulator - ERROR - 无效的连接点索引: 0, 0
+2025-04-20 13:01:25,467 - CircuitSimulator - ERROR - 无效的连接点索引: 0, 0
+2025-04-20 13:01:34,107 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 150)
+2025-04-20 13:01:34,107 - CircuitSimulator - DEBUG - 已放置组件: 定值电阻 在位置 (300, 150)
+2025-04-20 13:01:34,107 - CircuitSimulator - DEBUG - 已放置组件: 电流表 在位置 (450, 150)
+2025-04-20 13:01:36,942 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 200)
+2025-04-20 13:01:36,942 - CircuitSimulator - DEBUG - 已放置组件: 灯泡 在位置 (300, 150)
+2025-04-20 13:01:36,942 - CircuitSimulator - DEBUG - 已放置组件: 灯泡 在位置 (300, 250)
+2025-04-20 13:01:36,942 - CircuitSimulator - ERROR - 无效的连接点索引: 0, 0
+2025-04-20 13:01:36,942 - CircuitSimulator - ERROR - 无效的连接点索引: 0, 0

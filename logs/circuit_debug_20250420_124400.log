@@ -1,0 +1,78 @@
+2025-04-20 12:44:00,129 - CircuitSimulator - INFO - 成功加载了 10 个实验
+2025-04-20 12:44:00,171 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-04-20 12:44:12,310 - test_api - WARNING - 配置文件不存在，使用默认配置
+2025-04-20 12:44:12,376 - test_api - INFO - OpenAI客户端初始化成功
+2025-04-20 12:44:12,392 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '你是一位专业的物理电学实验助手。请帮助用户理解和构建电路实验。\\n你需要：\\n1. 分析当前电路的组成和连接\\n2. 提供专业的建议和指导\\n3. 回答用户的具体问题\\n4. 指出可能存在的问题和改进建议'}, {'role': 'user', 'content': '\n用户问题: 我现在放了什么东西\n\n当前电路信息 (JSON格式):\n{\n  "components": [\n    {\n      "name": "小灯泡",\n      "pos": {\n        "x": -40.0,\n        "y": -40.0\n      },\n      "properties": {\n        "电阻值": 50.0,\n        "发光状态": false\n      }\n    }\n  ],\n  "wires": []\n}\n\n请根据以上实验上下文和电路信息回答用户问题。如果需要更多信息，请明确指出。\n'}], 'model': 'gpt-3.5-turbo', 'stream': True, 'temperature': 0.1}}
+2025-04-20 12:44:12,425 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-04-20 12:44:12,425 - httpcore.connection - DEBUG - connect_tcp.started host='127.0.0.1' port=7897 local_address=None timeout=10 socket_options=None
+2025-04-20 12:44:12,426 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000016492908C40>
+2025-04-20 12:44:12,426 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'CONNECT']>
+2025-04-20 12:44:12,426 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-04-20 12:44:12,426 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'CONNECT']>
+2025-04-20 12:44:12,426 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-04-20 12:44:12,427 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'CONNECT']>
+2025-04-20 12:44:12,427 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'Connection established', [])
+2025-04-20 12:44:12,427 - httpcore.proxy - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x00000164928BC940> server_hostname='api.openai.com' timeout=10
+2025-04-20 12:44:18,221 - httpcore.proxy - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000016492922070>
+2025-04-20 12:44:18,221 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-04-20 12:44:18,222 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-04-20 12:44:18,222 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-04-20 12:44:18,222 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-04-20 12:44:18,222 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-04-20 12:44:18,552 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 401, b'Unauthorized', [(b'Date', b'Sun, 20 Apr 2025 04:44:18 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'270'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_07a7cb3cc3bd43f2908e294db3a5d7ab'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=ebPu6mHaUKAcrwC8TZP4cXyxv38ouqtOBzLkpyuk_r0-1745124258-1.0.1.1-X2YrnYkf9gM_e1wmja_tXKB.v5ofBrhgC5a6onCTdLgRj8IJQOOaexGFmLdy8wAmwpeRUla4eWOEnxaB1Vc5vQMS1EggX4bxKKQ5wzRhtMI; path=/; expires=Sun, 20-Apr-25 05:14:18 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=dKb3y.2Xrx6vFoELjYZd_Eqw_QZvA58aTao5_hO.568-1745124258399-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9331fc567bd76f97-LAX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-04-20 12:44:18,552 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-04-20 12:44:18,552 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "401 Unauthorized" Headers([('date', 'Sun, 20 Apr 2025 04:44:18 GMT'), ('content-type', 'application/json; charset=utf-8'), ('content-length', '270'), ('connection', 'keep-alive'), ('vary', 'Origin'), ('x-request-id', 'req_07a7cb3cc3bd43f2908e294db3a5d7ab'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=ebPu6mHaUKAcrwC8TZP4cXyxv38ouqtOBzLkpyuk_r0-1745124258-1.0.1.1-X2YrnYkf9gM_e1wmja_tXKB.v5ofBrhgC5a6onCTdLgRj8IJQOOaexGFmLdy8wAmwpeRUla4eWOEnxaB1Vc5vQMS1EggX4bxKKQ5wzRhtMI; path=/; expires=Sun, 20-Apr-25 05:14:18 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=dKb3y.2Xrx6vFoELjYZd_Eqw_QZvA58aTao5_hO.568-1745124258399-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '9331fc567bd76f97-LAX'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-04-20 12:44:18,552 - openai._base_client - DEBUG - request_id: req_07a7cb3cc3bd43f2908e294db3a5d7ab
+2025-04-20 12:44:18,552 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\openai\_base_client.py", line 1002, in _request
+    response.raise_for_status()
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2025-04-20 12:44:18,554 - openai._base_client - DEBUG - Not retrying
+2025-04-20 12:44:18,554 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-04-20 12:44:18,554 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-04-20 12:44:18,554 - httpcore.http11 - DEBUG - response_closed.started
+2025-04-20 12:44:18,554 - httpcore.http11 - DEBUG - response_closed.complete
+2025-04-20 12:44:18,554 - openai._base_client - DEBUG - Re-raising status error
+2025-04-20 12:44:18,556 - CircuitSimulator - ERROR - 流式请求出错: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your-********here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}
+2025-04-20 12:45:09,891 - test_api - WARNING - 配置文件不存在，使用默认配置
+2025-04-20 12:45:09,915 - test_api - INFO - OpenAI客户端初始化成功
+2025-04-20 12:45:09,925 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '你是一位专业的物理电学实验助手。请帮助用户理解和构建电路实验。\\n你需要：\\n1. 分析当前电路的组成和连接\\n2. 提供专业的建议和指导\\n3. 回答用户的具体问题\\n4. 指出可能存在的问题和改进建议'}, {'role': 'user', 'content': '\n用户问题: 现在呢\n\n当前电路信息 (JSON格式):\n{\n  "components": [\n    {\n      "name": "小灯泡",\n      "pos": {\n        "x": -40.0,\n        "y": -40.0\n      },\n      "properties": {\n        "电阻值": 50.0,\n        "发光状态": false\n      }\n    },\n    {\n      "name": "开关",\n      "pos": {\n        "x": -40.0,\n        "y": 80.0\n      },\n      "properties": {\n        "状态": false\n      }\n    }\n  ],\n  "wires": []\n}\n\n请根据以上实验上下文和电路信息回答用户问题。如果需要更多信息，请明确指出。\n'}], 'model': 'gpt-3.5-turbo', 'stream': True, 'temperature': 0.1}}
+2025-04-20 12:45:09,925 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.openai.com/v1/chat/completions
+2025-04-20 12:45:09,926 - httpcore.connection - DEBUG - connect_tcp.started host='127.0.0.1' port=7897 local_address=None timeout=10 socket_options=None
+2025-04-20 12:45:09,936 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001649298F4C0>
+2025-04-20 12:45:09,936 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'CONNECT']>
+2025-04-20 12:45:09,936 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-04-20 12:45:09,937 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'CONNECT']>
+2025-04-20 12:45:09,937 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-04-20 12:45:09,937 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'CONNECT']>
+2025-04-20 12:45:09,937 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'Connection established', [])
+2025-04-20 12:45:09,937 - httpcore.proxy - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000016492969F40> server_hostname='api.openai.com' timeout=10
+2025-04-20 12:45:10,694 - httpcore.proxy - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x000001649298F4F0>
+2025-04-20 12:45:10,694 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-04-20 12:45:10,694 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-04-20 12:45:10,695 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-04-20 12:45:10,695 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-04-20 12:45:10,695 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-04-20 12:45:10,960 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 401, b'Unauthorized', [(b'Date', b'Sun, 20 Apr 2025 04:45:10 GMT'), (b'Content-Type', b'application/json; charset=utf-8'), (b'Content-Length', b'270'), (b'Connection', b'keep-alive'), (b'vary', b'Origin'), (b'x-request-id', b'req_67095b932e2509ff5395f6ca40249499'), (b'strict-transport-security', b'max-age=31536000; includeSubDomains; preload'), (b'cf-cache-status', b'DYNAMIC'), (b'Set-Cookie', b'__cf_bm=AQqkq.0pjk_Q5xL6803YxFDPtB0tDcywpnvx2kre7vQ-1745124310-1.0.1.1-QvuuDHoTQwLqm.FGXG4mwDRP6gynBAEnAqNMSp9iEDcK1fmCTEM0ohDHVUrkHcFArr6lhKA.44i76mijeJw4E2a8b8T1r8mjeI3UnIzoNhs; path=/; expires=Sun, 20-Apr-25 05:15:10 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'X-Content-Type-Options', b'nosniff'), (b'Set-Cookie', b'_cfuvid=6oF1tT34dN73li_MuAtIltpUFDFHHUJlQ3CBdY1lTb4-1745124310823-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), (b'Server', b'cloudflare'), (b'CF-RAY', b'9331fd9e6d8ed7a7-LAX'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-04-20 12:45:10,961 - httpx - INFO - HTTP Request: POST https://api.openai.com/v1/chat/completions "HTTP/1.1 401 Unauthorized"
+2025-04-20 12:45:10,961 - openai._base_client - DEBUG - HTTP Response: POST https://api.openai.com/v1/chat/completions "401 Unauthorized" Headers([('date', 'Sun, 20 Apr 2025 04:45:10 GMT'), ('content-type', 'application/json; charset=utf-8'), ('content-length', '270'), ('connection', 'keep-alive'), ('vary', 'Origin'), ('x-request-id', 'req_67095b932e2509ff5395f6ca40249499'), ('strict-transport-security', 'max-age=31536000; includeSubDomains; preload'), ('cf-cache-status', 'DYNAMIC'), ('set-cookie', '__cf_bm=AQqkq.0pjk_Q5xL6803YxFDPtB0tDcywpnvx2kre7vQ-1745124310-1.0.1.1-QvuuDHoTQwLqm.FGXG4mwDRP6gynBAEnAqNMSp9iEDcK1fmCTEM0ohDHVUrkHcFArr6lhKA.44i76mijeJw4E2a8b8T1r8mjeI3UnIzoNhs; path=/; expires=Sun, 20-Apr-25 05:15:10 GMT; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('x-content-type-options', 'nosniff'), ('set-cookie', '_cfuvid=6oF1tT34dN73li_MuAtIltpUFDFHHUJlQ3CBdY1lTb4-1745124310823-0.0.1.1-604800000; path=/; domain=.api.openai.com; HttpOnly; Secure; SameSite=None'), ('server', 'cloudflare'), ('cf-ray', '9331fd9e6d8ed7a7-LAX'), ('alt-svc', 'h3=":443"; ma=86400')])
+2025-04-20 12:45:10,961 - openai._base_client - DEBUG - request_id: req_67095b932e2509ff5395f6ca40249499
+2025-04-20 12:45:10,961 - openai._base_client - DEBUG - Encountered httpx.HTTPStatusError
+Traceback (most recent call last):
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\openai\_base_client.py", line 1002, in _request
+    response.raise_for_status()
+  File "C:\Users\86151\AppData\Roaming\Python\Python39\site-packages\httpx\_models.py", line 829, in raise_for_status
+    raise HTTPStatusError(message, request=request, response=self)
+httpx.HTTPStatusError: Client error '401 Unauthorized' for url 'https://api.openai.com/v1/chat/completions'
+For more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/401
+2025-04-20 12:45:10,962 - openai._base_client - DEBUG - Not retrying
+2025-04-20 12:45:10,962 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-04-20 12:45:10,962 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-04-20 12:45:10,962 - httpcore.http11 - DEBUG - response_closed.started
+2025-04-20 12:45:10,962 - httpcore.http11 - DEBUG - response_closed.complete
+2025-04-20 12:45:10,962 - openai._base_client - DEBUG - Re-raising status error
+2025-04-20 12:45:10,962 - CircuitSimulator - ERROR - 流式请求出错: Error code: 401 - {'error': {'message': 'Incorrect API key provided: sk-your-********here. You can find your API key at https://platform.openai.com/account/api-keys.', 'type': 'invalid_request_error', 'param': None, 'code': 'invalid_api_key'}}

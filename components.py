@@ -77,6 +77,15 @@ class Wire(QGraphicsPathItem):
             
     def update_path(self):
         try:
+            if self.start_pos == self.end_pos:
+                # 如果起点和终点相同，只创建一个点的路径
+                path = QPainterPath()
+                path.moveTo(self.start_pos)
+                path.lineTo(self.start_pos)
+                self.path_points = [self.start_pos]
+                self.setPath(path)
+                return
+                
             path = QPainterPath()
             path.moveTo(self.start_pos)
             
@@ -220,25 +229,67 @@ class Wire(QGraphicsPathItem):
                 path.lineTo(self.path_points[i])
                 
             self.setPath(path)
+            
+            # 更新起点和终点
+            self.start_pos = self.path_points[0]
+            self.end_pos = self.path_points[-1]
         except Exception as e:
             logger.error(f"从路径点更新导线路径时出错: {str(e)}", exc_info=True)
         
     def set_end_pos(self, pos):
+        """设置导线终点位置并更新路径"""
+        if self.end_pos == pos:
+            return  # 如果位置相同，无需更新
+            
         self.end_pos = pos
         self.update_path()
+        # 确保更新后的导线在场景中可见
+        if self.scene():
+            self.scene().update()
 
     def update_endpoints_from_connection_points(self):
         """根据连接点更新导线的端点"""
         try:
+            updated = False
+            
             if self.source_point:
-                self.start_pos = self.source_point.scenePos()
-                if len(self.path_points) > 0:
-                    self.path_points[0] = self.start_pos
+                new_start_pos = self.source_point.scenePos()
+                if self.start_pos != new_start_pos:
+                    self.start_pos = new_start_pos
+                    if len(self.path_points) > 0:
+                        self.path_points[0] = self.start_pos
+                    updated = True
+                    
             if self.target_point:
-                self.end_pos = self.target_point.scenePos()
-                if len(self.path_points) > 1:
-                    self.path_points[-1] = self.end_pos
-            self.update_path_from_points()
+                new_end_pos = self.target_point.scenePos()
+                if self.end_pos != new_end_pos:
+                    self.end_pos = new_end_pos
+                    if len(self.path_points) > 1:
+                        self.path_points[-1] = self.end_pos
+                    updated = True
+            
+            if updated:
+                if len(self.path_points) >= 3:
+                    # 更新中间转折点，保持路径形状
+                    dx = self.end_pos.x() - self.start_pos.x()
+                    dy = self.end_pos.y() - self.start_pos.y()
+                    
+                    if abs(dx) > abs(dy):
+                        # 水平方向占主导
+                        mid_x = self.start_pos.x() + dx / 2
+                        self.path_points[1] = QPointF(mid_x, self.start_pos.y())
+                        self.path_points[2] = QPointF(mid_x, self.end_pos.y())
+                    else:
+                        # 垂直方向占主导
+                        mid_y = self.start_pos.y() + dy / 2
+                        self.path_points[1] = QPointF(self.start_pos.x(), mid_y)
+                        self.path_points[2] = QPointF(self.end_pos.x(), mid_y)
+                
+                self.update_path_from_points()
+                
+                # 确保更新后的导线在场景中可见
+                if self.scene():
+                    self.scene().update()
         except Exception as e:
             logger.error(f"更新导线端点出错: {str(e)}", exc_info=True)
 
@@ -292,10 +343,15 @@ class Component(QGraphicsItem):
         elif self.name == "电源":
             self.properties["电压值"] = 12.0  # 默认12V
             self.properties["可调范围"] = "0-24"  # 可调范围提示
+        elif self.name == "小灯泡":
+            self.properties["电阻值"] = 20.0  # 默认20欧姆
+            self.properties["额定电压"] = 6.0  # 默认6V
+            self.properties["亮度"] = 0.0  # 初始亮度为0
+            self.properties["亮度档位"] = 0  # 初始档位为0（共10档，0-9）
             
     def setup_connection_points(self):
         """设置组件的连接点"""
-        if self.name in ["定值电阻", "滑动变阻器", "导线", "开关"]:
+        if self.name in ["定值电阻", "滑动变阻器", "导线", "开关", "小灯泡"]:
             # 左侧输入点
             input_point = ConnectionPoint(self, "input")
             input_point.setPos(-self.boundingRect().width() / 2 - 3, 0)
@@ -436,6 +492,8 @@ class Component(QGraphicsItem):
                 self._paint_voltmeter(painter)
             elif self.name == "电源":
                 self._paint_power_source(painter)
+            elif self.name == "小灯泡":
+                self._paint_bulb(painter)
             
             # 显示属性值
             if self.name in ["定值电阻", "滑动变阻器", "电源"]:
@@ -649,6 +707,78 @@ class Component(QGraphicsItem):
         painter.fillRect(text_rect, QBrush(Qt.GlobalColor.white))
         painter.drawText(-30, -45, 60, 20, Qt.AlignmentFlag.AlignCenter, voltage_str)
         
+    def _paint_bulb(self, painter):
+        # 绘制灯泡
+        painter.setPen(QPen(Qt.GlobalColor.black, 2))
+        
+        # 获取连接点位置
+        left_x = -self.boundingRect().width() / 2 - 3
+        right_x = self.boundingRect().width() / 2 + 3
+        
+        # 绘制连接线
+        painter.drawLine(left_x, 0, -15, 0)   # 左侧连接线
+        painter.drawLine(15, 0, right_x, 0)    # 右侧连接线
+        
+        # 计算灯泡亮度 - 基于电流和电压判断
+        rated_voltage = self.properties.get("额定电压", 6.0)
+        brightness = 0.0
+        
+        # 如果有电流通过，设置亮度
+        if abs(self.current) > 0.001:  # 有明显电流
+            # 计算亮度百分比，最大为1.0
+            voltage_ratio = min(abs(self.voltage) / rated_voltage, 2.0)  # 限制最大亮度倍数
+            brightness = min(voltage_ratio, 1.0)
+            self.properties["亮度"] = brightness
+            
+            # 计算亮度档位(0-9)
+            brightness_level = min(9, int(brightness * 10))
+            self.properties["亮度档位"] = brightness_level
+        
+        # 设置灯泡填充颜色 - 根据亮度档位渐变从白色到明亮的黄色
+        brightness_level = self.properties.get("亮度档位", 0)
+        
+        if brightness_level > 0:
+            # 计算黄色的亮度 - 亮度越高，颜色越明亮
+            # 基础色调
+            red_base = 220
+            green_base = 220
+            blue_base = 60
+            
+            # 根据档位增加亮度
+            intensity_factor = brightness_level / 9.0  # 转换为0.0-1.0
+            red = min(255, int(red_base + 35 * intensity_factor))
+            green = min(255, int(green_base + 35 * intensity_factor))
+            blue = min(150, int(blue_base + 90 * intensity_factor))
+            
+            yellow_color = QColor(red, green, blue)
+            painter.setBrush(QBrush(yellow_color))
+        else:
+            # 无亮度时为透明的白色
+            painter.setBrush(QBrush(QColor(240, 240, 240, 180)))
+        
+        # 绘制灯泡圆形部分
+        painter.drawEllipse(-15, -15, 30, 30)
+        
+        # 绘制灯丝
+        painter.setPen(QPen(Qt.GlobalColor.black, 1))
+        path = QPainterPath()
+        path.moveTo(-8, 0)
+        path.cubicTo(-5, -8, 5, 8, 8, 0)
+        painter.drawPath(path)
+        
+        # 显示额定电压和当前亮度档位
+        painter.setPen(QPen(Qt.GlobalColor.blue))
+        font = QFont()
+        font.setPointSize(8)
+        painter.setFont(font)
+        
+        if brightness_level > 0:
+            # 显示当前亮度档位
+            painter.drawText(-20, -30, f"{rated_voltage:.1f}V | 亮度:{brightness_level}/9")
+        else:
+            # 只显示额定电压
+            painter.drawText(-15, -25, f"{rated_voltage:.1f}V")
+        
     def get_connection_points(self):
         # 返回左右两个连接点的坐标
         left_x = -self.boundingRect().width() / 2 - 3
@@ -656,24 +786,26 @@ class Component(QGraphicsItem):
         return [QPointF(left_x, 0), QPointF(right_x, 0)]
         
     def get_resistance(self):
+        """获取元件电阻值"""
         if self.name == "定值电阻":
-            return self.properties["电阻值"]
+            return self.properties.get("电阻值", 100.0)
         elif self.name == "滑动变阻器":
-            return self.properties["当前电阻值"]
-        elif self.name == "导线":
-            return 0.001  # 接近0欧姆
+            self._update_current_resistance()
+            return self.properties.get("当前电阻值", 10.0)
         elif self.name == "开关":
-            if self.properties["状态"]:
-                return 0.001  # 开关闭合时接近0欧姆
-            else:
-                return float('inf')  # 开关断开时无穷大
-        elif self.name == "电流表":
-            return 0.001  # 理想电流表接近0欧姆
-        elif self.name == "电压表":
-            return 1000000.0  # 理想电压表有很大的电阻（接近无穷大）
+            return 0.001 if self.properties.get("状态", False) else 1e9  # 闭合几乎无电阻，断开几乎无穷大电阻
+        elif self.name == "导线":
+            return 0.001  # 接近零电阻
         elif self.name == "电源":
-            return 0.001  # 理想电源内阻接近0欧姆
-        return float('inf')  # 其他元件默认视为开路
+            return 0.001  # 内阻很小
+        elif self.name == "电流表":
+            return 0.1  # 内阻很小
+        elif self.name == "电压表":
+            return 1e6  # 内阻很大
+        elif self.name == "小灯泡":
+            return self.properties.get("电阻值", 20.0)  # 默认20欧姆
+        else:
+            return 0
         
     def set_property(self, name, value):
         try:

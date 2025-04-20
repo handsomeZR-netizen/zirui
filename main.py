@@ -48,6 +48,26 @@ class PropertyDialog(QDialog):
             self.state_checkbox = QCheckBox("闭合状态")
             self.state_checkbox.setChecked(component.properties["状态"])
             layout.addRow("开关状态:", self.state_checkbox)
+            
+        elif component.name == "电源":
+            self.voltage_spin = QDoubleSpinBox()
+            self.voltage_spin.setRange(0.1, 24)
+            self.voltage_spin.setValue(component.properties["电压值"])
+            self.voltage_spin.setSuffix(" V")
+            layout.addRow("电压值:", self.voltage_spin)
+            
+        elif component.name == "小灯泡":
+            self.resistance_spin = QDoubleSpinBox()
+            self.resistance_spin.setRange(1, 100)
+            self.resistance_spin.setValue(component.properties["电阻值"])
+            self.resistance_spin.setSuffix(" Ω")
+            layout.addRow("电阻值:", self.resistance_spin)
+            
+            self.rated_voltage_spin = QDoubleSpinBox()
+            self.rated_voltage_spin.setRange(1, 24)
+            self.rated_voltage_spin.setValue(component.properties["额定电压"])
+            self.rated_voltage_spin.setSuffix(" V")
+            layout.addRow("额定电压:", self.rated_voltage_spin)
         
         buttons = QHBoxLayout()
         ok_button = QPushButton("确定")
@@ -66,6 +86,11 @@ class PropertyDialog(QDialog):
             self.component.set_property("滑动位置", self.position_slider.value() / 100)
         elif self.component.name == "开关":
             self.component.set_property("状态", self.state_checkbox.isChecked())
+        elif self.component.name == "电源":
+            self.component.set_property("电压值", self.voltage_spin.value())
+        elif self.component.name == "小灯泡":
+            self.component.set_property("电阻值", self.resistance_spin.value())
+            self.component.set_property("额定电压", self.rated_voltage_spin.value())
         super().accept()
 
 class ComponentButton(QPushButton):
@@ -436,6 +461,120 @@ class WorkArea(QGraphicsView):
                         closest_point = point
                     
         return closest_point
+        
+    def create_wire_between_components(self, comp1, comp2, source_point_idx=None, target_point_idx=None):
+        """创建连接两个组件的导线，自动选择最近的连接点
+        
+        Args:
+            comp1: 第一个组件
+            comp2: 第二个组件
+            source_point_idx: 可选，指定第一个组件的连接点索引
+            target_point_idx: 可选，指定第二个组件的连接点索引
+            
+        Returns:
+            Wire: 创建的导线对象
+        """
+        # 如果未指定连接点索引，寻找最近的连接点对
+        if source_point_idx is None or target_point_idx is None:
+            min_dist = float('inf')
+            best_source_idx = 0
+            best_target_idx = 0
+            
+            # 遍历所有可能的连接点对，找到距离最短的一对
+            for i, source_point in enumerate(comp1.connection_points):
+                for j, target_point in enumerate(comp2.connection_points):
+                    source_pos = source_point.scenePos()
+                    target_pos = target_point.scenePos()
+                    dist = (source_pos - target_pos).manhattanLength()
+                    
+                    if dist < min_dist:
+                        min_dist = dist
+                        best_source_idx = i
+                        best_target_idx = j
+            
+            # 使用找到的最佳连接点对
+            if source_point_idx is None:
+                source_point_idx = best_source_idx
+            if target_point_idx is None:
+                target_point_idx = best_target_idx
+        
+        # 验证索引有效性
+        if (source_point_idx >= len(comp1.connection_points) or 
+            target_point_idx >= len(comp2.connection_points)):
+            logger.error(f"无效的连接点索引: {source_point_idx}, {target_point_idx}")
+            return None
+            
+        # 获取连接点
+        source_point = comp1.connection_points[source_point_idx]
+        target_point = comp2.connection_points[target_point_idx]
+        
+        # 检查连接点是否已经被占用
+        if source_point.connected_wires or target_point.connected_wires:
+            logger.warning("连接点已被占用，跳过连接")
+            return None
+        
+        # 创建导线
+        wire = Wire(source_point.scenePos())
+        self.scene().addItem(wire)
+        
+        # 连接导线端点
+        wire.connect_endpoint(source_point, True)
+        wire.connect_endpoint(target_point, False)
+        
+        # 更新导线路径
+        wire.update_endpoints_from_connection_points()
+        
+        # 添加到导线列表
+        self.wires.append(wire)
+        
+        return wire
+        
+    def create_circuit_loop(self, components, connection_sequence=None):
+        """创建一个闭合的电路环路
+        
+        Args:
+            components: 要连接的组件列表
+            connection_sequence: 可选，指定连接顺序的组件索引列表，如果为None则按照列表顺序连接
+            
+        Returns:
+            bool: 是否成功创建了闭合环路
+        """
+        if len(components) < 2:
+            logger.warning("至少需要两个组件才能创建环路")
+            return False
+            
+        # 确定连接顺序
+        if connection_sequence is None:
+            connection_sequence = list(range(len(components)))
+            
+        # 创建连接
+        created_wires = []
+        for i in range(len(connection_sequence)):
+            # 获取当前组件和下一个组件（循环回到起点）
+            current_idx = connection_sequence[i]
+            next_idx = connection_sequence[(i + 1) % len(connection_sequence)]
+            
+            current_comp = components[current_idx]
+            next_comp = components[next_idx]
+            
+            # 为当前组件的输出连接点和下一个组件的输入连接点创建导线
+            # 默认假设第一个点是输入，第二个点是输出
+            out_idx = 1 if len(current_comp.connection_points) > 1 else 0
+            in_idx = 0
+            
+            wire = self.create_wire_between_components(current_comp, next_comp, out_idx, in_idx)
+            if wire:
+                created_wires.append(wire)
+            else:
+                # 连接失败，清理已创建的导线
+                for w in created_wires:
+                    w.delete_wire()
+                    if w in self.wires:
+                        self.wires.remove(w)
+                logger.error(f"创建环路失败: 无法连接 {current_comp.name} 到 {next_comp.name}")
+                return False
+                
+        return True
         
     def wheelEvent(self, event):
         zoom_factor = 1.15
@@ -930,7 +1069,7 @@ class MainWindow(QMainWindow):
         components_group.setMinimumHeight(170)  # 设置电路元件组的最小高度
         
         # 添加组件按钮 - 修改为更紧凑的网格布局
-        components = ["电源", "开关", "导线", "定值电阻", "滑动变阻器", "电流表", "电压表"]
+        components = ["电源", "开关", "导线", "定值电阻", "滑动变阻器", "电流表", "电压表", "小灯泡"]
         for i, component in enumerate(components):
             btn = ComponentButton(component)
             btn.setMinimumSize(120, 34)  # 减小最小大小
@@ -1951,6 +2090,10 @@ class MainWindow(QMainWindow):
         # 清空当前画布
         self.work_area.clear_circuit()
         
+        # 存储已创建的组件，用于后续连接导线
+        component_map = {}
+        all_components = []
+        
         # 放置实验中定义的组件
         if 'components' in self.current_experiment:
             for comp_data in self.current_experiment['components']:
@@ -1971,10 +2114,65 @@ class MainWindow(QMainWindow):
                 component.setPos(x, y)
                 self.work_area.scene().addItem(component)
                 self.work_area.components.append(component)
+                self.work_area.circuit.add_component(component)
+                all_components.append(component)
+                
+                # 存储组件引用
+                component_id = comp_data.get('id', f"{comp_type}_{x}_{y}")
+                component_map[component_id] = component
                 
                 # 通知用户
                 logger.debug(f"已放置组件: {comp_type} 在位置 ({x}, {y})")
         
+        # 如果实验数据中包含连接信息，自动创建导线
+        if 'connections' in self.current_experiment:
+            for conn_data in self.current_experiment['connections']:
+                source_id = conn_data.get('source')
+                target_id = conn_data.get('target')
+                source_point_idx = conn_data.get('source_point', 0)
+                target_point_idx = conn_data.get('target_point', 0)
+                
+                # 检查源组件和目标组件是否存在
+                if source_id in component_map and target_id in component_map:
+                    source_comp = component_map[source_id]
+                    target_comp = component_map[target_id]
+                    
+                    # 使用辅助函数创建导线
+                    wire = self.work_area.create_wire_between_components(
+                        source_comp, target_comp, source_point_idx, target_point_idx
+                    )
+                    
+                    if wire:
+                        logger.debug(f"已创建导线连接: {source_comp.name} -> {target_comp.name}")
+        
+        # 如果实验数据中包含环路信息，自动创建环路
+        if 'circuit_loops' in self.current_experiment:
+            for loop_data in self.current_experiment['circuit_loops']:
+                component_ids = loop_data.get('components', [])
+                loop_components = []
+                
+                # 收集环路中的组件
+                for comp_id in component_ids:
+                    if comp_id in component_map:
+                        loop_components.append(component_map[comp_id])
+                
+                if loop_components:
+                    # 创建环路
+                    success = self.work_area.create_circuit_loop(loop_components)
+                    if success:
+                        logger.debug(f"已创建闭合电路环路，包含 {len(loop_components)} 个组件")
+                    else:
+                        logger.warning("创建闭合电路环路失败")
+        
+        # 如果实验数据包含"auto_connect"标志，尝试自动连接所有组件成环路
+        if self.current_experiment.get('auto_connect', False) and all_components:
+            # 尝试创建环路
+            success = self.work_area.create_circuit_loop(all_components)
+            if success:
+                logger.debug(f"已自动创建闭合电路环路，包含 {len(all_components)} 个组件")
+            else:
+                logger.warning("自动创建闭合电路环路失败")
+                        
         # 显示实验描述和提示
         description = self.current_experiment.get('description', '')
         missing_elements = self.current_experiment.get('missing_elements', [])

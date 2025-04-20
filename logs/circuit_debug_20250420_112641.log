@@ -1,0 +1,28 @@
+2025-04-20 11:26:41,463 - CircuitSimulator - INFO - 成功加载了 10 个实验
+2025-04-20 11:26:41,494 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-04-20 11:26:48,194 - test_api - INFO - OpenAI客户端初始化成功
+2025-04-20 11:26:48,207 - openai._base_client - DEBUG - Request options: {'method': 'post', 'url': '/chat/completions', 'files': None, 'json_data': {'messages': [{'role': 'system', 'content': '你是一位专业的物理电学实验助手。请帮助用户理解和构建电路实验。\\n你需要：\\n1. 分析当前电路的组成和连接\\n2. 提供专业的建议和指导\\n3. 回答用户的具体问题\\n4. 指出可能存在的问题和改进建议'}, {'role': 'user', 'content': '\n用户问题: 你好\n\n当前电路信息 (JSON格式):\n{\n  "components": [],\n  "wires": []\n}\n\n请根据以上实验上下文和电路信息回答用户问题。如果需要更多信息，请明确指出。\n'}], 'model': 'gpt-4', 'stream': True, 'temperature': 0.1}}
+2025-04-20 11:26:48,249 - openai._base_client - DEBUG - Sending HTTP Request: POST https://api.planetzero.live/v1/chat/completions
+2025-04-20 11:26:48,249 - httpcore.connection - DEBUG - connect_tcp.started host='127.0.0.1' port=7897 local_address=None timeout=10 socket_options=None
+2025-04-20 11:26:48,250 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000029DEC614E80>
+2025-04-20 11:26:48,251 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'CONNECT']>
+2025-04-20 11:26:48,251 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-04-20 11:26:48,251 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'CONNECT']>
+2025-04-20 11:26:48,251 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-04-20 11:26:48,251 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'CONNECT']>
+2025-04-20 11:26:48,251 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'Connection established', [])
+2025-04-20 11:26:48,251 - httpcore.proxy - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x0000029DEC5C4AC0> server_hostname='api.planetzero.live' timeout=10
+2025-04-20 11:26:48,367 - httpcore.proxy - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x0000029DEC6262B0>
+2025-04-20 11:26:48,367 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2025-04-20 11:26:48,367 - httpcore.http11 - DEBUG - send_request_headers.complete
+2025-04-20 11:26:48,367 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2025-04-20 11:26:48,368 - httpcore.http11 - DEBUG - send_request_body.complete
+2025-04-20 11:26:48,368 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2025-04-20 11:26:57,073 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Date', b'Sun, 20 Apr 2025 03:26:57 GMT'), (b'Content-Type', b'text/event-stream'), (b'Transfer-Encoding', b'chunked'), (b'Connection', b'keep-alive'), (b'Server', b'cloudflare'), (b'Cache-Control', b'no-cache'), (b'X-Oneapi-Request-Id', b'20250420112648987994449SWFpqoTi'), (b'Strict-Transport-Security', b'max-age=31536000'), (b'Cf-Cache-Status', b'DYNAMIC'), (b'CF-RAY', b'93318ad0a99fa8ea-SIN'), (b'alt-svc', b'h3=":443"; ma=86400')])
+2025-04-20 11:26:57,074 - httpx - INFO - HTTP Request: POST https://api.planetzero.live/v1/chat/completions "HTTP/1.1 200 OK"
+2025-04-20 11:26:57,074 - openai._base_client - DEBUG - HTTP Response: POST https://api.planetzero.live/v1/chat/completions "200 OK" Headers({'date': 'Sun, 20 Apr 2025 03:26:57 GMT', 'content-type': 'text/event-stream', 'transfer-encoding': 'chunked', 'connection': 'keep-alive', 'server': 'cloudflare', 'cache-control': 'no-cache', 'x-oneapi-request-id': '20250420112648987994449SWFpqoTi', 'strict-transport-security': 'max-age=31536000', 'cf-cache-status': 'DYNAMIC', 'cf-ray': '93318ad0a99fa8ea-SIN', 'alt-svc': 'h3=":443"; ma=86400'})
+2025-04-20 11:26:57,074 - openai._base_client - DEBUG - request_id: None
+2025-04-20 11:26:57,077 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2025-04-20 11:26:59,148 - httpcore.http11 - DEBUG - receive_response_body.complete
+2025-04-20 11:26:59,148 - httpcore.http11 - DEBUG - response_closed.started
+2025-04-20 11:26:59,149 - httpcore.http11 - DEBUG - response_closed.complete

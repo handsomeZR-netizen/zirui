@@ -3,9 +3,16 @@
     "name": "点亮小灯泡 (探究)",
     "description": "尝试用电池、开关和导线点亮小灯泡。初步认识简单电路的组成及工作原理。",
     "components": [
-      {"type": "DCVoltageSource", "x": 150, "y": 150, "properties": {"电压值": 3.0, "内阻": 0.1}},
-      {"type": "Lamp", "x": 400, "y": 150, "properties": {"电阻值": 10, "额定功率": 3.0}},
-      {"type": "Switch", "x": 250, "y": 250, "properties": {"状态": false}}
+      {"id": "battery", "type": "DCVoltageSource", "x": 150, "y": 150, "properties": {"电压值": 3.0, "内阻": 0.1}},
+      {"id": "lamp", "type": "Lamp", "x": 400, "y": 150, "properties": {"电阻值": 10, "额定功率": 3.0}},
+      {"id": "switch", "type": "Switch", "x": 250, "y": 250, "properties": {"状态": false}}
+    ],
+    "connections": [
+      {"source": "battery", "target": "switch", "source_point": 0, "target_point": 0},
+      {"source": "switch", "target": "lamp", "source_point": 1, "target_point": 0}
+    ],
+    "circuit_loops": [
+      {"components": ["battery", "switch", "lamp"]}
     ],
     "missing_elements": ["Wire"],
     "goal": "将所有元件连接起来，闭合开关，使灯泡发光。",
@@ -20,9 +27,13 @@
     "name": "串联电路探究",
     "description": "连接两个灯泡，观察串联电路的特点。研究串联电路中电流和电压的规律。",
     "components": [
-      {"type": "DCVoltageSource", "x": 150, "y": 150, "properties": {"电压值": 6.0, "内阻": 0.1}},
-      {"type": "Lamp", "x": 300, "y": 150, "properties": {"电阻值": 10, "额定功率": 3.0}},
-      {"type": "Switch", "x": 150, "y": 250, "properties": {"状态": false}}
+      {"id": "battery", "type": "DCVoltageSource", "x": 150, "y": 150, "properties": {"电压值": 6.0, "内阻": 0.1}},
+      {"id": "lamp1", "type": "Lamp", "x": 300, "y": 150, "properties": {"电阻值": 10, "额定功率": 3.0}},
+      {"id": "switch", "type": "Switch", "x": 150, "y": 250, "properties": {"状态": false}}
+    ],
+    "connections": [
+      {"source": "battery", "target": "switch", "source_point": 0, "target_point": 0},
+      {"source": "switch", "target": "lamp1", "source_point": 1, "target_point": 0}
     ],
     "missing_elements": ["Wire", "Lamp"],
     "goal": "将两个灯泡串联接入电路并点亮，观察它们的亮度，思考电流和电压的关系。",
@@ -37,9 +48,13 @@
     "name": "并联电路探究",
     "description": "构建并联电路，观察并联电路的特性和规律。",
     "components": [
-      {"type": "DCVoltageSource", "x": 150, "y": 200, "properties": {"电压值": 6.0, "内阻": 0.1}},
-      {"type": "Lamp", "x": 300, "y": 150, "properties": {"电阻值": 10, "额定功率": 3.0}},
-      {"type": "Lamp", "x": 300, "y": 250, "properties": {"电阻值": 10, "额定功率": 3.0}}
+      {"id": "battery", "type": "DCVoltageSource", "x": 150, "y": 200, "properties": {"电压值": 6.0, "内阻": 0.1}},
+      {"id": "lamp1", "type": "Lamp", "x": 300, "y": 150, "properties": {"电阻值": 10, "额定功率": 3.0}},
+      {"id": "lamp2", "type": "Lamp", "x": 300, "y": 250, "properties": {"电阻值": 10, "额定功率": 3.0}}
+    ],
+    "connections": [
+      {"source": "battery", "target": "lamp1", "source_point": 0, "target_point": 0},
+      {"source": "battery", "target": "lamp2", "source_point": 0, "target_point": 0}
     ],
     "missing_elements": ["Wire", "Switch"],
     "goal": "将两个灯泡并联接入电路并通过开关控制，观察它们的亮度，思考电流和电压的分配。",

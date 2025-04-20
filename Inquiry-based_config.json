@@ -1,0 +1,8 @@
+{
+    "api_key": "sk-OWwbeu95SJyl88LXVaN4WWq3SuPHrnrLGAhSdU0tZJMiYiDv",
+    "api_base": "https://api.planetzero.live/v1/",
+    "max_retries": 3,
+    "retry_delay": 2,
+    "default_temperature": 0.1,
+    "default_model": "gpt-4"
+} 
