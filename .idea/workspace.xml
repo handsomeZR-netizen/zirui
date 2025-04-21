@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="eca9560c-07f2-418d-9e6e-8d240e861168" name="更改" comment="实验目录出来了&#10;&#10;。">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiment_manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/experiment_manager.py" afterDir="false" />
-    </list>
+    <list default="true" id="eca9560c-07f2-418d-9e6e-8d240e861168" name="更改" comment="准备做探究前的功能的完整体，完全可以申请软著" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,9 +18,15 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="573d022e693499f0c4e2bbc3d93879bdff3d09b1" />
+        <entry key="$PROJECT_DIR$" value="49521edba5bf06ff0e32f888b261a7b916883904" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,7 +52,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "49521edb",
+    "git-widget-placeholder": "main",
     "last_opened_file_path": "C:/Users/86151/Desktop/物理电学实验",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
@@ -240,18 +243,53 @@
       <option name="project" value="LOCAL" />
       <updated>1745126399659</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="准备做探究前的功能的完整体，完全可以申请软著">
+      <option name="closed" value="true" />
+      <created>1745237153975</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1745237153975</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="main" />
+                </option>
+              </RecentGroup>
+            </list>
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -267,7 +305,8 @@
     <MESSAGE value="修改了聊天气泡流方式输出，同时对导线优化了一部分&#10;&#10;。" />
     <MESSAGE value="新建文件目录&#10;&#10;。" />
     <MESSAGE value="实验目录出来了&#10;&#10;。" />
-    <option name="LAST_COMMIT_MESSAGE" value="实验目录出来了&#10;&#10;。" />
+    <MESSAGE value="准备做探究前的功能的完整体，完全可以申请软著" />
+    <option name="LAST_COMMIT_MESSAGE" value="准备做探究前的功能的完整体，完全可以申请软著" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/1_0$main.coverage" NAME="main 覆盖结果" MODIFIED="1742464235503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
