@@ -3,16 +3,65 @@ import os
 import json
 import logging
 import requests
+import re
+from datetime import datetime
 from PyQt6.QtWidgets import (QApplication, QMainWindow, QWidget, QVBoxLayout, 
                            QHBoxLayout, QPushButton, QLabel, QGraphicsView,
                            QGraphicsScene, QMessageBox, QLineEdit, QSlider,
                            QDialog, QFormLayout, QDoubleSpinBox, QFileDialog,
                            QGroupBox, QComboBox, QCheckBox, QGridLayout, QMenu,
-                           QTextEdit, QSplitter, QScrollArea, QListWidget, QListWidgetItem)
+                           QTextEdit, QSplitter, QScrollArea, QListWidget, QListWidgetItem,
+                           QDialogButtonBox, QSpinBox
+)
 from PyQt6.QtCore import Qt, QMimeData, QPointF, QTimer, QLineF, pyqtSignal, QPoint, QSettings
 from PyQt6.QtGui import QDrag, QPainter, QColor, QPen, QBrush, QTransform, QPixmap
 from components import Component, Circuit, Wire, ConnectionPoint, logger
 import experiment_manager
+
+# 添加一个SimulationSettingsDialog类
+class SimulationSettingsDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.setWindowTitle("仿真设置")
+        self.setModal(True)
+        self.setMinimumWidth(300)
+        
+        layout = QFormLayout(self)
+        layout.setSpacing(10)
+        
+        # 刷新频率设置（每秒刷新次数）
+        self.refresh_rate_spin = QSpinBox()
+        self.refresh_rate_spin.setRange(1, 60)  # 1-60Hz
+        self.refresh_rate_spin.setValue(10)  # 默认10Hz
+        self.refresh_rate_spin.setSuffix(" Hz")
+        layout.addRow("刷新频率:", self.refresh_rate_spin)
+        
+        # 小灯泡档位设置
+        self.bulb_levels_combo = QComboBox()
+        self.bulb_levels_combo.addItems(["5档", "9档"])
+        self.bulb_levels_combo.setCurrentIndex(1)  # 默认9档
+        layout.addRow("小灯泡亮度档位:", self.bulb_levels_combo)
+        
+        # 自动调整滑动变阻器设置
+        self.auto_adjust_potentiometer = QCheckBox("启用")
+        self.auto_adjust_potentiometer.setChecked(True)
+        layout.addRow("自动调整滑动变阻器:", self.auto_adjust_potentiometer)
+        
+        # 按钮
+        buttons = QDialogButtonBox(
+            QDialogButtonBox.StandardButton.Ok | QDialogButtonBox.StandardButton.Cancel
+        )
+        buttons.accepted.connect(self.accept)
+        buttons.rejected.connect(self.reject)
+        layout.addRow(buttons)
+    
+    def get_settings(self):
+        """返回设置的参数"""
+        return {
+            "refresh_rate": self.refresh_rate_spin.value(),
+            "bulb_levels": 5 if self.bulb_levels_combo.currentText() == "5档" else 9,
+            "auto_adjust_potentiometer": self.auto_adjust_potentiometer.isChecked()
+        }
 
 class PropertyDialog(QDialog):
     def __init__(self, component, parent=None):
@@ -39,10 +88,25 @@ class PropertyDialog(QDialog):
             self.max_resistance_spin.setSuffix(" Ω")
             layout.addRow("最大电阻值:", self.max_resistance_spin)
             
+            self.current_resistance_spin = QDoubleSpinBox()
+            self.current_resistance_spin.setRange(0.1, component.properties["最大电阻值"])
+            self.current_resistance_spin.setValue(component.properties["当前电阻值"])
+            self.current_resistance_spin.setSuffix(" Ω")
+            layout.addRow("当前电阻值:", self.current_resistance_spin)
+            
+            # 连接最大电阻值变化信号，动态更新当前电阻值的范围
+            self.max_resistance_spin.valueChanged.connect(self.update_current_resistance_range)
+            
             self.position_slider = QSlider(Qt.Orientation.Horizontal)
             self.position_slider.setRange(0, 100)
             self.position_slider.setValue(int(component.properties["滑动位置"] * 100))
             layout.addRow("滑动位置:", self.position_slider)
+            
+            # 连接滑块值变化信号到槽函数
+            self.position_slider.valueChanged.connect(self.update_current_resistance_from_slider)
+            
+            # 连接当前电阻值变化信号到槽函数
+            self.current_resistance_spin.valueChanged.connect(self.update_slider_from_resistance)
             
         elif component.name == "开关":
             self.state_checkbox = QCheckBox("闭合状态")
@@ -77,12 +141,44 @@ class PropertyDialog(QDialog):
         buttons.addWidget(ok_button)
         buttons.addWidget(cancel_button)
         layout.addRow(buttons)
+    
+    def update_current_resistance_range(self, max_value):
+        """更新当前电阻值的最大范围"""
+        if hasattr(self, 'current_resistance_spin'):
+            self.current_resistance_spin.setMaximum(max_value)
+    
+    def update_current_resistance_from_slider(self, slider_value):
+        """根据滑块位置更新当前电阻值"""
+        if hasattr(self, 'current_resistance_spin') and hasattr(self, 'max_resistance_spin'):
+            position = slider_value / 100.0
+            max_resistance = self.max_resistance_spin.value()
+            current_resistance = max_resistance * position
+            
+            # 阻止信号循环
+            self.current_resistance_spin.blockSignals(True)
+            self.current_resistance_spin.setValue(current_resistance)
+            self.current_resistance_spin.blockSignals(False)
+    
+    def update_slider_from_resistance(self, resistance_value):
+        """根据当前电阻值更新滑块位置"""
+        if hasattr(self, 'position_slider') and hasattr(self, 'max_resistance_spin'):
+            max_resistance = self.max_resistance_spin.value()
+            if max_resistance > 0:
+                position = resistance_value / max_resistance
+                position = max(0.0, min(1.0, position))
+                slider_value = int(position * 100)
+                
+                # 阻止信号循环
+                self.position_slider.blockSignals(True)
+                self.position_slider.setValue(slider_value)
+                self.position_slider.blockSignals(False)
         
     def accept(self):
         if self.component.name == "定值电阻":
             self.component.set_property("电阻值", self.resistance_spin.value())
         elif self.component.name == "滑动变阻器":
             self.component.set_property("最大电阻值", self.max_resistance_spin.value())
+            self.component.set_property("当前电阻值", self.current_resistance_spin.value())
             self.component.set_property("滑动位置", self.position_slider.value() / 100)
         elif self.component.name == "开关":
             self.component.set_property("状态", self.state_checkbox.isChecked())
@@ -724,6 +820,17 @@ class MainWindow(QMainWindow):
         self.experiments = experiment_manager.load_experiments(self.experiment_file)
         self.current_experiment = None
         
+        # 仿真设置参数
+        self.simulation_settings = {
+            "refresh_rate": 10,  # 默认10Hz
+            "bulb_levels": 9,    # 默认9档
+            "auto_adjust_potentiometer": True  # 默认启用自动调整
+        }
+        
+        # 仿真刷新计时器
+        self.simulation_timer = QTimer(self)
+        self.simulation_timer.timeout.connect(self.update_simulation)
+        
         # 创建主分割器
         self.main_splitter = QSplitter(Qt.Orientation.Horizontal)
         self.setCentralWidget(self.main_splitter)
@@ -772,6 +879,11 @@ class MainWindow(QMainWindow):
         
         reset_sim_action = simulation_menu.addAction("重置仿真")
         reset_sim_action.triggered.connect(self.reset_simulation)
+        
+        # 添加仿真设置菜单项
+        simulation_menu.addSeparator()
+        settings_sim_action = simulation_menu.addAction("仿真设置")
+        settings_sim_action.triggered.connect(self.show_simulation_settings)
         
         # 视图菜单
         view_menu = self.menubar.addMenu("视图")
@@ -1495,13 +1607,65 @@ class MainWindow(QMainWindow):
             # 更新测量结果
             if result:
                 self.update_measurements()
+                
+                # 启动仿真计时器进行定期刷新
+                refresh_interval = 1000 // self.simulation_settings["refresh_rate"]  # 毫秒
+                self.simulation_timer.start(refresh_interval)
+                
+                # 更新按钮状态
+                self.start_button.setEnabled(False)
+                self.stop_button.setEnabled(True)
+                self.reset_button.setEnabled(True)
             
         except Exception as e:
             # 添加异常处理
             print(f"仿真启动错误: {str(e)}")
             logger.error(f"仿真启动错误: {str(e)}", exc_info=True)
             QMessageBox.warning(self, "仿真错误", f"启动仿真时出现错误：{str(e)}")
+            
+    def stop_simulation(self):
+        """停止仿真"""
+        try:
+            # 停止仿真计时器
+            self.simulation_timer.stop()
+            
+            # 调用WorkArea的stop_simulation方法
+            self.work_area.stop_simulation()
+            
+            # 更新按钮状态
+            self.start_button.setEnabled(True)
+            self.stop_button.setEnabled(False)
+            self.reset_button.setEnabled(True)
+            
+            # 更新状态显示
+            self.simulation_status_label.setText(f"仿真状态: {self.work_area.simulation_status}")
+            
+        except Exception as e:
+            logger.error(f"停止仿真出错: {str(e)}", exc_info=True)
+            QMessageBox.warning(self, "仿真错误", f"停止仿真时出现错误：{str(e)}")
     
+    def reset_simulation(self):
+        """重置仿真"""
+        try:
+            # 停止仿真计时器
+            self.simulation_timer.stop()
+            
+            # 调用WorkArea的reset_simulation方法
+            self.work_area.reset_simulation()
+            
+            # 更新按钮状态
+            self.start_button.setEnabled(True)
+            self.stop_button.setEnabled(False)
+            self.reset_button.setEnabled(False)
+            
+            # 更新状态显示
+            self.simulation_status_label.setText(f"仿真状态: {self.work_area.simulation_status}")
+            self.measurement_label.setText("测量结果: ")
+            
+        except Exception as e:
+            logger.error(f"重置仿真出错: {str(e)}", exc_info=True)
+            QMessageBox.warning(self, "仿真错误", f"重置仿真时出现错误：{str(e)}")
+
     def update_simulation(self):
         """手动触发电路重新计算"""
         if not self.work_area.simulation_running:
@@ -1536,42 +1700,60 @@ class MainWindow(QMainWindow):
             # 更新测量结果
             self.update_measurements()
 
-    def stop_simulation(self):
-        """停止仿真"""
+    def show_simulation_settings(self):
+        """显示仿真设置对话框"""
+        dialog = SimulationSettingsDialog(self)
+        
+        # 设置当前值
+        dialog.refresh_rate_spin.setValue(self.simulation_settings["refresh_rate"])
+        dialog.bulb_levels_combo.setCurrentIndex(0 if self.simulation_settings["bulb_levels"] == 5 else 1)
+        dialog.auto_adjust_potentiometer.setChecked(self.simulation_settings["auto_adjust_potentiometer"])
+        
+        if dialog.exec():
+            # 获取设置的值
+            new_settings = dialog.get_settings()
+            old_settings = self.simulation_settings.copy()
+            self.simulation_settings = new_settings
+            
+            # 如果仿真正在运行，更新计时器间隔
+            if self.work_area.simulation_running:
+                refresh_interval = 1000 // self.simulation_settings["refresh_rate"]
+                self.simulation_timer.setInterval(refresh_interval)
+            
+            # 如果小灯泡档位设置发生变化，通知所有小灯泡组件
+            if old_settings["bulb_levels"] != new_settings["bulb_levels"]:
+                for comp in self.work_area.circuit.components:
+                    if comp.name == "小灯泡":
+                        comp.properties["总档位"] = new_settings["bulb_levels"]
+                        # 重新计算当前档位
+                        brightness = comp.properties.get("亮度", 0.0)
+                        brightness_level = min(new_settings["bulb_levels"]-1, int(brightness * new_settings["bulb_levels"]))
+                        comp.properties["亮度档位"] = brightness_level
+                
+                # 更新显示
+                self.work_area.update()
+            
+            # 设置完成后显示提示
+            self.statusBar().showMessage("仿真设置已更新", 3000)
+
+    def remove_component(self, component):
+        """从场景和电路中移除组件"""
         try:
-            # 调用WorkArea的stop_simulation方法
-            self.work_area.stop_simulation()
+            # 断开所有连接的导线
+            for point in component.connection_points:
+                for wire in point.connected_wires[:]:  # 使用副本进行迭代
+                    wire.delete_wire()
+                    
+            # 从场景中移除组件
+            self.scene().removeItem(component)
             
-            # 更新按钮状态
-            self.start_button.setEnabled(True)
-            self.stop_button.setEnabled(False)
-            self.reset_button.setEnabled(True)
+            # 从电路中移除组件
+            if component in self.circuit.components:
+                self.circuit.components.remove(component)
             
-            # 更新状态显示
-            self.simulation_status_label.setText(f"仿真状态: {self.work_area.simulation_status}")
-            
+            logger.debug(f"组件已移除: {component.name}")
         except Exception as e:
-            logger.error(f"停止仿真出错: {str(e)}", exc_info=True)
-            QMessageBox.warning(self, "仿真错误", f"停止仿真时出现错误：{str(e)}")
-    
-    def reset_simulation(self):
-        """重置仿真"""
-        try:
-            # 调用WorkArea的reset_simulation方法
-            self.work_area.reset_simulation()
-            
-            # 更新按钮状态
-            self.start_button.setEnabled(True)
-            self.stop_button.setEnabled(False)
-            self.reset_button.setEnabled(False)
-            
-            # 更新状态显示
-            self.simulation_status_label.setText(f"仿真状态: {self.work_area.simulation_status}")
-            self.measurement_label.setText("测量结果: ")
-            
-        except Exception as e:
-            logger.error(f"重置仿真出错: {str(e)}", exc_info=True)
-            QMessageBox.warning(self, "仿真错误", f"重置仿真时出现错误：{str(e)}")
+            logger.error(f"移除组件时出错: {str(e)}", exc_info=True)
 
     def save_circuit_to_json(self):
         try:

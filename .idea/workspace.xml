@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eca9560c-07f2-418d-9e6e-8d240e861168" name="更改" comment="实验目录出来了&#10;&#10;。">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/11.circuit" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/111.circuit" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/1_config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/222.circuit" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/3.20电路.circuit" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Inquiry-based_config.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/components.py" beforeDir="false" afterPath="$PROJECT_DIR$/components.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/experiments/electrical_experiments.json" beforeDir="false" afterPath="$PROJECT_DIR$/experiments/electrical_experiments.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -133,6 +139,7 @@
       <workItem from="1743479440465" duration="2028000" />
       <workItem from="1744959472158" duration="1544000" />
       <workItem from="1744984464346" duration="1017000" />
+      <workItem from="1745206202109" duration="877000" />
     </task>
     <task id="LOCAL-00001" summary="3.19日修改 实现右击功能">
       <option name="closed" value="true" />
@@ -222,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1745001933744</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="实验目录出来了&#10;&#10;。">
+      <option name="closed" value="true" />
+      <created>1745126399659</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1745126399659</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -256,7 +271,7 @@
     <SUITE FILE_PATH="coverage/$test.coverage" NAME="test 覆盖结果" MODIFIED="1744960066510" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/1_0$test_api.coverage" NAME="test_api 覆盖结果" MODIFIED="1742472962131" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/$test_script.coverage" NAME="test_script 覆盖结果" MODIFIED="1742445442780" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/$main.coverage" NAME="main 覆盖结果" MODIFIED="1745125588151" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/$main.coverage" NAME="main 覆盖结果" MODIFIED="1745206627349" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/$build_exe.coverage" NAME="build_exe 覆盖结果" MODIFIED="1742818974947" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/$test_api.coverage" NAME="test_api 覆盖结果" MODIFIED="1743129238050" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

@@ -337,7 +337,7 @@ class Component(QGraphicsItem):
         elif self.name == "滑动变阻器":
             self.properties["最大电阻值"] = 20.0
             self.properties["滑动位置"] = 0.5
-            self._update_current_resistance()
+            self.properties["当前电阻值"] = 10.0  # 初始电阻为最大值的一半
         elif self.name == "开关":
             self.properties["状态"] = False
         elif self.name == "电源":
@@ -348,6 +348,7 @@ class Component(QGraphicsItem):
             self.properties["额定电压"] = 6.0  # 默认6V
             self.properties["亮度"] = 0.0  # 初始亮度为0
             self.properties["亮度档位"] = 0  # 初始档位为0（共10档，0-9）
+            self.properties["总档位"] = 9  # 默认9档
             
     def setup_connection_points(self):
         """设置组件的连接点"""
@@ -435,7 +436,28 @@ class Component(QGraphicsItem):
             print(f"更新电阻值时出错: {e}")
             # 设置默认值
             self.properties["当前电阻值"] = 10.0
-            
+
+    def _update_slider_position(self):
+        """根据当前电阻值更新滑片位置"""
+        try:
+            if self.name == "滑动变阻器":
+                max_resistance = float(self.properties.get("最大电阻值", 20.0))
+                current_resistance = float(self.properties.get("当前电阻值", 10.0))
+                
+                # 确保最大阻值不为0，防止除以零错误
+                if max_resistance <= 0:
+                    max_resistance = 0.1
+                
+                # 计算位置（确保在0-1之间）
+                position = current_resistance / max_resistance
+                position = max(0.0, min(1.0, position))
+                
+                self.properties["滑动位置"] = position
+        except (ValueError, TypeError) as e:
+            print(f"更新滑片位置时出错: {e}")
+            # 设置默认值
+            self.properties["滑动位置"] = 0.5
+
     def to_dict(self):
         return {
             "name": self.name,
@@ -723,6 +745,9 @@ class Component(QGraphicsItem):
         rated_voltage = self.properties.get("额定电压", 6.0)
         brightness = 0.0
         
+        # 获取档位总数（默认为9档，可设置为5档）
+        total_levels = self.properties.get("总档位", 9)
+        
         # 如果有电流通过，设置亮度
         if abs(self.current) > 0.001:  # 有明显电流
             # 计算亮度百分比，最大为1.0
@@ -730,8 +755,8 @@ class Component(QGraphicsItem):
             brightness = min(voltage_ratio, 1.0)
             self.properties["亮度"] = brightness
             
-            # 计算亮度档位(0-9)
-            brightness_level = min(9, int(brightness * 10))
+            # 计算亮度档位(0-4或0-8)
+            brightness_level = min(total_levels-1, int(brightness * total_levels))
             self.properties["亮度档位"] = brightness_level
         
         # 设置灯泡填充颜色 - 根据亮度档位渐变从白色到明亮的黄色
@@ -745,12 +770,15 @@ class Component(QGraphicsItem):
             blue_base = 60
             
             # 根据档位增加亮度
-            intensity_factor = brightness_level / 9.0  # 转换为0.0-1.0
+            intensity_factor = brightness_level / (total_levels - 1)  # 转换为0.0-1.0
             red = min(255, int(red_base + 35 * intensity_factor))
             green = min(255, int(green_base + 35 * intensity_factor))
             blue = min(150, int(blue_base + 90 * intensity_factor))
             
-            yellow_color = QColor(red, green, blue)
+            # 根据档位增加透明度，亮度越高透明度越低
+            alpha = min(255, int(180 + 75 * intensity_factor))
+            
+            yellow_color = QColor(red, green, blue, alpha)
             painter.setBrush(QBrush(yellow_color))
         else:
             # 无亮度时为透明的白色
@@ -774,7 +802,7 @@ class Component(QGraphicsItem):
         
         if brightness_level > 0:
             # 显示当前亮度档位
-            painter.drawText(-20, -30, f"{rated_voltage:.1f}V | 亮度:{brightness_level}/9")
+            painter.drawText(-20, -30, f"{rated_voltage:.1f}V | 亮度:{brightness_level}/{total_levels-1}")
         else:
             # 只显示额定电压
             painter.drawText(-15, -25, f"{rated_voltage:.1f}V")
@@ -815,21 +843,59 @@ class Component(QGraphicsItem):
                 
                 # 对滑动变阻器的特殊处理
                 if self.name == "滑动变阻器":
+                    # 获取主窗口对象
+                    main_window = None
+                    for view in self.scene().views():
+                        if hasattr(view, 'parent') and view.parent():
+                            if hasattr(view.parent(), 'simulation_settings'):
+                                main_window = view.parent()
+                                break
+                    
+                    # 检查是否启用了自动调整
+                    auto_adjust = True  # 默认启用
+                    if main_window and hasattr(main_window, 'simulation_settings'):
+                        auto_adjust = main_window.simulation_settings.get("auto_adjust_potentiometer", True)
+                    
                     if name == "滑动位置":
                         # 确保位置在0-1之间
                         value = float(value)
                         value = max(0.0, min(1.0, value))
+                        
+                        # 更新属性值
+                        self.properties[name] = value
+                        
+                        # 如果启用了自动调整，更新当前电阻值
+                        if auto_adjust:
+                            self._update_current_resistance()
                     elif name == "最大电阻值":
                         # 确保最大电阻值为正数
                         value = float(value)
                         value = max(0.1, value)
                         
-                # 更新属性值
-                self.properties[name] = value
-                
-                # 更新当前电阻值
-                if self.name == "滑动变阻器":
-                    self._update_current_resistance()
+                        # 更新属性值
+                        self.properties[name] = value
+                        
+                        # 如果启用了自动调整，更新当前电阻值（保持滑片位置不变）
+                        if auto_adjust:
+                            self._update_current_resistance()
+                    elif name == "当前电阻值":
+                        # 确保电阻值为正数且不超过最大值
+                        value = float(value)
+                        max_resistance = float(self.properties.get("最大电阻值", 20.0))
+                        value = max(0.1, min(max_resistance, value))
+                        
+                        # 更新属性值
+                        self.properties[name] = value
+                        
+                        # 如果启用了自动调整，更新滑片位置
+                        if auto_adjust:
+                            self._update_slider_position()
+                    else:
+                        # 其他属性直接设置
+                        self.properties[name] = value
+                else:
+                    # 非滑动变阻器的属性直接设置
+                    self.properties[name] = value
                     
                 # 更新显示
                 self.update()
