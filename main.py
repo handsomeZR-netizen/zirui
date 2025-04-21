@@ -1570,9 +1570,9 @@ class MainWindow(QMainWindow):
         # 清空工作区
         self.work_area.clear_circuit()
         
-        # 如果有选择的实验，重新启用实验列表
+        # 如果有选择的实验，重置相关状态
         if self.current_experiment:
-            self.experiment_list.setEnabled(True)
+            # 不再禁用实验列表，允许随时切换实验
             self.current_experiment = None
             self.experiment_status.setText("当前未选择实验")
             self.goal_text.clear()
@@ -2377,6 +2377,11 @@ class MainWindow(QMainWindow):
         
         # 启用交互按钮
         self.report_progress_button.setEnabled(True)
+        self.reset_experiment_button.setEnabled(True)  # 启用重置实验按钮
+        self.request_hint_button.setEnabled(True)      # 启用请求提示按钮
+        
+        # 确保实验列表保持启用状态
+        self.experiment_list.setEnabled(True)
 
     def reset_current_experiment(self):
         """重置当前实验到初始状态"""
@@ -2424,12 +2429,15 @@ class MainWindow(QMainWindow):
         self.experiment_list.setCurrentIndex(0)  # 选择默认选项
         self.populate_experiment_list()
         
+        # 确保实验列表保持启用状态
+        self.experiment_list.setEnabled(True)
+        
         # 清空画布
         self.clear_circuit()
         
         # 更新状态栏
         self.statusBar().showMessage("实验列表已刷新")
-        
+    
     def serialize_circuit(self):
         """
         序列化当前画布上的电路状态为文本描述

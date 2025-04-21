@@ -103,7 +103,7 @@ def get_component_mapping(component_type: str) -> str:
     # 组件类型映射表
     mapping = {
         "DCVoltageSource": "电源",
-        "Lamp": "灯泡",
+        "Lamp": "小灯泡",
         "Switch": "开关",
         "Resistor": "定值电阻",
         "Potentiometer": "滑动变阻器",

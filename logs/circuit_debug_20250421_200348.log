@@ -1,0 +1,41 @@
+2025-04-21 20:03:48,174 - CircuitSimulator - INFO - 成功加载了 10 个实验
+2025-04-21 20:03:48,203 - CircuitSimulator - DEBUG - WorkArea初始化完成
+2025-04-21 20:03:53,445 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 150)
+2025-04-21 20:03:53,445 - CircuitSimulator - DEBUG - 已放置组件: 小灯泡 在位置 (400, 150)
+2025-04-21 20:03:53,445 - CircuitSimulator - DEBUG - 已放置组件: 开关 在位置 (250, 250)
+2025-04-21 20:03:53,445 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(178.0, 150.0)
+2025-04-21 20:03:53,446 - CircuitSimulator - DEBUG - 导线起点连接到: 电源
+2025-04-21 20:03:53,446 - CircuitSimulator - DEBUG - 导线终点连接到: 开关
+2025-04-21 20:03:53,446 - CircuitSimulator - DEBUG - 已创建导线连接: 电源 -> 开关
+2025-04-21 20:03:53,447 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(278.0, 250.0)
+2025-04-21 20:03:53,447 - CircuitSimulator - DEBUG - 导线起点连接到: 开关
+2025-04-21 20:03:53,447 - CircuitSimulator - DEBUG - 导线终点连接到: 小灯泡
+2025-04-21 20:03:53,447 - CircuitSimulator - DEBUG - 已创建导线连接: 开关 -> 小灯泡
+2025-04-21 20:03:53,447 - CircuitSimulator - WARNING - 连接点已被占用，跳过连接
+2025-04-21 20:03:53,448 - CircuitSimulator - ERROR - 创建环路失败: 无法连接 电源 到 开关
+2025-04-21 20:03:53,448 - CircuitSimulator - WARNING - 创建闭合电路环路失败
+2025-04-21 20:03:59,161 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 150)
+2025-04-21 20:03:59,161 - CircuitSimulator - DEBUG - 已放置组件: 小灯泡 在位置 (400, 150)
+2025-04-21 20:03:59,161 - CircuitSimulator - DEBUG - 已放置组件: 开关 在位置 (250, 250)
+2025-04-21 20:03:59,161 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(178.0, 150.0)
+2025-04-21 20:03:59,162 - CircuitSimulator - DEBUG - 导线起点连接到: 电源
+2025-04-21 20:03:59,162 - CircuitSimulator - DEBUG - 导线终点连接到: 开关
+2025-04-21 20:03:59,162 - CircuitSimulator - DEBUG - 已创建导线连接: 电源 -> 开关
+2025-04-21 20:03:59,162 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(278.0, 250.0)
+2025-04-21 20:03:59,162 - CircuitSimulator - DEBUG - 导线起点连接到: 开关
+2025-04-21 20:03:59,163 - CircuitSimulator - DEBUG - 导线终点连接到: 小灯泡
+2025-04-21 20:03:59,163 - CircuitSimulator - DEBUG - 已创建导线连接: 开关 -> 小灯泡
+2025-04-21 20:03:59,163 - CircuitSimulator - WARNING - 连接点已被占用，跳过连接
+2025-04-21 20:03:59,163 - CircuitSimulator - ERROR - 创建环路失败: 无法连接 电源 到 开关
+2025-04-21 20:03:59,163 - CircuitSimulator - WARNING - 创建闭合电路环路失败
+2025-04-21 20:04:02,725 - CircuitSimulator - DEBUG - 已放置组件: 电源 在位置 (150, 150)
+2025-04-21 20:04:02,725 - CircuitSimulator - DEBUG - 已放置组件: 小灯泡 在位置 (300, 150)
+2025-04-21 20:04:02,725 - CircuitSimulator - DEBUG - 已放置组件: 开关 在位置 (150, 250)
+2025-04-21 20:04:02,726 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(178.0, 150.0)
+2025-04-21 20:04:02,726 - CircuitSimulator - DEBUG - 导线起点连接到: 电源
+2025-04-21 20:04:02,726 - CircuitSimulator - DEBUG - 导线终点连接到: 开关
+2025-04-21 20:04:02,726 - CircuitSimulator - DEBUG - 已创建导线连接: 电源 -> 开关
+2025-04-21 20:04:02,726 - CircuitSimulator - DEBUG - 创建新导线: start_pos=PyQt6.QtCore.QPointF(178.0, 250.0)
+2025-04-21 20:04:02,726 - CircuitSimulator - DEBUG - 导线起点连接到: 开关
+2025-04-21 20:04:02,726 - CircuitSimulator - DEBUG - 导线终点连接到: 小灯泡
+2025-04-21 20:04:02,727 - CircuitSimulator - DEBUG - 已创建导线连接: 开关 -> 小灯泡
