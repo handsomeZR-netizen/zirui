@@ -1,0 +1,72 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+# 物理电学实验仿真软件架构指南
+# 如果有改动请适当更新此规则
+## 项目概述
+
+这是一个使用Python开发的物理电学实验仿真平台，结合了图形化界面与电路模拟算法，并集成了API服务以支持虚拟实验教学。该项目使用PyQt6构建用户界面，通过模拟电路行为来帮助学生理解物理电学原理。
+
+## 核心文件结构
+
+### 主程序文件
+- [main.py](mdc:main.py) - 应用程序入口点，包含GUI实现和主窗口定义
+- [components.py](mdc:components.py) - 所有电路组件的定义，如电阻器、开关和电源等
+- [experiment_manager.py](mdc:experiment_manager.py) - 管理实验配置、加载和评估功能
+
+### 配置文件
+- [config.json](mdc:config.json) - 基本配置设置
+- [requirements.txt](mdc:requirements.txt) - 项目依赖列表
+
+### 测试与API集成
+- [test_api.py](mdc:test_api.py) - API测试和集成代码
+
+## 项目架构简图
+
+```
+┌─────────────────────────────────────────────────────────┐
+│                   物理电学实验仿真软件                     │
+└───────────────────────────┬─────────────────────────────┘
+                            │
+    ┌───────────────────────┼───────────────────────┐
+    │                       │                       │
+┌───▼───────────┐    ┌──────▼──────────┐    ┌──────▼──────────┐
+│  用户界面层    │    │   业务逻辑层    │    │   数据/API层     │
+└───┬───────────┘    └──────┬──────────┘    └──────┬──────────┘
+    │                       │                       │
+┌───▼───────────┐    ┌──────▼──────────┐    ┌──────▼──────────┐
+│ MainWindow    │    │ Circuit         │    │ ExperimentManager│
+│ WorkArea      │◄───┤ Component       │◄───┤ API集成          │
+│ 组件UI交互    │    │ 电路计算逻辑     │    │ 配置文件加载      │
+└───────────────┘    └─────────────────┘    └─────────────────┘
+```
+
+## 数据流向
+
+1. 用户通过GUI界面（[main.py](mdc:main.py)）创建和操作电路
+2. 组件对象（[components.py](mdc:components.py)）处理各种电气元件的行为和属性
+3. 电路计算模块使用矩阵运算求解电路参数
+4. 实验管理器（[experiment_manager.py](mdc:experiment_manager.py)）加载预定义实验并评估进度
+5. API集成层连接外部服务以获取辅助信息或提供教学功能
+
+## 主要类与职责
+
+### GUI组件 ([main.py](mdc:main.py))
+- `MainWindow`: 应用主窗口，管理整体UI布局和事件
+- `WorkArea`: 绘制和交互的主要工作区域，处理拖放和电路编辑
+- `PropertyDialog`: 编辑组件属性的对话框
+
+### 电路组件 ([components.py](mdc:components.py))
+- `Component`: 所有电路元件的基类
+- `Wire`: 连接各组件的导线
+- `ConnectionPoint`: 组件上的连接点
+- `Circuit`: 整个电路的模型，处理计算和仿真
+
+### 实验管理 ([experiment_manager.py](mdc:experiment_manager.py))
+- 加载和验证实验配置
+- 评估实验完成进度
+- 生成实验报告
+
+
